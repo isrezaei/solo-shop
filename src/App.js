@@ -1,7 +1,15 @@
 
+import {HomePreRender} from "./Components/HomePage/HomePreRender";
 
 function App() {
-  return 'hello'
+  return (
+      <>
+
+        <HomePreRender/>
+
+
+      </>
+  )
 }
 
 export default App;
