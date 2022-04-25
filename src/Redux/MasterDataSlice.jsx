@@ -14,7 +14,7 @@ const MasterDataAdapter = createEntityAdapter({
 
 
 const initialState = MasterDataAdapter.getInitialState({
-    stats : 'idle'
+    status : 'idle'
 })
 
 
@@ -24,7 +24,39 @@ export const { selectById: selectMasterDataById,  selectIds: selectMasterDataIds
 export const MasterDataSlice = createSlice({
     name : 'MasterData',
     initialState ,
-    reducers : {} ,
+    reducers : {
+        AddQuantity(state , {payload}){
+
+            MasterDataAdapter.upsertOne(state , {
+                id : payload.id,
+                quantity : payload.quantity
+            })
+        },
+
+        IncreaseQuantity(state , {payload})
+        {
+            MasterDataAdapter.upsertOne(state , {
+                id : payload.id,
+                quantity : payload.quantity
+            })
+        },
+
+        DecreaseQuantity(state , {payload}) {
+            MasterDataAdapter.upsertOne(state , {
+                id : payload.id,
+                quantity : payload.quantity
+            })
+        },
+
+        RemoveQuantity(state , {payload})
+        {
+            MasterDataAdapter.upsertOne(state , {
+                id : payload.id,
+                quantity : payload.quantity
+            })
+        }
+
+    } ,
     extraReducers : {
 
         [FetchMasterData.pending] : (state) => {
@@ -35,10 +67,11 @@ export const MasterDataSlice = createSlice({
             state.status = 'success'
             MasterDataAdapter.upsertMany(state , payload)
         } ,
-        [FetchMasterData.rejected] : (state , action) => {
+        [FetchMasterData.rejected] : (state) => {
            state.status = 'reject'
         }
     }
 })
 
 export default MasterDataSlice.reducer
+export const {AddQuantity , IncreaseQuantity , DecreaseQuantity , RemoveQuantity} = MasterDataSlice.actions
