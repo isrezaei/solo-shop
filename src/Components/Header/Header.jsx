@@ -11,7 +11,7 @@ export const Header = () =>
     return (
         <div style={{width : '100%' , height : '3vw'}}>
 
-            <h3>Box Count = {totalQuantity}</h3>
+            <div className="text-3xl font-bold underline">Box Count = {totalQuantity}</div>
             <h3>Total price = {NumberFormat} $</h3>
         </div>
     )
