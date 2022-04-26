@@ -4,12 +4,16 @@ import App from './App';
 import {store} from "./Redux/ConfigStore";
 import {Provider} from "react-redux";
 import {FetchMasterData} from "./Redux/MasterDataSlice";
+import {BrowserRouter} from "react-router-dom";
+
 
 store.dispatch(FetchMasterData())
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <Provider store={store}>
-        <App/>
+        <BrowserRouter>
+            <App/>
+        </BrowserRouter>
     </Provider>
 );

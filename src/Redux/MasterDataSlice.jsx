@@ -14,11 +14,13 @@ const MasterDataAdapter = createEntityAdapter({
 
 
 const initialState = MasterDataAdapter.getInitialState({
+    totalQuantity : 0,
+    totalPrice : 0,
     status : 'idle'
 })
 
 
-export const { selectById: selectMasterDataById,  selectIds: selectMasterDataIds,} = MasterDataAdapter.getSelectors(state => state.MasterDataSlice)
+export const { selectById: selectMasterDataById,  selectIds: selectMasterDataIds} = MasterDataAdapter.getSelectors(state => state.MasterDataSlice)
 
 
 export const MasterDataSlice = createSlice({
@@ -31,6 +33,8 @@ export const MasterDataSlice = createSlice({
                 id : payload.id,
                 quantity : payload.quantity
             })
+            state.totalQuantity += 1
+            state.totalPrice += payload.price
         },
 
         IncreaseQuantity(state , {payload})
@@ -39,6 +43,8 @@ export const MasterDataSlice = createSlice({
                 id : payload.id,
                 quantity : payload.quantity
             })
+            state.totalQuantity += 1
+            state.totalPrice += payload.price
         },
 
         DecreaseQuantity(state , {payload}) {
@@ -46,6 +52,9 @@ export const MasterDataSlice = createSlice({
                 id : payload.id,
                 quantity : payload.quantity
             })
+
+            state.totalQuantity -= 1
+            state.totalPrice -= payload.price
         },
 
         RemoveQuantity(state , {payload})
@@ -54,8 +63,10 @@ export const MasterDataSlice = createSlice({
                 id : payload.id,
                 quantity : payload.quantity
             })
-        }
 
+            state.totalQuantity -= 1
+            state.totalPrice -= payload.price
+        }
     } ,
     extraReducers : {
 

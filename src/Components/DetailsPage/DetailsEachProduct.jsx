@@ -1,19 +1,12 @@
-import {useSelector , useDispatch} from "react-redux";
-import {selectMasterDataById} from "../../Redux/MasterDataSlice";
-import {AddQuantity , IncreaseQuantity , DecreaseQuantity , RemoveQuantity} from "../../Redux/MasterDataSlice";
-import {Link} from "react-router-dom";
-import {HaveQuantity , CheckQuantity} from "../../HelperFuncs/HelperFuncs";
+import {CheckQuantity, HaveQuantity} from "../../HelperFuncs/HelperFuncs";
+import {AddQuantity, DecreaseQuantity, IncreaseQuantity, RemoveQuantity} from "../../Redux/MasterDataSlice";
+import {useDispatch} from "react-redux";
 
-
-export const HomeEachProduct = ({ids}) =>
+export const DetailsEachProduct = ({singleProduct}) =>
 {
 
     const dispatch = useDispatch()
-    const EachProduct = useSelector(state => selectMasterDataById(state , ids))
-
-
-    const {product , image , id , quantity , price} = EachProduct
-
+    const {introduction , image , product , brand , price , id , quantity} = singleProduct
 
     const AddQuan  = () =>
     {
@@ -55,29 +48,31 @@ export const HomeEachProduct = ({ids}) =>
         }))
     }
 
+
+
     return (
+        <div style={{marginTop : '3vw'}}>
+            <div>
+                <img src={image.mainImg} alt={product} style={{width : '20vw'}}/>
+                <h3>{price} $</h3>
+                <h3>{product}</h3>
+                <h4>{brand}</h4>
+                <h3>{introduction}</h3>
 
-
-            <div style={{display : "flex" , flexDirection : 'column' , alignItems : "center"}}>
-                <img style={{width : '10vw'}} src={image.mainImg} alt={product}/>
-                <h4>{product}</h4>
-
-                <div style={{  width : '50%' ,display : 'flex' ,  justifyContent : 'space-evenly', alignItems : 'center'}}>
+                <div style={{  width : '20%' ,display : 'flex' ,  justifyContent : 'space-evenly', alignItems : 'center'}}>
 
                     {HaveQuantity(id) ? <button onClick={IncQuan}>+</button> :  <button onClick={AddQuan}>add to cart</button>}
 
-                    <h4> {quantity}</h4>
+                    {quantity}
 
                     {CheckQuantity(id) === 1 && <button onClick={RemQuan}>Remove from Cart</button> }
 
                     {CheckQuantity(id) > 1 && <button onClick={DecQuan}>-</button>}
 
                 </div>
-
-                <Link to={`/details/${id}`}>See Details</Link>
-
-
             </div>
+        </div>
 
     )
+
 }
