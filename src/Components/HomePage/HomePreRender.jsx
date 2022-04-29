@@ -1,27 +1,13 @@
 import {useSelector} from "react-redux";
 import {selectMasterDataIds} from "../../Redux/MasterDataSlice";
 import {HomeEachProduct} from "./HomeEachProduct";
-import {useEffect} from "react";
-import {useDispatch} from "react-redux";
-import {FetchMasterData} from "../../Redux/MasterDataSlice";
+import {HomeSlider} from "./HomeSlider";
+
 
 export const HomePreRender = () =>
 {
     const MasterDataIds = useSelector(state => selectMasterDataIds(state))
     const {status} = useSelector(state => state.MasterDataSlice)
-
-
-    // const dispatch = useDispatch()
-    //
-    // useEffect(()=>{
-    //     if (status === 'idle')
-    //     {
-    //         dispatch(FetchMasterData())
-    //     }
-    // } , [dispatch , status])
-
-
-
 
 
 
@@ -48,6 +34,7 @@ export const HomePreRender = () =>
 
     return (
         <>
+            <HomeSlider/>
             {Render}
         </>
     )

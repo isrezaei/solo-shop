@@ -2,7 +2,9 @@ import {useSelector} from "react-redux";
 import {FiSearch} from 'react-icons/fi'
 import {CgShoppingBag} from 'react-icons/cg'
 import {FaRegHeart} from 'react-icons/fa'
-
+import {IoPhonePortraitOutline} from 'react-icons/io5'
+import {HiOutlineMail} from 'react-icons/hi'
+import {BiUserPlus} from 'react-icons/bi'
 
 export const Header = () =>
 {
@@ -13,52 +15,96 @@ export const Header = () =>
 
 
     return (
-        <div className='w-full bg-amber-400 h-20 flex justify-around'>
+     <>
+
+         <div className='bg-emerald-200 w-full'>
+
+             <div className='w-10/12 m-auto h-14 bg-gray-300 flex justify-between items-center'>
+
+                 <section className='flex justify-around items-center bg-emerald-200 w-1/4'>
+
+                     <div className='flex justify-start items-center w-6/12 '>
+                         <IoPhonePortraitOutline className='mr-2 text-2xl'/>
+                         <p>+38 068 005 3570</p>
+                     </div>
+
+                     <div className='flex justify-start items-center w-6/12  '>
+                         <HiOutlineMail className='mr-2 text-2xl'/>
+                         <p>PhoneFlu @ yahoo.com</p>
+                     </div>
+                 </section>
+
+                 <section className='flex justify-between items-center bg-emerald-200 w-48'>
+
+                     <div className='flex justify-between items-center w-24'>
+                         <BiUserPlus className='text-3xl'/>
+                         <p>Register</p>
+                     </div>
+                     <p>Sign in</p>
+                 </section>
 
 
-            <div className='w-1/4 bg-emerald-600 flex justify-between items-center'>
+             </div>
 
-                <div className=' bg-amber-200 text-3xl flex items-center'>
-                    <p>PhoneFlu</p>
-                </div>
+         </div>
 
 
-                <div className=' bg-emerald-200 flex justify-center items-center'>
-                    <input/>
-                    <span>All Categories</span>
-                    <span><FiSearch/></span>
-                </div>
-
-            </div>
+         <div className='w-full bg-blue-200'>
+             <div className='w-10/12 m-auto bg-amber-400 h-32 flex justify-between'>
 
 
+                 <div className='w-3/6 bg-emerald-600 flex justify-between items-center '>
+
+                     <div className=' bg-amber-200 text-3xl flex items-center'>
+                         <p className='font-black'>PhoneFlu</p>
+                     </div>
 
 
-            <div className='w-48 flex justify-evenly bg-blue-400'>
+                     <div className=' bg-emerald-200 flex justify-center items-center rounded-tr-xl rounded-br-xl'>
+                         <input className='h-10 w-80 p-3' placeholder='Search for product' />
+                         <span className='w-44 h-10 bg-blue-200 flex items-center justify-center'>All Categories</span>
+                         <FiSearch className='w-12'/>
+                     </div>
+
+                 </div>
 
 
 
-                <section>
-                    <span>wishlist</span>
-                    <div>
-                        <span><FaRegHeart/></span>
-                        <span>0</span>
-                    </div>
-                </section>
+
+                 <div className='w-80 flex justify-evenly'>
 
 
-                <section>
-                    <span>card</span>
-                    <div>
-                        <span><CgShoppingBag/></span>
-                        <span>0 $</span>
-                    </div>
 
-                </section>
+                     <section className='flex w-36 justify-between items-center'>
 
-            </div>
+                         <FaRegHeart className='text-5xl'/>
 
-        </div>
+                         <div className='flex flex-col justify-center items-start'>
+                             <span className='text-2xl'>wishlist</span>
+                             <span>0</span>
+                         </div>
+
+                     </section>
+
+
+                     <section className='flex w-28 justify-between items-center'>
+
+                         <CgShoppingBag className='text-5xl'/>
+
+                         <div className='flex flex-col justify-center items-start'>
+                             <span className='text-2xl'>cart</span>
+                             <span>0 $</span>
+                         </div>
+
+                     </section>
+
+                 </div>
+
+             </div>
+         </div>
+
+
+     </>
     )
 }
 
