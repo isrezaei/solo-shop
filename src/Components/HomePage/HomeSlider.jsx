@@ -19,7 +19,7 @@ export const HomeSlider = () =>
                     clickable: true,
                 }}
                 modules={[Mousewheel, Pagination]}
-                className="mySwiper w-4/5 h-96"
+                className="mySwiper w-4/5 h-96 "
             >
                 <SwiperSlide><img className='8/12' src= "https://user-images.githubusercontent.com/77073972/164969967-a0b54827-90b5-4dc5-94e4-1d97b6faa0cf.jpg"/></SwiperSlide>
                 <SwiperSlide><img className='8/12' src= "https://user-images.githubusercontent.com/77073972/164971748-3bb6de34-ed76-4be0-8107-3fde23223dc6.jpg"/></SwiperSlide>

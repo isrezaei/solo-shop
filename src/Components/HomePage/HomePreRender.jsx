@@ -2,6 +2,7 @@ import {useSelector} from "react-redux";
 import {selectMasterDataIds} from "../../Redux/MasterDataSlice";
 import {HomeEachProduct} from "./HomeEachProduct";
 import {HomeSlider} from "./HomeSlider";
+import {HomeBenefit} from "./HomeBenefit";
 
 
 export const HomePreRender = () =>
@@ -35,6 +36,7 @@ export const HomePreRender = () =>
     return (
         <>
             <HomeSlider/>
+            <HomeBenefit/>
             {Render}
         </>
     )
