@@ -1,4 +1,4 @@
-import { Pagination , Mousewheel } from "swiper";
+import { Pagination , Mousewheel , Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css/bundle"
 
@@ -18,7 +18,8 @@ export const HomeSlider = () =>
                 pagination={{
                     clickable: true,
                 }}
-                modules={[Mousewheel, Pagination]}
+                modules={[Mousewheel, Pagination , Autoplay]}
+                autoplay={{ delay: 2500}}
                 className="mySwiper w-4/5 h-96 "
             >
                 <SwiperSlide><img className='8/12' src= "https://user-images.githubusercontent.com/77073972/164969967-a0b54827-90b5-4dc5-94e4-1d97b6faa0cf.jpg"/></SwiperSlide>

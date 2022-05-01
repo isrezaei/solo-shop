@@ -7,7 +7,7 @@ import {Ri24HoursLine} from  'react-icons/ri'
 export const HomeBenefit = () =>
 {
     return (
-        <div className='w-full my-20 flex justify-evenly items-center'>
+        <div className='w-9/12 mx-auto my-20 grid grid-cols-4 justify-items-center'>
 
             <div className='w-72 h-24  flex justify-around items-center p-7 shadow-lg'>
                 <FiTruck className='text-5xl'/>

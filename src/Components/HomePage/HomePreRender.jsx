@@ -3,7 +3,7 @@ import {selectMasterDataIds} from "../../Redux/MasterDataSlice";
 import {HomeEachProduct} from "./HomeEachProduct";
 import {HomeSlider} from "./HomeSlider";
 import {HomeBenefit} from "./HomeBenefit";
-
+import {HomeSelectProduct} from "./HomeSelectProduct";
 
 export const HomePreRender = () =>
 {
@@ -37,6 +37,7 @@ export const HomePreRender = () =>
         <>
             <HomeSlider/>
             <HomeBenefit/>
+            <HomeSelectProduct/>
             {Render}
         </>
     )
