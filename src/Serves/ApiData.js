@@ -4,6 +4,7 @@ export const ApiData  = [
         "id" : 1 ,
         "product" : "Apple iPhone SE (2022)",
         "brand" : "apple",
+        "type" : 'iphone',
         "price" : 429,
         "newer" : 1,
         "popular" : 5,
@@ -28,6 +29,7 @@ export const ApiData  = [
         "id" : 2 ,
         "product" : "Apple iPhone 13 Pro Max",
         "brand" : "apple",
+        "type" : 'iphone',
         "price" : 1099.50,
         "newer" : 1,
         "popular" : 2,
@@ -53,8 +55,37 @@ export const ApiData  = [
     },
     {
         "id" : 3 ,
+        "product" : "Apple iPhone 13 pro",
+        "brand" : "apple",
+        "type" : 'iphone',
+        "price" : 999,
+        "newer" : 1,
+        "popular" : 5,
+        "Bestselling" : 3,
+        "cheapest" : 3,
+        "expensive" : 5,
+        "rate" : 6,
+        "stock": true,
+        "count" : 64,
+        "offer" : 10,
+        "image" : {
+            "mainImg" : 'https://user-images.githubusercontent.com/77073972/166148768-df1bc5f3-fb02-4068-9814-f29db32b6518.jpg',
+            "subImg" : [
+                'https://user-images.githubusercontent.com/77073972/166148770-5343fcbd-102f-48b0-88f9-88ba4aa30692.jpg',
+                'https://user-images.githubusercontent.com/77073972/166148774-4e40ed55-9929-4c0e-9d00-565ff3d4ceb4.jpg',
+                'https://user-images.githubusercontent.com/77073972/166148775-a770cd37-1428-403c-997a-a65c5bbfd801.jpg',
+                'https://user-images.githubusercontent.com/77073972/166148777-266ec14c-b45e-455c-a89f-9db6168121de.jpg'
+            ]
+
+        },
+        "introduction" : "The 'biggest camera update ever' on an iPhone doesn't have to come in a big iPhone, at least not a Max-sized one - the iPhone 13 Pro will do. Unlike last year, when only the 12 Pro Max got the ultimate camera system, the differences between the two Pro sizes now are simply in quantity, not in quality"
+    },
+
+    {
+        "id" : 4 ,
         "product" : "Apple iPhone 13",
         "brand" : "apple",
+        "type" : 'iphone',
         "price" : 728.92,
         "newer" : 1,
         "popular" : 7,
@@ -80,11 +111,39 @@ export const ApiData  = [
     },
     {
         "id" : 4 ,
+        "product" : "Apple iPhone 13 mini",
+        "brand" : "apple",
+        "type" : 'iphone',
+        "price" : 709,
+        "newer" : 1,
+        "popular" : 3,
+        "Bestselling" : 1,
+        "cheapest" : 4,
+        "expensive" : 8,
+        "rate" : 5,
+        "stock": true,
+        "count" : 70,
+        "offer" : 42,
+        "image" : {
+            "mainImg" : 'https://user-images.githubusercontent.com/77073972/166149067-5176e4e4-9c4d-4e69-90ac-9c89bc0e0785.jpg',
+            "subImg" : [
+                'https://user-images.githubusercontent.com/77073972/166149071-bb8be524-e84a-451a-94d6-dfc3da21d2fa.jpg',
+                'https://user-images.githubusercontent.com/77073972/166149072-f7797a6a-7b04-4280-93de-8be922d34b3e.jpg',
+                'https://user-images.githubusercontent.com/77073972/166149073-5ca3d36a-2304-429e-a966-56191af057e9.jpg',
+
+            ]
+
+        },
+        "introduction" : "The Apple iPhone 13 mini is the most compact flagship smartphone money can buy. It's also easy enough to outright recommend to anyone looking for this particular type of device. It is astonishingly rare to find such a pocket-friendly smartphone, let alone one of flagship caliber."
+    },
+    {
+        "id" : 5 ,
         "product" : "Apple iPhone 12 Pro Max",
         "brand" : "apple",
+        "type" : 'iphone',
         "price" : 979.06,
         "newer" : 2,
-        "popular" : 8,
+        "popular" : 4,
         "Bestselling" : 6,
         "cheapest" : 8,
         "expensive" : 2,
@@ -106,18 +165,19 @@ export const ApiData  = [
         "introduction" : "With the Apple iPhone 12 Pro Max, our collection is finally complete. It is the biggest, heaviest, most powerful, and most feature-rich iPhone Apple has made so far, and that's enough to make it the best-seller it was designed to become."
     },
     {
-        "id" : 5 ,
+        "id" : 6 ,
         "product" : "Apple iPhone 12",
         "brand" : "apple",
+        "type" : 'iphone',
         "price" : 569,
         "newer" : 3,
-        "popular" : 8,
+        "popular" : 5,
         "Bestselling" : 3,
         "cheapest" : 2,
         "expensive" : 7,
         "rate" : 4.7,
         "stock": true,
-        "count" : 18,
+        "count" : 45,
         "offer" : 8,
         "image" : {
             "mainImg" : "https://user-images.githubusercontent.com/77073972/164972690-2f37f60f-8ff6-4c50-b657-7550f6a6f01f.jpg",
@@ -130,5 +190,110 @@ export const ApiData  = [
 
         },
         "introduction" : "Blast Past Fast. It's an apt tagline with Apple skipping the S models and going straight to the iPhone 12 from the already fast iPhone 11."
-    }
+    },
+
+    {
+        "id" : 7 ,
+        "product" : "Apple iPhone SE (2020)",
+        "brand" : "apple",
+        "type" : 'iphone',
+        "price" : 199,
+        "newer" : 4,
+        "popular" : 8,
+        "Bestselling" : 8,
+        "cheapest" : 1,
+        "expensive" : 9,
+        "rate" : 2.7,
+        "stock": true,
+        "count" : 18,
+        "offer" : 0,
+        "image" : {
+            "mainImg" : 'https://user-images.githubusercontent.com/77073972/166149439-eaa8f852-1a59-4b91-917c-a3d949269ccc.jpg',
+            "subImg" : [
+                'https://user-images.githubusercontent.com/77073972/166149443-05c8b739-df50-4bb4-95cd-5061c431d66d.jpg',
+                'https://user-images.githubusercontent.com/77073972/166149444-32f95bc3-1da4-4cdb-a6b8-9bdce2959ed4.jpg',
+            ]
+
+        },
+        "introduction" : 'Ah, the Apple iPhone SE. The Special Edition. Even if the Smaller Edition was more appropriate. And just like the first iPhone SE, its second generation is both - Small, even if larger than the first one, and Special - as such launch happens once in four years or so'
+    },
+
+    {
+        "id" : 7 ,
+        "product" : "Apple iPhone 11 Pro Max",
+        "brand" : "apple",
+        "type" : 'iphone',
+        "price" : 793.75,
+        "newer" : 5,
+        "popular" : 6,
+        "Bestselling" : 4,
+        "cheapest" : 6,
+        "expensive" : 4,
+        "rate" : 4.4,
+        "stock": true,
+        "count" : 56,
+        "offer" : 35,
+        "image" : {
+            "mainImg" : 'https://user-images.githubusercontent.com/77073972/166149830-97df2181-baf9-485b-9e5a-1c67bc7d6824.jpg',
+            "subImg" : [
+                'https://user-images.githubusercontent.com/77073972/166149842-133e9c58-9441-429e-ac32-7d71f1c3093d.jpg',
+                'https://user-images.githubusercontent.com/77073972/166149851-d19ce2c0-66fa-401a-aefa-841d015eeb7e.jpg',
+            ]
+
+        },
+        "introduction" : "It's September and the well-oiled Apple marketing machine is in full swing yet again. Apple's iPhone event this fall brought us the iPhone 11 trio. And with that, we say goodbye to the iPhone XR that was replaced by the iPhone 11, and begone iPhone XS - enter iPhone 11 Pro."
+    },
+
+    {
+        "id" : 8 ,
+        "product" : "Apple iPhone 11 Pro",
+        "brand" : "apple",
+        "type" : 'iphone',
+        "price" : 528.99,
+        "newer" : 5,
+        "popular" : 5,
+        "Bestselling" : 4,
+        "cheapest" : 4,
+        "expensive" : 6,
+        "rate" : 4.0,
+        "stock": true,
+        "count" : 56,
+        "offer" : 0,
+        "image" : {
+            "mainImg" :'https://user-images.githubusercontent.com/77073972/166150054-91d9a87f-621d-4837-8f78-6a4356e83fd0.jpg',
+            "subImg" : [
+                'https://user-images.githubusercontent.com/77073972/166149842-133e9c58-9441-429e-ac32-7d71f1c3093d.jpg',
+                'https://user-images.githubusercontent.com/77073972/166149851-d19ce2c0-66fa-401a-aefa-841d015eeb7e.jpg',
+            ]
+
+        },
+        "introduction" : "It's September and the well-oiled Apple marketing machine is in full swing yet again. Apple's iPhone event this fall brought us the iPhone 11 trio. And with that, we say goodbye to the iPhone XR that was replaced by the iPhone 11, and begone iPhone XS - enter iPhone 11 Pro."
+    },
+
+    {
+        "id" : 9 ,
+        "product" : "Apple iPhone 11",
+        "brand" : "apple",
+        "type" : 'iphone',
+        "price" : 349.99,
+        "newer" : 5,
+        "popular" : 4,
+        "Bestselling" : 8,
+        "cheapest" : 3,
+        "expensive" : 7,
+        "rate" : 4.3,
+        "stock": true,
+        "count" : 56,
+        "offer" : 0,
+        "image" : {
+            "mainImg" :'https://user-images.githubusercontent.com/77073972/166150595-b01a0a45-b778-4dcc-a2a5-84793f0cdf4e.jpg',
+            "subImg" : [
+                'https://user-images.githubusercontent.com/77073972/166150363-1b3d79ca-7746-4887-938b-6ac0c785a864.jpg',
+                'https://user-images.githubusercontent.com/77073972/166150365-a525b60f-a3e8-4edc-a41f-7d4c51dc71f2.jpg',
+            ]
+
+        },
+        "introduction" : "It's September and the well-oiled Apple marketing machine is in full swing yet again. Apple's iPhone event this fall brought us the iPhone 11 trio. And with that, we say goodbye to the iPhone XR that was replaced by the iPhone 11, and begone iPhone XS - enter iPhone 11 Pro."
+    },
+
 ]
