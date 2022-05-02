@@ -59,6 +59,7 @@ export const HomeEachProduct = ({ids}) =>
 
 
             <div style={{display : "flex" , flexDirection : 'column' , alignItems : "center"}}>
+
                 <img style={{width : '10vw'}} src={image.mainImg} alt={product}/>
                 <h4>{product}</h4>
 
@@ -78,6 +79,8 @@ export const HomeEachProduct = ({ids}) =>
 
 
             </div>
+
+
 
     )
 }

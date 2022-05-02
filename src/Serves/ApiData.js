@@ -296,4 +296,34 @@ export const ApiData  = [
         "introduction" : "It's September and the well-oiled Apple marketing machine is in full swing yet again. Apple's iPhone event this fall brought us the iPhone 11 trio. And with that, we say goodbye to the iPhone XR that was replaced by the iPhone 11, and begone iPhone XS - enter iPhone 11 Pro."
     },
 
+    {
+        "id" : 9 ,
+        "product" : "Apple iPhone XS Max",
+        "brand" : "apple",
+        "type" : 'iphone',
+        "price" : 294,
+        "newer" : 6,
+        "popular" : 7,
+        "Bestselling" : 7,
+        "cheapest" : 2,
+        "expensive" : 8,
+        "rate" : 4,
+        "stock": true,
+        "count" : 56,
+        "offer" : 0,
+        "image" : {
+            "mainImg" :'https://user-images.githubusercontent.com/77073972/166153121-74c1b8d7-859c-4891-b885-521854209c95.jpg',
+            "subImg" : [
+                'https://user-images.githubusercontent.com/77073972/166153122-902c4b2e-f900-4a08-9764-bb0c4bab7e45.jpg',
+                'https://user-images.githubusercontent.com/77073972/166153126-ace41486-cac5-4e52-b467-402eb75956e2.jpg',
+                'https://user-images.githubusercontent.com/77073972/166153129-214e4a44-d42a-4388-9405-ca25ff570228.jpg'
+            ]
+
+        },
+        "introduction" : "The iPhone X was not just a milestone for Apple. It also turned out to be the cornerstone the next generation of iPhones is being built around. And while the anniversary iPhone wowed everyone, many people voiced their wish for a Plus size model after the excitement had worn off. And this year Apple is righting this wrong with the iPhone XS Max."
+    },
+
+
+
+
 ]

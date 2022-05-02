@@ -20,7 +20,7 @@ const initialState = MasterDataAdapter.getInitialState({
 })
 
 
-export const { selectById: selectMasterDataById,  selectIds: selectMasterDataIds} = MasterDataAdapter.getSelectors(state => state.MasterDataSlice)
+export const { selectById: selectMasterDataById,  selectIds: selectMasterDataIds , selectAll} = MasterDataAdapter.getSelectors(state => state.MasterDataSlice)
 
 
 export const MasterDataSlice = createSlice({

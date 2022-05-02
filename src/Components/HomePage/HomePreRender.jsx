@@ -4,6 +4,7 @@ import {HomeEachProduct} from "./HomeEachProduct";
 import {HomeSlider} from "./HomeSlider";
 import {HomeBenefit} from "./HomeBenefit";
 import {HomeSelectProduct} from "./HomeSelectProduct";
+import {HomeOfferSlider} from "./HomeOfferSlider";
 
 export const HomePreRender = () =>
 {
@@ -22,7 +23,7 @@ export const HomePreRender = () =>
     {
         Render = <div style={{
             display : 'grid' ,
-            gridTemplateColumns :'30vw 30vw 30vw',
+            gridTemplateColumns :'26vw 26vw 26vw',
             justifyContent : 'center',
             alignItems : 'flex-start'
         }}>{MasterDataIds.map(ids => <HomeEachProduct key={ids} ids={ids}/>)}</div>
@@ -38,7 +39,12 @@ export const HomePreRender = () =>
             <HomeSlider/>
             <HomeBenefit/>
             <HomeSelectProduct/>
-            {Render}
+
+            <div className='w-full flex justify-center items-start'>
+                <HomeOfferSlider/>
+                {Render}
+            </div>
+
         </>
     )
 
