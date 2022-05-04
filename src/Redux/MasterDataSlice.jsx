@@ -1,5 +1,7 @@
-import {createSlice , createAsyncThunk , createEntityAdapter} from "@reduxjs/toolkit";
+import {createSlice, createAsyncThunk, createEntityAdapter, createSelector} from "@reduxjs/toolkit";
 import {PromiseFunc} from "../Serves/PromiseFunc";
+import {useSelector} from "react-redux";
+import {FilterProductSlice} from "./FilterProductSlice";
 
 
 export const FetchMasterData = createAsyncThunk (
@@ -8,19 +10,35 @@ export const FetchMasterData = createAsyncThunk (
 )
 
 
+
 const MasterDataAdapter = createEntityAdapter({
     sortComparer : (a, b) => a.id - b.id
 })
 
 
+
+
 const initialState = MasterDataAdapter.getInitialState({
     totalQuantity : 0,
     totalPrice : 0,
+    sortBy : 'newer',
     status : 'idle'
 })
 
 
 export const { selectById: selectMasterDataById,  selectIds: selectMasterDataIds , selectAll} = MasterDataAdapter.getSelectors(state => state.MasterDataSlice)
+
+export const SortBySelect = createSelector (
+
+    [ selectAll , (state , items) => items] ,
+
+    (AllProduct, SelectFilter) => {
+
+        return [...AllProduct].sort((a, b) => a[SelectFilter] - b[SelectFilter])
+
+
+    } )
+
 
 
 export const MasterDataSlice = createSlice({
@@ -66,6 +84,10 @@ export const MasterDataSlice = createSlice({
 
             state.totalQuantity -= 1
             state.totalPrice -= payload.price
+        },
+        SortEntities(state , {payload})
+        {
+            state.sortBy = payload
         }
     } ,
     extraReducers : {
@@ -84,5 +106,9 @@ export const MasterDataSlice = createSlice({
     }
 })
 
+
+
 export default MasterDataSlice.reducer
-export const {AddQuantity , IncreaseQuantity , DecreaseQuantity , RemoveQuantity} = MasterDataSlice.actions
+export const {AddQuantity , IncreaseQuantity , DecreaseQuantity , RemoveQuantity , SortEntities} = MasterDataSlice.actions
+
+

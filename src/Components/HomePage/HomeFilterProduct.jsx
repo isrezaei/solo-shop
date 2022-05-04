@@ -1,13 +1,26 @@
 import {useState} from "react";
+import {useDispatch} from "react-redux";
+import {SortEntities} from "../../Redux/MasterDataSlice";
 
 export const HomeFilterProduct = () =>{
 
     const [Active , SetActive] = useState('Newer')
 
+
+    const dispatch = useDispatch()
+
+    const FilterItems = (items) =>
+    {
+        SetActive(items)
+        dispatch(SortEntities(items.toLowerCase()))
+    }
+
+
+
     const Option = ['Newer' ,'Popular','Bestselling','cheapest','expensive','In stock'].map(items => {
 
         return (
-            <p onClick={()=> SetActive(items)} className={`px-3  box-border cursor-pointer ${Active === items && 'bg-gray-200  rounded-xl animate-bounce transition '}`}>{items}</p>
+            <p key={items} onClick={()=> FilterItems(items)} className={`px-3  box-border cursor-pointer ${Active === items && 'bg-gray-200  rounded-xl animate-bounce transition '}`}>{items}</p>
         )
     })
 

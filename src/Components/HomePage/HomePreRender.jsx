@@ -1,5 +1,5 @@
 import {useSelector} from "react-redux";
-import {selectMasterDataIds} from "../../Redux/MasterDataSlice";
+import {selectMasterDataIds, SortBySelect} from "../../Redux/MasterDataSlice";
 import {HomeEachProduct} from "./HomeEachProduct";
 import {HomeSlider} from "./HomeSlider";
 import {HomeBenefit} from "./HomeBenefit";
@@ -17,7 +17,7 @@ import "swiper/css/pagination";
 
 export const HomePreRender = () =>
 {
-    const MasterDataIds = useSelector(state => selectMasterDataIds(state))
+    const MasterDataIds = useSelector(state =>  SortBySelect(state , state.MasterDataSlice.sortBy))
     const {status} = useSelector(state => state.MasterDataSlice)
 
     let Render ;
@@ -28,7 +28,7 @@ export const HomePreRender = () =>
     }
     else if (status === 'success')
     {
-        Render = <div>{MasterDataIds.slice(0 , 10).map(ids => <SwiperSlide className='w-2/12' style={{height : '20vw'}}> <HomeEachProduct ids={ids}/> </SwiperSlide>)}</div>
+        Render = <div>{MasterDataIds.slice(0 , 10).map(items => <SwiperSlide key={items.id} className='w-2/12' style={{height : '20vw'}}> <HomeEachProduct ids={items.id}/> </SwiperSlide>)}</div>
     }
     else if (status === 'reject')
     {

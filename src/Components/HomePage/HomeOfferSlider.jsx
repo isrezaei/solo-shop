@@ -54,7 +54,6 @@ export const HomeOfferSlider = () =>
             CountStatus = 'success'
         }
 
-        console.log(CountStatus)
 
         return (
             <SwiperSlide key={items.id} className='flex flex-col font-medium justify-center items-center bg-gray-100'>
