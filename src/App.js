@@ -4,24 +4,21 @@ import {DetailsPreRender} from "./Components/DetailsPage/DetailsPreRender";
 import {Header} from "./Components/Header/Header";
 
 
+
 function App() {
 
-  return (
-      <>
+    return (
+        <>
 
-          <Header/>
+            <Header/>
 
-         <Routes>
+            <Routes>
+                <Route path='/' exact element={<HomePreRender/>}/>
+                <Route path='/details/:productId' element={<DetailsPreRender/>}/>
+            </Routes>
 
-             <Route path='/' exact element={<HomePreRender/>}/>
-             <Route path='/details/:productId' element={<DetailsPreRender/>}/>
-
-         </Routes>
-
-
-
-      </>
-  )
+        </>
+    )
 }
 
 export default App;

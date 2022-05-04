@@ -58,12 +58,12 @@ export const HomeEachProduct = ({ids}) =>
     return (
 
 
-            <div style={{display : "flex" , flexDirection : 'column' , alignItems : "center"}}>
+            <div className='h-85 flex flex-col justify-start items-center'>
 
-                <img style={{width : '10vw'}} src={image.mainImg} alt={product}/>
+                <img className='w-auto h-3/4' src={image.mainImg} alt={product}/>
                 <h4>{product}</h4>
 
-                <div style={{  width : '50%' ,display : 'flex' ,  justifyContent : 'space-evenly', alignItems : 'center'}}>
+                <div className='w-6/12 flex justify-evenly items-center'>
 
                     {HaveQuantity(id) ? <button onClick={IncQuan}>+</button> :  <button onClick={AddQuan}>add to cart</button>}
 
