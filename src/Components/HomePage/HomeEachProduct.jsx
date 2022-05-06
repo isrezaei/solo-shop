@@ -77,6 +77,7 @@ export const HomeEachProduct = ({ids}) =>
 
                 <Link to={`/details/${id}`}>See Details</Link>
 
+                <h2>{price === 'out' ? 'out of stock ': price}</h2>
 
             </div>
 

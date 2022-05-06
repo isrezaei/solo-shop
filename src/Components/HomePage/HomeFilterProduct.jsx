@@ -17,7 +17,7 @@ export const HomeFilterProduct = () =>{
 
 
 
-    const Option = ['Newer' ,'Popular','Bestselling','cheapest','expensive','In stock'].map(items => {
+    const Option = ['Newer' ,'Popular','Best Selling','cheapest','expensive','In stock'].map(items => {
 
         return (
             <p key={items} onClick={()=> FilterItems(items)} className={`px-3  box-border cursor-pointer ${Active === items && 'bg-gray-200  rounded-xl animate-bounce transition '}`}>{items}</p>

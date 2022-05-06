@@ -16,8 +16,6 @@ const MasterDataAdapter = createEntityAdapter({
 })
 
 
-
-
 const initialState = MasterDataAdapter.getInitialState({
     totalQuantity : 0,
     totalPrice : 0,
@@ -34,9 +32,21 @@ export const SortBySelect = createSelector (
 
     (AllProduct, SelectFilter) => {
 
-        return [...AllProduct].sort((a, b) => a[SelectFilter] - b[SelectFilter])
+        return [...AllProduct].sort((a, b) => {
 
+            if (SelectFilter === 'cheapest')
+            {
+              return  a.price - b.price
+            }
 
+            if (SelectFilter === 'expensive')
+            {
+                return  b.price - a.price
+            }
+
+            return  a[SelectFilter] - b[SelectFilter]
+
+        })
     } )
 
 

@@ -13,7 +13,7 @@ export const HomeOfferSlider = () =>
 
     const AllProduct = useSelector(state => selectAll(state))
 
-    const BestOffer = AllProduct.filter(items => items.offer > 30)
+    const BestOffer = AllProduct.filter(items => items.offer >= 30)
 
 
 

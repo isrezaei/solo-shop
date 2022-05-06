@@ -9,6 +9,7 @@ import {HomeFilterProduct} from "./HomeFilterProduct";
 import { Grid, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
@@ -19,6 +20,7 @@ export const HomePreRender = () =>
 {
     const MasterDataIds = useSelector(state =>  SortBySelect(state , state.MasterDataSlice.sortBy))
     const {status} = useSelector(state => state.MasterDataSlice)
+    const {selectProduct} = useSelector(state => state.SelectProductSlice)
 
     let Render ;
 
@@ -28,7 +30,15 @@ export const HomePreRender = () =>
     }
     else if (status === 'success')
     {
-        Render = <div>{MasterDataIds.slice(0 , 10).map(items => <SwiperSlide key={items.id} className='w-2/12' style={{height : '20vw'}}> <HomeEachProduct ids={items.id}/> </SwiperSlide>)}</div>
+        Render = (
+            <div>
+                {
+                    MasterDataIds.filter(items => items.type === selectProduct).map(items => <SwiperSlide key={items.id} className='w-2/12' style={{height : '20vw'}}>
+                        <HomeEachProduct ids={items.id}/>
+                    </SwiperSlide>)
+                }
+            </div>
+        )
     }
     else if (status === 'reject')
     {

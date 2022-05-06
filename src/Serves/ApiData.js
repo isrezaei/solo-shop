@@ -9,9 +9,7 @@ export const ApiData  = [
         "newer" : 1,
         "popular" : 5,
         "Bestselling" : 3,
-        "cheapest" : 3,
-        "expensive" : 2,
-        "rate" : 4.5,
+
         "stock": true,
         "count" : 15,
         "offer" : 10,
@@ -34,10 +32,7 @@ export const ApiData  = [
         "newer" : 1,
         "popular" : 2,
         "Bestselling" : 5,
-        "cheapest" : 10,
-        "expensive" : 1,
         "rate" : 5,
-        "stock": true,
         "count" : 100,
         "offer" : 5,
         "image" : {
@@ -62,10 +57,7 @@ export const ApiData  = [
         "newer" : 1,
         "popular" : 5,
         "Bestselling" : 3,
-        "cheapest" : 3,
-        "expensive" : 5,
         "rate" : 6,
-        "stock": true,
         "count" : 64,
         "offer" : 10,
         "image" : {
@@ -90,10 +82,7 @@ export const ApiData  = [
         "newer" : 1,
         "popular" : 7,
         "Bestselling" : 2,
-        "cheapest" : 7,
-        "expensive" : 4,
         "rate" : 4.5,
-        "stock": true,
         "count" : 40,
         "offer" : 25,
         "image" : {
@@ -118,10 +107,7 @@ export const ApiData  = [
         "newer" : 1,
         "popular" : 3,
         "Bestselling" : 1,
-        "cheapest" : 4,
-        "expensive" : 8,
         "rate" : 5,
-        "stock": true,
         "count" : 70,
         "offer" : 42,
         "image" : {
@@ -145,10 +131,7 @@ export const ApiData  = [
         "newer" : 2,
         "popular" : 4,
         "Bestselling" : 6,
-        "cheapest" : 8,
-        "expensive" : 2,
         "rate" : 4.5,
-        "stock": true,
         "count" : 54,
         "offer" : 6,
         "image" : {
@@ -173,10 +156,7 @@ export const ApiData  = [
         "newer" : 3,
         "popular" : 5,
         "Bestselling" : 3,
-        "cheapest" : 5,
-        "expensive" : 4,
         "rate" : 4.7,
-        "stock": true,
         "count" : 45,
         "offer" : 8,
         "image" : {
@@ -201,10 +181,7 @@ export const ApiData  = [
         "newer" : 4,
         "popular" : 8,
         "Bestselling" : 8,
-        "cheapest" : 1,
-        "expensive" : 9,
         "rate" : 2.7,
-        "stock": true,
         "count" : 18,
         "offer" : 0,
         "image" : {
@@ -227,10 +204,7 @@ export const ApiData  = [
         "newer" : 5,
         "popular" : 6,
         "Bestselling" : 4,
-        "cheapest" : 6,
-        "expensive" : 4,
         "rate" : 4.4,
-        "stock": true,
         "count" : 56,
         "offer" : 35,
         "image" : {
@@ -253,10 +227,7 @@ export const ApiData  = [
         "newer" : 5,
         "popular" : 5,
         "Bestselling" : 4,
-        "cheapest" : 4,
-        "expensive" : 6,
         "rate" : 4.0,
-        "stock": true,
         "count" : 56,
         "offer" : 0,
         "image" : {
@@ -279,10 +250,7 @@ export const ApiData  = [
         "newer" : 5,
         "popular" : 4,
         "Bestselling" : 8,
-        "cheapest" : 3,
-        "expensive" : 7,
         "rate" : 4.3,
-        "stock": true,
         "count" : 56,
         "offer" : 0,
         "image" : {
@@ -305,10 +273,7 @@ export const ApiData  = [
         "newer" : 6,
         "popular" : 7,
         "Bestselling" : 7,
-        "cheapest" : 2,
-        "expensive" : 8,
         "rate" : 4,
-        "stock": true,
         "count" : 56,
         "offer" : 0,
         "image" : {
@@ -332,10 +297,7 @@ export const ApiData  = [
         "newer" : 6,
         "popular" : 8,
         "Bestselling" : 8,
-        "cheapest" : 3,
-        "expensive" : 9,
         "rate" : 3,
-        "stock": true,
         "count" : 80,
         "offer" : 36,
         "image" : {
@@ -357,14 +319,11 @@ export const ApiData  = [
         "product" : "Apple iPhone 8 Plus",
         "brand" : "apple",
         "type" : 'iphone',
-        "price" : 0,
+        "price" : 'out',
         "newer" : 7,
         "popular" : 6,
         "Bestselling" : 6,
-        "cheapest" : 4,
-        "expensive" : 9,
         "rate" : 4.5,
-        "stock": false,
         "count" : 0,
         "offer" : 0,
         "image" : {
@@ -384,14 +343,11 @@ export const ApiData  = [
         "product" : "Apple iPhone 8",
         "brand" : "apple",
         "type" : 'iphone',
-        "price" : 0,
+        "price" : 'out',
         "newer" : 7,
         "popular" : 6,
         "Bestselling" : 6,
-        "cheapest" : 3,
-        "expensive" : 9,
         "rate" : 4.5,
-        "stock": false,
         "count" : 0,
         "offer" : 0,
         "image" : {
@@ -410,14 +366,11 @@ export const ApiData  = [
         "product" : "Apple iPhone 7 Plus",
         "brand" : "apple",
         "type" : 'iphone',
-        "price" : 0,
+        "price" : 'out',
         "newer" : 8,
         "popular" : 8,
         "Bestselling" : 7,
-        "cheapest" : 2,
-        "expensive" : 9,
         "rate" : 4,
-        "stock": false,
         "count" : 0,
         "offer" : 0,
         "image" : {
@@ -439,14 +392,11 @@ export const ApiData  = [
         "product" : "Apple iPhone 7",
         "brand" : "apple",
         "type" : 'iphone',
-        "price" : 0,
+        "price" : 'out',
         "newer" : 8,
         "popular" : 8,
         "Bestselling" : 7,
-        "cheapest" : 2,
-        "expensive" : 9,
         "rate" : 4,
-        "stock": false,
         "count" : 0,
         "offer" : 0,
         "image" : {
@@ -466,14 +416,11 @@ export const ApiData  = [
         "product" : "Apple iPhone SE",
         "brand" : "apple",
         "type" : 'iphone',
-        "price" : 0,
+        "price" : 'out',
         "newer" : 9,
         "popular" : 5,
         "Bestselling" : 5,
-        "cheapest" : 2,
-        "expensive" : 9,
         "rate" : 4.5,
-        "stock": false,
         "count" : 0,
         "offer" : 0,
         "image" : {
@@ -487,6 +434,202 @@ export const ApiData  = [
         },
         "introduction" : "Apple didn't come up with a new design for the smaller iPhone SE. Instead, they've reused the old iPhone 5s with new internals. It's an odd move, which we witness for the first time - it's like reusing the same looks of a phone model third generation in a row. And that from the company, that practically invented the two-year phone redesign cycle"
 
+    },
+
+    {
+        "id" : 17 ,
+        "product" : "Apple iPad Air (2022)",
+        "brand" : "apple",
+        "type" : 'ipad',
+        "price" : 760,
+        "newer" : 1,
+        "popular" : 3,
+        "Bestselling" : 3,
+        "rate" : 4.5,
+        "count" : 60,
+        "offer" : 0,
+        "image" : {
+            "mainImg" :'https://user-images.githubusercontent.com/77073972/167097705-bb0540d6-ff33-4b04-88d0-a8ce415b8937.jpg',
+            "subImg" : [
+                'https://user-images.githubusercontent.com/77073972/167097712-a5e9e4d6-f266-4be9-9ce0-d2176b4bea7b.jpg',
+                'https://user-images.githubusercontent.com/77073972/167097716-0ad95d56-a929-4437-b4d0-20ca6e171d6b.jpg',
+                'https://user-images.githubusercontent.com/77073972/167097726-32e079b7-e321-43fa-8e9f-77fd46f10e67.jpg',
+            ]
+
+        },
+        "introduction" : 'The new iPad Air features the breakthrough M1 chip, ultra-fast 5G, a new front camera with Center Stage, and more'
+    },
+
+    {
+        "id" : 18 ,
+        "product" : "Apple iPad mini (2021)",
+        "brand" : "apple",
+        "type" : 'ipad',
+        "price" : 760,
+        "newer" : 2,
+        "popular" : 4,
+        "Bestselling" : 5,
+        "rate" : 4.3,
+        "count" : 70,
+        "offer" : 0,
+        "image" : {
+            "mainImg" :'https://user-images.githubusercontent.com/77073972/167102160-c05f11a5-78f1-4d10-a80b-7c7317f4677b.jpg',
+            "subImg" : [
+                'https://user-images.githubusercontent.com/77073972/167102165-16f6b789-14c3-4c57-91c2-da75a9c3896d.jpg',
+                'https://user-images.githubusercontent.com/77073972/167102168-b4be7a99-5cb1-463c-9f66-d840de402b6a.jpg',
+                'https://user-images.githubusercontent.com/77073972/167102171-a04f5547-fecb-40d0-bbe6-9790a2d219f8.jpg',
+                'https://user-images.githubusercontent.com/77073972/167102177-6ecbc824-9f37-4927-8b15-abb879ac1764.jpg'
+            ]
+
+        },
+        "introduction" : 'Rejoice iPad mini fans, the smallest Apple tablet has just gotten its biggest upgrade to date! There is so much new stuff - a larger screen in a smaller body, the latest A15 Bionic chip with 5G, new cameras, new USB-C port, new Touch ID, and oh, a brand-new design, of course. Meet the sixth-gen iPad mini!'
+    },
+
+    {
+        "id" : 19 ,
+        "product" : "Apple iPad 10.2 (2021)",
+        "brand" : "apple",
+        "type" : 'ipad',
+        "price" : 459,
+        "newer" : 2,
+        "popular" : 8,
+        "Bestselling" : 7,
+        "rate" : 3.5,
+        "count" : 150,
+        "offer" : 0,
+        "image" : {
+            "mainImg" :'https://user-images.githubusercontent.com/77073972/167102895-99504861-d07f-45d8-ba2e-c25757f71076.jpg',
+            "subImg" : [
+                'https://user-images.githubusercontent.com/77073972/167102905-23037be6-cf7a-4922-9f5f-1efac69d1b42.jpg',
+                'https://user-images.githubusercontent.com/77073972/167102910-a393af64-663a-4873-b214-ad905e289f6c.jpg',
+                'https://user-images.githubusercontent.com/77073972/167102913-1105abd3-78f5-4087-a735-b06a1967537f.jpg',
+            ]
+
+        },
+        "introduction" : "The 9th generation Apple iPad, also known as the iPad 10.2 (2021) is probably the Cupertino tablet that needs the least introduction. It has remained a staple of the company's lineup, technically dating back all the way to 2010. Way before any mini, Air or Pro hit the scene, as clearly evident by the formidable 9th iteration mark."
+    },
+
+    {
+        "id" : 20 ,
+        "product" : "Apple iPad Pro 12.9 (2021)",
+        "brand" : "apple",
+        "type" : 'ipad',
+        "price" : 1699,
+        "newer" : 2,
+        "popular" : 1,
+        "Bestselling" : 2,
+        "rate" : 5,
+        "count" : 250,
+        "offer" : 30,
+        "image" : {
+            "mainImg" :'https://user-images.githubusercontent.com/77073972/167103597-3dab4f8c-ca0f-409a-9dea-2f2f0b35280f.jpg',
+            "subImg" : [
+                'https://user-images.githubusercontent.com/77073972/167103603-5dd3ee96-90c3-4c47-9db1-f55dbfcffb3e.jpg',
+                'https://user-images.githubusercontent.com/77073972/167103606-5cb2e1a8-6218-44dd-8a95-47f34eafcc71.jpg',
+                'https://user-images.githubusercontent.com/77073972/167103611-79af31ae-4ee6-4b21-ace0-653670062fc9.jpg',
+                'https://user-images.githubusercontent.com/77073972/167103612-9dd360a1-a92c-4d4d-bf27-b991908ed54d.jpg'
+            ]
+
+        },
+        "introduction" : "App Store℠ designed specifically for iPad®, and the new iPad Pro will enable a new generation of advanced apps for everything from productivity, design, illustration, engineering and medical, to education, gaming and entertainment."
+    },
+
+    {
+        "id" : 21 ,
+        "product" : "Apple iPad Air (2020)",
+        "brand" : "apple",
+        "type" : 'ipad',
+        "price" : 577,
+        "newer" : 3,
+        "popular" : 3,
+        "Bestselling" : 4,
+        "rate" : 4.8,
+        "count" : 320,
+        "offer" : 0,
+        "image" : {
+            "mainImg" :'https://user-images.githubusercontent.com/77073972/167111781-80286cfa-94fd-478b-812d-8e930dc9aec4.jpg',
+            "subImg" : [
+                'https://user-images.githubusercontent.com/77073972/167111786-66a7cc08-a474-4cdd-8835-75912d4ae181.jpg',
+                'https://user-images.githubusercontent.com/77073972/167111787-263faa21-903b-4c35-a1fa-e91f272c16d7.jpg',
+                'https://user-images.githubusercontent.com/77073972/167111791-991c9c97-91b4-409c-bbbf-725c787009cc.jpg',
+                'https://user-images.githubusercontent.com/77073972/167111793-74e5a025-fad1-4046-b28b-bbd580adcb45.jpg'
+            ]
+
+        },
+        "introduction" : "App Store℠ designed specifically for iPad®, and the new iPad Pro will enable a new generation of advanced apps for everything from productivity, design, illustration, engineering and medical, to education, gaming and entertainment."
+    },
+
+    {
+        "id" : 22 ,
+        "product" : "Apple iPad Pro 12.9 (2020)",
+        "brand" : "apple",
+        "type" : 'ipad',
+        "price" : 1099,
+        "newer" : 3,
+        "popular" : 2,
+        "Bestselling" : 2,
+        "rate" : 4.9,
+        "count" : 210,
+        "offer" : 0,
+        "image" : {
+            "mainImg" :'https://user-images.githubusercontent.com/77073972/167113235-bf2c8213-99e5-4bd5-bf2e-e85fcd4ee1e5.jpg',
+            "subImg" : [
+                'https://user-images.githubusercontent.com/77073972/167113244-3d02c0c4-1f2a-440c-81f8-c056b3895514.jpg',
+                'https://user-images.githubusercontent.com/77073972/167113248-22c2fc0f-8906-4e80-a52c-8e4d17448c51.jpg',
+                'https://user-images.githubusercontent.com/77073972/167113250-b5b0b651-bc1f-464a-b15c-f50f9fe86e57.jpg'
+            ]
+
+        },
+        "introduction" : "App Store℠ designed specifically for iPad®, and the new iPad Pro will enable a new generation of advanced apps for everything from productivity, design, illustration, engineering and medical, to education, gaming and entertainment."
+    },
+
+    {
+        "id" : 23 ,
+        "product" : "Apple iPad 10.2 (2019)",
+        "brand" : "apple",
+        "type" : 'ipad',
+        "price" : 297,
+        "newer" : 3,
+        "popular" : 2,
+        "Bestselling" : 2,
+        "rate" : 4.9,
+        "count" : 210,
+        "offer" : 0,
+        "image" : {
+            "mainImg" :'https://user-images.githubusercontent.com/77073972/167114090-7e048c71-fe70-44c7-b60c-9a73eb58cee7.jpg',
+            "subImg" : [
+                'https://user-images.githubusercontent.com/77073972/167114104-a47a0441-a33d-43f6-8137-4f661acb0a7e.jpg',
+                'https://user-images.githubusercontent.com/77073972/167114119-eeaef7de-dd60-41d7-80d9-fac172c0f20e.jpg',
+                'https://user-images.githubusercontent.com/77073972/167114128-c2807587-ca3c-4e3e-89d7-ec1e63a68444.jpg',
+                'https://user-images.githubusercontent.com/77073972/167114145-f6ca189f-13b8-45a9-afa3-3dd1ae524712.jpg'
+            ]
+
+        },
+        "introduction" : 'Powerful. Easy to use. Versatile. The new iPad is designed for all the things you love to do. Work, play, create, learn, stay connected, and more. All at an incredible value.'
+    },
+
+    {
+        "id" : 24 ,
+        "product" : "Apple iPad mini (2019)",
+        "brand" : "apple",
+        "type" : 'ipad',
+        "price" : 239,
+        "newer" : 3,
+        "popular" : 9,
+        "Bestselling" : 6,
+        "rate" : 2.9,
+        "count" : 40,
+        "offer" : 0,
+        "image" : {
+            "mainImg" :'https://user-images.githubusercontent.com/77073972/167115125-c6f2e99c-0471-4639-b7b8-f3e0ffcb036b.jpg',
+            "subImg" : [
+                'https://user-images.githubusercontent.com/77073972/167115135-75a8838a-080c-4c67-a471-fcceeb183320.jpg',
+                'https://user-images.githubusercontent.com/77073972/167115140-f948639f-cd0f-478f-a054-cfe09aa6ae56.jpg',
+                'https://user-images.githubusercontent.com/77073972/167115143-281cb12d-e822-40b1-b280-094b55d55f98.jpg'
+            ]
+
+        },
+        "introduction" : "The iPad mini 2019 is Apple’s most totable iPad, and it’s deceptively powerful for its small size. It has a bright 7.9-inch display that works with the Apple Pencil and a chipset that smokes the small tablet competition. Its price is equally deceptive, costing more than the larger iPad 9.7"
     },
 
 ]
