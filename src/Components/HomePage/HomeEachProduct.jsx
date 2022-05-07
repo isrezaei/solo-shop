@@ -3,6 +3,7 @@ import {selectMasterDataById} from "../../Redux/MasterDataSlice";
 import {AddQuantity , IncreaseQuantity , DecreaseQuantity , RemoveQuantity} from "../../Redux/MasterDataSlice";
 import {Link} from "react-router-dom";
 import {HaveQuantity , CheckQuantity} from "../../HelperFuncs/HelperFuncs";
+import {AddToCard} from "../../Redux/CartShopSlice";
 
 
 export const HomeEachProduct = ({ids}) =>
@@ -24,6 +25,8 @@ export const HomeEachProduct = ({ids}) =>
                 price
             }
         ))
+
+        dispatch(AddToCard(EachProduct))
     }
 
     const IncQuan = () =>
@@ -51,7 +54,6 @@ export const HomeEachProduct = ({ids}) =>
         dispatch(RemoveQuantity({
             id,
             price
-
         }))
     }
 

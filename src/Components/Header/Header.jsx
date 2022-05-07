@@ -5,6 +5,7 @@ import {FaRegHeart} from 'react-icons/fa'
 import {IoPhonePortraitOutline} from 'react-icons/io5'
 import {HiOutlineMail} from 'react-icons/hi'
 import {BiUserPlus} from 'react-icons/bi'
+import {Link} from "react-router-dom";
 
 export const Header = () =>
 {
@@ -87,19 +88,21 @@ export const Header = () =>
                      </section>
 
 
-                     <section className='flex w-28 justify-between items-center'>
+                     <section className='flex relative w-36  justify-between items-center'>
 
-                         <CgShoppingBag className='text-5xl'/>
+                         <Link to='/cart-shop'>
+                             <CgShoppingBag className='text-5xl'/>
+                             <div className='absolute w-6 h-6 flex justify-center bottom-9 left-7 rounded-2xl bg-pink-500'>{totalQuantity}</div>
+                         </Link>
+
 
                          <div className='flex flex-col justify-center items-start'>
                              <span className='text-2xl'>cart</span>
-                             <span>0 $</span>
+                             <span>{totalPrice} $</span>
                          </div>
 
                      </section>
-
                  </div>
-
              </div>
          </div>
 

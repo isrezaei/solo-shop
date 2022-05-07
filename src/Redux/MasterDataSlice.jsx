@@ -1,7 +1,5 @@
 import {createSlice, createAsyncThunk, createEntityAdapter, createSelector} from "@reduxjs/toolkit";
 import {PromiseFunc} from "../Serves/PromiseFunc";
-import {useSelector} from "react-redux";
-import {FilterProductSlice} from "./FilterProductSlice";
 
 
 export const FetchMasterData = createAsyncThunk (
@@ -45,7 +43,6 @@ export const SortBySelect = createSelector (
             }
 
             return  a[SelectFilter] - b[SelectFilter]
-
         })
     } )
 
