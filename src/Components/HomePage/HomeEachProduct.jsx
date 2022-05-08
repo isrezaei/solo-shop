@@ -13,8 +13,11 @@ export const HomeEachProduct = ({ids}) =>
     const EachProduct = useSelector(state => selectMasterDataById(state , ids))
 
 
-    const {product , image , id , quantity , price} = EachProduct
+    const {product , image , id , quantity , price , offer} = EachProduct
 
+    const Price = new Intl.NumberFormat('en-IN').format(price)
+
+    console.log(EachProduct)
 
     const AddQuan  = () =>
     {
@@ -60,26 +63,44 @@ export const HomeEachProduct = ({ids}) =>
     return (
 
 
-            <div className='h-85 flex flex-col justify-start items-center'>
+            <div className='h-full  flex flex-col justify-start items-center bg-gray-300 '>
 
-                <img className='w-auto h-3/4' src={image.mainImg} alt={product}/>
-                <h4>{product}</h4>
 
-                <div className='w-6/12 flex justify-evenly items-center'>
+                <Link className='w-auto h-4/6 bg-blue-700 ' to={`/details/${id}`}>
 
-                    {HaveQuantity(id) ? <button onClick={IncQuan}>+</button> :  <button onClick={AddQuan}>add to cart</button>}
+                    <img className='w-auto h-5/6' src={image.mainImg} alt={product}/>
+
+                </Link>
+
+                {
+                    offer > 0 ?
+                    <div className='w-full bg-blue-300 h-14 flex justify-evenly items-center'>
+                        <p>${Price}</p>
+                        <p>${(price - (price * offer / 100)).toFixed(2)}</p>
+                    </div>
+                        :
+                        <div className='w-full bg-fuchsia-400 h-8 flex justify-evenly items-center'>
+                            <h2>{price === 'out' ? 'out of stock ':`$${price}` }</h2>
+                        </div>
+                }
+
+                <h4 className='bg-amber-100'>{product}</h4>
+
+
+                <div className='w-6/12 bg-red-500 flex justify-evenly items-center'>
+
+                    {HaveQuantity(id) ? <button className='bg-blue-300' onClick={IncQuan}>+</button> :  <button className='bg-amber-500' onClick={AddQuan}>add to cart</button>}
 
                     <h4> {quantity}</h4>
 
-                    {CheckQuantity(id) === 1 && <button onClick={RemQuan}>Remove from Cart</button> }
+                    {CheckQuantity(id) === 1 && <button className='bg-blue-700' onClick={RemQuan}>Remove from Cart</button> }
 
                     {CheckQuantity(id) > 1 && <button onClick={DecQuan}>-</button>}
 
                 </div>
 
-                <Link to={`/details/${id}`}>See Details</Link>
 
-                <h2>{price === 'out' ? 'out of stock ': price}</h2>
+
 
             </div>
 

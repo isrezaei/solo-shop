@@ -7,7 +7,7 @@ module.exports = {
       height: {
         '85' : '22rem',
         '100': '40rem',
-        '40vw' : '40vw'
+        '40vw' : '50vw'
       },
       translate: {
         'E50' : '-50%'
