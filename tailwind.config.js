@@ -7,11 +7,12 @@ module.exports = {
       height: {
         '85' : '22rem',
         '100': '40rem',
+        '101' : '27rem',
         '40vw' : '50vw'
       },
-      translate: {
-        'E50' : '-50%'
-      }
+
+      // visibility: ["group-hover"],
+
     },
   },
   plugins: [],

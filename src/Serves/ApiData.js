@@ -9,8 +9,8 @@ export const ApiData  = [
         "newer" : 1,
         "popular" : 5,
         "Bestselling" : 3,
-
         "stock": true,
+        "rate" : 2.5,
         "count" : 15,
         "offer" : 10,
         "image" : {

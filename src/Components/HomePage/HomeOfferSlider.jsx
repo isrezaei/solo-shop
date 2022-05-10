@@ -114,7 +114,7 @@ export const HomeOfferSlider = () =>
     })
 
     return (
-        <div className='w-1/4 bg-blue-300 h-100'>
+        <div className='w-1/6 bg-blue-300 h-100'>
 
             <Swiper
                 grabCursor={true}

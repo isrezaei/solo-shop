@@ -33,9 +33,10 @@ export const HomePreRender = () =>
         Render = (
             <div>
                 {
-                    MasterDataIds.filter(items => items.type === selectProduct).map(items => <SwiperSlide key={items.id} className='w-2/12' style={{height : '22vw'}}>
-                        <HomeEachProduct ids={items.id}/>
-                    </SwiperSlide>)
+                    MasterDataIds.filter(items => items.type === selectProduct).map(items =>
+                        <SwiperSlide key={items.id} className='flex justify-center w-auto h-101'>
+                            <HomeEachProduct ids={items.id}/>
+                        </SwiperSlide>)
                 }
             </div>
         )
@@ -51,7 +52,7 @@ export const HomePreRender = () =>
             <HomeBenefit/>
             <HomeSelectProduct/>
 
-            <div className='w-9/12 mx-auto relative flex justify-between items-start bg-amber-500'>
+            <div className='w-11/12 mx-auto relative flex justify-around items-start bg-gray-100'>
 
                 <HomeOfferSlider/>
 
@@ -64,13 +65,12 @@ export const HomePreRender = () =>
                         grid={{
                             rows: 2
                         }}
-                        spaceBetween={10}
+                        spaceBetween={20}
                         pagination={{
                             clickable: true
                         }}
                         modules={[Grid, Pagination]}
-                        className="mySwiper h-40vw w-full bg-fuchsia-400">
-
+                        className="mySwiper h-40vw w-full">
                         {Render}
 
                     </Swiper>
