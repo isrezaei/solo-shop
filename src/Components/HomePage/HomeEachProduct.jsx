@@ -8,6 +8,7 @@ import {TiPlus} from 'react-icons/ti'
 import {RiDeleteBinLine} from 'react-icons/ri'
 import {BiHeart} from 'react-icons/bi'
 import { RatingStar } from "rating-star";
+import {useNavigate} from 'react-router-dom'
 
 
 export const HomeEachProduct = ({ids}) =>
@@ -15,7 +16,7 @@ export const HomeEachProduct = ({ids}) =>
 
     const dispatch = useDispatch()
     const EachProduct = useSelector(state => selectMasterDataById(state , ids))
-
+    const Navigate = useNavigate()
 
     const {product , image , id , quantity , price , offer , rate} = EachProduct
 
@@ -69,12 +70,12 @@ export const HomeEachProduct = ({ids}) =>
 
         <div className=' w-full h-full bg-white p-3 flex flex-col justify-start items-center'>
 
-            <Link className='w-auto group relative h-3/4' to={`/details/${id}`}>
+            <div className='w-auto group relative h-3/4' >
 
-                <img className='w-auto h-full' src={image.mainImg} alt={product}/>
+                <img className='w-auto h-full cursor-pointer' src={image.mainImg} alt={product} onClick={()=> Navigate(`/details/${id}`)}/>
 
 
-                <div className='w-full h-10 absolute bottom-0 opacity-0 group-hover:opacity-100  flex justify-around items-center bg-white opacity-95 transition	'>
+                <div className='w-full h-10 absolute bottom-0 opacity-0 group-hover:opacity-95  flex justify-around items-center bg-white transition cursor-pointer'>
 
                     <div className='w-6/12 flex justify-evenly items-center h-10'>
 
@@ -102,7 +103,7 @@ export const HomeEachProduct = ({ids}) =>
 
                 </div>
 
-            </Link>
+            </div>
 
 
             <div className='w-full h-10 py-6 flex justify-center items-center '>
@@ -122,8 +123,9 @@ export const HomeEachProduct = ({ids}) =>
 
             <p className='w-9/12 h-8 flex items-center justify-center font-medium text-gray-500'>{product}</p>
 
-            <div className='w-full py-1'>
+            <div className='w-full flex justify-between items-center py-1'>
                 <RatingStar id={id} rating={rate} size={17}/>
+                <p className='text-sm font-medium text-gray-400'>Quick View</p>
             </div>
 
 

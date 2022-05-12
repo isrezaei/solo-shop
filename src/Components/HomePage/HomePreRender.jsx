@@ -52,35 +52,33 @@ export const HomePreRender = () =>
             <HomeBenefit/>
             <HomeSelectProduct/>
 
-            <div className='w-11/12 mx-auto relative flex justify-around items-start bg-gray-100'>
 
-                <HomeOfferSlider/>
+            <section className='w-full bg-gray-100'>
 
-                <section className='w-9/12 flex flex-col justify-between items-center'>
+                <div className='w-11/12 m-auto relative flex justify-around items-start'>
 
-                    <HomeFilterProduct/>
+                    <HomeOfferSlider/>
 
-                    <Swiper
-                        slidesPerView={4}
-                        grid={{
-                            rows: 2
-                        }}
-                        spaceBetween={20}
-                        pagination={{
-                            clickable: true
-                        }}
-                        modules={[Grid, Pagination]}
-                        className="mySwiper h-40vw w-full">
-                        {Render}
+                    <section className='w-9/12 flex flex-col justify-between items-center'>
 
-                    </Swiper>
+                        <HomeFilterProduct/>
 
-                </section>
+                        <Swiper
+                            slidesPerView={4}
+                            grid={{
+                                rows: 2
+                            }}
+                            spaceBetween={20}
+                            pagination={false}
+                            modules={[Grid, Pagination]}
+                            className="mySwiper h-60 w-full">
+                            {Render}
+                        </Swiper>
+                    </section>
 
+                </div>
+            </section>
 
-
-
-            </div>
 
         </div>
     )

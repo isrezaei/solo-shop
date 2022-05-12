@@ -28,7 +28,7 @@ export const HomeFilterProduct = () =>{
 
 
     return (
-        <div className='w-11/12 h-16 flex justify-between items-start'>
+        <div className='w-full mt-3 h-16 flex justify-between items-center'>
 
             <section className='flex justify-between items-center w-10/12'>
                 {Option}

@@ -519,8 +519,8 @@ export const ApiData  = [
         "popular" : 1,
         "Bestselling" : 2,
         "rate" : 5,
-        "count" : 250,
-        "offer" : 30,
+        "count" : 80,
+        "offer" : 25,
         "image" : {
             "mainImg" :'https://user-images.githubusercontent.com/77073972/167103597-3dab4f8c-ca0f-409a-9dea-2f2f0b35280f.jpg',
             "subImg" : [
@@ -544,8 +544,8 @@ export const ApiData  = [
         "popular" : 3,
         "Bestselling" : 4,
         "rate" : 4.8,
-        "count" : 320,
-        "offer" : 0,
+        "count" : 80,
+        "offer" : 30,
         "image" : {
             "mainImg" :'https://user-images.githubusercontent.com/77073972/167111781-80286cfa-94fd-478b-812d-8e930dc9aec4.jpg',
             "subImg" : [

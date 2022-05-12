@@ -3,9 +3,6 @@ import {HomePreRender} from "./Components/HomePage/HomePreRender";
 import {DetailsPreRender} from "./Components/DetailsPage/DetailsPreRender";
 import {CartPagePreRender} from "./Components/CartPage/CartPagePreRender";
 import {Header} from "./Components/Header/Header";
-import {useSelector} from "react-redux";
-import {SortBySelect} from "./Redux/MasterDataSlice";
-
 
 
 function App() {
