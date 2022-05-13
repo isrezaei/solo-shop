@@ -8,14 +8,14 @@ import {Header} from "./Components/Header/Header";
 function App() {
 
     return (
-        <>
+        <div className='font-rubik'>
             <Header/>
             <Routes>
                 <Route path='/' exact element={<HomePreRender/>}/>
                 <Route path='/details/:productId' element={<DetailsPreRender/>}/>
                 <Route path='/cart-shop' element={<CartPagePreRender/>}/>
             </Routes>
-        </>
+        </div>
     )
 }
 

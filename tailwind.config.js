@@ -12,7 +12,9 @@ module.exports = {
 
       },
 
-      // visibility: ["group-hover"],
+      fontFamily: {
+        'rubik' : ['Rubik' , 'sans-serif']
+      }
 
     },
   },
