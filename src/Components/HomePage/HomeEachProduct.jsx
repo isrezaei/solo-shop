@@ -9,7 +9,7 @@ import {RiDeleteBinLine} from 'react-icons/ri'
 import {BiHeart} from 'react-icons/bi'
 import { RatingStar } from "rating-star";
 import {useNavigate} from 'react-router-dom'
-
+import {useLocation} from "react-router-dom";
 
 export const HomeEachProduct = ({ids}) =>
 {
@@ -17,12 +17,12 @@ export const HomeEachProduct = ({ids}) =>
     const dispatch = useDispatch()
     const EachProduct = useSelector(state => selectMasterDataById(state , ids))
     const Navigate = useNavigate()
+    const location = useLocation()
+
 
     const {product , image , id , quantity , price , offer , rate} = EachProduct
 
     const Price = new Intl.NumberFormat('en-IN').format(price)
-
-    console.log(EachProduct)
 
     const AddQuan  = () =>
     {
@@ -124,8 +124,8 @@ export const HomeEachProduct = ({ids}) =>
             <p className='w-9/12 h-8 flex items-center justify-center font-medium text-gray-500'>{product}</p>
 
             <div className='w-full flex justify-between items-center py-1'>
-                <RatingStar id={id} rating={rate} size={17}/>
-                <p className='text-sm font-medium text-gray-400'>Quick View</p>
+                <RatingStar id={id.toString()} rating={rate} size={17}/>
+                <Link to={`quick/${id}`} state = {{background : location}} className='text-sm font-medium text-gray-400'>Quick View</Link>
             </div>
 
 
