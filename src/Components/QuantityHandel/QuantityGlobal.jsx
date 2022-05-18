@@ -1,17 +1,12 @@
 import {AddQuantity, DecreaseQuantity, IncreaseQuantity, RemoveQuantity} from "../../Redux/MasterDataSlice";
 import {AddToCard} from "../../Redux/CartShopSlice";
 import {CheckQuantity, HaveQuantity} from "../../HelperFuncs/HelperFuncs";
-import {TiPlus} from "react-icons/ti";
-import {RiDeleteBinLine} from "react-icons/ri";
 import {useDispatch} from "react-redux";
 
 export const QuantityGlobal = (EachProduct) =>
 {
-
     const {id , quantity , price} = EachProduct
-
     const dispatch = useDispatch()
-
 
     const AddQuan  = () =>
     {
@@ -22,7 +17,6 @@ export const QuantityGlobal = (EachProduct) =>
                 price
             }
         ))
-
         dispatch(AddToCard(EachProduct))
     }
 
@@ -54,8 +48,6 @@ export const QuantityGlobal = (EachProduct) =>
         }))
     }
 
-
-
     return {
         HaveQuantity,
         CheckQuantity,
@@ -63,7 +55,6 @@ export const QuantityGlobal = (EachProduct) =>
         IncQuan,
         DecQuan,
         RemQuan
-
     }
 }
 

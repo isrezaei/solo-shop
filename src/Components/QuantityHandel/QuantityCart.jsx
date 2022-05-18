@@ -19,7 +19,6 @@ export const QuantityCart = ({CartSlice , MasterSlice}) =>
             quantity : quantity + 1,
             price
         }))
-
     }
 
     const DecQuan = () =>
@@ -38,7 +37,6 @@ export const QuantityCart = ({CartSlice , MasterSlice}) =>
             id,
             price
         }))
-
         dispatch(DeleteToCard(id))
     }
 
