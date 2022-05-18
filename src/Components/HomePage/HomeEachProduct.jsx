@@ -1,69 +1,28 @@
-import {useSelector , useDispatch} from "react-redux";
+import {useSelector} from "react-redux";
 import {selectMasterDataById} from "../../Redux/MasterDataSlice";
-import {AddQuantity , IncreaseQuantity , DecreaseQuantity , RemoveQuantity} from "../../Redux/MasterDataSlice";
 import {Link} from "react-router-dom";
-import {HaveQuantity , CheckQuantity} from "../../HelperFuncs/HelperFuncs";
-import {AddToCard} from "../../Redux/CartShopSlice";
-import {TiPlus} from 'react-icons/ti'
-import {RiDeleteBinLine} from 'react-icons/ri'
+
 import {BiHeart} from 'react-icons/bi'
 import { RatingStar } from "rating-star";
 import {useNavigate} from 'react-router-dom'
 import {useLocation} from "react-router-dom";
+import {QuantityGlobal} from "../QuantityHandel/QuantityGlobal";
+import {CheckQuantity, HaveQuantity} from "../../HelperFuncs/HelperFuncs";
+import {TiPlus} from "react-icons/ti";
+import {RiDeleteBinLine} from "react-icons/ri";
 
 export const HomeEachProduct = ({ids}) =>
 {
-
-    const dispatch = useDispatch()
     const EachProduct = useSelector(state => selectMasterDataById(state , ids))
     const Navigate = useNavigate()
     const location = useLocation()
 
 
-    const {product , image , id , quantity , price , offer , rate} = EachProduct
+    const {product , image , id , price , offer , rate , quantity} = EachProduct
 
-    const Price = new Intl.NumberFormat('en-IN').format(price)
+    const { HaveQuantity, CheckQuantity, AddQuan, IncQuan, DecQuan, RemQuan} = QuantityGlobal(EachProduct)
 
-    const AddQuan  = () =>
-    {
-        dispatch(AddQuantity(
-            {
-                id,
-                quantity : 1 ,
-                price
-            }
-        ))
 
-        dispatch(AddToCard(EachProduct))
-    }
-
-    const IncQuan = () =>
-    {
-        dispatch(IncreaseQuantity({
-            id,
-            quantity : quantity + 1,
-            price
-        }))
-
-    }
-
-    const DecQuan = () =>
-    {
-        dispatch(DecreaseQuantity({
-            id,
-            quantity : quantity - 1,
-            price
-
-        }))
-    }
-
-    const RemQuan = () =>
-    {
-        dispatch(RemoveQuantity({
-            id,
-            price
-        }))
-    }
 
     return (
 
@@ -111,7 +70,7 @@ export const HomeEachProduct = ({ids}) =>
                     offer > 0 ?
                         <div className='w-full flex justify-evenly items-center'>
                             <p className='text-xl font-medium text-gray-600'>${(price - (price * offer / 100)).toFixed(2)}</p>
-                            <p className='font-medium line-through text-red-500'>${Price}</p>
+                            <p className='font-medium line-through text-red-500'>${price}</p>
                         </div>
                         :
                         <div className='w-full flex justify-evenly items-center'>
@@ -125,13 +84,9 @@ export const HomeEachProduct = ({ids}) =>
 
             <div className='w-full flex justify-between items-center py-1'>
                 <RatingStar id={id.toString()} rating={rate} size={17}/>
-                <Link to={`quick/${id}`} state = {{background : location}} className='text-sm font-medium text-gray-400'>Quick View</Link>
+                <Link to={`quick/${id}`} state={{background : location}} className='text-sm font-medium text-gray-400'>Quick View</Link>
             </div>
-
-
         </div>
-
-
 
     )
 }

@@ -9,7 +9,10 @@ module.exports = {
         '60' : '60rem',
         '100': '40rem',
         '101' : '27rem',
+      },
 
+      colors: {
+        'glass-black': 'rgba(0,0,0,0.70)',
       },
 
       fontFamily: {

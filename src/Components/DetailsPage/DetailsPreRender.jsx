@@ -1,31 +1,17 @@
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 import {DetailsEachProduct} from "./DetailsEachProduct";
-import {FetchMasterData, selectMasterDataById} from "../../Redux/MasterDataSlice";
-import {useEffect} from "react";
+import {selectMasterDataById} from "../../Redux/MasterDataSlice";
 
 export const DetailsPreRender = () =>
 {
 
     const {productId} = useParams()
 
-    const singleProduct = useSelector(state => selectMasterDataById(state , productId))
+    const EachProduct = useSelector(state => selectMasterDataById(state , productId))
     const {status} = useSelector(state => state.MasterDataSlice)
 
     console.log(status)
-
-
-
-    // const dispatch = useDispatch()
-    //
-    // useEffect(()=>{
-    //     if (status === 'idle')
-    //     {
-    //         dispatch(FetchMasterData())
-    //     }
-    // } , [dispatch , status])
-
-
 
 
     let Render ;
@@ -36,7 +22,7 @@ export const DetailsPreRender = () =>
     }
     else if (status === 'success')
     {
-        Render = <DetailsEachProduct singleProduct={singleProduct}/>
+        Render = <DetailsEachProduct EachProduct={EachProduct}/>
     }
 
 

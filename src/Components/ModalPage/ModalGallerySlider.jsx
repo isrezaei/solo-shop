@@ -1,7 +1,7 @@
 import {useState} from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper";
-import 'swiper/css/bundle'
+
 
 export const ModalGallerySlider = ({image}) =>
 {
@@ -10,18 +10,18 @@ export const ModalGallerySlider = ({image}) =>
 
     console.log(thumbsSwiper)
 
-    const subImage = image.subImg.map(items => {
+    const subImageUp = image.subImg.map(items => {
         return (
-            <SwiperSlide key={items} className='h-full  flex justify-center items-center'>
+            <SwiperSlide key={items} className='h-full cursor-grab flex justify-center items-center'>
                 <img src={items} className='h-80' alt='product'/>
             </SwiperSlide>
         )
     })
 
-    const subImages = image.subImg.map(items => {
+    const subImageDown = image.subImg.map(items => {
         return (
-            <SwiperSlide key={items} className='bg-lime-300'>
-                <img src={items} className='h-1/6 cursor-pointer' alt='product'/>
+            <SwiperSlide key={items} className='flex justify-center'>
+                <img src={items} className='h-20 cursor-pointer' alt='product'/>
             </SwiperSlide>
         )
     })
@@ -30,40 +30,29 @@ export const ModalGallerySlider = ({image}) =>
     return (
         <div className='p-5'>
             <Swiper
-                style={{
-                    "--swiper-navigation-color": "#fff",
-                    "--swiper-pagination-color": "#ff0707",
-                }}
                 loop={true}
                 spaceBetween={10}
-                navigation={true}
-                thumbs={{ swiper: thumbsSwiper }}
+                navigation={false}
+                thumbs={{swiper: thumbsSwiper , slideThumbActiveClass : 'brightness-50'}}
                 modules={[FreeMode, Navigation, Thumbs]}
-                className="mySwiper2 flex justify-center items-center"
+                className="mySwiper2"
             >
-                {subImage}
-
+                {subImageUp}
             </Swiper>
 
             <Swiper
-                onSwiper={()=> setThumbsSwiper()}
+                onSwiper={setThumbsSwiper}
                 loop={false}
                 spaceBetween={20}
                 slidesPerView={4}
                 freeMode={true}
                 watchSlidesProgress={true}
                 modules={[FreeMode, Navigation, Thumbs]}
-                className="mySwiper mt-3"
+                className="mySwiper mt-10 "
             >
-
-                <div className='h-auto w-full bg-lime-300'>
-                    {subImages}
-                </div>
-
+                    {subImageDown}
 
             </Swiper>
-
-
         </div>
     )
 

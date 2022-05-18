@@ -2,7 +2,7 @@ import { Routes, Route} from "react-router-dom";
 import {HomePreRender} from "./Components/HomePage/HomePreRender";
 import {DetailsPreRender} from "./Components/DetailsPage/DetailsPreRender";
 import {CartPagePreRender} from "./Components/CartPage/CartPagePreRender";
-import {ModalGallery} from "./ModalPage/ModalGallery";
+import {ModalGallery} from "./Components/ModalPage/ModalGallery";
 import {Header} from "./Components/Header/Header";
 import {useLocation} from "react-router-dom";
 

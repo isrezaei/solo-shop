@@ -1,53 +1,13 @@
-import {CheckQuantity, HaveQuantity} from "../../HelperFuncs/HelperFuncs";
-import {AddQuantity, DecreaseQuantity, IncreaseQuantity, RemoveQuantity} from "../../Redux/MasterDataSlice";
-import {useDispatch} from "react-redux";
+import {QuantityGlobal} from "../QuantityHandel/QuantityGlobal";
+import {TiPlus} from "react-icons/ti";
+import {RiDeleteBinLine} from "react-icons/ri";
 
-export const DetailsEachProduct = ({singleProduct}) =>
+export const DetailsEachProduct = ({EachProduct}) =>
 {
 
-    const dispatch = useDispatch()
-    const {introduction , image , product , brand , price , id , quantity} = singleProduct
+    const {introduction , image , product , brand , price , id ,quantity} = EachProduct
 
-    const AddQuan  = () =>
-    {
-        dispatch(AddQuantity(
-            {
-                id,
-                quantity : 1 ,
-                price
-            }
-        ))
-    }
-
-    const IncQuan = () =>
-    {
-        dispatch(IncreaseQuantity({
-            id,
-            quantity : quantity + 1,
-            price
-        }))
-
-    }
-
-    const DecQuan = () =>
-    {
-        dispatch(DecreaseQuantity({
-            id,
-            quantity : quantity - 1,
-            price
-
-        }))
-    }
-
-    const RemQuan = () =>
-    {
-        dispatch(RemoveQuantity({
-            id,
-            price
-
-        }))
-    }
-
+    const { HaveQuantity, CheckQuantity, AddQuan, IncQuan, DecQuan, RemQuan} = QuantityGlobal(EachProduct)
 
 
     return (
@@ -61,13 +21,25 @@ export const DetailsEachProduct = ({singleProduct}) =>
 
                 <div style={{  width : '20%' ,display : 'flex' ,  justifyContent : 'space-evenly', alignItems : 'center'}}>
 
-                    {HaveQuantity(id) ? <button onClick={IncQuan}>+</button> :  <button onClick={AddQuan}>add to cart</button>}
+                    <div className='w-6/12 flex justify-evenly items-center h-10'>
 
-                    {quantity}
+                        {
+                            HaveQuantity(id) ?
 
-                    {CheckQuantity(id) === 1 && <button onClick={RemQuan}>Remove from Cart</button> }
+                                <TiPlus onClick={IncQuan} className='text-base text-indigo-400'/>
+                                :
 
-                    {CheckQuantity(id) > 1 && <button onClick={DecQuan}>-</button>}
+                                <div className='flex w-full ' onClick={AddQuan}>
+                                    <p className='font-medium'>Add to cart</p>
+                                </div>
+                        }
+
+                        <p className='text-xl'> {quantity}</p>
+
+                        {CheckQuantity(id) === 1 && <RiDeleteBinLine onClick={RemQuan} className='text-base text-rose-500'/>}
+                        {CheckQuantity(id) > 1 && <button onClick={DecQuan}>-</button>}
+
+                    </div>
 
                 </div>
             </div>
