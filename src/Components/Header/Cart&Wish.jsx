@@ -1,7 +1,7 @@
-import {FaRegHeart} from "react-icons/fa";
 import {Link} from "react-router-dom";
-import {CgShoppingBag} from "react-icons/cg";
+
 import {useSelector} from "react-redux";
+import {RiShoppingCartFill , RiHeartAddFill} from 'react-icons/ri'
 
 export const CartWish = () =>
 {
@@ -12,33 +12,35 @@ export const CartWish = () =>
     const NumberFormat = new Intl.NumberFormat('en-IN').format(totalPrice)
 
     return (
-        <div className='w-80 flex justify-center'>
+        <div className='w-80 flex justify-evenly items-center'>
 
+            <section className='flex relative w-32 h-14 justify-evenly items-center '>
 
+                <Link to='/cart-shop'>
+                    <RiHeartAddFill className='text-4xl text-white text-blue-700'/>
+                </Link>
 
-            <section className='flex w-28 justify-center items-center'>
-
-                <FaRegHeart className='text-3xl'/>
+                <div className='w-px h-9 bg-blue-300'> </div>
 
                 <div className='flex flex-col justify-center items-start ml-2'>
-                    <span className='text-lg'>wishlist</span>
-                    <span>0</span>
+                    <span className='text-sm text-white text-blue-700'>0 items</span>
+                    <span className='text-white text-sm text-blue-700'>Wishlist</span>
                 </div>
-
             </section>
 
 
-            <section className='flex relative w-28 justify-center items-center'>
+            <section className='flex relative w-36 h-14 justify-evenly items-center bg-blue-700'>
 
                 <Link to='/cart-shop'>
-                    <CgShoppingBag className='text-4xl'/>
-                    <div className='absolute w-6 h-6 flex justify-center bottom-9 left-3 rounded-2xl bg-pink-500'>{totalQuantity}</div>
+                    <RiShoppingCartFill className='text-4xl text-white'/>
                 </Link>
+
+                <div className='bg-white w-px h-9'> </div>
 
 
                 <div className='flex flex-col justify-center items-start ml-2'>
-                    <span className='text-lg'>cart</span>
-                    <span>{NumberFormat} $</span>
+                    <span className='text-sm text-white'>{totalQuantity} items</span>
+                    <span className='text-white text-sm'>$ {NumberFormat}</span>
                 </div>
 
             </section>

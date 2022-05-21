@@ -24,7 +24,7 @@ export const ModalGallery = () =>
 
     return (
         <div className='flex justify-center items-center z-10 bg-transparent m-auto h-screen w-full fixed top-0 overflow-hidden bg-glass-black'>
-            <div className='relative w-3/6 h-3/6 bg-white flex justify-between items-center'>
+            <div className='relative w-3/6 h-32 bg-white flex justify-between items-center'>
 
                 <section className='w-6/12 h-full'>
                   <ModalGallerySlider image={image}/>
@@ -56,7 +56,7 @@ export const ModalGallery = () =>
                         </div>
                     </div>
 
-                        <p className='h-40 border-y-2 flex justify-center items-center text-gray-500 py-3'>{introduction}</p>
+                        <p className='h-44 border-y-2 flex justify-center items-center text-gray-500 py-3'>{introduction}</p>
 
                     <div className='h-16 flex flex-col justify-between items-center my-3'>
                         <p className='text-xl font-bold text-gray-600'>SHARE THIS PRODUCT</p>
