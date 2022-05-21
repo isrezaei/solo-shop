@@ -17,7 +17,12 @@ module.exports = {
       },
 
       fontFamily: {
-        'rubik' : ['Rubik' , 'sans-serif']
+        'rubik' : ['Rubik' , 'sans-serif'],
+        'dancing' : ['Pacifico' , 'cursive']
+      },
+
+      boxShadow : {
+        center : '0px 0px 20px 0px rgba(0,0,0,0.10)'
       }
 
     },
