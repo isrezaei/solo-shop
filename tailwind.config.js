@@ -23,9 +23,13 @@ module.exports = {
 
       boxShadow : {
         center : '0px 0px 20px 0px rgba(0,0,0,0.10)'
-      }
-
+      },
     },
+
+    maxWidth: {
+      'max-w-8xl': '90rem',
+    }
+
   },
   plugins: [],
 }

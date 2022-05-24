@@ -2,6 +2,8 @@ import {useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 import {DetailsEachProduct} from "./DetailsEachProduct";
 import {selectMasterDataById} from "../../Redux/MasterDataSlice";
+import {HeaderUp} from "../Header/HeaderUp";
+import {HeaderDown} from "../Header/HeaderDown";
 
 export const DetailsPreRender = () =>
 {
@@ -27,10 +29,12 @@ export const DetailsPreRender = () =>
 
 
     return (
-        <div style={{marginTop : '3vw'}}>
-            {Render}
-        </div>
-
+        <>
+            <HeaderUp/>
+            <HeaderDown/>
+            <div style={{marginTop : '3vw'}}>
+                {Render}
+            </div>
+        </>
     )
-
 }

@@ -61,10 +61,8 @@ export const ModalGallery = () =>
                     <div className='h-16 flex flex-col justify-between items-center my-3'>
                         <p className='text-xl font-bold text-gray-600'>SHARE THIS PRODUCT</p>
                         <div className='w-full flex justify-start items-center cursor-pointer'>
-
+                            <p className='mr-2 text-gray-400 hover:text-cyan-700'>Copy Link Product</p>
                             <RiFileCopy2Fill className='text-3xl text-cyan-700'/>
-                            <p className='ml-2 text-gray-400 hover:text-cyan-700'>Copy Link Product</p>
-
                         </div>
                     </div>
                 </section>

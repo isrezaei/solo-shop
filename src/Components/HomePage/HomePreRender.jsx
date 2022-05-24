@@ -13,6 +13,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
+import {HeaderUp} from "../Header/HeaderUp";
+import {HeaderDown} from "../Header/HeaderDown";
 
 
 
@@ -48,6 +50,8 @@ export const HomePreRender = () =>
 
     return (
         <div>
+            <HeaderUp/>
+            <HeaderDown/>
             <HomeSlider/>
             <HomeBenefit/>
             <HomeSelectProduct/>
