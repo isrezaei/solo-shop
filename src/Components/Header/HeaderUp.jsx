@@ -8,7 +8,7 @@ import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 import {CartWish} from "./Cart&Wish";
 
-export const HeaderUp = () =>
+export const HeaderUp = ({headerPosition}) =>
 {
 
     const {totalPrice , totalQuantity} = useSelector(state => state.MasterDataSlice)
@@ -31,7 +31,7 @@ export const HeaderUp = () =>
 
 
     return (
-        <div className='bg-gray-50 border-b-2 border-gray-100 z-10 fixed top-0 w-full'>
+        <div className={`bg-gray-50 border-b-2 border-gray-100 z-10 ${headerPosition} top-0 w-full`}>
 
             <div className='w-10/12 m-auto h-20 flex justify-between items-center'>
 

@@ -2,12 +2,13 @@ import {useDispatch} from "react-redux";
 import {DecreaseQuantity, IncreaseQuantity, RemoveQuantity} from "../../Redux/MasterDataSlice";
 import {DeleteToCard} from "../../Redux/CartShopSlice";
 import {CheckQuantity} from "../../HelperFuncs/HelperFuncs";
+import {TiPlus , TiMinus} from "react-icons/ti";
 
 export const QuantityCart = ({CartSlice , MasterSlice}) =>
 {
 
     const {quantity} = MasterSlice
-    const {image , product , price , id} = CartSlice
+    const {image , product , price , id , brand} = CartSlice
 
     const dispatch = useDispatch()
 
@@ -42,27 +43,30 @@ export const QuantityCart = ({CartSlice , MasterSlice}) =>
 
 
     return (
-        <div className='flex justify-evenly items-center p-8'>
+        <div className='flex h-40 justify-evenly items-center'>
 
-            <img className='w-36' src={image.mainImg}  alt={product}/>
-            <p>{product}</p>
-            <p>{price}</p>
-
-            <div className='w-6/12 flex justify-evenly items-center'>
-
-                <button onClick={IncQuan}>+</button>
-
-                <h4> {quantity}</h4>
-
-                {CheckQuantity(id) === 1 && <button onClick={RemQuan}>Remove from Cart</button> }
-
-                {CheckQuantity(id) > 1 && <button onClick={DecQuan}>-</button>}
-
+            <div className='w-80 h-full flex  items-center'>
+                <img id='product-image' className='w-24' src={image.mainImg}  alt={product}/>
+                <div className='h-28 flex flex-col justify-evenly ml-4'>
+                    <p>{product}</p>
+                    <p>{brand}</p>
+                    <p onClick={RemQuan}>Delete</p>
+                </div>
             </div>
 
-            <button onClick={()=> dispatch(DeleteToCard(id))}>Delete</button>
 
-            <h4>total price :  {CheckQuantity(id) * price} </h4>
+            <div className='w-36 flex justify-evenly items-center'>
+                <button className='w-8 h-8 flex justify-center items-center text-red-500 disabled:opacity-50' disabled={CheckQuantity(id) <= 1} onClick={DecQuan}>
+                    <TiMinus/>
+                </button>
+                <p className='w-10 text-center p-2 border border-gray-300 '> {quantity}</p>
+                <button className='w-6 h-6 flex justify-center items-center rounded-full bg-blue-700 text-white' onClick={IncQuan}>
+                    <TiPlus/>
+                </button>
+            </div>
+
+            <p className='w-24 text-center'>${price}</p>
+            <p className='w-24 text-center text-xl font-bold'>${CheckQuantity(id) * price} </p>
 
         </div>
     )

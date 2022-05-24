@@ -15,6 +15,7 @@ import "swiper/css/grid";
 import "swiper/css/pagination";
 import {HeaderUp} from "../Header/HeaderUp";
 import {HeaderDown} from "../Header/HeaderDown";
+import {useState} from "react";
 
 
 
@@ -23,6 +24,7 @@ export const HomePreRender = () =>
     const MasterDataIds = useSelector(state =>  SortBySelect(state , state.MasterDataSlice.sortBy))
     const {status} = useSelector(state => state.MasterDataSlice)
     const {selectProduct} = useSelector(state => state.SelectProductSlice)
+    const [headerPosition] = useState('fixed');
 
     let Render ;
 
@@ -50,7 +52,7 @@ export const HomePreRender = () =>
 
     return (
         <div>
-            <HeaderUp/>
+            <HeaderUp headerPosition={headerPosition}/>
             <HeaderDown/>
             <HomeSlider/>
             <HomeBenefit/>
