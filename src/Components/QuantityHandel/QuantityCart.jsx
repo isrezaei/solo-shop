@@ -3,6 +3,7 @@ import {DecreaseQuantity, IncreaseQuantity, RemoveQuantity} from "../../Redux/Ma
 import {DeleteToCard} from "../../Redux/CartShopSlice";
 import {CheckQuantity} from "../../HelperFuncs/HelperFuncs";
 import {TiPlus , TiMinus} from "react-icons/ti";
+import {RiDeleteBinLine} from 'react-icons/ri'
 
 export const QuantityCart = ({CartSlice , MasterSlice}) =>
 {
@@ -48,9 +49,11 @@ export const QuantityCart = ({CartSlice , MasterSlice}) =>
             <div className='w-80 h-full flex  items-center'>
                 <img id='product-image' className='w-24' src={image.mainImg}  alt={product}/>
                 <div className='h-28 flex flex-col justify-evenly ml-4'>
-                    <p>{product}</p>
-                    <p>{brand}</p>
-                    <p onClick={RemQuan}>Delete</p>
+                    <p className='text-lg font-bold text-gray-500'>{product}</p>
+                    <p>See Product</p>
+                    <p className='w-8 h-8 bg-red-500 text-center text-xl text-white rounded-2xl flex justify-center items-center cursor-pointer' onClick={RemQuan}>
+                        <RiDeleteBinLine/>
+                    </p>
                 </div>
             </div>
 
@@ -65,8 +68,8 @@ export const QuantityCart = ({CartSlice , MasterSlice}) =>
                 </button>
             </div>
 
-            <p className='w-24 text-center'>${price}</p>
-            <p className='w-24 text-center text-xl font-bold'>${CheckQuantity(id) * price} </p>
+            <p className='w-24 text-center text-gray-500'>${price}</p>
+            <p className='w-24 text-center text-blue-700 text-xl font-bold'>${CheckQuantity(id) * price} </p>
 
         </div>
     )
