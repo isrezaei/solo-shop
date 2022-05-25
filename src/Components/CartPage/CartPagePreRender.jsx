@@ -1,19 +1,39 @@
 import {useState} from "react";
-import {useSelector} from "react-redux";
-import {selectCartShopIds} from "../../Redux/CartShopSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {selectCartShopIds , DeleteAllCarts} from "../../Redux/CartShopSlice";
 import {CartPageEachCart} from "./CartPageEachCart";
 import {HeaderUp} from "../Header/HeaderUp";
 import {IoMdArrowRoundBack} from 'react-icons/io'
+import {ResetAndClearAllTotal} from "../../Redux/MasterDataSlice";
+import {selectAllMasterData} from "../../Redux/MasterDataSlice";
+import {ResetAllQuantity} from "../../Redux/MasterDataSlice";
+import {useNavigate} from "react-router-dom";
 
 export const CartPagePreRender = () =>
 {
-    const CartProduct = useSelector(state => selectCartShopIds(state))
+    const dispatch = useDispatch()
 
+
+    const CartProduct = useSelector(state => selectCartShopIds(state))
     const Render = CartProduct.map(ids => <CartPageEachCart key={ids} ids={ids}/>)
     const {totalQuantity , totalPrice} = useSelector(state => state.MasterDataSlice)
     const [ShippingFee , setShippingFee] = useState(5)
-
     const [headerPosition] = useState('relative');
+    const Navigation = useNavigate()
+
+
+
+
+    const clearAndBack = () =>
+    {
+        dispatch(DeleteAllCarts())
+
+        dispatch(ResetAndClearAllTotal())
+
+        Navigation('/')
+
+    }
+
 
     return (
         <>
@@ -64,7 +84,7 @@ export const CartPagePreRender = () =>
                         </div>
                         <div className='w-full h-56  flex flex-col justify-center gap-3 items-center'>
                             <button className='w-72 h-11 bg-blue-700 text-white'>Continue & CHECKOUT</button>
-                            <button className='w-72 h-11 bg-red-500 text-white'>CLEAR CART & BACK</button>
+                            <button className='w-72 h-11 bg-red-500 text-white' onClick={clearAndBack}>CLEAR CART & BACK</button>
                             <div className='w-72 h-11 text-blue-900 flex justify-start items-center gap-2 cursor-pointer'>
                                 <IoMdArrowRoundBack/>
                                 <p>Continue Shopping</p>

@@ -8,8 +8,6 @@ import {BrowserRouter} from "react-router-dom";
 import './index.css'
 
 
-store.dispatch(FetchMasterData())
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

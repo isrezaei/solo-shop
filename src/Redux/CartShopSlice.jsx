@@ -2,6 +2,7 @@ import {createSlice, createEntityAdapter} from "@reduxjs/toolkit";
 
 
 
+
 const CartShopAdapter = createEntityAdapter({
     sortComparer : (a, b) => b.id - a.id
 })
@@ -14,17 +15,21 @@ const CartShopSlice = createSlice({
     name : 'CardShopSlice' ,
     initialState,
     reducers : {
-        AddToCard(state , {payload})
+        AddToCarts(state , {payload})
         {
             CartShopAdapter.addOne(state , payload)
         },
-        DeleteFromCard(state , {payload})
+        DeleteFromCarts(state , {payload})
         {
             CartShopAdapter.removeOne(state , payload)
         },
+        DeleteAllCarts(state , {payload})
+        {
+            CartShopAdapter.removeAll(state)
+        }
     },
 })
 
 export default CartShopSlice.reducer
-export const {AddToCard , DeleteFromCard} = CartShopSlice.actions
+export const {AddToCarts , DeleteFromCarts , DeleteAllCarts} = CartShopSlice.actions
 

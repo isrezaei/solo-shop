@@ -1,6 +1,6 @@
 import {useDispatch} from "react-redux";
 import {DecreaseQuantity, IncreaseQuantity, RemoveQuantity , RemoveQuantityCart} from "../../Redux/MasterDataSlice";
-import {DeleteFromCard} from "../../Redux/CartShopSlice";
+import {DeleteFromCarts} from "../../Redux/CartShopSlice";
 
 
 export const QuantityCart = () =>
@@ -37,7 +37,7 @@ export const QuantityCart = () =>
             staticQuantity : quantity
         }))
 
-        dispatch(DeleteFromCard(id))
+        dispatch(DeleteFromCarts(id))
     }
 
 

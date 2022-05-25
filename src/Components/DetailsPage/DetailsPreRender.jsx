@@ -1,9 +1,11 @@
 import {useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 import {DetailsEachProduct} from "./DetailsEachProduct";
-import {selectMasterDataById} from "../../Redux/MasterDataSlice";
+import {FetchMasterData, selectMasterDataById} from "../../Redux/MasterDataSlice";
 import {HeaderUp} from "../Header/HeaderUp";
 import {HeaderDown} from "../Header/HeaderDown";
+import {useEffect} from "react";
+import {useDispatch} from "react-redux";
 
 export const DetailsPreRender = () =>
 {
@@ -12,8 +14,14 @@ export const DetailsPreRender = () =>
 
     const EachProduct = useSelector(state => selectMasterDataById(state , productId))
     const {status} = useSelector(state => state.MasterDataSlice)
+    const dispatch = useDispatch()
 
-    console.log(status)
+    useEffect(()=>{
+        if (status === 'idle')
+        {
+            dispatch(FetchMasterData())
+        }
+    } , [dispatch , status])
 
 
     let Render ;

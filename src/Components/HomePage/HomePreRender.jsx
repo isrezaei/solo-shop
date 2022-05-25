@@ -1,5 +1,5 @@
-import {useSelector} from "react-redux";
-import {selectMasterDataIds, SortBySelect} from "../../Redux/MasterDataSlice";
+import {useSelector , useDispatch} from "react-redux";
+import {FetchMasterData , SortBySelect} from "../../Redux/MasterDataSlice";
 import {HomeEachProduct} from "./HomeEachProduct";
 import {HomeSlider} from "./HomeSlider";
 import {HomeBenefit} from "./HomeBenefit";
@@ -8,14 +8,13 @@ import {HomeOfferSlider} from "./HomeOfferSlider";
 import {HomeFilterProduct} from "./HomeFilterProduct";
 import { Grid, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
 import {HeaderUp} from "../Header/HeaderUp";
 import {HeaderDown} from "../Header/HeaderDown";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+
 
 
 
@@ -25,6 +24,18 @@ export const HomePreRender = () =>
     const {status} = useSelector(state => state.MasterDataSlice)
     const {selectProduct} = useSelector(state => state.SelectProductSlice)
     const [headerPosition] = useState('fixed');
+    const dispatch = useDispatch()
+
+
+    useEffect(()=>{
+        if (status === 'idle')
+        {
+            dispatch(FetchMasterData())
+
+        }
+    } , [dispatch , status])
+
+
 
     let Render ;
 

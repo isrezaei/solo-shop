@@ -17,6 +17,7 @@ export const CartPageEachCart = ({ids}) =>
     const {quantity} = MasterSlice
     const {image , product , price , id } = CartSlice
 
+
     const EachTotalPrice = (CheckQuantity(id) * price).toFixed(2)
 
     return (

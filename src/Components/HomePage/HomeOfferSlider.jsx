@@ -1,5 +1,5 @@
 import {useSelector} from "react-redux";
-import {selectAll} from "../../Redux/MasterDataSlice";
+import {selectAllMasterData} from "../../Redux/MasterDataSlice";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCreative } from "swiper";
 import { Progress } from 'react-sweet-progress';
@@ -11,7 +11,7 @@ import 'swiper/css/bundle'
 export const HomeOfferSlider = () =>
 {
 
-    const AllProduct = useSelector(state => selectAll(state))
+    const AllProduct = useSelector(state => selectAllMasterData(state))
 
     const BestOffer = AllProduct.filter(items => items.offer >= 30)
 

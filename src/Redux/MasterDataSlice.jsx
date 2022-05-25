@@ -22,11 +22,11 @@ const initialState = MasterDataAdapter.getInitialState({
 })
 
 
-export const { selectById: selectMasterDataById,  selectIds: selectMasterDataIds , selectAll} = MasterDataAdapter.getSelectors(state => state.MasterDataSlice)
+export const { selectById: selectMasterDataById,  selectIds: selectMasterDataIds , selectAll : selectAllMasterData , selectEntities : selectMasterEntities} = MasterDataAdapter.getSelectors(state => state.MasterDataSlice)
 
 export const SortBySelect = createSelector (
 
-    [ selectAll , (state , items) => items] ,
+    [ selectAllMasterData , (state , items) => items] ,
 
     (AllProduct, SelectFilter) => {
 
@@ -45,6 +45,7 @@ export const SortBySelect = createSelector (
             return  a[SelectFilter] - b[SelectFilter]
         })
     } )
+
 
 
 
@@ -86,7 +87,7 @@ export const MasterDataSlice = createSlice({
         {
             MasterDataAdapter.upsertOne(state , {
                 id : payload.id,
-                quantity : payload.quantity
+                quantity : null
             })
 
             state.totalQuantity = 0
@@ -103,6 +104,17 @@ export const MasterDataSlice = createSlice({
 
             state.totalQuantity -= payload.staticQuantity
             state.totalPrice -= payload.price
+        },
+
+        ResetAndClearAllTotal(state , {payload})
+        {
+
+            state.status = 'idle'
+
+            MasterDataAdapter.setAll(state , [])
+
+            state.totalQuantity = 0
+            state.totalPrice = 0
         },
 
 
@@ -130,6 +142,6 @@ export const MasterDataSlice = createSlice({
 
 
 export default MasterDataSlice.reducer
-export const {AddQuantity , IncreaseQuantity , DecreaseQuantity , RemoveQuantity , RemoveQuantityCart , SortEntities} = MasterDataSlice.actions
+export const {AddQuantity , IncreaseQuantity , DecreaseQuantity , RemoveQuantity , RemoveQuantityCart , ResetAndClearAllTotal , SortEntities} = MasterDataSlice.actions
 
 

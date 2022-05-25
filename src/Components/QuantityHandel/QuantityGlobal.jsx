@@ -1,5 +1,5 @@
 import {AddQuantity, DecreaseQuantity, IncreaseQuantity, RemoveQuantity} from "../../Redux/MasterDataSlice";
-import {AddToCard, DeleteFromCard} from "../../Redux/CartShopSlice";
+import {AddToCarts, DeleteFromCarts} from "../../Redux/CartShopSlice";
 import {CheckQuantity, HaveQuantity} from "../../HelperFuncs/HelperFuncs";
 import {useDispatch} from "react-redux";
 
@@ -17,7 +17,7 @@ export const QuantityGlobal = (EachProduct) =>
                 price
             }
         ))
-        dispatch(AddToCard(EachProduct))
+        dispatch(AddToCarts(EachProduct))
     }
 
     const IncQuan = () =>
@@ -47,7 +47,7 @@ export const QuantityGlobal = (EachProduct) =>
             price
         }))
 
-        dispatch(DeleteFromCard(id))
+        dispatch(DeleteFromCarts(id))
     }
 
     return {
