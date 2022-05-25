@@ -35,7 +35,7 @@ export const HomeBenefit = () =>
 
     const Render = options.map(items => {
         return (
-            <div className='w-72 h-24 flex justify-around items-center p-7 shadow-center text-blue-900'>
+            <div key={items.title} className='w-72 h-24 flex justify-around items-center p-7 shadow-center text-blue-900'>
                 <div className='text-5xl'>{items.icon}</div>
                 <section>
                     <p className='text-xl font-medium'>{items.title}</p>

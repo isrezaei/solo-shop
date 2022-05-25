@@ -1,4 +1,4 @@
-import {createSlice , createEntityAdapter} from "@reduxjs/toolkit";
+import {createSlice, createEntityAdapter} from "@reduxjs/toolkit";
 
 
 
@@ -16,17 +16,15 @@ const CartShopSlice = createSlice({
     reducers : {
         AddToCard(state , {payload})
         {
-            console.log(payload)
-
             CartShopAdapter.addOne(state , payload)
         },
-        DeleteToCard(state , {payload})
+        DeleteFromCard(state , {payload})
         {
             CartShopAdapter.removeOne(state , payload)
         },
-
-    }
+    },
 })
 
 export default CartShopSlice.reducer
-export const {AddToCard , DeleteToCard} = CartShopSlice.actions
+export const {AddToCard , DeleteFromCard} = CartShopSlice.actions
+

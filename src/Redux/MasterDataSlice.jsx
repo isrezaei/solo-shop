@@ -89,9 +89,23 @@ export const MasterDataSlice = createSlice({
                 quantity : payload.quantity
             })
 
-            state.totalQuantity -= 1
+            state.totalQuantity = 0
             state.totalPrice -= payload.price
         },
+
+        RemoveQuantityCart (state , {payload}) {
+            MasterDataAdapter.upsertOne(state , {
+                id : payload.id,
+                quantity : null
+            })
+
+            console.log(payload.price)
+
+            state.totalQuantity -= payload.staticQuantity
+            state.totalPrice -= payload.price
+        },
+
+
         SortEntities(state , {payload})
         {
             state.sortBy = payload
@@ -116,6 +130,6 @@ export const MasterDataSlice = createSlice({
 
 
 export default MasterDataSlice.reducer
-export const {AddQuantity , IncreaseQuantity , DecreaseQuantity , RemoveQuantity , SortEntities} = MasterDataSlice.actions
+export const {AddQuantity , IncreaseQuantity , DecreaseQuantity , RemoveQuantity , RemoveQuantityCart , SortEntities} = MasterDataSlice.actions
 
 

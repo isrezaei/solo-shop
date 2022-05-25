@@ -10,6 +10,8 @@ export const CartPagePreRender = () =>
     const CartProduct = useSelector(state => selectCartShopIds(state))
 
     const Render = CartProduct.map(ids => <CartPageEachCart key={ids} ids={ids}/>)
+    const {totalQuantity , totalPrice} = useSelector(state => state.MasterDataSlice)
+    const [ShippingFee , setShippingFee] = useState(5)
 
     const [headerPosition] = useState('relative');
 
@@ -21,14 +23,14 @@ export const CartPagePreRender = () =>
                 <div className='container h-150 max-w-8xl  mx-auto flex justify-center items-start'>
                     <div className='flex w-8/12 flex-col justify-start items-center'>
                         <div className='w-11/12 h-20 px-4 flex justify-between items-center border-b border-b-gray-200'>
-                            <p className='text-2xl font-bold'>Shopping Cart</p>
-                            <p className='text-2xl font-bold'>3 Items</p>
+                            <p className='text-2xl font-bold text-gray-600'>Shopping Cart</p>
+                            <p className='text-2xl font-bold text-gray-600'>{totalQuantity} Items</p>
                         </div>
                         <div className='w-11/12 h-20 relative flex justify-between items-center'>
-                            <p className='absolute left-6'>PRODUCT DETAILS</p>
-                            <p className='absolute left-128.5'>QUANTITY</p>
-                            <p className='absolute left-141'>PRICE</p>
-                            <p className='absolute right-16'>TOTAL</p>
+                            <p className='absolute text-gray-400 left-6'>PRODUCT DETAILS</p>
+                            <p className='absolute text-gray-400 left-128.5'>QUANTITY</p>
+                            <p className='absolute text-gray-400 left-141'>PRICE</p>
+                            <p className='absolute text-gray-400 right-16'>TOTAL</p>
                         </div>
                         <div className='w-full h-140 overflow-y-scroll scrollbar-hide'>
                             {Render}
@@ -39,8 +41,8 @@ export const CartPagePreRender = () =>
                     <div className='w-3/12 h-full p-6 bg-gray-100'>
                         <div className='w-full h-14 flex items-start text-3xl text-gray-600 font-bold border-b border-b-gray-300'>Order Summary</div>
                         <div className='w-full h-16 flex justify-between items-center'>
-                            <p className=''>ITEMS 3</p>
-                            <p className='text-xl text-gray-700'>$553.3</p>
+                            <p className=''>ITEMS {totalQuantity}</p>
+                            <p className='text-xl text-gray-700'>${totalPrice.toFixed(2)}</p>
                         </div>
                         <div className='w-full h-28 flex flex-col justify-center gap-y-1 items-start'>
                             <label htmlFor='shipping' className='text-gray-500 text-sm'>SHIPPING</label>
@@ -58,7 +60,7 @@ export const CartPagePreRender = () =>
                         </div>
                         <div className='w-full h-16 flex justify-between items-center'>
                             <p className='text-gray-500'>TOTAL COST</p>
-                            <p className='text-2xl font-bold text-blue-700'>$552</p>
+                            <p className='text-2xl font-bold text-blue-700'>${(totalPrice + ShippingFee).toFixed(2)}</p>
                         </div>
                         <div className='w-full h-56  flex flex-col justify-center gap-3 items-center'>
                             <button className='w-72 h-11 bg-blue-700 text-white'>Continue & CHECKOUT</button>
