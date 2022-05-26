@@ -23,7 +23,7 @@ const CartShopSlice = createSlice({
         {
             CartShopAdapter.removeOne(state , payload)
         },
-        DeleteAllCarts(state , {payload})
+        DeleteAllCarts(state)
         {
             CartShopAdapter.removeAll(state)
         }

@@ -26,15 +26,12 @@ export const HomePreRender = () =>
     const [headerPosition] = useState('fixed');
     const dispatch = useDispatch()
 
-
     useEffect(()=>{
         if (status === 'idle')
         {
             dispatch(FetchMasterData())
-
         }
     } , [dispatch , status])
-
 
 
     let Render ;

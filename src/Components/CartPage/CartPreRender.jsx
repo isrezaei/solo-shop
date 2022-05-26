@@ -1,21 +1,20 @@
 import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {selectCartShopIds , DeleteAllCarts} from "../../Redux/CartShopSlice";
-import {CartPageEachCart} from "./CartPageEachCart";
+import {CartEachCart} from "./CartEachCart";
 import {HeaderUp} from "../Header/HeaderUp";
 import {IoMdArrowRoundBack} from 'react-icons/io'
 import {ResetAndClearAllTotal} from "../../Redux/MasterDataSlice";
-import {selectAllMasterData} from "../../Redux/MasterDataSlice";
-import {ResetAllQuantity} from "../../Redux/MasterDataSlice";
+import {CartEmptyAlert} from "./CartEmptyAlert";
 import {useNavigate} from "react-router-dom";
 
-export const CartPagePreRender = () =>
+export const CartPreRender = () =>
 {
     const dispatch = useDispatch()
 
 
     const CartProduct = useSelector(state => selectCartShopIds(state))
-    const Render = CartProduct.map(ids => <CartPageEachCart key={ids} ids={ids}/>)
+    const Render = CartProduct.map(ids => <CartEachCart key={ids} ids={ids}/>)
     const {totalQuantity , totalPrice} = useSelector(state => state.MasterDataSlice)
     const [ShippingFee , setShippingFee] = useState(5)
     const [headerPosition] = useState('relative');
@@ -27,11 +26,8 @@ export const CartPagePreRender = () =>
     const clearAndBack = () =>
     {
         dispatch(DeleteAllCarts())
-
         dispatch(ResetAndClearAllTotal())
-
         Navigation('/')
-
     }
 
 
@@ -39,7 +35,7 @@ export const CartPagePreRender = () =>
         <>
             <HeaderUp headerPosition={headerPosition}/>
 
-            <div className='w-full mt-8'>
+            {Render.length === 0 ? <CartEmptyAlert/> : <div className='w-full mt-8'>
                 <div className='container h-150 max-w-8xl  mx-auto flex justify-center items-start'>
                     <div className='flex w-8/12 flex-col justify-start items-center'>
                         <div className='w-11/12 h-20 px-4 flex justify-between items-center border-b border-b-gray-200'>
@@ -92,7 +88,9 @@ export const CartPagePreRender = () =>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>}
+
+
 
         </>
     )

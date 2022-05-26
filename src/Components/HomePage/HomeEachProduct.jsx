@@ -7,7 +7,7 @@ import {useNavigate} from 'react-router-dom'
 import {useLocation} from "react-router-dom";
 import {QuantityGlobal} from "../QuantityHandel/QuantityGlobal";
 import {TiPlus} from "react-icons/ti";
-import {RiDeleteBinLine} from "react-icons/ri";
+import {RiDeleteBinLine , RiShoppingCartFill} from "react-icons/ri";
 
 export const HomeEachProduct = ({ids}) =>
 {
@@ -22,8 +22,8 @@ export const HomeEachProduct = ({ids}) =>
     return (
         <div className=' w-full h-full bg-white p-3 flex flex-col justify-start items-center'>
             <div className='w-auto group relative h-3/4' >
-                <img className='w-auto h-full cursor-pointer' src={image.mainImg} alt={product} onClick={()=> Navigate(`/details/${id}`)}/>
-                <div className='w-full h-10 absolute bottom-0 opacity-0 group-hover:opacity-95  flex justify-around items-center bg-white transition cursor-pointer'>
+                <img className={`w-auto h-full cursor-pointer ${price === 'out' && 'filter grayscale'}`} src={image.mainImg} alt={product} onClick={()=> Navigate(`/details/${id}`)}/>
+                <div className={`w-full h-10 absolute bottom-0 opacity-0 group-hover:opacity-95 ${price === 'out' && 'hidden'}  flex justify-around items-center bg-white transition cursor-pointer`}>
                     <div className='w-6/12 flex justify-evenly items-center h-10'>
                         {
                             HaveQuantity(id) ?
@@ -43,6 +43,8 @@ export const HomeEachProduct = ({ids}) =>
                         <BiHeart className='text-xl'/>
                     </div>
                 </div>
+
+                {CheckQuantity(id) >= 1 && <div className='w-8 h-8 bg-blue-700 rounded-full absolute top-0 right-0 flex justify-center items-center'><RiShoppingCartFill className='text-white'/></div>}
             </div>
 
 
@@ -55,7 +57,7 @@ export const HomeEachProduct = ({ids}) =>
                         </div>
                         :
                         <div className='w-full flex justify-evenly items-center'>
-                            <p className='font-medium text-xl text-gray-600'>{price === 'out' ? 'out of stock ':`$${price}` }</p>
+                            <p className='font-medium text-xl text-gray-600'>{price === 'out' ? <p className='text-xl text-red-500 font-bold'>out of stock</p>:`$${price}` }</p>
                         </div>
                 }
             </div>

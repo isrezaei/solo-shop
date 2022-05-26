@@ -1,18 +1,14 @@
 import {createSlice, createAsyncThunk, createEntityAdapter, createSelector} from "@reduxjs/toolkit";
 import {PromiseFunc} from "../Serves/PromiseFunc";
 
-
 export const FetchMasterData = createAsyncThunk (
     'MasterData/FetchMasterData',
     async () => (await PromiseFunc())
 )
 
-
-
 const MasterDataAdapter = createEntityAdapter({
     sortComparer : (a, b) => a.id - b.id
 })
-
 
 const initialState = MasterDataAdapter.getInitialState({
     totalQuantity : 0,
@@ -21,7 +17,6 @@ const initialState = MasterDataAdapter.getInitialState({
     status : 'idle'
 })
 
-
 export const { selectById: selectMasterDataById,  selectIds: selectMasterDataIds , selectAll : selectAllMasterData , selectEntities : selectMasterEntities} = MasterDataAdapter.getSelectors(state => state.MasterDataSlice)
 
 export const SortBySelect = createSelector (
@@ -29,9 +24,7 @@ export const SortBySelect = createSelector (
     [ selectAllMasterData , (state , items) => items] ,
 
     (AllProduct, SelectFilter) => {
-
         return [...AllProduct].sort((a, b) => {
-
             if (SelectFilter === 'cheapest')
             {
               return  a.price - b.price
@@ -41,20 +34,15 @@ export const SortBySelect = createSelector (
             {
                 return  b.price - a.price
             }
-
             return  a[SelectFilter] - b[SelectFilter]
         })
     } )
-
-
-
 
 export const MasterDataSlice = createSlice({
     name : 'MasterData',
     initialState ,
     reducers : {
         AddQuantity(state , {payload}){
-
             MasterDataAdapter.upsertOne(state , {
                 id : payload.id,
                 quantity : payload.quantity
@@ -62,7 +50,6 @@ export const MasterDataSlice = createSlice({
             state.totalQuantity += 1
             state.totalPrice += payload.price
         },
-
         IncreaseQuantity(state , {payload})
         {
             MasterDataAdapter.upsertOne(state , {
@@ -72,7 +59,6 @@ export const MasterDataSlice = createSlice({
             state.totalQuantity += 1
             state.totalPrice += payload.price
         },
-
         DecreaseQuantity(state , {payload}) {
             MasterDataAdapter.upsertOne(state , {
                 id : payload.id,
@@ -82,49 +68,36 @@ export const MasterDataSlice = createSlice({
             state.totalQuantity -= 1
             state.totalPrice -= payload.price
         },
-
-        RemoveQuantity(state , {payload})
+        RemoveQuantityHomePage(state , {payload})
         {
             MasterDataAdapter.upsertOne(state , {
                 id : payload.id,
                 quantity : null
             })
-
             state.totalQuantity = 0
             state.totalPrice -= payload.price
         },
-
-        RemoveQuantityCart (state , {payload}) {
+        RemoveQuantityCartPage (state , {payload}) {
             MasterDataAdapter.upsertOne(state , {
                 id : payload.id,
                 quantity : null
             })
-
-            console.log(payload.price)
-
             state.totalQuantity -= payload.staticQuantity
             state.totalPrice -= payload.price
         },
-
-        ResetAndClearAllTotal(state , {payload})
+        ResetAndClearAllTotal(state)
         {
-
-            state.status = 'idle'
-
             MasterDataAdapter.setAll(state , [])
-
+            state.status = 'idle'
             state.totalQuantity = 0
             state.totalPrice = 0
         },
-
-
         SortEntities(state , {payload})
         {
             state.sortBy = payload
         }
     } ,
     extraReducers : {
-
         [FetchMasterData.pending] : (state) => {
             state.status = 'pending'
         },
@@ -142,6 +115,6 @@ export const MasterDataSlice = createSlice({
 
 
 export default MasterDataSlice.reducer
-export const {AddQuantity , IncreaseQuantity , DecreaseQuantity , RemoveQuantity , RemoveQuantityCart , ResetAndClearAllTotal , SortEntities} = MasterDataSlice.actions
+export const {AddQuantity , IncreaseQuantity , DecreaseQuantity , RemoveQuantityHomePage , RemoveQuantityCartPage , ResetAndClearAllTotal , SortEntities} = MasterDataSlice.actions
 
 

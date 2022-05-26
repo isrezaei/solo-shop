@@ -7,7 +7,7 @@ import {CheckQuantity} from "../../HelperFuncs/HelperFuncs";
 import {TiMinus, TiPlus} from "react-icons/ti";
 
 
-export const CartPageEachCart = ({ids}) =>
+export const CartEachCart = ({ids}) =>
 {
     const CartSlice = useSelector(state => selectCartShopById(state , ids))
     const MasterSlice = useSelector(state => selectMasterDataById(state , ids))
