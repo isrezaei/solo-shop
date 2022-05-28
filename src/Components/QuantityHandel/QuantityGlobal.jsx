@@ -5,46 +5,45 @@ import {useDispatch} from "react-redux";
 
 export const QuantityGlobal = (EachProduct) =>
 {
-    const {id , quantity , price} = EachProduct
     const dispatch = useDispatch()
 
-    const AddQuan  = () =>
+    const AddQuan  = (id , PriceWithOffer) =>
     {
         dispatch(AddQuantity(
             {
                 id,
                 quantity : 1 ,
-                price
+                PriceWithOffer
             }
         ))
         dispatch(AddToCarts(EachProduct))
     }
 
-    const IncQuan = () =>
+    const IncQuan = (id , PriceWithOffer , quantity) =>
     {
         dispatch(IncreaseQuantity({
             id,
             quantity : quantity + 1,
-            price
+            PriceWithOffer
         }))
 
     }
 
-    const DecQuan = () =>
+    const DecQuan = (id , PriceWithOffer , quantity) =>
     {
         dispatch(DecreaseQuantity({
             id,
             quantity : quantity - 1,
-            price
+            PriceWithOffer
 
         }))
     }
 
-    const RemQuan = () =>
+    const RemQuan = (id , PriceWithOffer ) =>
     {
         dispatch(RemoveQuantityHomePage({
             id,
-            price
+            PriceWithOffer
         }))
 
         dispatch(DeleteFromCarts(id))

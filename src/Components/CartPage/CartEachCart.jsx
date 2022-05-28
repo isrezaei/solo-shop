@@ -15,15 +15,18 @@ export const CartEachCart = ({ids}) =>
     const {IncQuan,DecQuan,RemQuan} = QuantityCart()
 
     const {quantity} = MasterSlice
-    const {image , product , price , id } = CartSlice
+    const {image , product , price , id , offer } = CartSlice
+
+    const PriceWithOffer = parseInt(price - ((price * offer) / 100))
+
+    const EachTotalPrice = parseInt(CheckQuantity(id) * PriceWithOffer)
 
 
-    const EachTotalPrice = (CheckQuantity(id) * price).toFixed(2)
+
 
     return (
         <div className='flex h-40 justify-evenly items-center'>
-
-            <div className='w-80 h-full flex  items-center'>
+            <div className='w-80 h-full flex items-center'>
                 <img id='product-image' className='w-24' src={image.mainImg}  alt={product}/>
                 <div className='h-28 flex flex-col justify-evenly ml-4'>
                     <p className='text-lg font-bold text-gray-500'>{product}</p>
@@ -38,17 +41,17 @@ export const CartEachCart = ({ids}) =>
 
             <div className='w-36 flex justify-evenly items-center'>
                 <button className='w-8 h-8 flex justify-center items-center text-red-500 disabled:opacity-50' disabled={CheckQuantity(id) <= 1}
-                        onClick={()=> DecQuan(id , price , quantity)}>
+                        onClick={()=> DecQuan(id , PriceWithOffer , quantity)}>
                     <TiMinus/>
                 </button>
                 <p className='w-10 text-center p-2 border border-gray-300 '> {quantity}</p>
-                <button className='w-6 h-6 flex justify-center items-center rounded-full bg-blue-700 text-white' onClick={()=> IncQuan(id , price , quantity)}>
+                <button className='w-6 h-6 flex justify-center items-center rounded-full bg-blue-700 text-white' onClick={()=> IncQuan(id , PriceWithOffer , quantity)}>
                     <TiPlus/>
                 </button>
             </div>
 
             <p className='w-24 text-center text-gray-500'>${price}</p>
-            <p className='w-24 text-center text-blue-700 text-xl font-bold'>${EachTotalPrice}</p>
+            <p className='w-24 text-center text-blue-700 text-xl font-bold'>${EachTotalPrice.toFixed(2)}</p>
 
         </div>
     )

@@ -9,32 +9,32 @@ export const QuantityCart = () =>
     const dispatch = useDispatch()
 
 
-    const IncQuan = (id , price , quantity) =>
+    const IncQuan = (id , PriceWithOffer , quantity) =>
     {
         dispatch(IncreaseQuantity({
             id,
             quantity : quantity + 1,
-            price
+            PriceWithOffer
         }))
     }
 
-    const DecQuan = (id , price , quantity) =>
+    const DecQuan = (id , PriceWithOffer , quantity) =>
     {
         dispatch(DecreaseQuantity({
             id,
             quantity : quantity - 1,
-            price,
+            PriceWithOffer,
 
         }))
     }
 
-    const RemQuan = (id , price , quantity ) =>
+    const RemQuan = (id , EachTotalPrice , quantity ) =>
     {
 
         dispatch(RemoveQuantityCartPage({
             id,
-            price,
-            staticQuantity : quantity
+            PriceWithOffer : EachTotalPrice,
+            quantity
         }))
 
         dispatch(DeleteFromCarts(id))

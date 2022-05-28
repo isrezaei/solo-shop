@@ -11,15 +11,13 @@ export const DetailsEachProduct = ({EachProduct}) =>
 
 
     return (
-        <div style={{marginTop : '3vw'}}>
-            <div>
-                <img src={image.mainImg} alt={product} style={{width : '20vw'}}/>
-                <h3>{price} $</h3>
-                <h3>{product}</h3>
-                <h4>{brand}</h4>
-                <h3>{introduction}</h3>
+        <div className='container max-w-5xl bg-amber-500 mx-auto flex justify-evenly items-start gap-10 py-5'>
 
-                <div style={{  width : '20%' ,display : 'flex' ,  justifyContent : 'space-evenly', alignItems : 'center'}}>
+            <section>
+                <img className='w-48' src={image.mainImg} alt={product}/>
+
+
+                <div>
 
                     <div className='w-6/12 flex justify-evenly items-center h-10'>
 
@@ -42,7 +40,72 @@ export const DetailsEachProduct = ({EachProduct}) =>
                     </div>
 
                 </div>
-            </div>
+            </section>
+
+            <section className='w-3/6 bg-blue-300 flex flex-col justify-start items-start gap-3'>
+                <p className='text-3xl font-bold'>Buy {product}</p>
+                <p className='text-lg font-medium'>Get $110–$700 off when you trade in an {product} or newer</p>
+
+                <label htmlFor='select-color' className='text-lg'>Choose your color</label>
+                <div id='select-color' className='grid grid-cols-2 grid-rows-2 gap-4'>
+
+                    <div className='w-48 h-28 bg-amber-500 flex flex-col justify-center items-center gap-2 rounded-2xl border-2 border-blue-600'>
+                        <div>
+                            <div className='w-9 h-9 bg-red-700 rounded-full'> </div>
+                            <div className='text-center'>color</div>
+                        </div>
+                    </div>
+                    <div className='w-48 h-28 bg-green-700 flex flex-col justify-center items-center gap-2 rounded-2xl'>
+                        <div>
+                            <div className='w-9 h-9 bg-red-700 rounded-full'> </div>
+                            <div className='text-center'>color</div>
+                        </div>
+                    </div>
+                    <div className='w-48 h-28 bg-amber-300 flex flex-col justify-center items-center gap-2 rounded-2xl'>
+                        <div>
+                            <div className='w-9 h-9 bg-red-700 rounded-full'> </div>
+                            <div className='text-center'>color</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <label htmlFor='select-Capacity' className='text-lg'>Choose your capacity</label>
+                <div id='select-Capacity' className='grid grid-cols-2 grid-rows-2 gap-4'>
+
+                    <div className='w-48 h-28 bg-amber-500 flex flex-col justify-center items-center gap-2 rounded-2xl border-2 border-blue-600'>
+                        <div>
+                            <div className=''>
+                                <p>128</p>
+                                <p>GB</p>
+                            </div>
+                            <div className='text-center'>from $799</div>
+                        </div>
+                    </div>
+                    <div className='w-48 h-28 bg-green-700 flex flex-col justify-center items-center gap-2 rounded-2xl'>
+                        <div>
+                            <div className=''>
+                                <p>128</p>
+                                <p>GB</p>
+                            </div>
+                            <div className='text-center'>from $799</div>
+                        </div>
+                    </div>
+                    <div className='w-48 h-28 bg-amber-300 flex flex-col justify-center items-center gap-2 rounded-2xl'>
+                        <div>
+                            <div className=''>
+                                <p>128</p>
+                                <p>GB</p>
+                            </div>
+                            <div className='text-center'>from $799</div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </section>
+
         </div>
 
     )

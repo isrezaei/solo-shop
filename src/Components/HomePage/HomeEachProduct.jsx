@@ -17,6 +17,8 @@ export const HomeEachProduct = ({ids}) =>
 
     const {product , image , id , price , offer , rate , quantity} = EachProduct
 
+    const PriceWithOffer = parseInt((price - ((price * offer) / 100)))
+
     const { HaveQuantity, CheckQuantity, AddQuan, IncQuan, DecQuan, RemQuan} = QuantityGlobal(EachProduct)
 
     return (
@@ -28,23 +30,26 @@ export const HomeEachProduct = ({ids}) =>
                         {
                             HaveQuantity(id) ?
 
-                                <TiPlus onClick={IncQuan} className='text-base text-indigo-400'/>
+                                <TiPlus onClick={()=> IncQuan(id , PriceWithOffer , quantity)} className='text-base text-indigo-400'/>
                                 :
 
-                                <div className='flex w-full ' onClick={AddQuan}>
+                                <div className='flex w-full ' onClick={()=> AddQuan(id , PriceWithOffer , quantity)}>
                                     <p className='font-medium'>Add to cart</p>
                                 </div>
                         }
                         <p className='text-xl'> {quantity}</p>
-                        {CheckQuantity(id) === 1 && <RiDeleteBinLine onClick={RemQuan} className='text-base text-rose-500'/>}
-                        {CheckQuantity(id) > 1 && <button onClick={DecQuan}>-</button>}
+                        {CheckQuantity(id) === 1 && <RiDeleteBinLine onClick={()=> RemQuan(id , PriceWithOffer , quantity)} className='text-base text-rose-500'/>}
+                        {CheckQuantity(id) > 1 && <button onClick={()=> DecQuan(id , PriceWithOffer , quantity)}>-</button>}
                     </div>
                     <div className='w-4/12 flex justify-end'>
                         <BiHeart className='text-xl'/>
                     </div>
                 </div>
 
-                {CheckQuantity(id) >= 1 && <div className='w-8 h-8 bg-blue-700 rounded-full absolute top-0 right-0 flex justify-center items-center'><RiShoppingCartFill className='text-white'/></div>}
+                {CheckQuantity(id) >= 1 &&
+                    <div className='w-8 h-8 bg-blue-700 rounded-full absolute top-0 right-0 flex justify-center items-center'>
+                        <RiShoppingCartFill className='text-white'/>
+                    </div>}
             </div>
 
 
@@ -52,12 +57,12 @@ export const HomeEachProduct = ({ids}) =>
                 {
                     offer > 0 ?
                         <div className='w-full flex justify-evenly items-center'>
-                            <p className='text-xl font-medium text-gray-600'>${(price - (price * offer / 100)).toFixed(2)}</p>
+                            <p className='text-xl font-medium text-gray-600'>${PriceWithOffer.toFixed(2)}</p>
                             <p className='font-medium line-through text-red-500'>${price}</p>
                         </div>
                         :
                         <div className='w-full flex justify-evenly items-center'>
-                            <p className='font-medium text-xl text-gray-600'>{price === 'out' ? <p className='text-xl text-red-500 font-bold'>out of stock</p>:`$${price}` }</p>
+                            <div className='font-medium text-xl text-gray-600'>{price === 'out' ? <div className='text-xl text-red-500 font-bold'>out of stock</div>: <p>{price}</p> }</div>
                         </div>
                 }
             </div>

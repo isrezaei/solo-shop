@@ -4,17 +4,18 @@ import {DetailsEachProduct} from "./DetailsEachProduct";
 import {FetchMasterData, selectMasterDataById} from "../../Redux/MasterDataSlice";
 import {HeaderUp} from "../Header/HeaderUp";
 import {HeaderDown} from "../Header/HeaderDown";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
 
 export const DetailsPreRender = () =>
 {
 
     const {productId} = useParams()
-
     const EachProduct = useSelector(state => selectMasterDataById(state , productId))
     const {status} = useSelector(state => state.MasterDataSlice)
     const dispatch = useDispatch()
+    const [HeaderMargin] = useState('')
+
 
     useEffect(()=>{
         if (status === 'idle')
@@ -37,12 +38,16 @@ export const DetailsPreRender = () =>
 
 
     return (
-        <>
+        <div>
             <HeaderUp/>
-            <HeaderDown/>
-            <div style={{marginTop : '3vw'}}>
+            <HeaderDown HeaderMargin={HeaderMargin}/>
+
+
+            <div className='w-full bg-red-500 mx-auto'>
                 {Render}
             </div>
-        </>
+
+
+        </div>
     )
 }

@@ -36,7 +36,7 @@ export const CartPreRender = () =>
             <HeaderUp headerPosition={headerPosition}/>
 
             {Render.length === 0 ? <CartEmptyAlert/> : <div className='w-full mt-8'>
-                <div className='container h-150 max-w-8xl  mx-auto flex justify-center items-start'>
+                <div className='container h-150 max-w-screen-2xl mx-auto flex justify-center items-start'>
                     <div className='flex w-8/12 flex-col justify-start items-center'>
                         <div className='w-11/12 h-20 px-4 flex justify-between items-center border-b border-b-gray-200'>
                             <p className='text-2xl font-bold text-gray-600'>Shopping Cart</p>

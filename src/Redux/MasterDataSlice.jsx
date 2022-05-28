@@ -1,6 +1,7 @@
 import {createSlice, createAsyncThunk, createEntityAdapter, createSelector} from "@reduxjs/toolkit";
 import {PromiseFunc} from "../Serves/PromiseFunc";
 
+
 export const FetchMasterData = createAsyncThunk (
     'MasterData/FetchMasterData',
     async () => (await PromiseFunc())
@@ -30,8 +31,7 @@ export const SortBySelect = createSelector (
               return  a.price - b.price
             }
 
-            if (SelectFilter === 'expensive')
-            {
+            if (SelectFilter === 'expensive'){
                 return  b.price - a.price
             }
             return  a[SelectFilter] - b[SelectFilter]
@@ -48,7 +48,7 @@ export const MasterDataSlice = createSlice({
                 quantity : payload.quantity
             })
             state.totalQuantity += 1
-            state.totalPrice += payload.price
+            state.totalPrice += payload.PriceWithOffer
         },
         IncreaseQuantity(state , {payload})
         {
@@ -57,7 +57,7 @@ export const MasterDataSlice = createSlice({
                 quantity : payload.quantity
             })
             state.totalQuantity += 1
-            state.totalPrice += payload.price
+            state.totalPrice += payload.PriceWithOffer
         },
         DecreaseQuantity(state , {payload}) {
             MasterDataAdapter.upsertOne(state , {
@@ -66,7 +66,7 @@ export const MasterDataSlice = createSlice({
             })
 
             state.totalQuantity -= 1
-            state.totalPrice -= payload.price
+            state.totalPrice -= payload.PriceWithOffer
         },
         RemoveQuantityHomePage(state , {payload})
         {
@@ -74,16 +74,17 @@ export const MasterDataSlice = createSlice({
                 id : payload.id,
                 quantity : null
             })
-            state.totalQuantity = 0
-            state.totalPrice -= payload.price
+            state.totalQuantity -= 1
+            state.totalPrice -= payload.PriceWithOffer
         },
         RemoveQuantityCartPage (state , {payload}) {
             MasterDataAdapter.upsertOne(state , {
                 id : payload.id,
                 quantity : null
             })
-            state.totalQuantity -= payload.staticQuantity
-            state.totalPrice -= payload.price
+            state.totalQuantity -= payload.quantity
+            state.totalPrice -= payload.PriceWithOffer
+
         },
         ResetAndClearAllTotal(state)
         {

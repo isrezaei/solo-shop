@@ -24,6 +24,7 @@ export const HomePreRender = () =>
     const {status} = useSelector(state => state.MasterDataSlice)
     const {selectProduct} = useSelector(state => state.SelectProductSlice)
     const [headerPosition] = useState('fixed');
+    const [HeaderMargin] = useState('mt-20')
     const dispatch = useDispatch()
 
     useEffect(()=>{
@@ -61,7 +62,7 @@ export const HomePreRender = () =>
     return (
         <div>
             <HeaderUp headerPosition={headerPosition}/>
-            <HeaderDown/>
+            <HeaderDown HeaderMargin={HeaderMargin}/>
             <HomeSlider/>
             <HomeBenefit/>
             <HomeSelectProduct/>
