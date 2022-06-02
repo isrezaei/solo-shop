@@ -20,7 +20,7 @@ export const DetailsEachProduct = ({EachProduct}) =>
 
                 <section className='bg-red-700 w-80 h-full absolute left-0'>
 
-                    <img className='w-80 sticky top-0 z-10' src={image.mainImg} alt={product}/>
+                    <img className='w-72 sticky top-0 z-10' src={image.mainImg} alt={product}/>
 
                 </section>
 
@@ -106,35 +106,61 @@ export const DetailsEachProduct = ({EachProduct}) =>
                     </div>
 
 
-                    <p>Do you have a smartphone to trade in with Apple?</p>
+                    <p className='font-bold text-lg mt-3'>Do you have a smartphone to trade in with Apple?</p>
 
                     <div className='flex justify-start items-center gap-4'>
 
-                        <div className='w-48 h-16 bg-green-700 flex flex-col justify-center items-center gap-2 rounded-2xl border-2 border-blue-600'>
+                        <div className='w-48 h-24 text-xl flex flex-col justify-center items-center gap-2 rounded-2xl border-2 border-blue-600'>
                             Yes
                         </div>
-                        <div className='w-48 h-16 bg-amber-300 flex flex-col justify-center items-center gap-2 rounded-2xl'>
+                        <div className='w-48 h-24 text-xl flex flex-col justify-center items-center gap-2 rounded-2xl border border-gray-400'>
                             No
                         </div>
 
                     </div>
 
+                    <div className='w-full h-40 mt-3 '>
+                        <p className='font-bold'>Which model do you have?</p>
+                        <p className='mt-1 text-sm'>On your iPhone, go to Settings > Your Name. Scroll down to see the model. On other smartphones, go to Settings > About phone.</p>
+                        <p className='mt-3 text-sm'>If your model is part of the iPhone Upgrade Program <a className='text-blue-700' href='https://secure5.store.apple.com/shop/eligibility/upgradeEligibilitySignInOptions'>check your upgrade eligibility and trade inOpens in new window.</a></p>
+                    </div>
 
-                    <p>Which model do you have?</p>
-                    <p>On your iPhone, go to Settings > Your Name. Scroll down to see the model. On other smartphones, go to Settings > About phone.</p>
-                    <p>If your model is part of the iPhone Upgrade Program, <a className='text-blue-700' href='https://secure5.store.apple.com/shop/eligibility/upgradeEligibilitySignInOptions'>check your upgrade eligibility and trade inOpens in new window.</a></p>
 
-
-                    <div className='w-8/12 bg-white flex flex-col justify-center items-start border border-gray-600 rounded-2xl p-2'>
-                        <label htmlFor='select-model' className='ml-3'>Choose your model</label>
-                        <select id='select-model' className='w-full h-9 border-none'>
+                    <div className='w-full h-16 bg-white flex flex-col justify-center items-start'>
+                        <label htmlFor='select-model' className='font-bold text-lg'>Choose your model</label>
+                        <select id='select-model' className='w-full mt-1  border rounded-xl flex justify-start items-start'>
                             <option>Select</option>
                         </select>
                     </div>
 
+                    <div className='w-full mt-3'>
+                        <p className='font-bold text-lg'>Is the iPhone in good condition?</p>
+                        <p className='text-sm mt-1'>Answer yes if all of the following apply :</p>
+                        <ul className='list-disc text-sm px-5 mt-1'>
+                            <li>It turns on and functions normally</li>
+                            <li>All the buttons work</li>
+                            <li>The cameras work and all lenses are free of damage</li>
+                            <li>The body is free of dents and scratches</li>
+                            <li>The touchscreen and back glass are undamaged</li>
+                            <li>The display is free from distortion, lines, and black or white spots.</li>
+                        </ul>
+
+                        <div className='flex justify-start items-center gap-4 mt-3'>
+
+                            <div className='w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border-2 border-blue-600'>
+                                Yes
+                            </div>
+                            <div className='w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400'>
+                                No
+                            </div>
+
+                        </div>
+                    </div>
 
 
-                    <button className='w-96 h-11 bg-blue-700 rounded-xl'>Continue</button>
+
+
+                    <button className='w-full h-11 bg-blue-700 rounded-xl mt-3'>Continue</button>
 
 
                     <div className='w-full flex justify-between items-center'>
@@ -145,13 +171,11 @@ export const DetailsEachProduct = ({EachProduct}) =>
                         <RiBookmarkLine className='text-3xl'/>
                     </div>
 
+
                 </section>
 
             </div>
 
-            <div className='w-80 h-screen bg-blue-700 relative'>
-
-            </div>
 
 
         </>
