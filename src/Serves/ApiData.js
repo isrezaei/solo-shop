@@ -19,8 +19,11 @@ export const ApiData  = [
                 "https://user-images.githubusercontent.com/77073972/164969967-a0b54827-90b5-4dc5-94e4-1d97b6faa0cf.jpg",
                 "https://user-images.githubusercontent.com/77073972/164969967-a0b54827-90b5-4dc5-94e4-1d97b6faa0cf.jpg"
             ]
-
         },
+
+        "color" : ['crimson' , 'ghostwhite' , 'black' ],
+        "capacity" : [64 , 128 , 256],
+
         "introduction" : "The Special Edition iPhone, also known as the cheapest iPhone, or the retro one, has been refreshed, and is now available for purchase. It's a very minor refresh of the phone with the same name from 2020, most upgrades stemming from the new chipset and its accompanying 5G modem."
     },
     {
