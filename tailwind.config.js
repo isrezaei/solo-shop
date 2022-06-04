@@ -12,7 +12,7 @@ module.exports = {
         '101' : '27rem',
         '140'  : '40rem',
         '150' : '50rem',
-        '220' : '120rem'
+        '225' : '125rem'
       },
 
       colors: {

@@ -171,7 +171,7 @@ export const DetailsEachProduct = ({EachProduct}) =>
 
         <>
 
-            <div className='container relative max-w-4xl  mx-auto h-220 '>
+            <div className='container relative max-w-4xl  mx-auto h-225 bg-lime-500 '>
 
                 <section className='bg-red-700 w-80 h-full absolute left-0'>
 
@@ -189,7 +189,7 @@ export const DetailsEachProduct = ({EachProduct}) =>
 
                 </section>
 
-                <section className='w-3/6 absolute right-0  flex flex-col justify-start items-start gap-2 p-6'>
+                <section className='w-3/6 h-full  absolute right-0  bg-red-300 flex flex-col justify-start items-start gap-2 p-6'>
 
                     <p className='text-3xl font-bold'>Buy {product}</p>
 
@@ -223,7 +223,7 @@ export const DetailsEachProduct = ({EachProduct}) =>
                     </div>
 
 
-                    <div className={`w-full flex flex-col justify-start items-center gap-4 transition-all ${choicesAnswer.haveOldPhone === 'Yes' ? 'h-96 overflow-visible' : 'h-40 overflow-hidden'} ${!enableSection.enableSectionTrade && 'pointer-events-none opacity-30' }`}>
+                    <div className={`w-full bg-gray-300  flex flex-col justify-start items-center gap-4 transition-all ${choicesAnswer.haveOldPhone === 'Yes' ? 'h-auto overflow-visible' : 'h-40 overflow-hidden'} ${!enableSection.enableSectionTrade && 'pointer-events-none opacity-30' }`}>
 
                         <p className='font-bold text-lg mt-3'>Do you have a smartphone to trade in with Apple?</p>
                         <div className='flex justify-center items-center gap-3'>
@@ -239,13 +239,13 @@ export const DetailsEachProduct = ({EachProduct}) =>
                             }
                         </div>
 
-                        <div className='w-full mt-3'>
+                        <div className='w-full  bg-lime-500 mt-3 '>
 
                             <p className='font-bold'>Which model do you have?</p>
                             <p className='mt-1 text-sm'>On your iPhone, go to Settings > Your Name. Scroll down to see the model. On other smartphones, go to Settings > About phone.</p>
                             <p className='mt-3 text-sm'>If your model is part of the iPhone Upgrade Program <a className='text-blue-700' href='https://secure5.store.apple.com/shop/eligibility/upgradeEligibilitySignInOptions'>check your upgrade eligibility and trade inOpens in new window.</a></p>
 
-                            <div className={`w-full flex flex-col justify-start items-start mt-5 transition-all ${choiceOldModel.offPrice ? 'h-96 overflow-visible' : 'h-20 overflow-hidden'}`}>
+                            <div className={`w-full flex flex-col justify-start items-start mt-5 transition-all ${choiceOldModel.offPrice ? 'overflow-visible' : 'h-20 overflow-hidden'}`}>
                                 <label htmlFor='select-model' className='font-bold text-lg'>Choose your model</label>
 
                                 <select onChange={(e)=> stepChoiceModel(e.target.value)} id='select-model' className='w-full mt-1  border rounded-xl flex justify-start items-start'>
@@ -254,7 +254,7 @@ export const DetailsEachProduct = ({EachProduct}) =>
                                 </select>
 
 
-                                <div className='w-full mt-3 '>
+                                <div className='w-full mt-3 bg-amber-500 '>
                                     <p className='font-bold text-lg'>Is the iPhone in good condition?</p>
                                     <p className='text-sm mt-1'>Answer yes if all of the following apply :</p>
                                     <ul className='list-disc text-sm px-5 mt-1'>
@@ -280,24 +280,27 @@ export const DetailsEachProduct = ({EachProduct}) =>
                                     </div>
                                 </div>
                             </div>
-
-
-                            <button className='w-full h-11 bg-blue-700 rounded-xl  pointer-events-none opacity-30'>Continue</button>
-
-                            <div className='w-full  flex justify-between items-center mt-5'>
-                                <div className='w-8/12 flex flex-col justify-between items-start'>
-                                    <p className='text-xl font-bold'>Still deciding?</p>
-                                    <p>Add this item to a list and easily come back to it later.</p>
-                                </div>
-
-                                <RiBookmarkLine className='text-3xl'/>
-
-                            </div>
-
                         </div>
+
                     </div>
 
+
+
+                    <div style={{height : '10rem'}} className='w-full flex flex-col justify-start items-center bg-lime-500'>
+
+                        <button className='w-full h-11 bg-blue-700 rounded-xl  pointer-events-none opacity-30'>Continue</button>
+
+                        <div className='w-8/12 flex flex-col justify-between items-start'>
+                            <p className='text-xl font-bold'>Still deciding?</p>
+                            <p>Add this item to a list and easily come back to it later.</p>
+                        </div>
+                        <RiBookmarkLine className='text-3xl'/>
+
+                    </div>
+
+
                 </section>
+
 
             </div>
 

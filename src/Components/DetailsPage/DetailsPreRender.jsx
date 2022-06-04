@@ -43,7 +43,7 @@ export const DetailsPreRender = () =>
             <HeaderDown HeaderMargin={HeaderMargin}/>
 
 
-            <div className='w-full relative mx-auto'>
+            <div className='w-full relative mx-auto '>
                 {Render}
             </div>
 
