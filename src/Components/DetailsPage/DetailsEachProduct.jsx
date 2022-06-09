@@ -14,7 +14,8 @@ const initialState = {
     },
     activeOptions : {
         activeColor : '',
-        activeCapacity : ''
+        activeCapacity : '',
+        activeImage : 'main'
     },
 
     choicesAnswer : {
@@ -27,7 +28,7 @@ const initialState = {
     }
 }
 
-function reducer(state, {type , payload}) {
+function  reducer(state, {type , payload}) {
     switch (type) {
         case 'enableSection / enableSectionCapacity':
             return {
@@ -59,6 +60,15 @@ function reducer(state, {type , payload}) {
                 activeOptions : {
                     ...state.activeOptions,
                     activeCapacity : payload
+                }
+            }
+        case 'activeOptions / activeImage' :
+
+            return {
+                ...state ,
+                activeOptions: {
+                    ...state.activeOptions,
+                    activeImage: payload
                 }
             }
 
@@ -98,11 +108,9 @@ function reducer(state, {type , payload}) {
 
 export const DetailsEachProduct = ({EachProduct}) =>
 {
-    const {introduction , image , product , brand , price , id ,quantity , rate , type , color , capacity} = EachProduct
+    const {introduction , image , product , brand , price , id ,quantity , rate , type , color , capacity , detailsImage} = EachProduct
 
     const { HaveQuantity, CheckQuantity, AddQuan, IncQuan, DecQuan, RemQuan} = QuantityGlobal(EachProduct)
-
-
 
     const [{enableSection , activeOptions , choicesAnswer , choiceOldModel} , dispatch] = useReducer(reducer , initialState)
 
@@ -111,6 +119,7 @@ export const DetailsEachProduct = ({EachProduct}) =>
     {
         dispatch({type : 'enableSection / enableSectionCapacity'})
         dispatch({type : 'activeOptions / activeColor' , payload : colors})
+        dispatch({type : 'activeOptions / activeImage' , payload : colors })
     }
 
     const stepCapacity = (Capacity) =>
@@ -124,10 +133,10 @@ export const DetailsEachProduct = ({EachProduct}) =>
         dispatch({type : 'choicesAnswer / haveOldPhone' , payload : answer})
     }
 
-   const stepCondition = (answer) =>
-   {
-       dispatch({type : 'choicesAnswer / haveGoodCondition' , payload : answer})
-   }
+    const stepCondition = (answer) =>
+    {
+        dispatch({type : 'choicesAnswer / haveGoodCondition' , payload : answer})
+    }
 
     const stepChoiceModel = (offerPrice) =>
     {
@@ -175,7 +184,7 @@ export const DetailsEachProduct = ({EachProduct}) =>
 
                 <section className='bg-red-700 w-80 h-full absolute left-0'>
 
-                    <img className='w-72 sticky top-0 z-10 m-auto' src={image.mainImg} alt={product}/>
+                    <img className='w-72 sticky top-0 z-10 m-auto' src={detailsImage[activeOptions.activeImage]} alt={product}/>
 
                     <div>
                         <div>
