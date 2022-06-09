@@ -1,8 +1,6 @@
 export const ActiveImagePortion = ({props}) =>
 {
-
     const {detailsImage , activeOptions , product} = props
-
     return (
         <>
             <img className='w-full sticky top-0 z-10 m-auto' src={detailsImage[activeOptions.activeImage]} alt={product}/>

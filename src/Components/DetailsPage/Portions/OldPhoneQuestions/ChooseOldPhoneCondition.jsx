@@ -1,8 +1,7 @@
 import {AnswerOfHaveGoodCondition} from "../YesNoAnswers";
 
-export const ChooseOldPhoneCondition = ({props}) =>
+export const ChooseOldPhoneCondition = () =>
 {
-    const {stepCondition , choicesAnswer} = props
     return (
         <div className='w-full mt-3 bg-amber-500 '>
             <p className='font-bold text-lg'>Is the iPhone in good condition?</p>
@@ -15,8 +14,7 @@ export const ChooseOldPhoneCondition = ({props}) =>
                 <li>The touchscreen and back glass are undamaged</li>
                 <li>The display is free from distortion, lines, and black or white spots.</li>
             </ul>
-
-            <AnswerOfHaveGoodCondition props={{stepCondition , choicesAnswer}}/>
+            <AnswerOfHaveGoodCondition/>
         </div>
     )
 }

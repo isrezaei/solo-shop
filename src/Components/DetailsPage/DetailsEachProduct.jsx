@@ -1,3 +1,4 @@
+import {createContext} from "react";
 import {QuantityGlobal} from "../QuantityHandel/QuantityGlobal";
 import {RiBookmarkLine} from "react-icons/ri";
 import {RatingStar} from "rating-star";
@@ -114,6 +115,7 @@ function  reducer(state, {type , payload}) {
     }
 }
 
+export const EachProductData = createContext()
 
 export const DetailsEachProduct = ({EachProduct}) =>
 {
@@ -122,6 +124,7 @@ export const DetailsEachProduct = ({EachProduct}) =>
     const { HaveQuantity, CheckQuantity, AddQuan, IncQuan, DecQuan, RemQuan} = QuantityGlobal(EachProduct)
 
     const [{enableSection , activeOptions , choicesAnswer , choiceOldModel} , dispatch] = useReducer(reducer , initialState)
+
 
     const stepColor = (colors) =>
     {
@@ -179,20 +182,39 @@ export const DetailsEachProduct = ({EachProduct}) =>
     })
 
     return (
-        <>
+        <EachProductData.Provider value={
+            {
+                product
+                , id
+                , rate
+                , type
+                , brand
+                , detailsImage
+                , activeOptions
+                , setColor
+                , setCapacity
+                , enableSection
+                , choicesAnswer
+                , stepHaveOldPhone
+                , stepChoiceModel
+                , stepCondition
+                , choiceOldModel
+                ,setOldModelPhone}
+        }>
+
             <div className='container relative max-w-5xl  mx-auto h-225 '>
                 <section className='w-2/5 h-full absolute left-0'>
                     <ActiveImagePortion props={{detailsImage , activeOptions , product}}/>
                 </section>
 
                 <section className='w-3/6 h-full  absolute right-0  bg-red-300 flex flex-col justify-start items-start gap-2 p-6'>
-                    <InformationPortion props ={{product , id , rate , type , brand}}/>
-                    <ChooseColorPortion setColor={setColor}/>
-                    <ChooseCapacityPortion props={{setCapacity , enableSection}}/>
-                    <OldPhoneQuestion props={{choicesAnswer, stepHaveOldPhone, stepChoiceModel, stepCondition , choiceOldModel ,setOldModelPhone , enableSection}}/>
+                    <InformationPortion/>
+                    <ChooseColorPortion/>
+                    <ChooseCapacityPortion/>
+                    <OldPhoneQuestion/>
                     <SubmitAndAddToWish/>
                 </section>
             </div>
-        </>
+        </EachProductData.Provider>
     )
 }

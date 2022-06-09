@@ -1,6 +1,9 @@
-export const ChooseOldPhone = ({props}) =>
+import {useContext} from "react";
+import {EachProductData} from "../../DetailsEachProduct";
+
+export const ChooseOldPhone = () =>
 {
-    const {stepChoiceModel , setOldModelPhone} = props
+    const {stepChoiceModel , setOldModelPhone} = useContext(EachProductData)
 
     return (
         <>

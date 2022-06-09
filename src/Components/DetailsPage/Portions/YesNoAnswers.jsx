@@ -1,6 +1,9 @@
-export const AnswerOfHaveSmartPhone = ({props}) =>
+import {useContext} from "react";
+import {EachProductData} from "../DetailsEachProduct";
+
+export const AnswerOfHaveSmartPhone = () =>
 {
-    const {stepHaveOldPhone , choicesAnswer} = props
+    const {stepHaveOldPhone , choicesAnswer} = useContext(EachProductData)
 
     return (
         <>
@@ -21,9 +24,9 @@ export const AnswerOfHaveSmartPhone = ({props}) =>
     )
 }
 
-export const AnswerOfHaveGoodCondition = ({props}) =>
+export const AnswerOfHaveGoodCondition = () =>
 {
-    const {stepCondition , choicesAnswer} = props
+    const {stepCondition , choicesAnswer} = useContext(EachProductData)
 
     return (
         <div className='flex justify-start items-center gap-4 mt-3'>
