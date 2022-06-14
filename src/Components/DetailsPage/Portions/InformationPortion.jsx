@@ -1,10 +1,10 @@
 import {useContext} from "react";
 import {RatingStar} from "rating-star";
-import {EachProductData} from "../DetailsEachProduct";
+import {EachProductDetailsData} from "../DetailsEachProduct";
 
 export const InformationPortion = () =>
 {
-    const {product , id , rate , type , brand} = useContext(EachProductData)
+    const {product , id , rate , type , brand} = useContext(EachProductDetailsData)
 
     return (
         <>

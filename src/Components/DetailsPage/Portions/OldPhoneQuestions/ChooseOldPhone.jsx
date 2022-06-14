@@ -1,9 +1,9 @@
 import {useContext} from "react";
-import {EachProductData} from "../../DetailsEachProduct";
+import {EachProductDetailsData} from "../../DetailsEachProduct";
 
 export const ChooseOldPhone = () =>
 {
-    const {stepChoiceModel , setOldModelPhone} = useContext(EachProductData)
+    const {stepChoiceModel , setOldModelPhone} = useContext(EachProductDetailsData)
 
     return (
         <>

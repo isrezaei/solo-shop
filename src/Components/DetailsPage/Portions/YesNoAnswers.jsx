@@ -1,9 +1,9 @@
 import {useContext} from "react";
-import {EachProductData} from "../DetailsEachProduct";
+import {EachProductDetailsData} from "../DetailsEachProduct";
 
 export const AnswerOfHaveSmartPhone = () =>
 {
-    const {stepHaveOldPhone , choicesAnswer} = useContext(EachProductData)
+    const {stepHaveOldPhone , choicesAnswer} = useContext(EachProductDetailsData)
 
     return (
         <>
@@ -26,7 +26,7 @@ export const AnswerOfHaveSmartPhone = () =>
 
 export const AnswerOfHaveGoodCondition = () =>
 {
-    const {stepCondition , choicesAnswer} = useContext(EachProductData)
+    const {stepCondition , choicesAnswer} = useContext(EachProductDetailsData)
 
     return (
         <div className='flex justify-start items-center gap-4 mt-3'>
@@ -43,3 +43,64 @@ export const AnswerOfHaveGoodCondition = () =>
         </div>
     )
 }
+
+export const AnswerOfButtonWork = () =>
+{
+    const {stepHaveButtonWork , choicesAnswer} = useContext(EachProductDetailsData)
+
+    return (
+        <div className='flex justify-start items-center gap-4 mt-3'>
+            {
+                ['Yes' , 'No'].map(answer => {
+                        return (
+                            <div key={answer}
+                                 onClick={()=> stepHaveButtonWork(answer)}
+                                 className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 ${choicesAnswer.haveButtonWork === answer && 'border-2 border-blue-600'}`}> {answer}</div>
+                        )
+                    }
+                )
+            }
+        </div>
+    )
+}
+
+export const AnswerOfTochScreenWork = () =>
+{
+    const {stepHaveTochScreenWork , choicesAnswer} = useContext(EachProductDetailsData)
+
+    return (
+        <div className='flex justify-start items-center gap-4 mt-3'>
+            {
+                ['Yes' , 'No'].map(answer => {
+                        return (
+                            <div key={answer}
+                                 onClick={()=> stepHaveTochScreenWork(answer)}
+                                 className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 ${choicesAnswer.haveTochScreenWork === answer && 'border-2 border-blue-600'}`}> {answer}</div>
+                        )
+                    }
+                )
+            }
+        </div>
+    )
+}
+
+export const AnswerOfGoodShape = () =>
+{
+    const {stepHaveGoodShape , choicesAnswer} = useContext(EachProductDetailsData)
+
+    return (
+        <div className='flex justify-start items-center gap-4 mt-3'>
+            {
+                ['Yes' , 'No'].map(answer => {
+                        return (
+                            <div key={answer}
+                                 onClick={()=> stepHaveGoodShape(answer)}
+                                 className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 ${choicesAnswer.haveGoodShape === answer && 'border-2 border-blue-600'}`}> {answer}</div>
+                        )
+                    }
+                )
+            }
+        </div>
+    )
+}
+

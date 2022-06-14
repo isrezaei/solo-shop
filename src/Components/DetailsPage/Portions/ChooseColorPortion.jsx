@@ -1,9 +1,9 @@
 import {useContext} from "react";
-import {EachProductData} from "../DetailsEachProduct";
+import {EachProductDetailsData} from "../DetailsEachProduct";
 
 export const ChooseColorPortion = () =>
 {
-    const {setColor} = useContext(EachProductData)
+    const {setColor} = useContext(EachProductDetailsData)
     return (
         <>
             <label htmlFor='select-color' className='text-xl font-bold mt-4'>Choose your color</label>
