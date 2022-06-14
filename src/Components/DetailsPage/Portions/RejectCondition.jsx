@@ -1,5 +1,10 @@
+import { useContext } from "react"
+import { EachProductDetailsData } from "../DetailsEachProduct"
 export const RejectCondition = () =>
 {
+
+    const {setEditAnswer} = useContext(EachProductDetailsData)
+
     return (
         <div className={"w-full bg-orange-500 flex justify-between items-start p-1"}>
 
@@ -9,7 +14,7 @@ export const RejectCondition = () =>
                 <a href="" className={"text-blue-600"}>Learn more</a>
             </div>
 
-            <p className={"text-xl text-blue-600"}>Edit</p>
+            <p onClick={()=> setEditAnswer('No')} className={"text-xl text-blue-600"}>Edit</p>
 
         </div>
     )

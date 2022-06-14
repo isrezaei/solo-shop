@@ -3,7 +3,7 @@ import {EachProductDetailsData} from "../DetailsEachProduct"
 
 export const AcceptCondition = () =>
 {
-    const {choiceOldModel} = useContext(EachProductDetailsData)
+    const {choiceOldModel , setEditAnswer} = useContext(EachProductDetailsData)
 
     return (
         <div className={"w-full bg-red-400 p-2 flex justify-between items-start"}>
@@ -14,7 +14,7 @@ export const AcceptCondition = () =>
             <a href="" className={"text-blue-600"}>See how trade-in works</a>
             </div>
 
-            <p className={"text-xl text-blue-600"}>Edit</p>
+            <p onClick={()=> setEditAnswer('No')} className={"text-xl text-blue-600"}>Edit</p>
 
         </div>
     )

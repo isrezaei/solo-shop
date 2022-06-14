@@ -30,6 +30,8 @@ const initialState = {
         haveTochScreenWork: ''
     },
 
+    editAnswer : '',
+
     choiceOldModel: {
         offPrice: ''
     }
@@ -123,6 +125,12 @@ function reducer(state, {type, payload}) {
                 }
             }
 
+            case 'editAnswer / checkEditAnswer' :
+            return {
+                ...state,
+                editAnswer : payload
+            }
+
         case 'choiceOldModel / offerPrice':
 
             return {
@@ -169,7 +177,8 @@ export const DetailsEachProduct = ({EachProduct}) => {
             enableSection,
             activeOptions,
             choicesAnswer,
-            choiceOldModel
+            choiceOldModel,
+            editAnswer
         }, dispatch] = useReducer(reducer, initialState)
 
     const stepColor = (colors) => {
@@ -182,22 +191,32 @@ export const DetailsEachProduct = ({EachProduct}) => {
         dispatch({type: 'activeOptions / activeCapacity', payload: Capacity})
     }
     const stepHaveOldPhone = (answer) => {
-        dispatch({type: 'choicesAnswer / haveOldPhone', payload: answer})
-    }
-    const stepCondition = (answer) => {
-        dispatch({type: 'choicesAnswer / haveGoodCondition', payload: answer})
+           dispatch({type: 'choicesAnswer / haveOldPhone', payload: answer}) 
+        //    dispatch({type: 'choicesAnswer / haveGoodCondition', payload: ''})
     }
     const stepChoiceModel = (offerPrice) => {
         dispatch({type: 'choiceOldModel / offerPrice', payload: offerPrice})
     }
+    const stepCondition = (answer) => {
+        dispatch({type: 'choicesAnswer / haveGoodCondition', payload: answer})
+        dispatch({type: 'choicesAnswer / haveButtonWork', payload: ''})
+        dispatch({type: 'choicesAnswer / haveGoodShape', payload: ''})
+    }
     const stepHaveButtonWork = (answer) => {
         dispatch({type: 'choicesAnswer / haveButtonWork', payload: answer})
+        dispatch({type: 'choicesAnswer / haveGoodShape', payload: ''})
     }
     const stepHaveGoodShape = (answer) => {
         dispatch({type: 'choicesAnswer / haveGoodShape', payload: answer})
+        dispatch({type: 'choicesAnswer / haveTochScreenWork', payload: ''})
     }
     const stepHaveTochScreenWork = (answer) => {
         dispatch({type: 'choicesAnswer / haveTochScreenWork', payload: answer})
+    
+    }
+    const setEditAnswer = (answer) => {
+        dispatch({type: 'editAnswer / checkEditAnswer', payload: answer})
+   
     }
     const setColor = color.map(colors => {
         return (
@@ -243,7 +262,6 @@ export const DetailsEachProduct = ({EachProduct}) => {
                 {models.oldPhone}</option>
         )
     })
-
     return (
         <EachProductDetailsData.Provider
             value={{
@@ -264,6 +282,7 @@ export const DetailsEachProduct = ({EachProduct}) => {
                 stepHaveButtonWork,
                 stepHaveTochScreenWork,
                 stepHaveGoodShape,
+                setEditAnswer,
                 choiceOldModel,
                 setOldModelPhone
             }}>
@@ -278,9 +297,9 @@ export const DetailsEachProduct = ({EachProduct}) => {
                     <InformationPortion/>
                     <ChooseColorPortion/>
                     <ChooseCapacityPortion/> {
-                        choicesAnswer.haveGoodCondition === 'Yes' || choicesAnswer.haveButtonWork === 'Yes' || choicesAnswer.haveGoodShape === 'Yes' || choicesAnswer.haveTochScreenWork === 'Yes'
+                        (choicesAnswer.haveGoodCondition === 'Yes' || choicesAnswer.haveButtonWork === 'Yes' || choicesAnswer.haveGoodShape === 'Yes' || choicesAnswer.haveTochScreenWork === 'Yes') && (editAnswer === 'Yes')
                             ? <AcceptCondition/>
-                            : choicesAnswer.haveTochScreenWork === 'No'
+                            : choicesAnswer.haveTochScreenWork === 'No' && editAnswer === 'Yes'
                                 ? <RejectCondition/>
                                 : <OldPhoneQuestion/>
                     }

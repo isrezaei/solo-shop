@@ -7,6 +7,9 @@ export const ChooseOldPhoneCondition = () =>
 
     const {choicesAnswer} = useContext(EachProductDetailsData)
 
+    console.log(`choicesAnswer.haveGoodCondition ${choicesAnswer.haveGoodCondition}`)
+    console.log(`choicesAnswer.haveButtonWork ${choicesAnswer.haveButtonWork}`)
+    console.log(`choicesAnswer.haveGoodShape : ${choicesAnswer.haveGoodShape}`)
 
     return (
         <div className='w-full mt-3 bg-amber-500 '>
