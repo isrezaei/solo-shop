@@ -1,9 +1,9 @@
 import { useContext } from "react"
-import { EachProductDetailsData } from "../DetailsEachProduct"
+import { EachProductFromContext } from "../DetailsEachProduct"
 export const RejectCondition = () =>
 {
 
-    const {setEditAnswer} = useContext(EachProductDetailsData)
+    const {setEditAnswer} = useContext(EachProductFromContext)
 
     return (
         <div className={"w-full bg-orange-500 flex justify-between items-start p-1"}>

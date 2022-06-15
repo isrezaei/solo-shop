@@ -1,3 +1,4 @@
+
 import {createContext, useReducer, useState, useRef, useEffect, useLayoutEffect} from "react";
 import {QuantityGlobal} from "../QuantityHandel/QuantityGlobal";
 import {OldModelPhoneArray} from "./OldModelPhoneArray";
@@ -9,6 +10,9 @@ import {OldPhoneQuestion} from "./Portions/OldPhoneQuestions/OldPhoneQuestion";
 import {ActiveImagePortion} from "./Portions/ActiveImagePortion";
 import {AcceptCondition} from "./Portions/AcceptCondition";
 import {RejectCondition} from "./Portions/RejectCondition";
+import {TiPlus} from "react-icons/ti";
+import {RiDeleteBinLine} from "react-icons/ri";
+import {ChooseQuantity} from "./Portions/ChooseQuantity";
 
 const initialState = {
     enableSection: {
@@ -146,39 +150,14 @@ function reducer(state, {type, payload}) {
     }
 }
 
-export const EachProductDetailsData = createContext()
+export const EachProductFromContext = createContext()
+
 export const DetailsEachProduct = ({EachProduct}) => {
-    const {
-        introduction,
-        product,
-        brand,
-        price,
-        id,
-        quantity,
-        rate,
-        type,
-        color,
-        capacity,
-        detailsImage
-    } = EachProduct
 
-    const {
-        HaveQuantity,
-        CheckQuantity,
-        AddQuan,
-        IncQuan,
-        DecQuan,
-        RemQuan
-    } = QuantityGlobal(EachProduct)
+    const {introduction, product, brand, price, id, quantity, rate, type, color, capacity, detailsImage , offer} = EachProduct
 
-    const [
-        {
-            enableSection,
-            activeOptions,
-            choicesAnswer,
-            choiceOldModel,
-            editAnswer
-        }, dispatch] = useReducer(reducer, initialState)
+
+    const [{enableSection, activeOptions, choicesAnswer, choiceOldModel, editAnswer}, dispatch] = useReducer(reducer, initialState)
 
 
     //dynamic height for image section
@@ -276,13 +255,8 @@ export const DetailsEachProduct = ({EachProduct}) => {
         )
     })
     return (
-        <EachProductDetailsData.Provider
+        <EachProductFromContext.Provider
             value={{
-                product,
-                id,
-                rate,
-                type,
-                brand,
                 detailsImage,
                 activeOptions,
                 setColor,
@@ -297,7 +271,7 @@ export const DetailsEachProduct = ({EachProduct}) => {
                 stepHaveGoodShape,
                 setEditAnswer,
                 choiceOldModel,
-                setOldModelPhone
+                setOldModelPhone,
             }}>
 
             <div className='container relative max-w-5xl bg-blue-500 mx-auto '>
@@ -307,18 +281,20 @@ export const DetailsEachProduct = ({EachProduct}) => {
                 </section>
 
                 <section ref={dynamicHeight} className='w-3/6 h-auto absolute right-0 flex flex-col justify-start items-start gap-2 p-6'>
-                    <InformationPortion/>
+                    <InformationPortion EachProductFromRedux={EachProduct}/>
                     <ChooseColorPortion/>
-                    <ChooseCapacityPortion/> {
+                    <ChooseCapacityPortion/>
+                    {
                     (choicesAnswer.haveGoodCondition === 'Yes' || choicesAnswer.haveButtonWork === 'Yes' || choicesAnswer.haveGoodShape === 'Yes' || choicesAnswer.haveTouchScreenWork === 'Yes') && (editAnswer === 'Yes')
                         ? <AcceptCondition/>
                         : choicesAnswer.haveTouchScreenWork === 'No' && editAnswer === 'Yes'
                             ? <RejectCondition/>
                             : <OldPhoneQuestion/>
-                }
+                    }
+                    <ChooseQuantity EachProductFromRedux={EachProduct}/>
                     <SubmitAndAddToWish/>
                 </section>
             </div>
-        </EachProductDetailsData.Provider>
+        </EachProductFromContext.Provider>
     )
 }

@@ -1,9 +1,9 @@
 import {useContext} from "react";
-import {EachProductDetailsData} from "../DetailsEachProduct";
+import {EachProductFromContext} from "../DetailsEachProduct";
 
 export const AnswerOfHaveSmartPhone = () =>
 {
-    const {stepHaveOldPhone , choicesAnswer} = useContext(EachProductDetailsData)
+    const {stepHaveOldPhone , choicesAnswer} = useContext(EachProductFromContext)
 
     return (
         <>
@@ -26,7 +26,7 @@ export const AnswerOfHaveSmartPhone = () =>
 
 export const AnswerOfHaveGoodCondition = () =>
 {
-    const {stepCondition , setEditAnswer , choicesAnswer} = useContext(EachProductDetailsData)
+    const {stepCondition , setEditAnswer , choicesAnswer} = useContext(EachProductFromContext)
 
     return (
         <div className='flex justify-start items-center gap-4 mt-3'>
@@ -49,7 +49,7 @@ export const AnswerOfHaveGoodCondition = () =>
 
 export const AnswerOfButtonWork = () =>
 {
-    const {stepHaveButtonWork , setEditAnswer , choicesAnswer} = useContext(EachProductDetailsData)
+    const {stepHaveButtonWork , setEditAnswer , choicesAnswer} = useContext(EachProductFromContext)
 
     return (
         <div className='flex justify-start items-center gap-4 mt-3'>
@@ -73,7 +73,7 @@ export const AnswerOfButtonWork = () =>
 
 export const AnswerOfGoodShape = () =>
 {
-    const {stepHaveGoodShape , setEditAnswer  , choicesAnswer} = useContext(EachProductDetailsData)
+    const {stepHaveGoodShape , setEditAnswer  , choicesAnswer} = useContext(EachProductFromContext)
 
     return (
         <div className='flex justify-start items-center gap-4 mt-3'>
@@ -98,7 +98,7 @@ export const AnswerOfGoodShape = () =>
 
 export const AnswerOfTouchScreenWork = () =>
 {
-    const {stepHaveTouchScreenWork , setEditAnswer , choicesAnswer} = useContext(EachProductDetailsData)
+    const {stepHaveTouchScreenWork , setEditAnswer , choicesAnswer} = useContext(EachProductFromContext)
 
     return (
         <div className='flex justify-start items-center gap-4 mt-3'>

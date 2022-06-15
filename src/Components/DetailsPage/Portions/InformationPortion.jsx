@@ -1,10 +1,9 @@
-import {useContext} from "react";
 import {RatingStar} from "rating-star";
-import {EachProductDetailsData} from "../DetailsEachProduct";
 
-export const InformationPortion = () =>
+
+export const InformationPortion = ({EachProductFromRedux}) =>
 {
-    const {product , id , rate , type , brand} = useContext(EachProductDetailsData)
+    const {product , id , rate , type , brand} = EachProductFromRedux
 
     return (
         <>

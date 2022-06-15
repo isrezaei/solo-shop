@@ -3,7 +3,7 @@ import {RiBookmarkLine} from "react-icons/ri";
 export const SubmitAndAddToWish = () =>
 {
     return (
-        <div className='w-full h-36 flex flex-col justify-between items-center bg-lime-500'>
+        <div className='w-full h-36 flex flex-col justify-between items-center '>
 
             <button className='w-full h-11 bg-blue-700 rounded-xl  pointer-events-none opacity-30'>Continue</button>
 

@@ -12,6 +12,7 @@ export const DetailsPreRender = () =>
 
     const {productId} = useParams()
     const EachProduct = useSelector(state => selectMasterDataById(state , productId))
+
     const {status} = useSelector(state => state.MasterDataSlice)
     const dispatch = useDispatch()
     const [HeaderMargin] = useState('')
@@ -41,13 +42,9 @@ export const DetailsPreRender = () =>
         <div>
             <HeaderUp/>
             <HeaderDown HeaderMargin={HeaderMargin}/>
-
-
             <div className='w-full relative mx-auto '>
                 {Render}
             </div>
-
-
         </div>
     )
 }

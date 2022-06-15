@@ -1,9 +1,9 @@
 import {useContext} from "react";
-import {EachProductDetailsData} from "../DetailsEachProduct";
+import {EachProductFromContext} from "../DetailsEachProduct";
 
-export const ChooseCapacityPortion = ({props}) =>
+export const ChooseCapacityPortion = () =>
 {
-    const {setCapacity , enableSection} = useContext(EachProductDetailsData)
+    const {setCapacity , enableSection} = useContext(EachProductFromContext)
     return (
         <>
             <div className={`w-full pb-7 flex flex-col justify-center items-start gap-1 mt-3 border-b border-gray-400 ${!enableSection.enableSectionCapacity && 'pointer-events-none opacity-30' }`}>
