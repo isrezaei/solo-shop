@@ -1,4 +1,4 @@
-import {createContext, useReducer} from "react";
+import {createContext, useReducer, useState, useRef, useEffect, useLayoutEffect} from "react";
 import {QuantityGlobal} from "../QuantityHandel/QuantityGlobal";
 import {OldModelPhoneArray} from "./OldModelPhoneArray";
 import {InformationPortion} from "./Portions/InformationPortion";
@@ -27,7 +27,7 @@ const initialState = {
         haveGoodCondition: '',
         haveButtonWork: '',
         haveGoodShape: '',
-        haveTochScreenWork: ''
+        haveTouchScreenWork: ''
     },
 
     editAnswer : '',
@@ -116,16 +116,16 @@ function reducer(state, {type, payload}) {
                 }
             }
 
-        case 'choicesAnswer / haveTochScreenWork':
+        case 'choicesAnswer / haveTouchScreenWork':
             return {
                 ...state,
                 choicesAnswer: {
                     ...state.choicesAnswer,
-                    haveTochScreenWork: payload
+                    haveTouchScreenWork: payload
                 }
             }
 
-            case 'editAnswer / checkEditAnswer' :
+        case 'editAnswer / checkEditAnswer' :
             return {
                 ...state,
                 editAnswer : payload
@@ -147,7 +147,6 @@ function reducer(state, {type, payload}) {
 }
 
 export const EachProductDetailsData = createContext()
-
 export const DetailsEachProduct = ({EachProduct}) => {
     const {
         introduction,
@@ -181,6 +180,14 @@ export const DetailsEachProduct = ({EachProduct}) => {
             editAnswer
         }, dispatch] = useReducer(reducer, initialState)
 
+
+    //dynamic height for image section
+    const [divHeight, setDivHeight] = useState();
+    const dynamicHeight= useRef()
+    useLayoutEffect(()=> {
+        setDivHeight(dynamicHeight.current.clientHeight)
+    }) // we don't need to dependency because we need update any seconds
+
     const stepColor = (colors) => {
         dispatch({type: 'enableSection / enableSectionCapacity'})
         dispatch({type: 'activeOptions / activeColor', payload: colors})
@@ -191,32 +198,38 @@ export const DetailsEachProduct = ({EachProduct}) => {
         dispatch({type: 'activeOptions / activeCapacity', payload: Capacity})
     }
     const stepHaveOldPhone = (answer) => {
-           dispatch({type: 'choicesAnswer / haveOldPhone', payload: answer}) 
-        //    dispatch({type: 'choicesAnswer / haveGoodCondition', payload: ''})
+        dispatch({type: 'choicesAnswer / haveOldPhone', payload: answer})
+        //When the user selects yes again in (do u have a smartphone to trade) all payload are reset
+        dispatch({type: 'choiceOldModel / offerPrice', payload: ''})
+        dispatch({type: 'choicesAnswer / haveGoodCondition', payload: ''})
+        dispatch({type: 'choicesAnswer / haveButtonWork', payload: ''})
+        dispatch({type: 'choicesAnswer / haveGoodShape', payload: ''})
+        dispatch({type: 'choicesAnswer / haveTouchScreenWork', payload: ''})
     }
     const stepChoiceModel = (offerPrice) => {
         dispatch({type: 'choiceOldModel / offerPrice', payload: offerPrice})
     }
     const stepCondition = (answer) => {
         dispatch({type: 'choicesAnswer / haveGoodCondition', payload: answer})
+        //When the user selects yes again in (Is the iPhone in good condition) haveButtonWork and haveGoodShape payload are reset
         dispatch({type: 'choicesAnswer / haveButtonWork', payload: ''})
         dispatch({type: 'choicesAnswer / haveGoodShape', payload: ''})
     }
     const stepHaveButtonWork = (answer) => {
         dispatch({type: 'choicesAnswer / haveButtonWork', payload: answer})
+        //When the user selects yes again in (Does it turn on and do all the buttons work) haveGoodShape payload is reset
         dispatch({type: 'choicesAnswer / haveGoodShape', payload: ''})
     }
     const stepHaveGoodShape = (answer) => {
         dispatch({type: 'choicesAnswer / haveGoodShape', payload: answer})
-        dispatch({type: 'choicesAnswer / haveTochScreenWork', payload: ''})
+        //When the user selects yes again in (Is the body of the iPhone in good shape) haveTouchScreenWork payload is reset
+        dispatch({type: 'choicesAnswer / haveTouchScreenWork', payload: ''})
     }
-    const stepHaveTochScreenWork = (answer) => {
-        dispatch({type: 'choicesAnswer / haveTochScreenWork', payload: answer})
-    
+    const stepHaveTouchScreenWork = (answer) => {
+        dispatch({type: 'choicesAnswer / haveTouchScreenWork', payload: answer})
     }
     const setEditAnswer = (answer) => {
         dispatch({type: 'editAnswer / checkEditAnswer', payload: answer})
-   
     }
     const setColor = color.map(colors => {
         return (
@@ -229,7 +242,7 @@ export const DetailsEachProduct = ({EachProduct}) => {
                         style={{
                             background: colors
                         }}
-                        className='w-9 h-9 rounded-full shadow-inner'></div>
+                        className='w-9 h-9 rounded-full shadow-inner'> </div>
                     <div className='text-center'>{colors}</div>
                 </div>
             </div>
@@ -280,30 +293,29 @@ export const DetailsEachProduct = ({EachProduct}) => {
                 stepChoiceModel,
                 stepCondition,
                 stepHaveButtonWork,
-                stepHaveTochScreenWork,
+                stepHaveTouchScreenWork,
                 stepHaveGoodShape,
                 setEditAnswer,
                 choiceOldModel,
                 setOldModelPhone
             }}>
 
-            <div className='container relative max-w-5xl  mx-auto h-225 '>
-                <section className='w-2/5 h-full absolute left-0'>
+            <div className='container relative max-w-5xl bg-blue-500 mx-auto '>
+
+                <section style={{height : divHeight}} className='w-3/6 absolute left-0'>
                     <ActiveImagePortion/>
                 </section>
 
-                <section
-                    className='w-3/6 h-full  absolute right-0  bg-red-300 flex flex-col justify-start items-start gap-2 p-6'>
+                <section ref={dynamicHeight} className='w-3/6 h-auto absolute right-0 flex flex-col justify-start items-start gap-2 p-6'>
                     <InformationPortion/>
                     <ChooseColorPortion/>
                     <ChooseCapacityPortion/> {
-                        (choicesAnswer.haveGoodCondition === 'Yes' || choicesAnswer.haveButtonWork === 'Yes' || choicesAnswer.haveGoodShape === 'Yes' || choicesAnswer.haveTochScreenWork === 'Yes') && (editAnswer === 'Yes')
-                            ? <AcceptCondition/>
-                            : choicesAnswer.haveTochScreenWork === 'No' && editAnswer === 'Yes'
-                                ? <RejectCondition/>
-                                : <OldPhoneQuestion/>
-                    }
-
+                    (choicesAnswer.haveGoodCondition === 'Yes' || choicesAnswer.haveButtonWork === 'Yes' || choicesAnswer.haveGoodShape === 'Yes' || choicesAnswer.haveTouchScreenWork === 'Yes') && (editAnswer === 'Yes')
+                        ? <AcceptCondition/>
+                        : choicesAnswer.haveTouchScreenWork === 'No' && editAnswer === 'Yes'
+                            ? <RejectCondition/>
+                            : <OldPhoneQuestion/>
+                }
                     <SubmitAndAddToWish/>
                 </section>
             </div>

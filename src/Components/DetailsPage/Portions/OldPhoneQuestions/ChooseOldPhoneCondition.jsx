@@ -1,15 +1,11 @@
 import {useContext} from "react";
 import {EachProductDetailsData} from "../../DetailsEachProduct";
-import {AnswerOfHaveGoodCondition , AnswerOfButtonWork , AnswerOfTochScreenWork , AnswerOfGoodShape} from "../YesNoAnswers";
+import {AnswerOfHaveGoodCondition , AnswerOfButtonWork , AnswerOfTouchScreenWork , AnswerOfGoodShape} from "../YesNoAnswers";
 
 export const ChooseOldPhoneCondition = () =>
 {
 
     const {choicesAnswer} = useContext(EachProductDetailsData)
-
-    console.log(`choicesAnswer.haveGoodCondition ${choicesAnswer.haveGoodCondition}`)
-    console.log(`choicesAnswer.haveButtonWork ${choicesAnswer.haveButtonWork}`)
-    console.log(`choicesAnswer.haveGoodShape : ${choicesAnswer.haveGoodShape}`)
 
     return (
         <div className='w-full mt-3 bg-amber-500 '>
@@ -54,7 +50,7 @@ export const ChooseOldPhoneCondition = () =>
                     <li>The cameras work and all lenses are free of damage</li>
                     <li>The display is free from distortion, lines, and black or white spots.</li>
                 </ul>
-             <AnswerOfTochScreenWork/>
+             <AnswerOfTouchScreenWork/>
             </div>
 
         </div>

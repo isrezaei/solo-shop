@@ -96,9 +96,9 @@ export const AnswerOfGoodShape = () =>
 
 
 
-export const AnswerOfTochScreenWork = () =>
+export const AnswerOfTouchScreenWork = () =>
 {
-    const {stepHaveTochScreenWork , setEditAnswer , choicesAnswer} = useContext(EachProductDetailsData)
+    const {stepHaveTouchScreenWork , setEditAnswer , choicesAnswer} = useContext(EachProductDetailsData)
 
     return (
         <div className='flex justify-start items-center gap-4 mt-3'>
@@ -107,10 +107,10 @@ export const AnswerOfTochScreenWork = () =>
                         return (
                             <div key={answer}
                                  onClick={()=> {
-                                    stepHaveTochScreenWork(answer)
+                                    stepHaveTouchScreenWork(answer)
                                     setEditAnswer('Yes')
                                  }}
-                                 className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 ${choicesAnswer.haveTochScreenWork === answer && 'border-2 border-blue-600'}`}> {answer}</div>
+                                 className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 ${choicesAnswer.haveTouchScreenWork === answer && 'border-2 border-blue-600'}`}> {answer}</div>
                         )
                     }
                 )

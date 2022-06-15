@@ -1,8 +1,6 @@
 import {createSlice, createEntityAdapter} from "@reduxjs/toolkit";
 
 
-
-
 const CartShopAdapter = createEntityAdapter({
     sortComparer : (a, b) => b.id - a.id
 })
