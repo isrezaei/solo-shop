@@ -263,6 +263,7 @@ export const DetailsEachProduct = ({EachProduct}) => {
                 setCapacity,
                 enableSection,
                 choicesAnswer,
+                editAnswer,
                 stepHaveOldPhone,
                 stepChoiceModel,
                 stepCondition,
@@ -275,21 +276,25 @@ export const DetailsEachProduct = ({EachProduct}) => {
             }}>
 
             <div className='container relative max-w-5xl bg-blue-500 mx-auto '>
-
                 <section style={{height : divHeight}} className='w-3/6 absolute left-0'>
                     <ActiveImagePortion/>
                 </section>
-
                 <section ref={dynamicHeight} className='w-3/6 h-auto absolute right-0 flex flex-col justify-start items-start gap-2 p-6'>
                     <InformationPortion EachProductFromRedux={EachProduct}/>
                     <ChooseColorPortion/>
                     <ChooseCapacityPortion/>
                     {
-                    (choicesAnswer.haveGoodCondition === 'Yes' || choicesAnswer.haveButtonWork === 'Yes' || choicesAnswer.haveGoodShape === 'Yes' || choicesAnswer.haveTouchScreenWork === 'Yes') && (editAnswer === 'Yes')
-                        ? <AcceptCondition/>
-                        : choicesAnswer.haveTouchScreenWork === 'No' && editAnswer === 'Yes'
-                            ? <RejectCondition/>
-                            : <OldPhoneQuestion/>
+                        (
+                            choicesAnswer.haveGoodCondition === 'Yes'||
+                            choicesAnswer.haveButtonWork === 'Yes'||
+                            choicesAnswer.haveGoodShape === 'Yes'||
+                            choicesAnswer.haveTouchScreenWork === 'Yes'
+                        )
+                        && (editAnswer === 'Yes')
+                            ? <AcceptCondition/>
+                            : choicesAnswer.haveTouchScreenWork === 'No' && editAnswer === 'Yes'
+                                ? <RejectCondition/>
+                                : <OldPhoneQuestion/>
                     }
                     <ChooseQuantity EachProductFromRedux={EachProduct}/>
                     <SubmitAndAddToWish/>

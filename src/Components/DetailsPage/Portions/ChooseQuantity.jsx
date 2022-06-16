@@ -1,16 +1,31 @@
 import {TiPlus , TiMinus} from "react-icons/ti";
 import {QuantityGlobal} from "../../QuantityHandel/QuantityGlobal";
+import {useContext} from "react";
+import {EachProductFromContext} from "../DetailsEachProduct";
 
 export const ChooseQuantity = ({EachProductFromRedux}) =>
 {
     const {price , offer , id , quantity} = EachProductFromRedux
+    const {choicesAnswer , editAnswer} = useContext(EachProductFromContext)
     const {HaveQuantity, CheckQuantity, AddQuan, IncQuan, DecQuan, RemQuan} = QuantityGlobal(EachProductFromRedux)
+
+
+
+
 
     const PriceWithOffer = parseInt((price - ((price * offer) / 100)))
 
-
     return (
-        <div className='w-full h-20  flex justify-center items-center gap-10 pointer-events-none opacity-50 '>
+        <div className= {`w-full h-20 flex justify-center items-center  gap-10
+         ${
+            (          
+                choicesAnswer.haveGoodCondition === 'Yes'||
+                choicesAnswer.haveButtonWork === 'Yes'||
+                choicesAnswer.haveGoodShape === 'Yes'||
+                choicesAnswer.haveTouchScreenWork === 'Yes'||
+                choicesAnswer.haveTouchScreenWork === 'No'
+            ) && (editAnswer === 'Yes') ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-50'}`
+        }>
             {
                 HaveQuantity(id) ?
                     <TiPlus onClick={()=> IncQuan(id , PriceWithOffer , quantity)} className='text-4xl text-lime-600 cursor-pointer'/>

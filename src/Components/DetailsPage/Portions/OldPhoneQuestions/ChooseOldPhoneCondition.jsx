@@ -4,12 +4,9 @@ import {AnswerOfHaveGoodCondition , AnswerOfButtonWork , AnswerOfTouchScreenWork
 
 export const ChooseOldPhoneCondition = () =>
 {
-
     const {choicesAnswer} = useContext(EachProductFromContext)
-
     return (
         <div className='w-full mt-3 '>
-
             <div className='w-full flex flex-col justify-center items-center'>
                 <div>
                     <p className='font-bold text-lg'>Is the iPhone in good condition?</p>
@@ -23,42 +20,35 @@ export const ChooseOldPhoneCondition = () =>
                         <li>The display is free from distortion, lines, and black or white spots.</li>
                     </ul>
                 </div>
-
                 <AnswerOfHaveGoodCondition/>
             </div>
-
             <div className={`w-full flex flex-col justify-center items-center ${choicesAnswer.haveGoodCondition === 'No' ?  'h-auto overflow-visible p-2' : 'h-0 overflow-hidden'}`}>
                 <p className={'w-full text-lg font-bold'}>Does it turn on and do all the buttons work?</p>
                 <AnswerOfButtonWork/>
             </div>
-
             <div className={`w-full flex flex-col justify-start items-center  ${choicesAnswer.haveButtonWork === 'No' ?  'h-auto overflow-visible p-2' : 'h-0 overflow-hidden'}`}>
                 <div className={"w-full"}>
-                <p className={"text-lg font-bold"}>Is the body of the iPhone in good shape?</p>
-                <p>Answer yes if all of the following apply:</p>
+                    <p className={"text-lg font-bold"}>Is the body of the iPhone in good shape?</p>
+                    <p>Answer yes if all of the following apply:</p>
                 </div>
-
                 <ul className={"list-disc w-full px-3"}>
                     <li>It’s free of major cracks, chips, and scratches</li>
                     <li>If there’s glass on the back, it’s not shattered</li>
                 </ul>
-             <AnswerOfGoodShape/>
+                <AnswerOfGoodShape/>
             </div>
-
             <div className={`w-full flex flex-col justify-center items-center  ${choicesAnswer.haveGoodShape === 'No' ?  'h-auto overflow-visible p-2' : 'h-0 overflow-hidden'}`}>
                 <div className={"w-full"}>
-                <p className={"text-lg font-bold"}>Are the touchscreen and cameras in good shape?</p>
-                <p>Answer yes if all of the following apply:</p>
+                    <p className={"text-lg font-bold"}>Are the touchscreen and cameras in good shape?</p>
+                    <p>Answer yes if all of the following apply:</p>
                 </div>
-
                 <ul className={"list-disc w-full px-3"}>
                     <li>The touchscreen is free of cracks, chips, and scratches</li>
                     <li>The cameras work and all lenses are free of damage</li>
                     <li>The display is free from distortion, lines, and black or white spots.</li>
                 </ul>
-             <AnswerOfTouchScreenWork/>
+                <AnswerOfTouchScreenWork/>
             </div>
-
         </div>
     )
 }

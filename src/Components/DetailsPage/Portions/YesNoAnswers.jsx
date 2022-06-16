@@ -1,10 +1,8 @@
 import {useContext} from "react";
 import {EachProductFromContext} from "../DetailsEachProduct";
-
 export const AnswerOfHaveSmartPhone = () =>
 {
     const {stepHaveOldPhone , choicesAnswer} = useContext(EachProductFromContext)
-
     return (
         <>
             <p className='font-bold text-lg mt-3'>Do you have a smartphone to trade in with Apple?</p>
@@ -23,11 +21,9 @@ export const AnswerOfHaveSmartPhone = () =>
         </>
     )
 }
-
 export const AnswerOfHaveGoodCondition = () =>
 {
     const {stepCondition , setEditAnswer , choicesAnswer} = useContext(EachProductFromContext)
-
     return (
         <div className='flex justify-start items-center gap-4 mt-3'>
             {
@@ -35,8 +31,8 @@ export const AnswerOfHaveGoodCondition = () =>
                         return (
                             <div key={answer}
                                  onClick={()=> {
-                                    stepCondition(answer)
-                                    setEditAnswer(answer)
+                                     stepCondition(answer)
+                                     setEditAnswer(answer)
                                  }}
                                  className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 ${choicesAnswer.haveGoodCondition === answer && 'border-2 border-blue-600'}`}> {answer}</div>
                         )
@@ -46,7 +42,6 @@ export const AnswerOfHaveGoodCondition = () =>
         </div>
     )
 }
-
 export const AnswerOfButtonWork = () =>
 {
     const {stepHaveButtonWork , setEditAnswer , choicesAnswer} = useContext(EachProductFromContext)
@@ -58,8 +53,8 @@ export const AnswerOfButtonWork = () =>
                         return (
                             <div key={answer}
                                  onClick={()=> {
-                                    stepHaveButtonWork(answer)
-                                    setEditAnswer(answer)
+                                     stepHaveButtonWork(answer)
+                                     setEditAnswer(answer)
                                  }}
                                  className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 ${choicesAnswer.haveButtonWork === answer && 'border-2 border-blue-600'}`}> {answer}</div>
                         )
@@ -69,8 +64,6 @@ export const AnswerOfButtonWork = () =>
         </div>
     )
 }
-
-
 export const AnswerOfGoodShape = () =>
 {
     const {stepHaveGoodShape , setEditAnswer  , choicesAnswer} = useContext(EachProductFromContext)
@@ -82,8 +75,8 @@ export const AnswerOfGoodShape = () =>
                         return (
                             <div key={answer}
                                  onClick={()=> {
-                                    stepHaveGoodShape(answer)
-                                    setEditAnswer(answer)
+                                     stepHaveGoodShape(answer)
+                                     setEditAnswer(answer)
                                  }}
                                  className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 ${choicesAnswer.haveGoodShape === answer && 'border-2 border-blue-600'}`}> {answer}</div>
                         )
@@ -93,13 +86,9 @@ export const AnswerOfGoodShape = () =>
         </div>
     )
 }
-
-
-
 export const AnswerOfTouchScreenWork = () =>
 {
     const {stepHaveTouchScreenWork , setEditAnswer , choicesAnswer} = useContext(EachProductFromContext)
-
     return (
         <div className='flex justify-start items-center gap-4 mt-3'>
             {
@@ -107,8 +96,8 @@ export const AnswerOfTouchScreenWork = () =>
                         return (
                             <div key={answer}
                                  onClick={()=> {
-                                    stepHaveTouchScreenWork(answer)
-                                    setEditAnswer('Yes')
+                                     stepHaveTouchScreenWork(answer)
+                                     setEditAnswer('Yes')
                                  }}
                                  className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 ${choicesAnswer.haveTouchScreenWork === answer && 'border-2 border-blue-600'}`}> {answer}</div>
                         )
