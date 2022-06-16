@@ -6,7 +6,7 @@ export const RejectCondition = () =>
     const {setEditAnswer} = useContext(EachProductFromContext)
 
     return (
-        <div className={"w-full bg-orange-500 flex justify-between items-start p-1"}>
+        <div className={"w-full flex justify-between items-start p-1"}>
 
             <div className={"w-80"}>
                 <p className={"text-lg font-bold"}>Your smartphone is ready to recycle.</p>

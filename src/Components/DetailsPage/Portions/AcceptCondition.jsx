@@ -6,7 +6,7 @@ export const AcceptCondition = () =>
     const {choiceOldModel , setEditAnswer} = useContext(EachProductFromContext)
 
     return (
-        <div className={"w-full bg-red-400 p-2 flex justify-between items-start"}>
+        <div className={"w-full p-2 flex justify-between items-start"}>
 
             <div className={"w-96"}>
             <p className={"text-lg font-bold"}>You’ve got ${choiceOldModel.offPrice} in trade-in value.</p>

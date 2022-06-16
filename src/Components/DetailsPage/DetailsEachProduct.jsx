@@ -37,6 +37,7 @@ const initialState = {
     editAnswer : '',
 
     choiceOldModel: {
+        selectedModel : '',
         offPrice: ''
     }
 }
@@ -250,8 +251,10 @@ export const DetailsEachProduct = ({EachProduct}) => {
             <option
                 key={models.oldPhone}
                 className='text-lg rounded-xl'
-                value={models.offPrice}>
-                {models.oldPhone}</option>
+                value={models.offPrice}
+                selected={models.oldPhone}>
+                {models.oldPhone}
+            </option>
         )
     })
     return (
@@ -274,7 +277,6 @@ export const DetailsEachProduct = ({EachProduct}) => {
                 choiceOldModel,
                 setOldModelPhone,
             }}>
-
             <div className='container relative max-w-5xl bg-blue-500 mx-auto '>
                 <section style={{height : divHeight}} className='w-3/6 absolute left-0'>
                     <ActiveImagePortion/>
