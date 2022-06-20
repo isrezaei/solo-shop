@@ -1,18 +1,17 @@
-
 import {createContext, useReducer, useState, useRef, useEffect, useLayoutEffect} from "react";
-import {QuantityGlobal} from "../QuantityHandel/QuantityGlobal";
 import {OldModelPhoneArray} from "./OldModelPhoneArray";
-import {InformationPortion} from "./Portions/InformationPortion";
-import {ChooseColorPortion} from "./Portions/ChooseColorPortion";
-import {ChooseCapacityPortion} from "./Portions/ChooseCapacityPortion";
-import {SubmitAndAddToWish} from "./Portions/SubmitAndAddToWish";
-import {OldPhoneQuestion} from "./Portions/OldPhoneQuestions/OldPhoneQuestion";
-import {ActiveImagePortion} from "./Portions/ActiveImagePortion";
-import {AcceptCondition} from "./Portions/AcceptCondition";
-import {RejectCondition} from "./Portions/RejectCondition";
-import {TiPlus} from "react-icons/ti";
-import {RiDeleteBinLine} from "react-icons/ri";
-import {ChooseQuantity} from "./Portions/ChooseQuantity";
+import {InformationHeader} from "./Sections/InformationHeader";
+import {ChooseColor} from "./Sections/ChooseColor";
+import {ChooseCapacity} from "./Sections/ChooseCapacity";
+import {SubmitAndAddToWish} from "./Sections/SubmitAndAddToWish";
+import {OldPhoneQuestion} from "./Sections/OldPhoneQuestion";
+import {ActiveImage} from "./Sections/ActiveImage";
+import {AcceptCondition} from "./Sections/AcceptCondition";
+import {RejectCondition} from "./Sections/RejectCondition";
+import {ChooseQuantity} from "./Sections/ChooseQuantity";
+import {FunReduxDispatchForCartShop} from "../QuantityHandel/FunReduxDispatchForCartShop";
+import {useSelector} from "react-redux";
+import {selectCartShopIds} from "../../Redux/CartShopSlice";
 
 const initialState = {
     enableSection: {
@@ -42,8 +41,9 @@ const initialState = {
     }
 }
 function reducer(state, {type, payload}) {
-    switch (type) {
+     switch (type) {
         case 'enableSection / enableSectionCapacity':
+            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 enableSection: {
@@ -52,6 +52,7 @@ function reducer(state, {type, payload}) {
                 }
             }
         case 'enableSection / enableSectionTrade':
+            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 enableSection: {
@@ -59,15 +60,19 @@ function reducer(state, {type, payload}) {
                     enableSectionTrade: true
                 }
             }
-        case 'activeOptions / activeColor':
+        case 'activeOptions / activeColor & activeImage':
+            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 activeOptions: {
                     ...state.activeOptions,
-                    activeColor: payload
+                    activeColor: payload,
+                    activeImage: payload
                 }
             }
+
         case 'activeOptions / activeCapacity':
+            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 activeOptions: {
@@ -75,26 +80,8 @@ function reducer(state, {type, payload}) {
                     activeCapacity: payload
                 }
             }
-        case 'activeOptions / activeImage':
-
-            return {
-                ...state,
-                activeOptions: {
-                    ...state.activeOptions,
-                    activeImage: payload
-                }
-            }
-
-        case 'choicesAnswer / haveGoodCondition':
-            return {
-                ...state,
-                choicesAnswer: {
-                    ...state.choicesAnswer,
-                    haveGoodCondition: payload
-                }
-            }
-
         case 'choicesAnswer / haveOldPhone':
+            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 choicesAnswer: {
@@ -103,7 +90,18 @@ function reducer(state, {type, payload}) {
                 }
             }
 
+        case 'choicesAnswer / haveGoodCondition':
+            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+            return {
+                ...state,
+                choicesAnswer: {
+                    ...state.choicesAnswer,
+                    haveGoodCondition: payload
+                }
+            }
+
         case 'choicesAnswer / haveButtonWork':
+            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 choicesAnswer: {
@@ -113,6 +111,7 @@ function reducer(state, {type, payload}) {
             }
 
         case 'choicesAnswer / haveGoodShape':
+            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 choicesAnswer: {
@@ -122,6 +121,7 @@ function reducer(state, {type, payload}) {
             }
 
         case 'choicesAnswer / haveTouchScreenWork':
+            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 choicesAnswer: {
@@ -131,13 +131,14 @@ function reducer(state, {type, payload}) {
             }
 
         case 'editAnswer / checkEditAnswer' :
+            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 editAnswer : payload
             }
 
         case 'choiceOldModel / offerPrice':
-
+            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 choiceOldModel: {
@@ -145,6 +146,7 @@ function reducer(state, {type, payload}) {
                     offPrice: payload
                 }
             }
+
 
         default:
             return state
@@ -155,10 +157,13 @@ export const EachProductFromContext = createContext()
 
 export const DetailsEachProduct = ({EachProduct}) => {
 
+
+
+    const {updateQuan} = FunReduxDispatchForCartShop()
+    const cartShopLengths = useSelector(selectCartShopIds)
+
     const {introduction, product, brand, price, id, quantity, rate, type, color, capacity, detailsImage , offer} = EachProduct
-
-
-    const [{enableSection, activeOptions, choicesAnswer, choiceOldModel, editAnswer}, dispatch] = useReducer(reducer, initialState)
+    const [{enableSection, activeOptions, choicesAnswer, choiceOldModel, editAnswer}, dispatch] = useReducer(reducer, JSON.parse(localStorage.getItem('detailsPageInfo')) || initialState)
 
 
     //dynamic height for image section
@@ -168,14 +173,14 @@ export const DetailsEachProduct = ({EachProduct}) => {
         setDivHeight(dynamicHeight.current.clientHeight)
     }) // we don't need to dependency because we need update any seconds
 
-    const stepColor = (colors) => {
+    const stepColorAndImage = (colors) => {
+        dispatch({type: 'activeOptions / activeColor & activeImage', payload: colors})
         dispatch({type: 'enableSection / enableSectionCapacity'})
-        dispatch({type: 'activeOptions / activeColor', payload: colors})
-        dispatch({type: 'activeOptions / activeImage', payload: colors})
     }
+
     const stepCapacity = (Capacity) => {
-        dispatch({type: 'enableSection / enableSectionTrade'})
         dispatch({type: 'activeOptions / activeCapacity', payload: Capacity})
+        dispatch({type: 'enableSection / enableSectionTrade'})
     }
     const stepHaveOldPhone = (answer) => {
         dispatch({type: 'choicesAnswer / haveOldPhone', payload: answer})
@@ -209,25 +214,11 @@ export const DetailsEachProduct = ({EachProduct}) => {
         dispatch({type: 'choicesAnswer / haveTouchScreenWork', payload: answer})
     }
     const setEditAnswer = (answer) => {
+        console.log(answer)
         dispatch({type: 'editAnswer / checkEditAnswer', payload: answer})
     }
-    const setColor = color.map(colors => {
-        return (
-            <div
-                key={colors}
-                onClick={() => stepColor(colors)}
-                className={`w-48 h-28 flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 ${activeOptions.activeColor === colors && 'border-2 border-blue-600'}`}>
-                <div className='flex flex-col justify-center items-center gap-1'>
-                    <div
-                        style={{
-                            background: colors
-                        }}
-                        className='w-9 h-9 rounded-full shadow-inner'> </div>
-                    <div className='text-center'>{colors}</div>
-                </div>
-            </div>
-        )
-    })
+
+
 
     const setCapacity = capacity.map(capacity => {
         return (
@@ -252,17 +243,19 @@ export const DetailsEachProduct = ({EachProduct}) => {
                 key={models.oldPhone}
                 className='text-lg rounded-xl'
                 value={models.offPrice}
-                selected={models.oldPhone}>
+                disabled={models.offPrice >= price}
+            >
                 {models.oldPhone}
             </option>
         )
     })
+
+
     return (
         <EachProductFromContext.Provider
             value={{
                 detailsImage,
                 activeOptions,
-                setColor,
                 setCapacity,
                 enableSection,
                 choicesAnswer,
@@ -276,15 +269,16 @@ export const DetailsEachProduct = ({EachProduct}) => {
                 setEditAnswer,
                 choiceOldModel,
                 setOldModelPhone,
+                stepColorAndImage,
             }}>
             <div className='container relative max-w-5xl bg-blue-500 mx-auto '>
                 <section style={{height : divHeight}} className='w-3/6 absolute left-0'>
-                    <ActiveImagePortion/>
+                    <ActiveImage/>
                 </section>
                 <section ref={dynamicHeight} className='w-3/6 h-auto absolute right-0 flex flex-col justify-start items-start gap-2 p-6'>
-                    <InformationPortion EachProductFromRedux={EachProduct}/>
-                    <ChooseColorPortion/>
-                    <ChooseCapacityPortion/>
+                    <InformationHeader EachProductFromRedux={EachProduct}/>
+                    <ChooseColor EachProductFromRedux={EachProduct}/>
+                    <ChooseCapacity/>
                     {
                         (
                             choicesAnswer.haveGoodCondition === 'Yes'||
@@ -293,7 +287,7 @@ export const DetailsEachProduct = ({EachProduct}) => {
                             choicesAnswer.haveTouchScreenWork === 'Yes'
                         )
                         && (editAnswer === 'Yes')
-                            ? <AcceptCondition/>
+                            ? <AcceptCondition EachProductFromRedux={EachProduct}/>
                             : choicesAnswer.haveTouchScreenWork === 'No' && editAnswer === 'Yes'
                                 ? <RejectCondition/>
                                 : <OldPhoneQuestion/>

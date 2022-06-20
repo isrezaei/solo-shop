@@ -1,9 +1,9 @@
-import {AddQuantity, DecreaseQuantity, IncreaseQuantity, RemoveQuantityHomePage} from "../../Redux/MasterDataSlice";
+import {AddQuantity , DecreaseQuantity, IncreaseQuantity , RemoveQuantityHomePage} from "../../Redux/MasterDataSlice";
 import {AddToCarts, DeleteFromCarts} from "../../Redux/CartShopSlice";
 import {CheckQuantity, HaveQuantity} from "../../HelperFuncs/HelperFuncs";
 import {useDispatch} from "react-redux";
 
-export const QuantityGlobal = (EachProduct) =>
+export const FunReduxDispatchForGlobal = (EachProduct) =>
 {
     const dispatch = useDispatch()
 
@@ -49,13 +49,15 @@ export const QuantityGlobal = (EachProduct) =>
         dispatch(DeleteFromCarts(id))
     }
 
+
+
     return {
         HaveQuantity,
         CheckQuantity,
         AddQuan,
         IncQuan,
         DecQuan,
-        RemQuan
+        RemQuan,
     }
 }
 

@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {selectMasterDataById} from "../../Redux/MasterDataSlice";
 import {ModalGallerySlider} from "./ModalGallerySlider";
-import {QuantityGlobal} from "../QuantityHandel/QuantityGlobal";
+import {FunReduxDispatchForGlobal} from "../QuantityHandel/FunReduxDispatchForGlobal";
 import {TiPlus , TiMinus} from "react-icons/ti";
 import {IoClose} from 'react-icons/io5'
 
@@ -19,7 +19,7 @@ export const ModalGallery = () =>
 
     const {brand , id , image , introduction , price , offer , product , type , quantity} = EachProduct
 
-    const { HaveQuantity, CheckQuantity, AddQuan, IncQuan, DecQuan, RemQuan} = QuantityGlobal(EachProduct)
+    const { HaveQuantity, CheckQuantity, AddQuan, IncQuan, DecQuan, RemQuan} = FunReduxDispatchForGlobal(EachProduct)
 
 
     return (

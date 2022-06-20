@@ -68,6 +68,7 @@ export const MasterDataSlice = createSlice({
             state.totalQuantity -= 1
             state.totalPrice -= payload.PriceWithOffer
         },
+
         RemoveQuantityHomePage(state , {payload})
         {
             MasterDataAdapter.upsertOne(state , {
@@ -84,7 +85,6 @@ export const MasterDataSlice = createSlice({
             })
             state.totalQuantity -= payload.quantity
             state.totalPrice -= payload.PriceWithOffer
-
         },
         ResetAndClearAllTotal(state)
         {

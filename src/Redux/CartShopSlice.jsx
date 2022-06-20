@@ -2,7 +2,7 @@ import {createSlice, createEntityAdapter} from "@reduxjs/toolkit";
 
 
 const CartShopAdapter = createEntityAdapter({
-    sortComparer : (a, b) => b.id - a.id
+    sortComparer : (a, b) => b.id - a.id,
 })
 
 const initialState = CartShopAdapter.getInitialState()
@@ -17,6 +17,20 @@ const CartShopSlice = createSlice({
         {
             CartShopAdapter.addOne(state , payload)
         },
+
+        UpdateDataCart(state , {payload})
+        {
+
+            console.log(payload)
+
+                CartShopAdapter.upsertOne(state , {
+                    id : payload.id,
+                    color : payload.color,
+                    capacity : payload.capacity,
+                    image : payload.activeImage
+                })
+        },
+
         DeleteFromCarts(state , {payload})
         {
             CartShopAdapter.removeOne(state , payload)
@@ -29,5 +43,5 @@ const CartShopSlice = createSlice({
 })
 
 export default CartShopSlice.reducer
-export const {AddToCarts , DeleteFromCarts , DeleteAllCarts} = CartShopSlice.actions
+export const {AddToCarts , DeleteFromCarts , DeleteAllCarts , UpdateDataCart} = CartShopSlice.actions
 

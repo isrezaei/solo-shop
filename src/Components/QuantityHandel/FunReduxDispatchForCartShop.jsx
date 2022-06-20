@@ -1,13 +1,11 @@
 import {useDispatch} from "react-redux";
 import {DecreaseQuantity, IncreaseQuantity , RemoveQuantityCartPage} from "../../Redux/MasterDataSlice";
-import {DeleteFromCarts} from "../../Redux/CartShopSlice";
+import {DeleteFromCarts, UpdateDataCart} from "../../Redux/CartShopSlice";
 
 
-export const QuantityCart = () =>
+export const FunReduxDispatchForCartShop = () =>
 {
-
     const dispatch = useDispatch()
-
 
     const IncQuan = (id , PriceWithOffer , quantity) =>
     {
@@ -16,6 +14,11 @@ export const QuantityCart = () =>
             quantity : quantity + 1,
             PriceWithOffer
         }))
+    }
+
+    const updateQuan = ({id , color , capacity , activeImage}) =>
+    {
+        dispatch(UpdateDataCart({id , color , capacity , activeImage}))
     }
 
     const DecQuan = (id , PriceWithOffer , quantity) =>
@@ -44,7 +47,8 @@ export const QuantityCart = () =>
     return {
         IncQuan,
         DecQuan,
-        RemQuan
+        RemQuan,
+        updateQuan
     }
 
 }

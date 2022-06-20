@@ -1,7 +1,7 @@
 import {useContext} from "react";
 import {EachProductFromContext} from "../DetailsEachProduct";
 
-export const ChooseCapacityPortion = () =>
+export const ChooseCapacity = () =>
 {
     const {setCapacity , enableSection} = useContext(EachProductFromContext)
     return (

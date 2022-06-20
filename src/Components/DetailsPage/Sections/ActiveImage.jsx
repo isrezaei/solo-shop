@@ -2,9 +2,10 @@ import {useContext} from "react";
 import {BsBoxSeam} from 'react-icons/bs'
 import {RiShareForwardBoxFill} from 'react-icons/ri'
 import {EachProductFromContext} from "../DetailsEachProduct";
-export const ActiveImagePortion = () =>
+export const ActiveImage = () =>
 {
     const {detailsImage , activeOptions , product} = useContext(EachProductFromContext)
+
     return (
         <div className='sticky top-48 z-10 '>
 

@@ -1,7 +1,7 @@
 import {useContext} from "react";
-import {EachProductFromContext} from "../../DetailsEachProduct";
+import {EachProductFromContext} from "../DetailsEachProduct";
 
-export const ChooseOldPhone = () =>
+export const ChooseOldModel = () =>
 {
     const {stepChoiceModel , setOldModelPhone} = useContext(EachProductFromContext)
     return (

@@ -1,6 +1,6 @@
 import {useContext} from "react";
-import {EachProductFromContext} from "../../DetailsEachProduct";
-import {AnswerOfHaveGoodCondition , AnswerOfButtonWork , AnswerOfTouchScreenWork , AnswerOfGoodShape} from "../YesNoAnswers";
+import {EachProductFromContext} from "../DetailsEachProduct";
+import {AnswerOfHaveGoodCondition , AnswerOfButtonWork , AnswerOfTouchScreenWork , AnswerOfGoodShape} from "./YesNoAnswers";
 
 export const ChooseOldPhoneCondition = () =>
 {

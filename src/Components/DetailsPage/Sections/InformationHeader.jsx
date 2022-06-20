@@ -1,7 +1,7 @@
 import {RatingStar} from "rating-star";
 
 
-export const InformationPortion = ({EachProductFromRedux}) =>
+export const InformationHeader = ({EachProductFromRedux}) =>
 {
     const {product , id , rate , type , brand} = EachProductFromRedux
 

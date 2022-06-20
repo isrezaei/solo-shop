@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {selectCartShopIds , DeleteAllCarts} from "../../Redux/CartShopSlice";
-import {CartEachCart} from "./CartEachCart";
+import {CartEachProduct} from "./CartEachProduct";
 import {HeaderUp} from "../Header/HeaderUp";
 import {IoMdArrowRoundBack} from 'react-icons/io'
 import {ResetAndClearAllTotal} from "../../Redux/MasterDataSlice";
@@ -11,16 +11,12 @@ import {useNavigate} from "react-router-dom";
 export const CartPreRender = () =>
 {
     const dispatch = useDispatch()
-
-
     const CartProduct = useSelector(state => selectCartShopIds(state))
-    const Render = CartProduct.map(ids => <CartEachCart key={ids} ids={ids}/>)
+    const Render = CartProduct.map(ids => <CartEachProduct key={ids} ids={ids}/>)
     const {totalQuantity , totalPrice} = useSelector(state => state.MasterDataSlice)
     const [ShippingFee , setShippingFee] = useState(5)
     const [headerPosition] = useState('relative');
     const Navigation = useNavigate()
-
-
 
 
     const clearAndBack = () =>
@@ -88,10 +84,8 @@ export const CartPreRender = () =>
                         </div>
                     </div>
                 </div>
-            </div>}
-
-
-
+            </div>
+            }
         </>
     )
 }
