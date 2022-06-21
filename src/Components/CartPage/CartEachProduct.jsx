@@ -26,12 +26,6 @@ export const CartEachProduct = ({ids}) =>
         capacity,
     } = CartSlice
 
-
-
-    console.log(image)
-    console.log(color)
-
-
     const EachTotalPrice = parseInt(CheckQuantity(id) * finalPrice)
 
     return (
@@ -59,6 +53,8 @@ export const CartEachProduct = ({ids}) =>
                     <TiPlus/>
                 </button>
             </div>
+
+            <p>{color}</p>
 
             <p className='w-24 text-center text-gray-500'>${price}</p>
             <p className='w-24 text-center text-blue-700 text-xl font-bold'>${EachTotalPrice}</p>

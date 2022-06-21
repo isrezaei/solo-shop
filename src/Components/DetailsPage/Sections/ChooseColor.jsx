@@ -1,40 +1,65 @@
-import {useContext} from "react";
+import {useContext, useEffect} from "react";
 import {EachProductFromContext} from "../DetailsEachProduct";
 import {OldModelPhoneArray} from "../OldModelPhoneArray";
 import {FunReduxDispatchForCartShop} from "../../QuantityHandel/FunReduxDispatchForCartShop";
 import {useSelector} from "react-redux";
 import {selectCartShopIds} from "../../../Redux/CartShopSlice";
+import {useState} from "react";
 
 export const ChooseColor = ({EachProductFromRedux}) =>
 {
+
     const {updateQuan} = FunReduxDispatchForCartShop()
+
     const cartShopLengths = useSelector(selectCartShopIds)
+
     const {activeOptions , stepColorAndImage} = useContext(EachProductFromContext)
 
     const {introduction, product, brand, price, id, quantity, rate, type, color, capacity, detailsImage , offer} = EachProductFromRedux
 
+
+    const activeColor = JSON.parse(localStorage.getItem('detailsPageInfo'))?.activeOptions.activeColor
+
+    const [Active , setActive] = useState( activeColor || '')
+
+    const [Hover , setHover] = useState('')
+
+
+    useEffect(() => {
+        if (cartShopLengths.length)
+        {
+            updateQuan({
+                    id ,
+                    activeImage : activeOptions.activeImage,
+                    color : activeOptions.activeColor ,
+                    capacity : activeOptions.activeCapacity ,
+                }
+            )
+        }
+    } , [activeOptions.activeColor])
+
+
     const setColor = color.map(colors => {
 
         const handelClick = () => {
-
+            setActive(colors)
             stepColorAndImage(colors)
-
-            if (cartShopLengths.length)
-            {
-                updateQuan({
-                    id ,
-                    color : activeOptions.activeColor ,
-                    capacity : activeOptions.activeCapacity ,
-                    activeImage : activeOptions.activeImage})
-            }
         }
-
+        const handelMouseOver = () =>
+        {
+            setHover(colors)
+        }
 
         return (
             <div
                 key={colors}
                 onClick={handelClick}
-                className={`w-48 h-28 flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 ${activeOptions.activeColor === colors && 'border-2 border-blue-600'}`}>
+                onMouseOver={handelMouseOver}
+                onMouseLeave={()=>setHover('')}
+                className={`w-48 h-28 flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 
+                ${Active=== colors && 'border-2 border-blue-600'}
+                ${Hover === colors && 'border-2 border-gray-400-600'}`}>
+
                 <div className='flex flex-col justify-center items-center gap-1'>
                     <div
                         style={{
@@ -47,9 +72,6 @@ export const ChooseColor = ({EachProductFromRedux}) =>
         )
     })
 
-
-
-    // const {setColor} = useContext(EachProductFromContext)
 
     return (
         <>

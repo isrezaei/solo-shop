@@ -9,9 +9,6 @@ import {ActiveImage} from "./Sections/ActiveImage";
 import {AcceptCondition} from "./Sections/AcceptCondition";
 import {RejectCondition} from "./Sections/RejectCondition";
 import {ChooseQuantity} from "./Sections/ChooseQuantity";
-import {FunReduxDispatchForCartShop} from "../QuantityHandel/FunReduxDispatchForCartShop";
-import {useSelector} from "react-redux";
-import {selectCartShopIds} from "../../Redux/CartShopSlice";
 
 const initialState = {
     enableSection: {
@@ -157,12 +154,7 @@ export const EachProductFromContext = createContext()
 
 export const DetailsEachProduct = ({EachProduct}) => {
 
-
-
-    const {updateQuan} = FunReduxDispatchForCartShop()
-    const cartShopLengths = useSelector(selectCartShopIds)
-
-    const {introduction, product, brand, price, id, quantity, rate, type, color, capacity, detailsImage , offer} = EachProduct
+    const {price ,  capacity, detailsImage} = EachProduct
     const [{enableSection, activeOptions, choicesAnswer, choiceOldModel, editAnswer}, dispatch] = useReducer(reducer, JSON.parse(localStorage.getItem('detailsPageInfo')) || initialState)
 
 
@@ -214,7 +206,6 @@ export const DetailsEachProduct = ({EachProduct}) => {
         dispatch({type: 'choicesAnswer / haveTouchScreenWork', payload: answer})
     }
     const setEditAnswer = (answer) => {
-        console.log(answer)
         dispatch({type: 'editAnswer / checkEditAnswer', payload: answer})
     }
 
@@ -250,16 +241,18 @@ export const DetailsEachProduct = ({EachProduct}) => {
         )
     })
 
-
     return (
         <EachProductFromContext.Provider
             value={{
-                detailsImage,
                 activeOptions,
+                detailsImage,
                 setCapacity,
                 enableSection,
                 choicesAnswer,
                 editAnswer,
+                choiceOldModel,
+                setOldModelPhone,
+                stepColorAndImage,
                 stepHaveOldPhone,
                 stepChoiceModel,
                 stepCondition,
@@ -267,10 +260,8 @@ export const DetailsEachProduct = ({EachProduct}) => {
                 stepHaveTouchScreenWork,
                 stepHaveGoodShape,
                 setEditAnswer,
-                choiceOldModel,
-                setOldModelPhone,
-                stepColorAndImage,
             }}>
+
             <div className='container relative max-w-5xl bg-blue-500 mx-auto '>
                 <section style={{height : divHeight}} className='w-3/6 absolute left-0'>
                     <ActiveImage/>
