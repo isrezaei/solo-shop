@@ -1,8 +1,11 @@
 import {RatingStar} from "rating-star";
+import {useContext} from "react";
+import {EachProductFromContext} from "../DetailsEachProduct";
 
 
-export const InformationHeader = ({EachProductFromRedux}) =>
+export const InformationHeader = () =>
 {
+    const {EachProductFromRedux} = useContext(EachProductFromContext)
     const {product , id , rate , type , brand} = EachProductFromRedux
 
     return (

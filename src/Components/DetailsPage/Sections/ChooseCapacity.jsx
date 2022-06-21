@@ -1,9 +1,50 @@
 import {useContext} from "react";
 import {EachProductFromContext} from "../DetailsEachProduct";
+import {useEffect} from "react";
+import {useSelector} from "react-redux";
+import {selectCartShopIds} from "../../../Redux/CartShopSlice";
+import {FunReduxDispatchForCartShop} from "../../QuantityHandel/FunReduxDispatchForCartShop";
 
 export const ChooseCapacity = () =>
 {
-    const {setCapacity , enableSection} = useContext(EachProductFromContext)
+    const cartShopLengths = useSelector(selectCartShopIds)
+
+    const {updateQuan} = FunReduxDispatchForCartShop()
+    const {activeOptions , enableSection , stepCapacity , EachProductFromRedux} = useContext(EachProductFromContext)
+    const {id, capacity , price} = EachProductFromRedux
+
+    //When changing data by users , Cart is updated
+    useEffect(() => {
+        if (cartShopLengths.length)
+        {
+            updateQuan({
+                    id ,
+                    activeImage : activeOptions.activeImage,
+                    color : activeOptions.activeColor ,
+                    capacity : activeOptions.activeCapacity ,
+                }
+            )
+        }
+    } , [activeOptions.activeColor , activeOptions.activeCapacity , activeOptions.activeImage ,cartShopLengths.length , id , updateQuan])
+
+
+    const setCapacity = capacity.map(capacity => {
+        return (
+            <div
+                key={capacity}
+                onClick={() => stepCapacity(capacity)}
+                className={`w-48 h-28 flex flex-col justify-center items-center gap-2 rounded-3xl border border-gray-400 ${activeOptions.activeCapacity === capacity && 'border-2 border-blue-600'}`}>
+                <div>
+                    <div className='flex justify-center items-center gap-1'>
+                        <p className='text-3xl'>{capacity}</p>
+                        <p className='text-lg'>GB</p>
+                    </div>
+                    <div className='text-center'>from ${price}</div>
+                </div>
+            </div>
+        )
+    })
+
     return (
         <>
             <div className={`w-full pb-7 flex flex-col justify-center items-start gap-1 mt-3 border-b border-gray-400 ${!enableSection.enableSectionCapacity && 'pointer-events-none opacity-30' }`}>

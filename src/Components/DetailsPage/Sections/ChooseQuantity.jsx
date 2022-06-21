@@ -4,11 +4,11 @@ import {useContext} from "react";
 import {EachProductFromContext} from "../DetailsEachProduct";
 import {RiDeleteBinLine} from "react-icons/ri";
 
-export const ChooseQuantity = ({EachProductFromRedux}) =>
+export const ChooseQuantity = () =>
 {
-    const {price , offer , id , quantity , image , product} = EachProductFromRedux
 
-    const {choicesAnswer , editAnswer , choiceOldModel , activeOptions} = useContext(EachProductFromContext)
+    const {choicesAnswer , editAnswer , choiceOldModel , activeOptions , EachProductFromRedux} = useContext(EachProductFromContext)
+    const {price , offer , id , quantity , product} = EachProductFromRedux
 
     const PriceWithOffer = parseInt((price - ((price * offer) / 100)))
 

@@ -1,13 +1,13 @@
 import {useDispatch} from "react-redux";
 import {DecreaseQuantity, IncreaseQuantity , RemoveQuantityCartPage} from "../../Redux/MasterDataSlice";
-import {DeleteFromCarts, UpdateDataCart} from "../../Redux/CartShopSlice";
+import {DeleteFromCarts, UpdateDataCart , SetTradeOldDevice} from "../../Redux/CartShopSlice";
 
 
 export const FunReduxDispatchForCartShop = () =>
 {
     const dispatch = useDispatch()
 
-    const IncQuan = (id , PriceWithOffer , quantity) =>
+    const increase = (id , PriceWithOffer , quantity) =>
     {
         dispatch(IncreaseQuantity({
             id,
@@ -16,12 +16,7 @@ export const FunReduxDispatchForCartShop = () =>
         }))
     }
 
-    const updateQuan = ({id , color , capacity , activeImage}) =>
-    {
-        dispatch(UpdateDataCart({id , color , capacity , activeImage}))
-    }
-
-    const DecQuan = (id , PriceWithOffer , quantity) =>
+    const decrease = (id , PriceWithOffer , quantity) =>
     {
         dispatch(DecreaseQuantity({
             id,
@@ -43,12 +38,23 @@ export const FunReduxDispatchForCartShop = () =>
         dispatch(DeleteFromCarts(id))
     }
 
+    const updateQuan = ({id , color , capacity , activeImage}) =>
+    {
+        dispatch(UpdateDataCart({id , color , capacity , activeImage}))
+    }
+
+    const tradeDevice = (oldDevice) =>
+    {
+        dispatch(SetTradeOldDevice(oldDevice))
+    }
+
 
     return {
-        IncQuan,
-        DecQuan,
+        increase,
+        decrease,
         RemQuan,
-        updateQuan
+        updateQuan,
+        tradeDevice
     }
 
 }

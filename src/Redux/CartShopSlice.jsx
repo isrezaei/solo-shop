@@ -5,7 +5,9 @@ const CartShopAdapter = createEntityAdapter({
     sortComparer : (a, b) => b.id - a.id,
 })
 
-const initialState = CartShopAdapter.getInitialState()
+const initialState = CartShopAdapter.getInitialState({
+    tradeOldDevice : {}
+})
 
 export const { selectById: selectCartShopById,  selectIds: selectCartShopIds , selectAll : selectAllCartShop} = CartShopAdapter.getSelectors(state => state.CartShopSlice)
 
@@ -17,10 +19,8 @@ const CartShopSlice = createSlice({
         {
             CartShopAdapter.addOne(state , payload)
         },
-
         UpdateDataCart(state , {payload})
         {
-
             console.log(payload)
 
                 CartShopAdapter.upsertOne(state , {
@@ -30,7 +30,6 @@ const CartShopSlice = createSlice({
                     image : payload.activeImage
                 })
         },
-
         DeleteFromCarts(state , {payload})
         {
             CartShopAdapter.removeOne(state , payload)
@@ -38,10 +37,17 @@ const CartShopSlice = createSlice({
         DeleteAllCarts(state)
         {
             CartShopAdapter.removeAll(state)
+        },
+        SetTradeOldDevice(state , {payload})
+        {
+            state.tradeOldDevice = {
+                ...state.tradeOldDevice,
+                device : payload
+            }
         }
     },
 })
 
 export default CartShopSlice.reducer
-export const {AddToCarts , DeleteFromCarts , DeleteAllCarts , UpdateDataCart} = CartShopSlice.actions
+export const {AddToCarts , DeleteFromCarts , DeleteAllCarts , UpdateDataCart , SetTradeOldDevice} = CartShopSlice.actions
 

@@ -33,7 +33,6 @@ const initialState = {
     editAnswer : '',
 
     choiceOldModel: {
-        selectedModel : '',
         offPrice: ''
     }
 }
@@ -209,50 +208,17 @@ export const DetailsEachProduct = ({EachProduct}) => {
         dispatch({type: 'editAnswer / checkEditAnswer', payload: answer})
     }
 
-
-
-    const setCapacity = capacity.map(capacity => {
-        return (
-            <div
-                key={capacity}
-                onClick={() => stepCapacity(capacity)}
-                className={`w-48 h-28 flex flex-col justify-center items-center gap-2 rounded-2xl border border-gray-400 ${activeOptions.activeCapacity === capacity && 'border-2 border-blue-600'}`}>
-                <div>
-                    <div className='flex justify-center items-center gap-1'>
-                        <p className='text-3xl'>{capacity}</p>
-                        <p className='text-lg'>GB</p>
-                    </div>
-                    <div className='text-center'>from ${price}</div>
-                </div>
-            </div>
-        )
-    })
-
-    const setOldModelPhone = OldModelPhoneArray.map(models => {
-        return (
-            <option
-                key={models.oldPhone}
-                className='text-lg rounded-xl'
-                value={models.offPrice}
-                disabled={models.offPrice >= price}
-            >
-                {models.oldPhone}
-            </option>
-        )
-    })
-
     return (
         <EachProductFromContext.Provider
             value={{
                 activeOptions,
                 detailsImage,
-                setCapacity,
                 enableSection,
                 choicesAnswer,
                 editAnswer,
                 choiceOldModel,
-                setOldModelPhone,
                 stepColorAndImage,
+                stepCapacity,
                 stepHaveOldPhone,
                 stepChoiceModel,
                 stepCondition,
@@ -260,6 +226,7 @@ export const DetailsEachProduct = ({EachProduct}) => {
                 stepHaveTouchScreenWork,
                 stepHaveGoodShape,
                 setEditAnswer,
+                EachProductFromRedux : EachProduct,
             }}>
 
             <div className='container relative max-w-5xl bg-blue-500 mx-auto '>
@@ -267,8 +234,8 @@ export const DetailsEachProduct = ({EachProduct}) => {
                     <ActiveImage/>
                 </section>
                 <section ref={dynamicHeight} className='w-3/6 h-auto absolute right-0 flex flex-col justify-start items-start gap-2 p-6'>
-                    <InformationHeader EachProductFromRedux={EachProduct}/>
-                    <ChooseColor EachProductFromRedux={EachProduct}/>
+                    <InformationHeader/>
+                    <ChooseColor/>
                     <ChooseCapacity/>
                     {
                         (
@@ -278,12 +245,12 @@ export const DetailsEachProduct = ({EachProduct}) => {
                             choicesAnswer.haveTouchScreenWork === 'Yes'
                         )
                         && (editAnswer === 'Yes')
-                            ? <AcceptCondition EachProductFromRedux={EachProduct}/>
+                            ? <AcceptCondition/>
                             : choicesAnswer.haveTouchScreenWork === 'No' && editAnswer === 'Yes'
                                 ? <RejectCondition/>
                                 : <OldPhoneQuestion/>
                     }
-                    <ChooseQuantity EachProductFromRedux={EachProduct}/>
+                    <ChooseQuantity/>
                     <SubmitAndAddToWish/>
                 </section>
             </div>

@@ -1,30 +1,18 @@
 import {useContext, useEffect} from "react";
 import {EachProductFromContext} from "../DetailsEachProduct";
-import {OldModelPhoneArray} from "../OldModelPhoneArray";
 import {FunReduxDispatchForCartShop} from "../../QuantityHandel/FunReduxDispatchForCartShop";
 import {useSelector} from "react-redux";
 import {selectCartShopIds} from "../../../Redux/CartShopSlice";
-import {useState} from "react";
 
-export const ChooseColor = ({EachProductFromRedux}) =>
+export const ChooseColor = () =>
 {
-
-    const {updateQuan} = FunReduxDispatchForCartShop()
-
     const cartShopLengths = useSelector(selectCartShopIds)
 
-    const {activeOptions , stepColorAndImage} = useContext(EachProductFromContext)
+    const {updateQuan} = FunReduxDispatchForCartShop()
+    const {activeOptions , stepColorAndImage , EachProductFromRedux} = useContext(EachProductFromContext)
+    const {id, color} = EachProductFromRedux
 
-    const {introduction, product, brand, price, id, quantity, rate, type, color, capacity, detailsImage , offer} = EachProductFromRedux
-
-
-    const activeColor = JSON.parse(localStorage.getItem('detailsPageInfo'))?.activeOptions.activeColor
-
-    const [Active , setActive] = useState( activeColor || '')
-
-    const [Hover , setHover] = useState('')
-
-
+    //When changing data by users , Cart is updated
     useEffect(() => {
         if (cartShopLengths.length)
         {
@@ -36,29 +24,16 @@ export const ChooseColor = ({EachProductFromRedux}) =>
                 }
             )
         }
-    } , [activeOptions.activeColor])
+    } , [activeOptions.activeColor , activeOptions.activeCapacity , activeOptions.activeImage ,cartShopLengths.length , id , updateQuan])
 
 
     const setColor = color.map(colors => {
-
-        const handelClick = () => {
-            setActive(colors)
-            stepColorAndImage(colors)
-        }
-        const handelMouseOver = () =>
-        {
-            setHover(colors)
-        }
-
         return (
             <div
                 key={colors}
-                onClick={handelClick}
-                onMouseOver={handelMouseOver}
-                onMouseLeave={()=>setHover('')}
-                className={`w-48 h-28 flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 
-                ${Active=== colors && 'border-2 border-blue-600'}
-                ${Hover === colors && 'border-2 border-gray-400-600'}`}>
+                onClick={()=> stepColorAndImage(colors)}
+                className={`w-48 h-28 flex flex-col justify-center items-center gap-2 rounded-3xl border border-gray-400 cursor-pointer
+                ${activeOptions.activeColor  === colors && 'border-2 border-blue-600'}`}>
 
                 <div className='flex flex-col justify-center items-center gap-1'>
                     <div

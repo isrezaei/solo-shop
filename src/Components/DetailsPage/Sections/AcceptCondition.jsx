@@ -1,13 +1,13 @@
-import {useContext, useEffect} from "react"
+import {useContext} from "react"
 import {EachProductFromContext} from "../DetailsEachProduct"
 
 
 
-export const AcceptCondition = ({EachProductFromRedux}) =>
+export const AcceptCondition = () =>
 {
-    const {choiceOldModel , setEditAnswer , choicesAnswer , editAnswer} = useContext(EachProductFromContext)
+    const {choiceOldModel , setEditAnswer , EachProductFromRedux} = useContext(EachProductFromContext)
 
-    const {price , offer , id , quantity , image , product} = EachProductFromRedux
+    const {price , offer , quantity} = EachProductFromRedux
 
     const priceWithOffer = parseInt((price - ((price * offer) / 100))) * quantity
 
