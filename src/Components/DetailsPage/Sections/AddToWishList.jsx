@@ -1,6 +1,6 @@
 import {RiBookmarkLine} from "react-icons/ri";
 
-export const SubmitAndAddToWish = () =>
+export const AddToWishList = () =>
 {
     return (
         <div className='w-full h-36 flex flex-col justify-between items-center '>

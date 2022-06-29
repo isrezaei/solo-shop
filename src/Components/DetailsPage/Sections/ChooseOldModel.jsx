@@ -1,39 +1,35 @@
-import {useContext , useState} from "react";
+import {useContext, useState} from "react";
 import {EachProductFromContext} from "../DetailsEachProduct";
 import {OldModelPhoneArray} from "../OldModelPhoneArray";
 import {FunReduxDispatchForCartShop} from "../../QuantityHandel/FunReduxDispatchForCartShop";
-import {useSelector} from "react-redux";
-
 
 export const ChooseOldModel = () =>
 {
 
-    const [selectedModel , setSelectedModel] = useState(JSON.parse(sessionStorage.getItem('detailsPageInfo'))?.choiceOldModel?.offPrice)
+    const [selectedModel , setSelectedModel] = useState(JSON.parse(localStorage.getItem('detailsPageInfo'))?.choiceOldModel?.offPrice)
     const {stepChoiceModel , EachProductFromRedux} = useContext(EachProductFromContext)
     const {price , type} = EachProductFromRedux
     const {tradeDevice} = FunReduxDispatchForCartShop()
 
-    const {tradeOldDevice :{device : {iphone : {deviceName , cost}} = {iphone : {deviceName : 'Not match' , cost : 'Not match'}}}} = useSelector(state => state.CartShopSlice)
-
     const handelChange = (e) =>
     {
-        const targetValue = e.target.value
-        const targetOption = e.target.options[e.target.selectedIndex].dataset.nameDevice
-
-        stepChoiceModel(targetValue)
-        setSelectedModel(targetValue)
+        const targetCostOldPhone = e.target.value
+        const targetNameOldPhone = e.target.options[e.target.selectedIndex].dataset.nameDevice
 
         tradeDevice({
             [type] : {
-                deviceName : targetOption,
-                cost : targetValue
+                deviceName : targetNameOldPhone,
+                cost : parseInt(targetCostOldPhone)
             }
         })
+
+        stepChoiceModel({targetCostOldPhone , targetNameOldPhone})
+        setSelectedModel(targetCostOldPhone)
     }
 
     return (
         <>
-            <label htmlFor='select-model' className='font-bold text-lg'>Choose your model</label>
+            <label htmlFor='select-model' className='font-bold text-lg text-gray-600'>Choose your model</label>
             <select
                 defaultValue={selectedModel}
                 onChange={(e)=> handelChange(e)}

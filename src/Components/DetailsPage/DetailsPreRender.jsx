@@ -6,13 +6,13 @@ import {HeaderUp} from "../Header/HeaderUp";
 import {HeaderDown} from "../Header/HeaderDown";
 import {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
+import {FunReduxDispatchForCartShop} from "../QuantityHandel/FunReduxDispatchForCartShop";
 
 export const DetailsPreRender = () =>
 {
 
     const {productId} = useParams()
     const EachProduct = useSelector(state => selectMasterDataById(state , productId))
-
     const {status} = useSelector(state => state.MasterDataSlice)
     const dispatch = useDispatch()
     const [HeaderMargin] = useState('')
@@ -24,6 +24,7 @@ export const DetailsPreRender = () =>
             dispatch(FetchMasterData())
         }
     } , [dispatch , status])
+
 
 
     let Render ;

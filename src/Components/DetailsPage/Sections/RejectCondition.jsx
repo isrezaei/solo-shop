@@ -14,7 +14,7 @@ export const RejectCondition = () =>
                 <a href="" className={"text-blue-600"}>Learn more</a>
             </div>
 
-            <p onClick={()=> setEditAnswer('No')} className={"text-xl text-blue-600"}>Edit</p>
+            <p onClick={()=> setEditAnswer('No')} className={"text-xl text-blue-600 cursor-pointer"}>Edit</p>
 
         </div>
     )

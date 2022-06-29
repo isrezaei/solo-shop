@@ -17,7 +17,8 @@ export const ApiData  = [
             "mainImg" : "https://user-images.githubusercontent.com/77073972/164969961-896c59ce-4a93-4d7f-be14-461158c5856b.jpg",
             "subImg" : [
                 "https://user-images.githubusercontent.com/77073972/164969967-a0b54827-90b5-4dc5-94e4-1d97b6faa0cf.jpg",
-                "https://user-images.githubusercontent.com/77073972/164969967-a0b54827-90b5-4dc5-94e4-1d97b6faa0cf.jpg"
+                "https://user-images.githubusercontent.com/77073972/164969973-e37b6c6a-415c-47cd-87c4-5c018868f243.jpg",
+                "https://user-images.githubusercontent.com/77073972/164969961-896c59ce-4a93-4d7f-be14-461158c5856b.jpg"
             ]
         },
 
@@ -54,8 +55,21 @@ export const ApiData  = [
                 "https://user-images.githubusercontent.com/77073972/164971757-c0131b83-14d8-4f24-9efc-ee54c6786a8d.jpg",
                 "https://user-images.githubusercontent.com/77073972/164971760-10a1dec0-65d8-4c72-b39d-644ed4711511.jpg"
             ]
-
         },
+
+        "color" : ['darkOliveGreen' , 'silver' , 'gold' , 'dimGrey' , 'lightBlue'],
+        "capacity" : [128 , 256 , 512],
+
+        "detailsImage" : {
+            "main" : 'https://user-images.githubusercontent.com/77073972/176433679-4d381f76-efd0-425b-b993-bac25e241de0.png',
+            'darkOliveGreen' : 'https://user-images.githubusercontent.com/77073972/176432827-8557aa1d-1909-4bd0-8c5f-05baaadee3dd.png',
+            'silver' : 'https://user-images.githubusercontent.com/77073972/176432828-2319cc82-576f-4ef4-a4bb-f66ad242d96b.png',
+            'gold' : 'https://user-images.githubusercontent.com/77073972/176432821-45ee60b0-5ea1-4efc-a615-792ca36acacb.png',
+            'dimGrey' : 'https://user-images.githubusercontent.com/77073972/176432838-40cf8174-8332-452b-ad63-37803228ad7a.png',
+            'lightBlue' : 'https://user-images.githubusercontent.com/77073972/176432820-2a2e14b8-56f2-49c3-8572-88dc4629984f.png'
+        },
+
+
         "introduction" : "Not just the best iPhone ever, but also the one with the 'biggest camera update ever' - that would be this year's iPhone 13 Pro, which we have here in Max size. Joining those larger and better cameras, we have a high refresh rate display, more battery, the mandatory chipset upgrade - the 13 Pro Max ticks all the boxes for improving everything that's important. We're here to see by just how much"
     },
     {

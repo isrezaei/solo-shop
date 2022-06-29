@@ -9,7 +9,7 @@ export const ChooseOldPhoneCondition = () =>
         <div className='w-full mt-3 '>
             <div className='w-full flex flex-col justify-center items-center'>
                 <div>
-                    <p className='font-bold text-lg'>Is the iPhone in good condition?</p>
+                    <p className='font-bold text-lg text-gray-600'>Is the iPhone in good condition?</p>
                     <p className='text-sm mt-1'>Answer yes if all of the following apply :</p>
                     <ul className='list-disc text-sm px-5 mt-1'>
                         <li>It turns on and functions normally</li>
@@ -23,12 +23,12 @@ export const ChooseOldPhoneCondition = () =>
                 <AnswerOfHaveGoodCondition/>
             </div>
             <div className={`w-full flex flex-col justify-center items-center ${choicesAnswer.haveGoodCondition === 'No' ?  'h-auto overflow-visible p-2' : 'h-0 overflow-hidden'}`}>
-                <p className={'w-full text-lg font-bold'}>Does it turn on and do all the buttons work?</p>
+                <p className={'w-full text-lg font-bold text-gray-600'}>Does it turn on and do all the buttons work?</p>
                 <AnswerOfButtonWork/>
             </div>
             <div className={`w-full flex flex-col justify-start items-center  ${choicesAnswer.haveButtonWork === 'No' ?  'h-auto overflow-visible p-2' : 'h-0 overflow-hidden'}`}>
                 <div className={"w-full"}>
-                    <p className={"text-lg font-bold"}>Is the body of the iPhone in good shape?</p>
+                    <p className={"text-lg font-bold text-gray-600"}>Is the body of the iPhone in good shape?</p>
                     <p>Answer yes if all of the following apply:</p>
                 </div>
                 <ul className={"list-disc w-full px-3"}>
@@ -39,7 +39,7 @@ export const ChooseOldPhoneCondition = () =>
             </div>
             <div className={`w-full flex flex-col justify-center items-center  ${choicesAnswer.haveGoodShape === 'No' ?  'h-auto overflow-visible p-2' : 'h-0 overflow-hidden'}`}>
                 <div className={"w-full"}>
-                    <p className={"text-lg font-bold"}>Are the touchscreen and cameras in good shape?</p>
+                    <p className={"text-lg font-bold text-gray-600"}>Are the touchscreen and cameras in good shape?</p>
                     <p>Answer yes if all of the following apply:</p>
                 </div>
                 <ul className={"list-disc w-full px-3"}>

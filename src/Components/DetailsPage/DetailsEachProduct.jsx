@@ -2,12 +2,14 @@ import {createContext, useReducer, useState, useRef, useLayoutEffect} from "reac
 import {InformationHeader} from "./Sections/InformationHeader";
 import {ChooseColor} from "./Sections/ChooseColor";
 import {ChooseCapacity} from "./Sections/ChooseCapacity";
-import {SubmitAndAddToWish} from "./Sections/SubmitAndAddToWish";
+import {AddToWishList} from "./Sections/AddToWishList";
 import {OldPhoneQuestion} from "./Sections/OldPhoneQuestion";
 import {ActiveImage} from "./Sections/ActiveImage";
 import {AcceptCondition} from "./Sections/AcceptCondition";
 import {RejectCondition} from "./Sections/RejectCondition";
 import {ChooseQuantity} from "./Sections/ChooseQuantity";
+import {useEffect} from "react";
+import {FunReduxDispatchForCartShop} from "../QuantityHandel/FunReduxDispatchForCartShop";
 
 const initialState = {
     enableSection: {
@@ -32,13 +34,14 @@ const initialState = {
     editAnswer : '',
 
     choiceOldModel: {
-        offPrice: ''
+        offPrice: '',
+        nameOldPhone :''
     }
 }
 function reducer(state, {type, payload}) {
      switch (type) {
         case 'enableSection / enableSectionCapacity':
-            sessionStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 enableSection: {
@@ -47,7 +50,7 @@ function reducer(state, {type, payload}) {
                 }
             }
         case 'enableSection / enableSectionTrade':
-            sessionStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 enableSection: {
@@ -56,7 +59,7 @@ function reducer(state, {type, payload}) {
                 }
             }
         case 'activeOptions / activeColor & activeImage':
-            sessionStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 activeOptions: {
@@ -67,7 +70,7 @@ function reducer(state, {type, payload}) {
             }
 
         case 'activeOptions / activeCapacity':
-            sessionStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 activeOptions: {
@@ -76,7 +79,7 @@ function reducer(state, {type, payload}) {
                 }
             }
         case 'choicesAnswer / haveOldPhone':
-            sessionStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 choicesAnswer: {
@@ -86,7 +89,7 @@ function reducer(state, {type, payload}) {
             }
 
         case 'choicesAnswer / haveGoodCondition':
-            sessionStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 choicesAnswer: {
@@ -96,7 +99,7 @@ function reducer(state, {type, payload}) {
             }
 
         case 'choicesAnswer / haveButtonWork':
-            sessionStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 choicesAnswer: {
@@ -106,7 +109,7 @@ function reducer(state, {type, payload}) {
             }
 
         case 'choicesAnswer / haveGoodShape':
-            sessionStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 choicesAnswer: {
@@ -116,7 +119,7 @@ function reducer(state, {type, payload}) {
             }
 
         case 'choicesAnswer / haveTouchScreenWork':
-            sessionStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 choicesAnswer: {
@@ -126,19 +129,20 @@ function reducer(state, {type, payload}) {
             }
 
         case 'editAnswer / checkEditAnswer' :
-            sessionStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 editAnswer : payload
             }
 
         case 'choiceOldModel / offerPrice':
-            sessionStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 choiceOldModel: {
                     ...state.choiceOldModel,
-                    offPrice: payload
+                    offPrice: payload.targetCostOldPhone,
+                    nameOldPhone : payload.targetNameOldPhone
                 }
             }
 
@@ -152,9 +156,9 @@ export const EachProductFromContext = createContext()
 
 export const DetailsEachProduct = ({EachProduct}) => {
 
-    const {detailsImage} = EachProduct
-    const [{enableSection, activeOptions, choicesAnswer, choiceOldModel, editAnswer}, dispatch] = useReducer(reducer, JSON.parse(sessionStorage.getItem('detailsPageInfo')) || initialState)
-
+    const {detailsImage , type} = EachProduct
+    const [{enableSection, activeOptions, choicesAnswer, choiceOldModel, editAnswer}, dispatch] = useReducer(reducer, JSON.parse(localStorage.getItem('detailsPageInfo')) || initialState)
+    const {tradeDevice} = FunReduxDispatchForCartShop()
 
     //dynamic height for image section
     const [divHeight, setDivHeight] = useState();
@@ -162,6 +166,16 @@ export const DetailsEachProduct = ({EachProduct}) => {
     useLayoutEffect(()=> {
         setDivHeight(dynamicHeight.current.clientHeight)
     }) // we don't need to dependency because we need update any seconds
+
+    // set yor last choice old phone in state
+    useEffect(()=>{
+        tradeDevice({
+            [type] : {
+                deviceName : JSON.parse(localStorage.getItem('detailsPageInfo'))?.choiceOldModel?.nameOldPhone,
+                cost : JSON.parse(localStorage.getItem('detailsPageInfo'))?.choiceOldModel?.offPrice
+            }
+        })
+    } , [choicesAnswer.haveOldPhone])
 
     const stepColorAndImage = (colors) => {
         dispatch({type: 'activeOptions / activeColor & activeImage', payload: colors})
@@ -175,14 +189,14 @@ export const DetailsEachProduct = ({EachProduct}) => {
     const stepHaveOldPhone = (answer) => {
         dispatch({type: 'choicesAnswer / haveOldPhone', payload: answer})
         //When the user selects yes again in (do u have a smartphone to trade) all payload are reset
-        dispatch({type: 'choiceOldModel / offerPrice', payload: ''})
+        dispatch({type: 'choiceOldModel / offerPrice', payload: {}})
         dispatch({type: 'choicesAnswer / haveGoodCondition', payload: ''})
         dispatch({type: 'choicesAnswer / haveButtonWork', payload: ''})
         dispatch({type: 'choicesAnswer / haveGoodShape', payload: ''})
         dispatch({type: 'choicesAnswer / haveTouchScreenWork', payload: ''})
     }
-    const stepChoiceModel = (offerPrice) => {
-        dispatch({type: 'choiceOldModel / offerPrice', payload: offerPrice})
+    const stepChoiceModel = (dataOldPhone) => {
+        dispatch({type: 'choiceOldModel / offerPrice', payload: dataOldPhone})
     }
     const stepCondition = (answer) => {
         dispatch({type: 'choicesAnswer / haveGoodCondition', payload: answer})
@@ -250,7 +264,7 @@ export const DetailsEachProduct = ({EachProduct}) => {
                                 : <OldPhoneQuestion/>
                     }
                     <ChooseQuantity/>
-                    <SubmitAndAddToWish/>
+                    <AddToWishList/>
                 </section>
             </div>
         </EachProductFromContext.Provider>

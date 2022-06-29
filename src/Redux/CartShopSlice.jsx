@@ -21,8 +21,6 @@ const CartShopSlice = createSlice({
         },
         UpdateDataCart(state , {payload})
         {
-            console.log(payload)
-
                 CartShopAdapter.upsertOne(state , {
                     id : payload.id,
                     color : payload.color,

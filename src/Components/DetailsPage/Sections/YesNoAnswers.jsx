@@ -5,14 +5,14 @@ export const AnswerOfHaveSmartPhone = () =>
     const {stepHaveOldPhone , choicesAnswer} = useContext(EachProductFromContext)
     return (
         <>
-            <p className='font-bold text-lg mt-3'>Do you have a smartphone to trade in with Apple?</p>
+            <p className='font-bold text-lg mt-3 text-gray-600'>Do you have a smartphone to trade in with Apple?</p>
             <div className='flex justify-center items-center gap-3'>
                 {
                     ['Yes' , 'No'].map(answer => {
                             return (
                                 <div key={answer}
                                      onClick={()=>stepHaveOldPhone(answer)}
-                                     className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 ${choicesAnswer.haveOldPhone === answer && 'border border-transparent outline outline-4 outline-blue-300'}`}> {answer}</div>
+                                     className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 cursor-pointer ${choicesAnswer.haveOldPhone === answer && 'border border-transparent outline outline-4 outline-blue-300'}`}> {answer}</div>
                             )
                         }
                     )
@@ -35,7 +35,7 @@ export const AnswerOfHaveGoodCondition = () =>
                                      setEditAnswer(answer)
                                      stepCondition(answer)
                                  }}
-                                 className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 ${choicesAnswer.haveGoodCondition === answer && 'border border-transparent outline outline-4 outline-blue-300'}`}> {answer}</div>
+                                 className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 cursor-pointer ${choicesAnswer.haveGoodCondition === answer && 'border border-transparent outline outline-4 outline-blue-300'}`}> {answer}</div>
                         )
                     }
                 )
@@ -57,7 +57,7 @@ export const AnswerOfButtonWork = () =>
                                      setEditAnswer(answer)
                                      stepHaveButtonWork(answer)
                                  }}
-                                 className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 ${choicesAnswer.haveButtonWork === answer && 'border border-transparent outline outline-4 outline-blue-300'}`}> {answer}</div>
+                                 className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 cursor-pointer ${choicesAnswer.haveButtonWork === answer && 'border border-transparent outline outline-4 outline-blue-300'}`}> {answer}</div>
                         )
                     }
                 )
@@ -79,7 +79,7 @@ export const AnswerOfGoodShape = () =>
                                      setEditAnswer(answer)
                                      stepHaveGoodShape(answer)
                                  }}
-                                 className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 ${choicesAnswer.haveGoodShape === answer && 'border border-transparent outline outline-4 outline-blue-300'}`}> {answer}</div>
+                                 className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 cursor-pointer ${choicesAnswer.haveGoodShape === answer && 'border border-transparent outline outline-4 outline-blue-300'}`}> {answer}</div>
                         )
                     }
                 )
@@ -100,7 +100,7 @@ export const AnswerOfTouchScreenWork = () =>
                                      setEditAnswer('Yes')
                                      stepHaveTouchScreenWork(answer)
                                  }}
-                                 className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 ${choicesAnswer.haveTouchScreenWork === answer && 'border border-transparent outline outline-4 outline-blue-300'}`}> {answer}</div>
+                                 className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 cursor-pointer ${choicesAnswer.haveTouchScreenWork === answer && 'border border-transparent outline outline-4 outline-blue-300'}`}> {answer}</div>
                         )
                     }
                 )
