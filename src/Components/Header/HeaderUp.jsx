@@ -1,11 +1,9 @@
-import {RiHeartAddFill, RiHeartAddLine, RiShoppingCartFill, RiUserAddLine} from "react-icons/ri";
-import {AiOutlineShopping} from "react-icons/ai";
-import {BiUserPlus} from "react-icons/bi";
+import {RiUserAddLine} from "react-icons/ri";
+
 import {useEffect, useState} from "react";
-import {TiUserAddOutline} from "react-icons/ti";
+
 
 import {useSelector} from "react-redux";
-import {Link} from "react-router-dom";
 import {CartWish} from "./Cart&Wish";
 
 export const HeaderUp = ({headerPosition}) =>

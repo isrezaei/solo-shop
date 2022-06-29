@@ -12,7 +12,7 @@ export const CartEachProduct = ({ids}) =>
     const CartSlice = useSelector(state => selectCartShopById(state , ids))
     const MasterSlice = useSelector(state => selectMasterDataById(state , ids))
 
-    const {increase,decrease,RemQuan} = FunReduxDispatchForCartShop()
+    const {increase,decrease,remove} = FunReduxDispatchForCartShop()
 
     const {quantity , detailsImage} = MasterSlice
     const {
@@ -21,7 +21,6 @@ export const CartEachProduct = ({ids}) =>
         price,
         finalPrice,
         id,
-        offer,
         color,
         capacity,
     } = CartSlice
@@ -36,7 +35,7 @@ export const CartEachProduct = ({ids}) =>
                     <p className='text-lg font-bold text-gray-500'>{product}</p>
                     <p>See Product</p>
                     <p className='w-8 h-8 bg-red-500 text-center text-xl text-white rounded-2xl flex justify-center items-center cursor-pointer'
-                       onClick={()=> RemQuan(id , EachTotalPrice ,quantity)}>
+                       onClick={()=> remove(id , EachTotalPrice ,quantity)}>
                         <RiDeleteBinLine/>
                     </p>
                 </div>

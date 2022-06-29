@@ -5,11 +5,10 @@ import {FunReduxDispatchForCartShop} from "../../QuantityHandel/FunReduxDispatch
 import {useSelector} from "react-redux";
 
 
-
 export const ChooseOldModel = () =>
 {
 
-    const [selectedModel , setSelectedModel] = useState(JSON.parse(localStorage.getItem('detailsPageInfo')).choiceOldModel?.offPrice)
+    const [selectedModel , setSelectedModel] = useState(JSON.parse(sessionStorage.getItem('detailsPageInfo'))?.choiceOldModel?.offPrice)
     const {stepChoiceModel , EachProductFromRedux} = useContext(EachProductFromContext)
     const {price , type} = EachProductFromRedux
     const {tradeDevice} = FunReduxDispatchForCartShop()
@@ -40,6 +39,7 @@ export const ChooseOldModel = () =>
                 onChange={(e)=> handelChange(e)}
                 id='select-model'
                 className='w-full mt-1 border rounded-xl flex justify-start items-start'>
+                <option value='select' className='text-lg rounded-xl'>select your model</option>
                 {OldModelPhoneArray.map(models => {
                     return (
                         <option

@@ -67,15 +67,10 @@ export const HomePreRender = () =>
             <HomeBenefit/>
             <HomeSelectProduct/>
 
-
             <section className='w-full bg-gray-100'>
-
                 <div className='w-11/12 m-auto relative flex justify-around items-start'>
-
                     <HomeOfferSlider/>
-
                     <section className='w-9/12 flex flex-col justify-between items-center'>
-
                         <HomeFilterProduct/>
 
                         <Swiper
@@ -93,8 +88,6 @@ export const HomePreRender = () =>
 
                 </div>
             </section>
-
-
         </div>
     )
 

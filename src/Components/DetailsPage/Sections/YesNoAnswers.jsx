@@ -12,7 +12,7 @@ export const AnswerOfHaveSmartPhone = () =>
                             return (
                                 <div key={answer}
                                      onClick={()=>stepHaveOldPhone(answer)}
-                                     className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 ${choicesAnswer.haveOldPhone === answer && 'border-2 border-blue-600'}`}> {answer}</div>
+                                     className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 ${choicesAnswer.haveOldPhone === answer && 'border border-transparent outline outline-4 outline-blue-300'}`}> {answer}</div>
                             )
                         }
                     )
@@ -35,7 +35,7 @@ export const AnswerOfHaveGoodCondition = () =>
                                      setEditAnswer(answer)
                                      stepCondition(answer)
                                  }}
-                                 className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 ${choicesAnswer.haveGoodCondition === answer && 'border-2 border-blue-600'}`}> {answer}</div>
+                                 className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 ${choicesAnswer.haveGoodCondition === answer && 'border border-transparent outline outline-4 outline-blue-300'}`}> {answer}</div>
                         )
                     }
                 )
@@ -57,7 +57,7 @@ export const AnswerOfButtonWork = () =>
                                      setEditAnswer(answer)
                                      stepHaveButtonWork(answer)
                                  }}
-                                 className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 ${choicesAnswer.haveButtonWork === answer && 'border-2 border-blue-600'}`}> {answer}</div>
+                                 className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 ${choicesAnswer.haveButtonWork === answer && 'border border-transparent outline outline-4 outline-blue-300'}`}> {answer}</div>
                         )
                     }
                 )
@@ -79,7 +79,7 @@ export const AnswerOfGoodShape = () =>
                                      setEditAnswer(answer)
                                      stepHaveGoodShape(answer)
                                  }}
-                                 className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 ${choicesAnswer.haveGoodShape === answer && 'border-2 border-blue-600'}`}> {answer}</div>
+                                 className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 ${choicesAnswer.haveGoodShape === answer && 'border border-transparent outline outline-4 outline-blue-300'}`}> {answer}</div>
                         )
                     }
                 )
@@ -100,7 +100,7 @@ export const AnswerOfTouchScreenWork = () =>
                                      setEditAnswer('Yes')
                                      stepHaveTouchScreenWork(answer)
                                  }}
-                                 className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 ${choicesAnswer.haveTouchScreenWork === answer && 'border-2 border-blue-600'}`}> {answer}</div>
+                                 className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 ${choicesAnswer.haveTouchScreenWork === answer && 'border border-transparent outline outline-4 outline-blue-300'}`}> {answer}</div>
                         )
                     }
                 )

@@ -22,11 +22,10 @@ export const FunReduxDispatchForCartShop = () =>
             id,
             quantity : quantity - 1,
             PriceWithOffer,
-
         }))
     }
 
-    const RemQuan = (id , EachTotalPrice , quantity ) =>
+    const remove = (id , EachTotalPrice , quantity ) =>
     {
 
         dispatch(RemoveQuantityCartPage({
@@ -38,7 +37,7 @@ export const FunReduxDispatchForCartShop = () =>
         dispatch(DeleteFromCarts(id))
     }
 
-    const updateQuan = ({id , color , capacity , activeImage}) =>
+    const update = ({id , color , capacity , activeImage}) =>
     {
         dispatch(UpdateDataCart({id , color , capacity , activeImage}))
     }
@@ -52,8 +51,8 @@ export const FunReduxDispatchForCartShop = () =>
     return {
         increase,
         decrease,
-        RemQuan,
-        updateQuan,
+        remove,
+        update,
         tradeDevice
     }
 

@@ -5,7 +5,6 @@ export const HeaderDown = ({HeaderMargin}) =>
 {
     return (
         <div className={`w-full ${HeaderMargin} flex`}>
-
             <div className='w-9/12 m-auto h-28 flex justify-between'>
                 <SearchLogo/>
                 <CartWish/>

@@ -28,20 +28,26 @@ export const ChooseQuantity = () =>
         }
     )
 
+    let accessQuantity = 'pointer-events-none opacity-50'
+    if (choicesAnswer.haveOldPhone === 'No')
+    {
+        accessQuantity = 'pointer-events-auto opacity-100'
+    }
+    if (
+      (  choicesAnswer.haveGoodCondition === 'Yes'||
+        choicesAnswer.haveButtonWork === 'Yes'||
+        choicesAnswer.haveGoodShape === 'Yes'||
+        choicesAnswer.haveTouchScreenWork === 'Yes'||
+        choicesAnswer.haveTouchScreenWork === 'No') &&
+        (editAnswer === 'Yes')
+    )
+    {
+        accessQuantity = 'pointer-events-auto opacity-100'
+    }
 
     return (
         <div className='w-full flex flex-col justify-between items-start'>
-            <div className= {`w-full h-20 flex justify-between items-center ${(
-
-                choicesAnswer.haveOldPhone === 'No' ||
-                choicesAnswer.haveGoodCondition === 'Yes'||
-                choicesAnswer.haveButtonWork === 'Yes'||
-                choicesAnswer.haveGoodShape === 'Yes'||
-                choicesAnswer.haveTouchScreenWork === 'Yes'||
-                choicesAnswer.haveTouchScreenWork === 'No'
-
-            ) && (editAnswer === 'Yes') ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-50'}`}>
-
+            <div className= {`w-full h-20 flex justify-between items-center ${accessQuantity}`}>
 
                 <div className={`w-4/6 h-12 bg-lime-600  flex justify-center items-center text-white rounded ${HaveQuantity(id) ?  'opacity-50 pointer-events-none' : 'cursor-pointer'}`} onClick={()=> AddQuan(id , finalPrice , quantity)}>
                     {!quantity ? 'Add to cart' : 'Choose your quantity'}
@@ -58,20 +64,6 @@ export const ChooseQuantity = () =>
                     }
                 </div>
             </div>
-
-            <div className='w-full my-3 flex justify-between items-center'>
-                <div>
-                    <p>Price : ${price * quantity}</p>
-                    <p>Offer : {offer}% => ${PriceWithOffer * quantity}</p>
-                    <p>got in trade : ${choiceOldModel.offPrice}</p>
-                </div>
-
-                <div>
-                    <p>Conclude : ${(PriceWithOffer - choiceOldModel.offPrice) * quantity}</p>
-                </div>
-            </div>
-
-
         </div>
     )
 }

@@ -8,7 +8,7 @@ export const ChooseColor = () =>
 {
     const cartShopLengths = useSelector(selectCartShopIds)
 
-    const {updateQuan} = FunReduxDispatchForCartShop()
+    const {update} = FunReduxDispatchForCartShop()
     const {activeOptions , stepColorAndImage , EachProductFromRedux} = useContext(EachProductFromContext)
     const {id, color} = EachProductFromRedux
 
@@ -16,7 +16,7 @@ export const ChooseColor = () =>
     useEffect(() => {
         if (cartShopLengths.length)
         {
-            updateQuan({
+            update({
                     id ,
                     activeImage : activeOptions.activeImage,
                     color : activeOptions.activeColor ,
@@ -24,7 +24,7 @@ export const ChooseColor = () =>
                 }
             )
         }
-    } , [activeOptions.activeColor , activeOptions.activeCapacity , activeOptions.activeImage ,cartShopLengths.length , id , updateQuan])
+    } , [activeOptions.activeColor , activeOptions.activeCapacity , activeOptions.activeImage ,cartShopLengths.length , id , update])
 
 
     const setColor = color.map(colors => {
@@ -33,7 +33,7 @@ export const ChooseColor = () =>
                 key={colors}
                 onClick={()=> stepColorAndImage(colors)}
                 className={`w-48 h-28 flex flex-col justify-center items-center gap-2 rounded-3xl border border-gray-400 cursor-pointer
-                ${activeOptions.activeColor  === colors && 'border-2 border-blue-600'}`}>
+                ${activeOptions.activeColor  === colors && 'border border-transparent outline outline-4 outline-blue-300'}`}>
 
                 <div className='flex flex-col justify-center items-center gap-1'>
                     <div

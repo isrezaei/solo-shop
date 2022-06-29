@@ -1,5 +1,4 @@
-import {createContext, useReducer, useState, useRef, useEffect, useLayoutEffect} from "react";
-import {OldModelPhoneArray} from "./OldModelPhoneArray";
+import {createContext, useReducer, useState, useRef, useLayoutEffect} from "react";
 import {InformationHeader} from "./Sections/InformationHeader";
 import {ChooseColor} from "./Sections/ChooseColor";
 import {ChooseCapacity} from "./Sections/ChooseCapacity";
@@ -39,7 +38,7 @@ const initialState = {
 function reducer(state, {type, payload}) {
      switch (type) {
         case 'enableSection / enableSectionCapacity':
-            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+            sessionStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 enableSection: {
@@ -48,7 +47,7 @@ function reducer(state, {type, payload}) {
                 }
             }
         case 'enableSection / enableSectionTrade':
-            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+            sessionStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 enableSection: {
@@ -57,7 +56,7 @@ function reducer(state, {type, payload}) {
                 }
             }
         case 'activeOptions / activeColor & activeImage':
-            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+            sessionStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 activeOptions: {
@@ -68,7 +67,7 @@ function reducer(state, {type, payload}) {
             }
 
         case 'activeOptions / activeCapacity':
-            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+            sessionStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 activeOptions: {
@@ -77,7 +76,7 @@ function reducer(state, {type, payload}) {
                 }
             }
         case 'choicesAnswer / haveOldPhone':
-            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+            sessionStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 choicesAnswer: {
@@ -87,7 +86,7 @@ function reducer(state, {type, payload}) {
             }
 
         case 'choicesAnswer / haveGoodCondition':
-            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+            sessionStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 choicesAnswer: {
@@ -97,7 +96,7 @@ function reducer(state, {type, payload}) {
             }
 
         case 'choicesAnswer / haveButtonWork':
-            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+            sessionStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 choicesAnswer: {
@@ -107,7 +106,7 @@ function reducer(state, {type, payload}) {
             }
 
         case 'choicesAnswer / haveGoodShape':
-            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+            sessionStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 choicesAnswer: {
@@ -117,7 +116,7 @@ function reducer(state, {type, payload}) {
             }
 
         case 'choicesAnswer / haveTouchScreenWork':
-            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+            sessionStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 choicesAnswer: {
@@ -127,14 +126,14 @@ function reducer(state, {type, payload}) {
             }
 
         case 'editAnswer / checkEditAnswer' :
-            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+            sessionStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 editAnswer : payload
             }
 
         case 'choiceOldModel / offerPrice':
-            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+            sessionStorage.setItem('detailsPageInfo' , JSON.stringify(state))
             return {
                 ...state,
                 choiceOldModel: {
@@ -153,8 +152,8 @@ export const EachProductFromContext = createContext()
 
 export const DetailsEachProduct = ({EachProduct}) => {
 
-    const {price ,  capacity, detailsImage} = EachProduct
-    const [{enableSection, activeOptions, choicesAnswer, choiceOldModel, editAnswer}, dispatch] = useReducer(reducer, JSON.parse(localStorage.getItem('detailsPageInfo')) || initialState)
+    const {detailsImage} = EachProduct
+    const [{enableSection, activeOptions, choicesAnswer, choiceOldModel, editAnswer}, dispatch] = useReducer(reducer, JSON.parse(sessionStorage.getItem('detailsPageInfo')) || initialState)
 
 
     //dynamic height for image section
