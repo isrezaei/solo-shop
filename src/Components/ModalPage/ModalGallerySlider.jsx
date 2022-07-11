@@ -8,8 +8,6 @@ export const ModalGallerySlider = ({image}) =>
 
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
-    console.log(thumbsSwiper)
-
     const subImageUp = image.subImg.map(items => {
         return (
             <SwiperSlide key={items} className='h-full cursor-grab flex justify-center items-center'>
@@ -25,7 +23,6 @@ export const ModalGallerySlider = ({image}) =>
             </SwiperSlide>
         )
     })
-
 
     return (
         <div className='p-5'>

@@ -2,10 +2,8 @@ import {Routes, Route} from "react-router-dom";
 import {HomePreRender} from "./Components/HomePage/HomePreRender";
 import {DetailsPreRender} from "./Components/DetailsPage/DetailsPreRender";
 import {CartPreRender} from "./Components/CartPage/CartPreRender";
-import {ModalGallery} from "./Components/ModalPage/ModalGallery";
+import {ModalGalleryPreRender} from "./Components/ModalPage/ModalGalleryPreRender";
 import {useLocation} from "react-router-dom";
-
-
 function App() {
 
     const location = useLocation()
@@ -22,7 +20,7 @@ function App() {
             {
                 background && (
                     <Routes>
-                        <Route path='quick/:productId' element={<ModalGallery/>}/>
+                        <Route path='quick/:productId' element={<ModalGalleryPreRender/>}/>
                     </Routes>
                 )
             }

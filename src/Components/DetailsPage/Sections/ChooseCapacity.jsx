@@ -12,6 +12,7 @@ export const ChooseCapacity = () =>
     const {update} = FunReduxDispatchForCartShop()
     const {activeOptions , enableSection , stepCapacity , EachProductFromRedux} = useContext(EachProductFromContext)
     const {id , product , price  , offer , capacity} = EachProductFromRedux
+    const {activeImage , activeColor , activeCapacity} = activeOptions
 
     const priceWithOffer = parseInt((price - ((price * offer) / 100)))
 
@@ -21,9 +22,9 @@ export const ChooseCapacity = () =>
         {
             update({
                     id ,
-                    image : activeOptions.activeImage,
-                    color : activeOptions.activeColor,
-                    capacity : activeOptions.activeCapacity ,
+                    image : activeImage,
+                    color : activeColor,
+                    capacity : activeCapacity ,
                     product,
                     price,
                     priceWithOffer,

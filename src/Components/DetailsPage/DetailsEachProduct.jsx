@@ -163,8 +163,6 @@ export const DetailsEachProduct = ({EachProduct}) => {
                         nameOldPhone : payload.targetNameOldPhone
                     }
                 }
-
-
             default:
                 return state
         }
@@ -188,6 +186,8 @@ export const DetailsEachProduct = ({EachProduct}) => {
                 cost : JSON.parse(localStorage.getItem('detailsPageInfo'))?.choiceOldModel?.offPrice
             }
         })
+        //set scroll 0 in first open
+        window.scrollTo(0, 0);
     } , [choicesAnswer.haveOldPhone])
 
     const stepColorAndImage = (colors) => {

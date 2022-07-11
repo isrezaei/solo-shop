@@ -11,13 +11,8 @@ export const ChooseColor = () =>
     const {update} = FunReduxDispatchForCartShop()
     const {activeOptions , stepColorAndImage , EachProductFromRedux} = useContext(EachProductFromContext)
     const {id, color , product , price  , offer} = EachProductFromRedux
-
-
-
-    const eachColor = Object.keys(JSON.parse(localStorage.getItem('detailsPageInfo'))?.activeOptions?.activeColor || {})?.filter(items => items === product)[0]
-    const eachImage = Object.keys(JSON.parse(localStorage.getItem('detailsPageInfo'))?.activeOptions?.activeImage || {})?.filter(items => items === product)[0]
-
     const priceWithOffer = parseInt((price - ((price * offer) / 100)))
+    const {activeImage , activeColor , activeCapacity} = activeOptions
 
     //When changing data by users , Cart is updated
     useEffect(() => {
@@ -25,9 +20,9 @@ export const ChooseColor = () =>
         {
             update({
                     id ,
-                    image : activeOptions.activeImage,
-                    color : activeOptions.activeColor,
-                    capacity : activeOptions.activeCapacity ,
+                    image : activeImage,
+                    color : activeColor,
+                    capacity : activeCapacity ,
                     product,
                     price,
                     priceWithOffer,
@@ -45,7 +40,7 @@ export const ChooseColor = () =>
                 key={colors}
                 onClick={()=> stepColorAndImage(colors)}
                 className={`w-48 h-28 flex flex-col justify-center items-center gap-2 rounded-3xl border border-gray-400 cursor-pointer
-                ${activeOptions.activeColor[eachColor]  === colors && 'border border-transparent outline outline-4 outline-blue-300'}`}>
+                ${activeOptions.activeColor[product]  === colors && 'border border-transparent outline outline-4 outline-blue-300'}`}>
                 <div className='flex flex-col justify-center items-center gap-1'>
                     <div
                         style={{

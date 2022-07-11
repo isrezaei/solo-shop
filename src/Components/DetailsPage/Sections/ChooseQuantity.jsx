@@ -11,18 +11,18 @@ export const ChooseQuantity = () =>
     const {price , offer , id , quantity , product} = EachProductFromRedux
 
     const priceWithOffer = parseInt((price - ((price * offer) / 100)))
-
+    const {activeImage , activeColor , activeCapacity} = activeOptions
 
     const {HaveQuantity, CheckQuantity, AddQuan, IncQuan, DecQuan, RemQuan} = FunReduxDispatchForGlobal(
         {
-            image : activeOptions.activeImage ,
+            image : activeImage ,
+            color : activeColor,
+            capacity : activeCapacity,
             product ,
             price,
             priceWithOffer ,
             id ,
             offer ,
-            color : activeOptions.activeColor,
-            capacity : activeOptions.activeCapacity
         }
     )
 
@@ -32,12 +32,13 @@ export const ChooseQuantity = () =>
         accessQuantity = 'pointer-events-auto opacity-100'
     }
     if (
-      (  choicesAnswer.haveGoodCondition === 'Yes'||
-        choicesAnswer.haveButtonWork === 'Yes'||
-        choicesAnswer.haveGoodShape === 'Yes'||
-        choicesAnswer.haveTouchScreenWork === 'Yes'||
-        choicesAnswer.haveTouchScreenWork === 'No') &&
-        (editAnswer === 'Yes')
+        (
+            choicesAnswer.haveGoodCondition === 'Yes'||
+            choicesAnswer.haveButtonWork === 'Yes'||
+            choicesAnswer.haveGoodShape === 'Yes'||
+            choicesAnswer.haveTouchScreenWork === 'Yes'||
+            choicesAnswer.haveTouchScreenWork === 'No'
+        ) && (editAnswer === 'Yes')
     )
     {
         accessQuantity = 'pointer-events-auto opacity-100'
