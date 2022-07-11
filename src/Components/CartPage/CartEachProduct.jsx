@@ -15,22 +15,15 @@ export const CartEachProduct = ({ids}) =>
     const {increase,decrease,remove} = FunReduxDispatchForCartShop()
 
     const {quantity , detailsImage} = MasterSlice
-    const {
-        image,
-        product,
-        price,
-        priceWithOffer,
-        id,
-        color,
-        capacity,
-    } = CartSlice
+    const {image, product, price, priceWithOffer, id, color, capacity} = CartSlice
 
     const EachTotalPrice = parseInt(CheckQuantity(id) * priceWithOffer)
+
 
     return (
         <div className='flex h-40 justify-evenly items-center'>
             <div className='w-80 h-full flex items-center'>
-                <img id='product-image' className='w-36' src={detailsImage[image]}  alt={product}/>
+                <img id='product-image' className='w-36' src={detailsImage[image[product]]}  alt={product}/>
                 <div className='h-28 flex flex-col justify-evenly ml-4'>
                     <p className='text-lg font-bold text-gray-500'>{product}</p>
                     <p>See Product</p>
@@ -53,8 +46,9 @@ export const CartEachProduct = ({ids}) =>
                 </button>
             </div>
 
-            <p>{color}</p>
+            <p>{color[product]}</p>
             <p>{capacity}</p>
+
             <p className='w-24 text-center text-gray-500'>${price}</p>
             <p className='w-24 text-center text-blue-700 text-xl font-bold'>${EachTotalPrice}</p>
         </div>

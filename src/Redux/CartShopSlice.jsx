@@ -21,11 +21,18 @@ const CartShopSlice = createSlice({
         },
         UpdateDataCart(state , {payload})
         {
+
+            const {id , color , capacity , image , product , price , priceWithOffer , offer} = payload
+
                 CartShopAdapter.upsertOne(state , {
-                    id : payload.id,
-                    color : payload.color,
-                    capacity : payload.capacity,
-                    image : payload.activeImage
+                    id,
+                    color,
+                    capacity,
+                    image,
+                    product ,
+                    price ,
+                    priceWithOffer ,
+                    offer
                 })
         },
         DeleteFromCarts(state , {payload})

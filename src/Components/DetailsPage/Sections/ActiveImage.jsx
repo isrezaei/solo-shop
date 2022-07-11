@@ -4,12 +4,17 @@ import {RiShareForwardBoxFill} from 'react-icons/ri'
 import {EachProductFromContext} from "../DetailsEachProduct";
 export const ActiveImage = () =>
 {
-    const {detailsImage , activeOptions , product} = useContext(EachProductFromContext)
+
+    const {detailsImage , activeOptions , EachProductFromRedux} = useContext(EachProductFromContext)
+
+    const {product} = EachProductFromRedux
+
+    const eachImage = Object.keys(JSON.parse(localStorage.getItem('detailsPageInfo'))?.activeOptions?.activeImage || {})?.filter(items => items === product)[0]
 
     return (
         <div className='sticky top-32 z-10 '>
 
-            <img className='w-full m-auto' src={detailsImage[activeOptions.activeImage]} alt={product}/>
+            <img className='w-full m-auto' src={detailsImage[activeOptions.activeImage[eachImage] || 'main']} alt={product}/>
 
             <div className='w-full h-36 flex justify-center items-start'>
                 <div className='w-60 p-1 text-sm h-full flex flex-col justify-center items-center gap-2'>

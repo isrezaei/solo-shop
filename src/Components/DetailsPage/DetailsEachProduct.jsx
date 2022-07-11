@@ -11,152 +11,165 @@ import {ChooseQuantity} from "./Sections/ChooseQuantity";
 import {useEffect} from "react";
 import {FunReduxDispatchForCartShop} from "../QuantityHandel/FunReduxDispatchForCartShop";
 
-const initialState = {
-    enableSection: {
-        enableSectionCapacity: false,
-        enableSectionTrade: false,
-        enableSectionCondition: false
-    },
-    activeOptions: {
-        activeColor: '',
-        activeCapacity: '',
-        activeImage: 'main'
-    },
-
-    choicesAnswer: {
-        haveOldPhone: '',
-        haveGoodCondition: '',
-        haveButtonWork: '',
-        haveGoodShape: '',
-        haveTouchScreenWork: ''
-    },
-
-    editAnswer : '',
-
-    choiceOldModel: {
-        offPrice: '',
-        nameOldPhone :''
-    }
-}
-function reducer(state, {type, payload}) {
-     switch (type) {
-        case 'enableSection / enableSectionCapacity':
-            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
-            return {
-                ...state,
-                enableSection: {
-                    ...state.enableSection,
-                    enableSectionCapacity: true
-                }
-            }
-        case 'enableSection / enableSectionTrade':
-            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
-            return {
-                ...state,
-                enableSection: {
-                    ...state.enableSection,
-                    enableSectionTrade: true
-                }
-            }
-        case 'activeOptions / activeColor & activeImage':
-            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
-            return {
-                ...state,
-                activeOptions: {
-                    ...state.activeOptions,
-                    activeColor: payload,
-                    activeImage: payload
-                }
-            }
-
-        case 'activeOptions / activeCapacity':
-            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
-            return {
-                ...state,
-                activeOptions: {
-                    ...state.activeOptions,
-                    activeCapacity: payload
-                }
-            }
-        case 'choicesAnswer / haveOldPhone':
-            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
-            return {
-                ...state,
-                choicesAnswer: {
-                    ...state.choicesAnswer,
-                    haveOldPhone: payload
-                }
-            }
-
-        case 'choicesAnswer / haveGoodCondition':
-            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
-            return {
-                ...state,
-                choicesAnswer: {
-                    ...state.choicesAnswer,
-                    haveGoodCondition: payload
-                }
-            }
-
-        case 'choicesAnswer / haveButtonWork':
-            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
-            return {
-                ...state,
-                choicesAnswer: {
-                    ...state.choicesAnswer,
-                    haveButtonWork: payload
-                }
-            }
-
-        case 'choicesAnswer / haveGoodShape':
-            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
-            return {
-                ...state,
-                choicesAnswer: {
-                    ...state.choicesAnswer,
-                    haveGoodShape: payload
-                }
-            }
-
-        case 'choicesAnswer / haveTouchScreenWork':
-            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
-            return {
-                ...state,
-                choicesAnswer: {
-                    ...state.choicesAnswer,
-                    haveTouchScreenWork: payload
-                }
-            }
-
-        case 'editAnswer / checkEditAnswer' :
-            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
-            return {
-                ...state,
-                editAnswer : payload
-            }
-
-        case 'choiceOldModel / offerPrice':
-            localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
-            return {
-                ...state,
-                choiceOldModel: {
-                    ...state.choiceOldModel,
-                    offPrice: payload.targetCostOldPhone,
-                    nameOldPhone : payload.targetNameOldPhone
-                }
-            }
-
-
-        default:
-            return state
-    }
-}
 
 export const EachProductFromContext = createContext()
 
 export const DetailsEachProduct = ({EachProduct}) => {
 
-    const {detailsImage , type} = EachProduct
+    const {detailsImage , type , product} = EachProduct
+
+    const initialState = {
+        enableSection: {
+            enableSectionCapacity: false,
+            enableSectionTrade: false,
+            enableSectionCondition: false
+        },
+        activeOptions: {
+            activeColor: {
+                [product] : ''
+            },
+            activeCapacity: '',
+            activeImage: {
+                [product] : 'main'
+            }
+        },
+
+        choicesAnswer: {
+            haveOldPhone: '',
+            haveGoodCondition: '',
+            haveButtonWork: '',
+            haveGoodShape: '',
+            haveTouchScreenWork: ''
+        },
+
+        editAnswer : '',
+
+        choiceOldModel: {
+            offPrice: '',
+            nameOldPhone :''
+        },
+    }
+    function reducer(state, {type, payload}) {
+        switch (type) {
+            case 'enableSection / enableSectionCapacity':
+                localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+                return {
+                    ...state,
+                    enableSection: {
+                        ...state.enableSection,
+                        enableSectionCapacity: true
+                    }
+                }
+            case 'enableSection / enableSectionTrade':
+                localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+                return {
+                    ...state,
+                    enableSection: {
+                        ...state.enableSection,
+                        enableSectionTrade: true
+                    }
+                }
+            case 'activeOptions / activeColor & activeImage':
+                localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+                console.log(state)
+                return {
+                    ...state,
+                    activeOptions: {
+                        ...state.activeOptions,
+                        activeColor: {
+                            ...state.activeOptions.activeColor,
+                            [product] : payload
+                        },
+                        activeImage: {
+                            ...state.activeOptions.activeImage,
+                            [product] : payload
+                        }
+                    }
+                }
+
+            case 'activeOptions / activeCapacity':
+                localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+                return {
+                    ...state,
+                    activeOptions: {
+                        ...state.activeOptions,
+                        activeCapacity: payload
+                    }
+                }
+            case 'choicesAnswer / haveOldPhone':
+                localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+                return {
+                    ...state,
+                    choicesAnswer: {
+                        ...state.choicesAnswer,
+                        haveOldPhone: payload
+                    }
+                }
+
+            case 'choicesAnswer / haveGoodCondition':
+                localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+                return {
+                    ...state,
+                    choicesAnswer: {
+                        ...state.choicesAnswer,
+                        haveGoodCondition: payload
+                    }
+                }
+
+            case 'choicesAnswer / haveButtonWork':
+                localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+                return {
+                    ...state,
+                    choicesAnswer: {
+                        ...state.choicesAnswer,
+                        haveButtonWork: payload
+                    }
+                }
+
+            case 'choicesAnswer / haveGoodShape':
+                localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+                return {
+                    ...state,
+                    choicesAnswer: {
+                        ...state.choicesAnswer,
+                        haveGoodShape: payload
+                    }
+                }
+
+            case 'choicesAnswer / haveTouchScreenWork':
+                localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+                return {
+                    ...state,
+                    choicesAnswer: {
+                        ...state.choicesAnswer,
+                        haveTouchScreenWork: payload
+                    }
+                }
+
+            case 'editAnswer / checkEditAnswer' :
+                localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+                return {
+                    ...state,
+                    editAnswer : payload
+                }
+
+            case 'choiceOldModel / offerPrice':
+                localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+                return {
+                    ...state,
+                    choiceOldModel: {
+                        ...state.choiceOldModel,
+                        offPrice: payload.targetCostOldPhone,
+                        nameOldPhone : payload.targetNameOldPhone
+                    }
+                }
+
+
+            default:
+                return state
+        }
+    }
+
     const [{enableSection, activeOptions, choicesAnswer, choiceOldModel, editAnswer}, dispatch] = useReducer(reducer, JSON.parse(localStorage.getItem('detailsPageInfo')) || initialState)
     const {tradeDevice} = FunReduxDispatchForCartShop()
 

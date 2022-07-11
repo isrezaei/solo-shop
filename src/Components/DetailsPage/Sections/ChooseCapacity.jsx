@@ -11,7 +11,9 @@ export const ChooseCapacity = () =>
 
     const {update} = FunReduxDispatchForCartShop()
     const {activeOptions , enableSection , stepCapacity , EachProductFromRedux} = useContext(EachProductFromContext)
-    const {id, capacity , price} = EachProductFromRedux
+    const {id , product , price  , offer , capacity} = EachProductFromRedux
+
+    const priceWithOffer = parseInt((price - ((price * offer) / 100)))
 
     //When changing data by users , Cart is updated
     useEffect(() => {
@@ -19,14 +21,17 @@ export const ChooseCapacity = () =>
         {
             update({
                     id ,
-                    activeImage : activeOptions.activeImage,
-                    color : activeOptions.activeColor ,
+                    image : activeOptions.activeImage,
+                    color : activeOptions.activeColor,
                     capacity : activeOptions.activeCapacity ,
+                    product,
+                    price,
+                    priceWithOffer,
+                    offer,
                 }
             )
         }
-    } , [activeOptions.activeColor , activeOptions.activeCapacity , activeOptions.activeImage ,cartShopLengths.length , id , update])
-
+    } , [activeOptions.activeCapacity])
 
     const setCapacity = capacity.map(capacity => {
         return (

@@ -37,9 +37,9 @@ export const FunReduxDispatchForCartShop = () =>
         dispatch(DeleteFromCarts(id))
     }
 
-    const update = ({id , color , capacity , activeImage}) =>
+    const update = ({id , color , capacity , image , product , price , priceWithOffer ,offer}) =>
     {
-        dispatch(UpdateDataCart({id , color , capacity , activeImage}))
+        dispatch(UpdateDataCart({id , color , capacity , image , product , price , priceWithOffer , offer}))
     }
 
     const tradeDevice = (oldDevice) =>
