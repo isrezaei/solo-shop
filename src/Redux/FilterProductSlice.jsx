@@ -7,9 +7,7 @@ const initialState = {
 export const FilterProductSlice = createReducer(initialState , (builder)=> {
     builder
         .addCase('FilterProduct' , (state , {payload}) => {
-
             state.select = payload;
-
         })})
 
 
