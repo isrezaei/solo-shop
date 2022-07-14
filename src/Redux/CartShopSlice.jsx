@@ -5,7 +5,7 @@ const CartShopAdapter = createEntityAdapter({
     sortComparer : (a, b) => b.id - a.id,
 })
 
-const initialState = CartShopAdapter.getInitialState({
+const initialState = JSON.parse(localStorage.getItem('shopListProduct')) || CartShopAdapter.getInitialState({
     tradeOldDevice : {}
 })
 
@@ -18,12 +18,12 @@ const CartShopSlice = createSlice({
         AddToCarts(state , {payload})
         {
             CartShopAdapter.addOne(state , payload)
+            localStorage.setItem('shopListProduct' , JSON.stringify(state))
         },
         UpdateDataCart(state , {payload})
         {
 
             const {id , color , capacity , image , product , price , priceWithOffer , offer} = payload
-
                 CartShopAdapter.upsertOne(state , {
                     id,
                     color,
@@ -34,14 +34,17 @@ const CartShopSlice = createSlice({
                     priceWithOffer ,
                     offer
                 })
+            localStorage.setItem('shopListProduct' , JSON.stringify(state))
         },
         DeleteFromCarts(state , {payload})
         {
             CartShopAdapter.removeOne(state , payload)
+            localStorage.setItem('shopListProduct' , JSON.stringify(state))
         },
         DeleteAllCarts(state)
         {
             CartShopAdapter.removeAll(state)
+            localStorage.setItem('shopListProduct' , JSON.stringify(state))
         },
         SetTradeOldDevice(state , {payload})
         {
@@ -49,6 +52,7 @@ const CartShopSlice = createSlice({
                 ...state.tradeOldDevice,
                 device : payload
             }
+            localStorage.setItem('shopListProduct' , JSON.stringify(state))
         }
     },
 })

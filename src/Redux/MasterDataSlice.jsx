@@ -11,7 +11,7 @@ const MasterDataAdapter = createEntityAdapter({
     sortComparer : (a, b) => a.id - b.id
 })
 
-const initialState = MasterDataAdapter.getInitialState({
+const initialState = JSON.parse(localStorage.getItem('masterData')) || MasterDataAdapter.getInitialState({
     totalQuantity : 0,
     totalPrice : 0,
     sortBy : 'newer',
@@ -49,6 +49,7 @@ export const MasterDataSlice = createSlice({
             })
             state.totalQuantity += 1
             state.totalPrice += payload.PriceWithOffer
+            localStorage.setItem('masterData' , JSON.stringify(state))
         },
         IncreaseQuantity(state , {payload})
         {
@@ -58,6 +59,7 @@ export const MasterDataSlice = createSlice({
             })
             state.totalQuantity += 1
             state.totalPrice += payload.PriceWithOffer
+            localStorage.setItem('masterData' , JSON.stringify(state))
         },
         DecreaseQuantity(state , {payload}) {
             MasterDataAdapter.upsertOne(state , {
@@ -67,6 +69,7 @@ export const MasterDataSlice = createSlice({
 
             state.totalQuantity -= 1
             state.totalPrice -= payload.PriceWithOffer
+            localStorage.setItem('masterData' , JSON.stringify(state))
         },
 
         RemoveQuantityHomePage(state , {payload})
@@ -77,6 +80,7 @@ export const MasterDataSlice = createSlice({
             })
             state.totalQuantity -= 1
             state.totalPrice -= payload.PriceWithOffer
+            localStorage.setItem('masterData' , JSON.stringify(state))
         },
         RemoveQuantityCartPage (state , {payload}) {
             MasterDataAdapter.upsertOne(state , {
@@ -85,6 +89,7 @@ export const MasterDataSlice = createSlice({
             })
             state.totalQuantity -= payload.quantity
             state.totalPrice -= payload.PriceWithOffer
+            localStorage.setItem('masterData' , JSON.stringify(state))
         },
         ResetAndClearAllTotal(state)
         {
@@ -92,23 +97,28 @@ export const MasterDataSlice = createSlice({
             state.status = 'idle'
             state.totalQuantity = 0
             state.totalPrice = 0
+            localStorage.setItem('masterData' , JSON.stringify(state))
         },
         SortEntities(state , {payload})
         {
             state.sortBy = payload
+            localStorage.setItem('masterData' , JSON.stringify(state))
         }
     } ,
     extraReducers : {
         [FetchMasterData.pending] : (state) => {
             state.status = 'pending'
+            localStorage.setItem('masterData' , JSON.stringify(state))
         },
         [FetchMasterData.fulfilled] : (state , {payload}) => {
 
             state.status = 'success'
             MasterDataAdapter.upsertMany(state , payload)
+            localStorage.setItem('masterData' , JSON.stringify(state))
         } ,
         [FetchMasterData.rejected] : (state) => {
            state.status = 'reject'
+            localStorage.setItem('masterData' , JSON.stringify(state))
         }
     }
 })
