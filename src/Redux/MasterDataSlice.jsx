@@ -48,7 +48,7 @@ export const MasterDataSlice = createSlice({
                 quantity : payload.quantity
             })
             state.totalQuantity += 1
-            state.totalPrice += payload.PriceWithOffer
+            state.totalPrice += payload.discountedPrice
             localStorage.setItem('masterData' , JSON.stringify(state))
         },
         IncreaseQuantity(state , {payload})
@@ -58,7 +58,7 @@ export const MasterDataSlice = createSlice({
                 quantity : payload.quantity
             })
             state.totalQuantity += 1
-            state.totalPrice += payload.PriceWithOffer
+            state.totalPrice += payload.discountedPrice
             localStorage.setItem('masterData' , JSON.stringify(state))
         },
         DecreaseQuantity(state , {payload}) {
@@ -68,7 +68,7 @@ export const MasterDataSlice = createSlice({
             })
 
             state.totalQuantity -= 1
-            state.totalPrice -= payload.PriceWithOffer
+            state.totalPrice -= payload.discountedPrice
             localStorage.setItem('masterData' , JSON.stringify(state))
         },
 
@@ -79,7 +79,7 @@ export const MasterDataSlice = createSlice({
                 quantity : null
             })
             state.totalQuantity -= 1
-            state.totalPrice -= payload.PriceWithOffer
+            state.totalPrice -= payload.discountedPrice
             localStorage.setItem('masterData' , JSON.stringify(state))
         },
         RemoveQuantityCartPage (state , {payload}) {
@@ -88,7 +88,7 @@ export const MasterDataSlice = createSlice({
                 quantity : null
             })
             state.totalQuantity -= payload.quantity
-            state.totalPrice -= payload.PriceWithOffer
+            state.totalPrice -= payload.discountedPrice
             localStorage.setItem('masterData' , JSON.stringify(state))
         },
         ResetAndClearAllTotal(state)

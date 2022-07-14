@@ -15,9 +15,9 @@ export const CartEachProduct = ({ids}) =>
     const {increase,decrease,remove} = FunReduxDispatchForCartShop()
 
     const {quantity , detailsImage} = MasterSlice
-    const {image, product, price, priceWithOffer, id, color, capacity} = CartSlice
+    const {image, product, price, discountedPrice, id, color, capacity} = CartSlice
 
-    const EachTotalPrice = parseInt(CheckQuantity(id) * priceWithOffer)
+    const EachTotalPrice = parseInt(CheckQuantity(id) * discountedPrice)
 
 
     return (
@@ -37,11 +37,11 @@ export const CartEachProduct = ({ids}) =>
 
             <div className='w-36 flex justify-evenly items-center'>
                 <button className='w-8 h-8 flex justify-center items-center text-red-500 disabled:opacity-50' disabled={CheckQuantity(id) <= 1}
-                        onClick={()=> decrease(id , priceWithOffer , quantity)}>
+                        onClick={()=> decrease(id , discountedPrice , quantity)}>
                     <TiMinus/>
                 </button>
                 <p className='w-10 text-center p-2 border border-gray-300 '> {quantity}</p>
-                <button className='w-6 h-6 flex justify-center items-center rounded-full bg-blue-700 text-white' onClick={()=> increase(id , priceWithOffer , quantity)}>
+                <button className='w-6 h-6 flex justify-center items-center rounded-full bg-blue-700 text-white' onClick={()=> increase(id , discountedPrice , quantity)}>
                     <TiPlus/>
                 </button>
             </div>

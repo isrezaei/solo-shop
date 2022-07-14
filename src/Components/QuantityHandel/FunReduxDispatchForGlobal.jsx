@@ -7,17 +7,17 @@ export const FunReduxDispatchForGlobal = (EachProduct) =>
 {
     const dispatch = useDispatch()
 
-    const AddQuan  = (id , PriceWithOffer) =>
-    {
-        dispatch(AddQuantity(
-            {
-                id,
-                quantity : 1 ,
-                PriceWithOffer
-            }
-        ))
-        dispatch(AddToCarts(EachProduct))
-    }
+    // const AddQuan  = (id , PriceWithOffer) =>
+    // {
+    //     dispatch(AddQuantity(
+    //         {
+    //             id,
+    //             quantity : 1 ,
+    //             PriceWithOffer
+    //         }
+    //     ))
+    //     dispatch(AddToCarts(EachProduct))
+    // }
 
     const IncQuan = (id , PriceWithOffer , quantity) =>
     {
@@ -54,7 +54,6 @@ export const FunReduxDispatchForGlobal = (EachProduct) =>
     return {
         HaveQuantity,
         CheckQuantity,
-        AddQuan,
         IncQuan,
         DecQuan,
         RemQuan,

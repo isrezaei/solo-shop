@@ -3,14 +3,28 @@ import {FunReduxDispatchForGlobal} from "../../QuantityHandel/FunReduxDispatchFo
 import {useContext} from "react";
 import {EachProductFromContext} from "../DetailsEachProduct";
 import {RiDeleteBinLine} from "react-icons/ri";
+import {AddQuantity, selectMasterDataById} from "../../../Redux/MasterDataSlice";
+import {AddToCarts} from "../../../Redux/CartShopSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {useParams} from "react-router-dom";
+import {DiscountedCalculation} from "../DiscountedCalculation";
 
 export const ChooseQuantity = () =>
 {
-
+    const dispatch = useDispatch()
     const {choicesAnswer , editAnswer , activeOptions , EachProductFromRedux} = useContext(EachProductFromContext)
-    const {price , offer , id , quantity , product} = EachProductFromRedux
 
-    const priceWithOffer = parseInt((price - ((price * offer) / 100)))
+    const {productId} = useParams()
+    const EachProduct = useSelector(state => selectMasterDataById(state , productId))
+
+    const {price , offer , id , quantity , product} = EachProduct
+
+    const {discountedPrice} = DiscountedCalculation()
+
+
+
+
+
     const {activeImage , activeColor , activeCapacity} = activeOptions
 
     const {HaveQuantity, CheckQuantity, AddQuan, IncQuan, DecQuan, RemQuan} = FunReduxDispatchForGlobal(
@@ -20,7 +34,7 @@ export const ChooseQuantity = () =>
             capacity : activeCapacity,
             product ,
             price,
-            priceWithOffer ,
+            discountedPrice ,
             id ,
             offer ,
         }
@@ -44,22 +58,45 @@ export const ChooseQuantity = () =>
         accessQuantity = 'pointer-events-auto opacity-100'
     }
 
+    const HandelAdd = () =>
+    {
+        dispatch(AddQuantity(
+            {
+                id,
+                quantity : 1 ,
+                discountedPrice
+            }
+        ))
+        dispatch(AddToCarts(        {
+            image : activeImage ,
+            color : activeColor,
+            capacity : activeCapacity,
+            product ,
+            price,
+            discountedPrice ,
+            id ,
+            offer ,
+        }))
+    }
+
+
     return (
         <div className='w-full flex flex-col justify-between items-start'>
             <div className= {`w-full h-20 flex justify-between items-center ${accessQuantity}`}>
 
-                <div className={`w-4/6 h-12 bg-blue-600 cursor-pointer flex justify-center items-center text-white rounded ${HaveQuantity(id) ?  'opacity-50 pointer-events-none' : 'cursor-pointer'}`} onClick={()=> AddQuan(id , priceWithOffer , quantity)}>
+                <div className={`w-4/6 h-12 bg-blue-600 cursor-pointer flex justify-center items-center text-white rounded 
+                ${HaveQuantity(id) ?  'opacity-50 pointer-events-none' : 'cursor-pointer'}`} onClick={HandelAdd}>
                     {!quantity ? 'Add to cart' : 'Choose your quantity'}
                 </div>
 
                 <div className='w-28 h-12 p-2 border border-gray-400 flex justify-between items-center cursor-pointer'>
 
-                    {quantity && <TiPlus onClick={()=> IncQuan(id , priceWithOffer , quantity)} className='text-xl w-5 text-lime-600 cursor-pointer'/>}
+                    {quantity && <TiPlus onClick={()=> IncQuan(id , discountedPrice , quantity)} className='text-xl w-5 text-lime-600 cursor-pointer'/>}
 
                     <p className='w-full text-center'> {!quantity ? 'Wait for add' : quantity}</p>
                     {
-                        CheckQuantity(id) > 1 ? <TiMinus onClick={()=> DecQuan(id , priceWithOffer , quantity)} className='text-xl w-5 text-red-500 cursor-pointer'/> :
-                            quantity && <RiDeleteBinLine onClick={()=> RemQuan(id , priceWithOffer , quantity)} className='text-xl w-5 text-red-500 flex justify-center items-center cursor-pointer'/>
+                        CheckQuantity(id) > 1 ? <TiMinus onClick={()=> DecQuan(id , discountedPrice , quantity)} className='text-xl w-5 text-red-500 cursor-pointer'/> :
+                            quantity && <RiDeleteBinLine onClick={()=> RemQuan(id , discountedPrice , quantity)} className='text-xl w-5 text-red-500 flex justify-center items-center cursor-pointer'/>
                     }
                 </div>
             </div>
