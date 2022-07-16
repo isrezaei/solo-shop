@@ -43,6 +43,7 @@ export const MasterDataSlice = createSlice({
     initialState ,
     reducers : {
         AddQuantity(state , {payload}){
+            console.log(payload)
             MasterDataAdapter.upsertOne(state , {
                 id : payload.id,
                 quantity : payload.quantity
@@ -53,6 +54,8 @@ export const MasterDataSlice = createSlice({
         },
         IncreaseQuantity(state , {payload})
         {
+            console.log(payload)
+
             MasterDataAdapter.upsertOne(state , {
                 id : payload.id,
                 quantity : payload.quantity
@@ -78,8 +81,8 @@ export const MasterDataSlice = createSlice({
                 id : payload.id,
                 quantity : null
             })
-            state.totalQuantity -= 1
-            state.totalPrice -= payload.discountedPrice
+            state.totalQuantity -= payload.quantity
+            state.totalPrice -= payload.EachTotalPrice
             localStorage.setItem('masterData' , JSON.stringify(state))
         },
         RemoveQuantityCartPage (state , {payload}) {

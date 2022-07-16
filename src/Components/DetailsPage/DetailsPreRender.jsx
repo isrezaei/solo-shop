@@ -6,7 +6,7 @@ import {HeaderUp} from "../Header/HeaderUp";
 import {HeaderDown} from "../Header/HeaderDown";
 import {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
-import {FunReduxDispatchForCartShop} from "../QuantityHandel/FunReduxDispatchForCartShop";
+
 
 export const DetailsPreRender = () =>
 {

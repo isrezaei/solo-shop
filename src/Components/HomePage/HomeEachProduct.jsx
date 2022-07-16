@@ -1,13 +1,9 @@
 import {useSelector} from "react-redux";
 import {selectMasterDataById} from "../../Redux/MasterDataSlice";
 import {Link} from "react-router-dom";
-import {BiHeart} from 'react-icons/bi'
 import { RatingStar } from "rating-star";
 import {useNavigate} from 'react-router-dom'
 import {useLocation} from "react-router-dom";
-import {FunReduxDispatchForGlobal} from "../QuantityHandel/FunReduxDispatchForGlobal";
-import {TiPlus} from "react-icons/ti";
-import {RiDeleteBinLine , RiShoppingCartFill} from "react-icons/ri";
 
 export const HomeEachProduct = ({ids}) =>
 {

@@ -9,7 +9,7 @@ const initialState = JSON.parse(localStorage.getItem('shopListProduct')) || Cart
     tradeOldDevice : {}
 })
 
-export const { selectById: selectCartShopById,  selectIds: selectCartShopIds , selectAll : selectAllCartShop} = CartShopAdapter.getSelectors(state => state.CartShopSlice)
+export const {selectById: selectCartShopById,  selectIds: selectCartShopIds , selectAll : selectAllCartShop} = CartShopAdapter.getSelectors(state => state.CartShopSlice)
 
 const CartShopSlice = createSlice({
     name : 'CardShopSlice' ,
@@ -22,18 +22,27 @@ const CartShopSlice = createSlice({
         },
         UpdateDataCart(state , {payload})
         {
+            const {
+                id,
+                activeColor,
+                activeCapacity,
+                activeImage,
+                product,
+                price,
+                discountedPrice,
+                offer
+            } = payload
 
-            const {id , color , capacity , image , product , price , priceWithOffer , offer} = payload
-                CartShopAdapter.upsertOne(state , {
-                    id,
-                    color,
-                    capacity,
-                    image,
-                    product ,
-                    price ,
-                    priceWithOffer ,
-                    offer
-                })
+            CartShopAdapter.upsertOne(state , {
+                id,
+                activeColor,
+                activeCapacity,
+                activeImage,
+                product ,
+                price ,
+                discountedPrice ,
+                offer
+            })
             localStorage.setItem('shopListProduct' , JSON.stringify(state))
         },
         DeleteFromCarts(state , {payload})

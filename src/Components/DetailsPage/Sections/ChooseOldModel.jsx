@@ -1,7 +1,8 @@
 import {useContext, useState} from "react";
 import {EachProductFromContext} from "../DetailsEachProduct";
 import {OldModelPhoneArray} from "../OldModelPhoneArray";
-import {FunReduxDispatchForCartShop} from "../../QuantityHandel/FunReduxDispatchForCartShop";
+import {SetTradeOldDevice} from "../../../Redux/CartShopSlice";
+import {useDispatch} from "react-redux";
 
 export const ChooseOldModel = () =>
 {
@@ -9,20 +10,21 @@ export const ChooseOldModel = () =>
     const [selectedModel , setSelectedModel] = useState(JSON.parse(localStorage.getItem('detailsPageInfo'))?.choiceOldModel?.offPrice)
     const {stepChoiceModel , EachProductFromRedux} = useContext(EachProductFromContext)
     const {price , type} = EachProductFromRedux
-    const {tradeDevice} = FunReduxDispatchForCartShop()
+    const dispatch = useDispatch()
 
     const handelChange = (e) =>
     {
         const targetCostOldPhone = e.target.value
         const targetNameOldPhone = e.target.options[e.target.selectedIndex].dataset.nameDevice
 
-        tradeDevice({
-            [type] : {
-                deviceName : targetNameOldPhone,
-                cost : parseInt(targetCostOldPhone)
+        dispatch(SetTradeOldDevice(
+            {
+                [type] : {
+                    deviceName : targetNameOldPhone,
+                    cost : parseInt(targetCostOldPhone)
+                }
             }
-        })
-
+        ))
         stepChoiceModel({targetCostOldPhone , targetNameOldPhone})
         setSelectedModel(targetCostOldPhone)
     }

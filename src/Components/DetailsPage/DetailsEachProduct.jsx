@@ -10,6 +10,7 @@ import {RejectCondition} from "./Sections/RejectCondition";
 import {ChooseQuantity} from "./Sections/ChooseQuantity";
 import {useEffect} from "react";
 import {FunReduxDispatchForCartShop} from "../QuantityHandel/FunReduxDispatchForCartShop";
+import {SetTradeOldDevice} from "../../Redux/CartShopSlice";
 
 
 export const EachProductFromContext = createContext()
@@ -71,7 +72,6 @@ export const DetailsEachProduct = ({EachProduct}) => {
                 }
             case 'activeOptions / activeColor & activeImage':
                 localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
-                console.log(state)
                 return {
                     ...state,
                     activeOptions: {
@@ -169,7 +169,7 @@ export const DetailsEachProduct = ({EachProduct}) => {
     }
 
     const [{enableSection, activeOptions, choicesAnswer, choiceOldModel, editAnswer}, dispatch] = useReducer(reducer, JSON.parse(localStorage.getItem('detailsPageInfo')) || initialState)
-    const {tradeDevice} = FunReduxDispatchForCartShop()
+
 
     //dynamic height for image section
     const [divHeight, setDivHeight] = useState();
@@ -180,15 +180,17 @@ export const DetailsEachProduct = ({EachProduct}) => {
 
     // set yor last choice old phone in state
     useEffect(()=>{
-        tradeDevice({
-            [type] : {
-                deviceName : JSON.parse(localStorage.getItem('detailsPageInfo'))?.choiceOldModel?.nameOldPhone,
-                cost : JSON.parse(localStorage.getItem('detailsPageInfo'))?.choiceOldModel?.offPrice
+        dispatch(SetTradeOldDevice(
+            {
+                [type] : {
+                    deviceName : JSON.parse(localStorage.getItem('detailsPageInfo'))?.choiceOldModel?.nameOldPhone,
+                    cost : JSON.parse(localStorage.getItem('detailsPageInfo'))?.choiceOldModel?.offPrice
+                }
             }
-        })
+        ))
         //set scroll 0 in first open
         window.scrollTo(0, 0);
-    } , [choicesAnswer.haveOldPhone])
+    } , [choicesAnswer.haveOldPhone , dispatch])
 
     const stepColorAndImage = (colors) => {
         dispatch({type: 'activeOptions / activeColor & activeImage', payload: colors})

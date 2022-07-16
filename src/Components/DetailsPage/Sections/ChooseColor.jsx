@@ -1,36 +1,37 @@
 import {useContext, useEffect} from "react";
 import {EachProductFromContext} from "../DetailsEachProduct";
-import {FunReduxDispatchForCartShop} from "../../QuantityHandel/FunReduxDispatchForCartShop";
-import {useSelector} from "react-redux";
-import {selectCartShopIds} from "../../../Redux/CartShopSlice";
+import {selectCartShopIds, UpdateDataCart} from "../../../Redux/CartShopSlice";
+import {useDispatch , useSelector} from "react-redux";
+import {DiscountedCalculation} from "../DiscountedCalculation";
+import {useParams} from "react-router-dom";
+import {selectMasterDataById} from "../../../Redux/MasterDataSlice";
 
 export const ChooseColor = () =>
 {
-    const cartShopLengths = useSelector(selectCartShopIds)
-
-    const {update} = FunReduxDispatchForCartShop()
-    const {activeOptions , stepColorAndImage , EachProductFromRedux} = useContext(EachProductFromContext)
-    const {id, color , product , price  , offer} = EachProductFromRedux
-    const priceWithOffer = parseInt((price - ((price * offer) / 100)))
-    const {activeImage , activeColor , activeCapacity} = activeOptions
+    const dispatch = useDispatch()
+    const {productId} = useParams()
+    const {id, product , price  , offer , color} = useSelector(state => selectMasterDataById(state , productId))
+    const {activeOptions : {activeImage , activeColor , activeCapacity} , stepColorAndImage  } = useContext(EachProductFromContext)
+    const {discountedPrice} = DiscountedCalculation()
+    const {length} = useSelector(selectCartShopIds)
 
     //When changing data by users , Cart is updated
     useEffect(() => {
-        if (cartShopLengths.length)
-        {
-            update({
-                    id ,
-                    image : activeImage,
-                    color : activeColor,
-                    capacity : activeCapacity ,
-                    product,
-                    price,
-                    priceWithOffer,
-                    offer,
-                }
+        if (length)
+            dispatch(UpdateDataCart(
+                    {
+                        id,
+                        activeColor,
+                        activeCapacity,
+                        activeImage,
+                        product,
+                        price,
+                        discountedPrice,
+                        offer
+                    }
+                )
             )
-        }
-    } , [activeOptions.activeColor])
+    } , [activeColor , dispatch])
 
 
     const setColor = color.map(colors => {
@@ -40,7 +41,7 @@ export const ChooseColor = () =>
                 key={colors}
                 onClick={()=> stepColorAndImage(colors)}
                 className={`w-48 h-28 flex flex-col justify-center items-center gap-2 rounded-3xl border border-gray-400 cursor-pointer
-                ${activeOptions.activeColor[product]  === colors && 'border border-transparent outline outline-4 outline-blue-300'}`}>
+                ${activeColor[product]  === colors && 'border border-transparent outline outline-4 outline-blue-300'}`}>
                 <div className='flex flex-col justify-center items-center gap-1'>
                     <div
                         style={{
