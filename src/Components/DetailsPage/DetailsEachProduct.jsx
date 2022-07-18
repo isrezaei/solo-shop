@@ -21,7 +21,7 @@ export const DetailsEachProduct = ({EachProduct}) => {
 
     const initialState = {
         enableSection: {
-            enableSectionCapacity: false,
+            // enableSectionCapacity: false,
             enableSectionTrade: false,
             enableSectionCondition: false
         },
@@ -29,7 +29,10 @@ export const DetailsEachProduct = ({EachProduct}) => {
             activeColor: {
                 [product] : ''
             },
-            activeCapacity: '',
+            activeCapacity: {
+                [product] : ''
+            },
+
             activeImage: {
                 [product] : 'main'
             }
@@ -52,15 +55,15 @@ export const DetailsEachProduct = ({EachProduct}) => {
     }
     function reducer(state, {type, payload}) {
         switch (type) {
-            case 'enableSection / enableSectionCapacity':
-                localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
-                return {
-                    ...state,
-                    enableSection: {
-                        ...state.enableSection,
-                        enableSectionCapacity: true
-                    }
-                }
+            // case 'enableSection / enableSectionCapacity':
+            //     localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+            //     return {
+            //         ...state,
+            //         enableSection: {
+            //             ...state.enableSection,
+            //             enableSectionCapacity: true
+            //         }
+            //     }
             case 'enableSection / enableSectionTrade':
                 localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
                 return {
@@ -83,7 +86,7 @@ export const DetailsEachProduct = ({EachProduct}) => {
                         activeImage: {
                             ...state.activeOptions.activeImage,
                             [product] : payload
-                        }
+                        },
                     }
                 }
 
@@ -93,7 +96,10 @@ export const DetailsEachProduct = ({EachProduct}) => {
                     ...state,
                     activeOptions: {
                         ...state.activeOptions,
-                        activeCapacity: payload
+                        activeCapacity: {
+                            ...state.activeOptions.activeCapacity,
+                            [product] : payload
+                        }
                     }
                 }
             case 'choicesAnswer / haveOldPhone':
@@ -163,6 +169,10 @@ export const DetailsEachProduct = ({EachProduct}) => {
                         nameOldPhone : payload.targetNameOldPhone
                     }
                 }
+            case 'alwaysUpdate / localStorage' :
+                localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
+                return state
+
             default:
                 return state
         }
@@ -194,7 +204,7 @@ export const DetailsEachProduct = ({EachProduct}) => {
 
     const stepColorAndImage = (colors) => {
         dispatch({type: 'activeOptions / activeColor & activeImage', payload: colors})
-        dispatch({type: 'enableSection / enableSectionCapacity'})
+        dispatch({type: 'alwaysUpdate / localStorage'})
     }
 
     const stepCapacity = (Capacity) => {

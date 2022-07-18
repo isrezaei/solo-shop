@@ -7,7 +7,7 @@ export const SearchLogo = () =>
             <div className='w-8/12 flex justify-start items-center'>
 
                 <div className='text-3xl flex items-center'>
-                    <p className='font-dancing text-4xl text-blue-400'>FlyShop</p>
+                    <p className='text-4xl text-blue-400'>FlyShop</p>
                 </div>
 
                 <div className='flex justify-center items-center ml-10 border border-1 border-gray-200'>

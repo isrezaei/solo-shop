@@ -85,15 +85,6 @@ export const MasterDataSlice = createSlice({
             state.totalPrice -= payload.EachTotalPrice
             localStorage.setItem('masterData' , JSON.stringify(state))
         },
-        RemoveQuantityCartPage (state , {payload}) {
-            MasterDataAdapter.upsertOne(state , {
-                id : payload.id,
-                quantity : null
-            })
-            state.totalQuantity -= payload.quantity
-            state.totalPrice -= payload.discountedPrice
-            localStorage.setItem('masterData' , JSON.stringify(state))
-        },
         ResetAndClearAllTotal(state)
         {
             MasterDataAdapter.setAll(state , [])

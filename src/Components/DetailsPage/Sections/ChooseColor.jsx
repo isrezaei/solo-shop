@@ -41,7 +41,7 @@ export const ChooseColor = () =>
                 key={colors}
                 onClick={()=> stepColorAndImage(colors)}
                 className={`w-48 h-28 flex flex-col justify-center items-center gap-2 rounded-3xl border border-gray-400 cursor-pointer
-                ${activeColor[product]  === colors && 'border border-transparent outline outline-4 outline-blue-300'}`}>
+                ${activeColor[product] === colors && 'border border-transparent outline outline-4 outline-blue-300'}`}>
                 <div className='flex flex-col justify-center items-center gap-1'>
                     <div
                         style={{
