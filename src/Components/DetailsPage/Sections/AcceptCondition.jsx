@@ -1,10 +1,11 @@
 import {useContext} from "react"
 import {EachProductFromContext} from "../DetailsEachProduct"
+import {setEditAnswer} from "../ContextHandeling/DispatchingFunctions";
 
 
 export const AcceptCondition = () =>
 {
-    const {choiceOldModel , setEditAnswer} = useContext(EachProductFromContext)
+    const {choiceOldModel , contextDispatch} = useContext(EachProductFromContext)
     return (
         <div className={"w-full p-2 flex justify-between items-start"}>
 
@@ -14,7 +15,7 @@ export const AcceptCondition = () =>
                 <a href="" className={"text-blue-600"}>See how trade-in works</a>
             </div>
 
-            <p onClick={() => setEditAnswer('No')} className={"text-xl text-blue-600 cursor-pointer"}>Edit</p>
+            <p onClick={() => setEditAnswer('No' , contextDispatch)} className={"text-xl text-blue-600 cursor-pointer"}>Edit</p>
 
         </div>
     )

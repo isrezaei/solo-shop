@@ -5,20 +5,21 @@ import {useDispatch , useSelector} from "react-redux";
 import {DiscountedCalculation} from "../DiscountedCalculation";
 import {useParams} from "react-router-dom";
 import {selectMasterDataById} from "../../../Redux/MasterDataSlice";
+import {stepColorAndImage} from "../ContextHandeling/DispatchingFunctions";
 
 export const ChooseColor = () =>
 {
-    const dispatch = useDispatch()
+    const reduxDispatch = useDispatch()
     const {productId} = useParams()
     const {id, product , price  , offer , color} = useSelector(state => selectMasterDataById(state , productId))
-    const {activeOptions : {activeImage , activeColor , activeCapacity} , stepColorAndImage  } = useContext(EachProductFromContext)
+    const {activeOptions : {activeImage , activeColor , activeCapacity} , contextDispatch} = useContext(EachProductFromContext)
     const {discountedPrice} = DiscountedCalculation()
     const {length} = useSelector(selectCartShopIds)
 
     //When changing data by users , Cart is updated
     useEffect(() => {
         if (length)
-            dispatch(UpdateDataCart(
+            reduxDispatch(UpdateDataCart(
                     {
                         id,
                         activeColor,
@@ -31,7 +32,7 @@ export const ChooseColor = () =>
                     }
                 )
             )
-    } , [activeColor , dispatch])
+    } , [activeColor , reduxDispatch])
 
 
     const setColor = color.map(colors => {
@@ -39,7 +40,7 @@ export const ChooseColor = () =>
         return (
             <div
                 key={colors}
-                onClick={()=> stepColorAndImage(colors)}
+                onClick={()=> stepColorAndImage(colors , contextDispatch)}
                 className={`w-48 h-28 flex flex-col justify-center items-center gap-2 rounded-3xl border border-gray-400 cursor-pointer
                 ${activeColor[product] === colors && 'border border-transparent outline outline-4 outline-blue-300'}`}>
                 <div className='flex flex-col justify-center items-center gap-1'>

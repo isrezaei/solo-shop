@@ -2,14 +2,18 @@ import {useContext, useState} from "react";
 import {EachProductFromContext} from "../DetailsEachProduct";
 import {OldModelPhoneArray} from "../OldModelPhoneArray";
 import {SetTradeOldDevice} from "../../../Redux/CartShopSlice";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {stepChoiceModel} from "../ContextHandeling/DispatchingFunctions";
+import {useParams} from "react-router-dom";
+import {selectMasterDataById} from "../../../Redux/MasterDataSlice";
 
 export const ChooseOldModel = () =>
 {
+    const {productId} = useParams()
+    const {price , type} = useSelector(state => selectMasterDataById(state , productId))
 
     const [selectedModel , setSelectedModel] = useState(JSON.parse(localStorage.getItem('detailsPageInfo'))?.choiceOldModel?.offPrice)
-    const {stepChoiceModel , EachProductFromRedux} = useContext(EachProductFromContext)
-    const {price , type} = EachProductFromRedux
+    const {contextDispatch} = useContext(EachProductFromContext)
     const dispatch = useDispatch()
 
     const handelChange = (e) =>
@@ -25,7 +29,7 @@ export const ChooseOldModel = () =>
                 }
             }
         ))
-        stepChoiceModel({targetCostOldPhone , targetNameOldPhone})
+        stepChoiceModel({targetCostOldPhone , targetNameOldPhone} , contextDispatch)
         setSelectedModel(targetCostOldPhone)
     }
 

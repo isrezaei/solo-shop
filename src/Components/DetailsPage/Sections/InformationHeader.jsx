@@ -1,12 +1,13 @@
 import {RatingStar} from "rating-star";
-import {useContext} from "react";
-import {EachProductFromContext} from "../DetailsEachProduct";
+import {useParams} from "react-router-dom";
+import {useSelector} from "react-redux";
+import {selectMasterDataById} from "../../../Redux/MasterDataSlice";
 
 
 export const InformationHeader = () =>
 {
-    const {EachProductFromRedux} = useContext(EachProductFromContext)
-    const {product , id , rate , type , brand , price , offer} = EachProductFromRedux
+    const {productId} = useParams()
+    const {product , id , rate , type , brand , price , offer} = useSelector(state => selectMasterDataById(state , productId))
     const priceWithOffer = parseInt((price - ((price * offer) / 100)))
 
     return (

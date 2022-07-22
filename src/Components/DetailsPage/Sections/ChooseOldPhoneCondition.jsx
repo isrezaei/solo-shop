@@ -4,7 +4,14 @@ import {AnswerOfHaveGoodCondition , AnswerOfButtonWork , AnswerOfTouchScreenWork
 
 export const ChooseOldPhoneCondition = () =>
 {
-    const {choicesAnswer} = useContext(EachProductFromContext)
+    // const {choicesAnswer} = useContext(EachProductFromContext)
+
+
+
+    const localData = JSON.parse(localStorage.getItem('detailsPageInfo')) || {choicesAnswer : {}}
+
+    const {choicesAnswer} = localData
+
     return (
         <div className='w-full mt-3 '>
             <div className='w-full flex flex-col justify-center items-center'>

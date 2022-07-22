@@ -1,9 +1,11 @@
 import { useContext } from "react"
 import { EachProductFromContext } from "../DetailsEachProduct"
+import {setEditAnswer} from "../ContextHandeling/DispatchingFunctions";
+
 export const RejectCondition = () =>
 {
 
-    const {setEditAnswer} = useContext(EachProductFromContext)
+    const {contextDispatch} = useContext(EachProductFromContext)
 
     return (
         <div className={"w-full flex justify-between items-start p-1"}>
@@ -14,7 +16,7 @@ export const RejectCondition = () =>
                 <a href="" className={"text-blue-600"}>Learn more</a>
             </div>
 
-            <p onClick={()=> setEditAnswer('No')} className={"text-xl text-blue-600 cursor-pointer"}>Edit</p>
+            <p onClick={()=> setEditAnswer('No' , contextDispatch)} className={"text-xl text-blue-600 cursor-pointer"}>Edit</p>
 
         </div>
     )

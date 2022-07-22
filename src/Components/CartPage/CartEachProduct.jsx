@@ -1,6 +1,6 @@
 import {DeleteFromCarts, selectCartShopById} from "../../Redux/CartShopSlice";
 import {useSelector} from "react-redux";
-import {DecreaseQuantity , IncreaseQuantity, RemoveQuantityHomePage, selectMasterDataById} from "../../Redux/MasterDataSlice";
+import {DecreaseQuantity , IncreaseQuantity, RemoveQuantity, selectMasterDataById} from "../../Redux/MasterDataSlice";
 import {RiDeleteBinLine} from "react-icons/ri";
 import {CheckQuantity} from "../../HelperFuncs/HelperFuncs";
 import {TiMinus, TiPlus} from "react-icons/ti";
@@ -56,7 +56,7 @@ export const CartEachProduct = ({ids}) =>
     }
     const handelRemove = () =>
     {
-        dispatch(RemoveQuantityHomePage({
+        dispatch(RemoveQuantity({
                     id,
                     quantity,
                     EachTotalPrice
@@ -95,7 +95,7 @@ export const CartEachProduct = ({ids}) =>
             </div>
 
             <p>{activeColor[product]}</p>
-            <p>{activeCapacity}</p>
+            <p>{activeCapacity[product]}</p>
 
             <p className='w-24 text-center text-gray-500'>${price}</p>
             <p className='w-24 text-center text-blue-700 text-xl font-bold'>${EachTotalPrice}</p>

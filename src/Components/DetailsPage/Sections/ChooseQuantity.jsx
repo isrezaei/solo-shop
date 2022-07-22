@@ -7,7 +7,7 @@ import {
     AddQuantity,
     DecreaseQuantity,
     IncreaseQuantity,
-    RemoveQuantityHomePage,
+    RemoveQuantity,
     selectMasterDataById
 } from "../../../Redux/MasterDataSlice";
 import {AddToCarts, DeleteFromCarts} from "../../../Redux/CartShopSlice";
@@ -96,8 +96,9 @@ export const ChooseQuantity = () =>
     }
     const handelRemove = () =>
     {
-        dispatch(RemoveQuantityHomePage({
+        dispatch(RemoveQuantity({
                     id,
+                    quantity,
                     discountedPrice
                 }
             )

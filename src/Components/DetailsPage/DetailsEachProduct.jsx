@@ -9,177 +9,24 @@ import {AcceptCondition} from "./Sections/AcceptCondition";
 import {RejectCondition} from "./Sections/RejectCondition";
 import {ChooseQuantity} from "./Sections/ChooseQuantity";
 import {useEffect} from "react";
-import {FunReduxDispatchForCartShop} from "../QuantityHandel/FunReduxDispatchForCartShop";
 import {SetTradeOldDevice} from "../../Redux/CartShopSlice";
+import {useDispatch} from "react-redux";
+import {InitialState} from "./ContextHandeling/InitialState";
+import {ContextReducer} from "./ContextHandeling/ContextReducer";
+
 
 
 export const EachProductFromContext = createContext()
 
 export const DetailsEachProduct = ({EachProduct}) => {
 
-    const {detailsImage , type , product} = EachProduct
 
-    const initialState = {
-        enableSection: {
-            // enableSectionCapacity: false,
-            enableSectionTrade: false,
-            enableSectionCondition: false
-        },
-        activeOptions: {
-            activeColor: {
-                [product] : ''
-            },
-            activeCapacity: {
-                [product] : ''
-            },
+    const {type , detailsImage} = EachProduct
 
-            activeImage: {
-                [product] : 'main'
-            }
-        },
+    const {mainState} = InitialState()
+    const {reducer} = ContextReducer()
 
-        choicesAnswer: {
-            haveOldPhone: '',
-            haveGoodCondition: '',
-            haveButtonWork: '',
-            haveGoodShape: '',
-            haveTouchScreenWork: ''
-        },
-
-        editAnswer : '',
-
-        choiceOldModel: {
-            offPrice: '',
-            nameOldPhone :''
-        },
-    }
-    function reducer(state, {type, payload}) {
-        switch (type) {
-            // case 'enableSection / enableSectionCapacity':
-            //     localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
-            //     return {
-            //         ...state,
-            //         enableSection: {
-            //             ...state.enableSection,
-            //             enableSectionCapacity: true
-            //         }
-            //     }
-            case 'enableSection / enableSectionTrade':
-                localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
-                return {
-                    ...state,
-                    enableSection: {
-                        ...state.enableSection,
-                        enableSectionTrade: true
-                    }
-                }
-            case 'activeOptions / activeColor & activeImage':
-                localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
-                return {
-                    ...state,
-                    activeOptions: {
-                        ...state.activeOptions,
-                        activeColor: {
-                            ...state.activeOptions.activeColor,
-                            [product] : payload
-                        },
-                        activeImage: {
-                            ...state.activeOptions.activeImage,
-                            [product] : payload
-                        },
-                    }
-                }
-
-            case 'activeOptions / activeCapacity':
-                localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
-                return {
-                    ...state,
-                    activeOptions: {
-                        ...state.activeOptions,
-                        activeCapacity: {
-                            ...state.activeOptions.activeCapacity,
-                            [product] : payload
-                        }
-                    }
-                }
-            case 'choicesAnswer / haveOldPhone':
-                localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
-                return {
-                    ...state,
-                    choicesAnswer: {
-                        ...state.choicesAnswer,
-                        haveOldPhone: payload
-                    }
-                }
-
-            case 'choicesAnswer / haveGoodCondition':
-                localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
-                return {
-                    ...state,
-                    choicesAnswer: {
-                        ...state.choicesAnswer,
-                        haveGoodCondition: payload
-                    }
-                }
-
-            case 'choicesAnswer / haveButtonWork':
-                localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
-                return {
-                    ...state,
-                    choicesAnswer: {
-                        ...state.choicesAnswer,
-                        haveButtonWork: payload
-                    }
-                }
-
-            case 'choicesAnswer / haveGoodShape':
-                localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
-                return {
-                    ...state,
-                    choicesAnswer: {
-                        ...state.choicesAnswer,
-                        haveGoodShape: payload
-                    }
-                }
-
-            case 'choicesAnswer / haveTouchScreenWork':
-                localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
-                return {
-                    ...state,
-                    choicesAnswer: {
-                        ...state.choicesAnswer,
-                        haveTouchScreenWork: payload
-                    }
-                }
-
-            case 'editAnswer / checkEditAnswer' :
-                localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
-                return {
-                    ...state,
-                    editAnswer : payload
-                }
-
-            case 'choiceOldModel / offerPrice':
-                localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
-                return {
-                    ...state,
-                    choiceOldModel: {
-                        ...state.choiceOldModel,
-                        offPrice: payload.targetCostOldPhone,
-                        nameOldPhone : payload.targetNameOldPhone
-                    }
-                }
-            case 'alwaysUpdate / localStorage' :
-                localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
-                return state
-
-            default:
-                return state
-        }
-    }
-
-    const [{enableSection, activeOptions, choicesAnswer, choiceOldModel, editAnswer}, dispatch] = useReducer(reducer, JSON.parse(localStorage.getItem('detailsPageInfo')) || initialState)
-
+    const [{enableSection, activeOptions, choicesAnswer, choiceOldModel, editAnswer}, contextDispatch] = useReducer(reducer, JSON.parse(localStorage.getItem('detailsPageInfo')) || mainState)
 
     //dynamic height for image section
     const [divHeight, setDivHeight] = useState();
@@ -189,8 +36,11 @@ export const DetailsEachProduct = ({EachProduct}) => {
     }) // we don't need to dependency because we need update any seconds
 
     // set yor last choice old phone in state
+    const reduxDispatch = useDispatch()
+
     useEffect(()=>{
-        dispatch(SetTradeOldDevice(
+
+        reduxDispatch(SetTradeOldDevice(
             {
                 [type] : {
                     deviceName : JSON.parse(localStorage.getItem('detailsPageInfo'))?.choiceOldModel?.nameOldPhone,
@@ -198,53 +48,12 @@ export const DetailsEachProduct = ({EachProduct}) => {
                 }
             }
         ))
+
         //set scroll 0 in first open
         window.scrollTo(0, 0);
-    } , [choicesAnswer.haveOldPhone , dispatch])
 
-    const stepColorAndImage = (colors) => {
-        dispatch({type: 'activeOptions / activeColor & activeImage', payload: colors})
-        dispatch({type: 'alwaysUpdate / localStorage'})
-    }
+    } , [choicesAnswer.haveOldPhone , reduxDispatch])
 
-    const stepCapacity = (Capacity) => {
-        dispatch({type: 'activeOptions / activeCapacity', payload: Capacity})
-        dispatch({type: 'enableSection / enableSectionTrade'})
-    }
-    const stepHaveOldPhone = (answer) => {
-        dispatch({type: 'choicesAnswer / haveOldPhone', payload: answer})
-        //When the user selects yes again in (do u have a smartphone to trade) all payload are reset
-        dispatch({type: 'choiceOldModel / offerPrice', payload: {}})
-        dispatch({type: 'choicesAnswer / haveGoodCondition', payload: ''})
-        dispatch({type: 'choicesAnswer / haveButtonWork', payload: ''})
-        dispatch({type: 'choicesAnswer / haveGoodShape', payload: ''})
-        dispatch({type: 'choicesAnswer / haveTouchScreenWork', payload: ''})
-    }
-    const stepChoiceModel = (dataOldPhone) => {
-        dispatch({type: 'choiceOldModel / offerPrice', payload: dataOldPhone})
-    }
-    const stepCondition = (answer) => {
-        dispatch({type: 'choicesAnswer / haveGoodCondition', payload: answer})
-        //When the user selects yes again in (Is the iPhone in good condition) haveButtonWork and haveGoodShape payload are reset
-        dispatch({type: 'choicesAnswer / haveButtonWork', payload: ''})
-        dispatch({type: 'choicesAnswer / haveGoodShape', payload: ''})
-    }
-    const stepHaveButtonWork = (answer) => {
-        dispatch({type: 'choicesAnswer / haveButtonWork', payload: answer})
-        //When the user selects yes again in (Does it turn on and do all the buttons work) haveGoodShape payload is reset
-        dispatch({type: 'choicesAnswer / haveGoodShape', payload: ''})
-    }
-    const stepHaveGoodShape = (answer) => {
-        dispatch({type: 'choicesAnswer / haveGoodShape', payload: answer})
-        //When the user selects yes again in (Is the body of the iPhone in good shape) haveTouchScreenWork payload is reset
-        dispatch({type: 'choicesAnswer / haveTouchScreenWork', payload: ''})
-    }
-    const stepHaveTouchScreenWork = (answer) => {
-        dispatch({type: 'choicesAnswer / haveTouchScreenWork', payload: answer})
-    }
-    const setEditAnswer = (answer) => {
-        dispatch({type: 'editAnswer / checkEditAnswer', payload: answer})
-    }
 
     return (
         <EachProductFromContext.Provider
@@ -255,16 +64,7 @@ export const DetailsEachProduct = ({EachProduct}) => {
                 choicesAnswer,
                 editAnswer,
                 choiceOldModel,
-                stepColorAndImage,
-                stepCapacity,
-                stepHaveOldPhone,
-                stepChoiceModel,
-                stepCondition,
-                stepHaveButtonWork,
-                stepHaveTouchScreenWork,
-                stepHaveGoodShape,
-                setEditAnswer,
-                EachProductFromRedux : EachProduct,
+                contextDispatch
             }}>
 
             <div className='container relative max-w-5xl bg-blue-500 mx-auto '>

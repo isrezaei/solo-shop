@@ -6,13 +6,14 @@ import {selectCartShopIds, UpdateDataCart} from "../../../Redux/CartShopSlice";
 import {useParams} from "react-router-dom";
 import {selectMasterDataById} from "../../../Redux/MasterDataSlice";
 import {DiscountedCalculation} from "../DiscountedCalculation";
+import {stepCapacity} from "../ContextHandeling/DispatchingFunctions";
 
 export const ChooseCapacity = () =>
 {
     const dispatch = useDispatch()
     const {productId} = useParams()
     const {id, product , price  , offer , capacity} = useSelector(state => selectMasterDataById(state , productId))
-    const {activeOptions : {activeImage , activeColor , activeCapacity}, enableSection : {enableSectionCapacity} , stepCapacity  } = useContext(EachProductFromContext)
+    const {activeOptions : {activeImage , activeColor , activeCapacity}, contextDispatch} = useContext(EachProductFromContext)
     const {discountedPrice} = DiscountedCalculation()
     const {length} = useSelector(selectCartShopIds)
 
@@ -44,7 +45,7 @@ export const ChooseCapacity = () =>
         return (
             <div
                 key={capacity}
-                onClick={() => stepCapacity(capacity)}
+                onClick={() => stepCapacity(capacity , contextDispatch)}
                 className={`w-48 h-28 flex flex-col justify-center items-center gap-2 rounded-3xl border border-gray-400 cursor-pointer
                  ${activeCapacity[product] === capacity && 'border border-transparent outline outline-4 outline-blue-300'}`}>
                 <div>

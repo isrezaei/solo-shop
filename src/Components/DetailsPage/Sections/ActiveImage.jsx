@@ -2,13 +2,15 @@ import {useContext} from "react";
 import {BsBoxSeam} from 'react-icons/bs'
 import {RiShareForwardBoxFill} from 'react-icons/ri'
 import {EachProductFromContext} from "../DetailsEachProduct";
+import {useParams} from "react-router-dom";
+import {useSelector} from "react-redux";
+import {selectMasterDataById} from "../../../Redux/MasterDataSlice";
 export const ActiveImage = () =>
 {
 
-    const {detailsImage , activeOptions , EachProductFromRedux} = useContext(EachProductFromContext)
-
-    const {product} = EachProductFromRedux
-
+    const {productId} = useParams()
+    const {product} = useSelector(state => selectMasterDataById(state , productId))
+    const {detailsImage , activeOptions} = useContext(EachProductFromContext)
     const eachImage = Object.keys(JSON.parse(localStorage.getItem('detailsPageInfo'))?.activeOptions?.activeImage || {})?.filter(items => items === product)[0]
 
     return (

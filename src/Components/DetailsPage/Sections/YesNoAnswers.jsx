@@ -1,8 +1,11 @@
 import {useContext} from "react";
 import {EachProductFromContext} from "../DetailsEachProduct";
+import {stepHaveOldPhone , stepCondition , setEditAnswer , stepHaveButtonWork , stepHaveGoodShape ,stepHaveTouchScreenWork} from "../ContextHandeling/DispatchingFunctions";
+
 export const AnswerOfHaveSmartPhone = () =>
 {
-    const {stepHaveOldPhone , choicesAnswer} = useContext(EachProductFromContext)
+    const {choicesAnswer , contextDispatch} = useContext(EachProductFromContext)
+
     return (
         <>
             <p className='font-bold text-lg mt-3 text-gray-600'>Do you have a smartphone to trade in with Apple?</p>
@@ -11,7 +14,7 @@ export const AnswerOfHaveSmartPhone = () =>
                     ['Yes' , 'No'].map(answer => {
                             return (
                                 <div key={answer}
-                                     onClick={()=>stepHaveOldPhone(answer)}
+                                     onClick={()=>stepHaveOldPhone(answer , contextDispatch)}
                                      className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 cursor-pointer ${choicesAnswer.haveOldPhone === answer && 'border border-transparent outline outline-4 outline-blue-300'}`}> {answer}</div>
                             )
                         }
@@ -23,7 +26,7 @@ export const AnswerOfHaveSmartPhone = () =>
 }
 export const AnswerOfHaveGoodCondition = () =>
 {
-    const {stepCondition , setEditAnswer , choicesAnswer} = useContext(EachProductFromContext)
+    const {choicesAnswer , contextDispatch} = useContext(EachProductFromContext)
 
     return (
         <div className='flex justify-start items-center gap-4 mt-3'>
@@ -32,8 +35,8 @@ export const AnswerOfHaveGoodCondition = () =>
                         return (
                             <div key={answer}
                                  onClick={()=> {
-                                     setEditAnswer(answer)
-                                     stepCondition(answer)
+                                     setEditAnswer(answer , contextDispatch)
+                                     stepCondition(answer , contextDispatch)
                                  }}
                                  className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 cursor-pointer ${choicesAnswer.haveGoodCondition === answer && 'border border-transparent outline outline-4 outline-blue-300'}`}> {answer}</div>
                         )
@@ -45,7 +48,7 @@ export const AnswerOfHaveGoodCondition = () =>
 }
 export const AnswerOfButtonWork = () =>
 {
-    const {stepHaveButtonWork , setEditAnswer , choicesAnswer} = useContext(EachProductFromContext)
+    const {choicesAnswer , contextDispatch} = useContext(EachProductFromContext)
 
     return (
         <div className='flex justify-start items-center gap-4 mt-3'>
@@ -54,8 +57,8 @@ export const AnswerOfButtonWork = () =>
                         return (
                             <div key={answer}
                                  onClick={()=> {
-                                     setEditAnswer(answer)
-                                     stepHaveButtonWork(answer)
+                                     setEditAnswer(answer , contextDispatch)
+                                     stepHaveButtonWork(answer , contextDispatch)
                                  }}
                                  className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 cursor-pointer ${choicesAnswer.haveButtonWork === answer && 'border border-transparent outline outline-4 outline-blue-300'}`}> {answer}</div>
                         )
@@ -67,7 +70,7 @@ export const AnswerOfButtonWork = () =>
 }
 export const AnswerOfGoodShape = () =>
 {
-    const {stepHaveGoodShape , setEditAnswer  , choicesAnswer} = useContext(EachProductFromContext)
+    const {choicesAnswer , contextDispatch} = useContext(EachProductFromContext)
 
     return (
         <div className='flex justify-start items-center gap-4 mt-3'>
@@ -76,8 +79,8 @@ export const AnswerOfGoodShape = () =>
                         return (
                             <div key={answer}
                                  onClick={()=> {
-                                     setEditAnswer(answer)
-                                     stepHaveGoodShape(answer)
+                                     setEditAnswer(answer , contextDispatch)
+                                     stepHaveGoodShape(answer , contextDispatch)
                                  }}
                                  className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 cursor-pointer ${choicesAnswer.haveGoodShape === answer && 'border border-transparent outline outline-4 outline-blue-300'}`}> {answer}</div>
                         )
@@ -89,7 +92,7 @@ export const AnswerOfGoodShape = () =>
 }
 export const AnswerOfTouchScreenWork = () =>
 {
-    const {stepHaveTouchScreenWork , setEditAnswer , choicesAnswer} = useContext(EachProductFromContext)
+    const {choicesAnswer , contextDispatch} = useContext(EachProductFromContext)
     return (
         <div className='flex justify-start items-center gap-4 mt-3'>
             {
@@ -97,8 +100,8 @@ export const AnswerOfTouchScreenWork = () =>
                         return (
                             <div key={answer}
                                  onClick={()=> {
-                                     setEditAnswer('Yes')
-                                     stepHaveTouchScreenWork(answer)
+                                     setEditAnswer('Yes' , contextDispatch)
+                                     stepHaveTouchScreenWork(answer , contextDispatch)
                                  }}
                                  className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 cursor-pointer ${choicesAnswer.haveTouchScreenWork === answer && 'border border-transparent outline outline-4 outline-blue-300'}`}> {answer}</div>
                         )
