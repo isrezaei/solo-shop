@@ -3,7 +3,7 @@ import {EachProductFromContext} from "../DetailsEachProduct";
 import {OldModelPhoneArray} from "../OldModelPhoneArray";
 import {SetTradeOldDevice} from "../../../Redux/CartShopSlice";
 import {useDispatch, useSelector} from "react-redux";
-import {stepChoiceModel} from "../ContextHandeling/DispatchingFunctions";
+import {stepChoiceModel} from "../ContextHandeling/DispatchingFunc";
 import {useParams} from "react-router-dom";
 import {selectMasterDataById} from "../../../Redux/MasterDataSlice";
 

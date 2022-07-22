@@ -1,6 +1,6 @@
 import {useContext} from "react";
 import {EachProductFromContext} from "../DetailsEachProduct";
-import {stepHaveOldPhone , stepCondition , setEditAnswer , stepHaveButtonWork , stepHaveGoodShape ,stepHaveTouchScreenWork} from "../ContextHandeling/DispatchingFunctions";
+import {stepHaveOldPhone , stepCondition , setEditAnswer , stepHaveButtonWork , stepHaveGoodShape ,stepHaveTouchScreenWork} from "../ContextHandeling/DispatchingFunc";
 
 export const AnswerOfHaveSmartPhone = () =>
 {

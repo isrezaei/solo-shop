@@ -5,7 +5,7 @@ import {useDispatch , useSelector} from "react-redux";
 import {DiscountedCalculation} from "../DiscountedCalculation";
 import {useParams} from "react-router-dom";
 import {selectMasterDataById} from "../../../Redux/MasterDataSlice";
-import {stepColorAndImage} from "../ContextHandeling/DispatchingFunctions";
+import {stepColorAndImage} from "../ContextHandeling/DispatchingFunc";
 
 export const ChooseColor = () =>
 {

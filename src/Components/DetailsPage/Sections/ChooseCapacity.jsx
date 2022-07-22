@@ -6,7 +6,7 @@ import {selectCartShopIds, UpdateDataCart} from "../../../Redux/CartShopSlice";
 import {useParams} from "react-router-dom";
 import {selectMasterDataById} from "../../../Redux/MasterDataSlice";
 import {DiscountedCalculation} from "../DiscountedCalculation";
-import {stepCapacity} from "../ContextHandeling/DispatchingFunctions";
+import {stepCapacity} from "../ContextHandeling/DispatchingFunc";
 
 export const ChooseCapacity = () =>
 {

@@ -13,6 +13,7 @@ import {SetTradeOldDevice} from "../../Redux/CartShopSlice";
 import {useDispatch} from "react-redux";
 import {InitialState} from "./ContextHandeling/InitialState";
 import {ContextReducer} from "./ContextHandeling/ContextReducer";
+import {useLocation} from "react-router-dom";
 
 
 
@@ -20,12 +21,11 @@ export const EachProductFromContext = createContext()
 
 export const DetailsEachProduct = ({EachProduct}) => {
 
-
     const {type , detailsImage} = EachProduct
-
+    const {pathname} = useLocation();
     const {mainState} = InitialState()
     const {reducer} = ContextReducer()
-
+    const reduxDispatch = useDispatch()
     const [{enableSection, activeOptions, choicesAnswer, choiceOldModel, editAnswer}, contextDispatch] = useReducer(reducer, JSON.parse(localStorage.getItem('detailsPageInfo')) || mainState)
 
     //dynamic height for image section
@@ -35,11 +35,10 @@ export const DetailsEachProduct = ({EachProduct}) => {
         setDivHeight(dynamicHeight.current.clientHeight)
     }) // we don't need to dependency because we need update any seconds
 
-    // set yor last choice old phone in state
-    const reduxDispatch = useDispatch()
+    //set scroll 0 in first open
+    useEffect(()=> window.scrollTo(0, 0) ,[pathname])
 
     useEffect(()=>{
-
         reduxDispatch(SetTradeOldDevice(
             {
                 [type] : {
@@ -48,12 +47,7 @@ export const DetailsEachProduct = ({EachProduct}) => {
                 }
             }
         ))
-
-        //set scroll 0 in first open
-        window.scrollTo(0, 0);
-
     } , [choicesAnswer.haveOldPhone , reduxDispatch])
-
 
     return (
         <EachProductFromContext.Provider

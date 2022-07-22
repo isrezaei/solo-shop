@@ -1,27 +1,6 @@
-import {dispatchType} from "./DispatchType";
 import {useSelector} from "react-redux";
 import {selectMasterDataById} from "../../../Redux/MasterDataSlice";
 import {useParams} from "react-router-dom";
-
-const {
-    activeOptions :
-        {
-            activeSectionTrade,
-            activeLayout ,
-            activeCapacity,
-            activeOldModel
-        },
-    chooseAnswer :
-        {
-            doYouHaveOldPhone,
-            yourPhoneHaveGoodCondition,
-            yourPhoneButtonStillWorking,
-            yourPhoneHaveGoodShape,
-            yourPhoneTouchScreenStillWorking,
-        },
-    reAnswerToQuestions,
-    updateLocalStorage
-} = dispatchType
 
 
 export const ContextReducer = () =>
@@ -32,7 +11,7 @@ export const ContextReducer = () =>
     const reducer = (state, {type, payload}) =>
     {
         switch (type) {
-            case activeSectionTrade:
+            case 'activeSectionTrade':
                 return {
                     ...state,
                     enableSection: {
@@ -40,7 +19,7 @@ export const ContextReducer = () =>
                         enableSectionTrade: true
                     }
                 }
-            case activeLayout:
+            case 'activeColor-activeImage':
                 return {
                     ...state,
                     activeOptions: {
@@ -55,7 +34,7 @@ export const ContextReducer = () =>
                         },
                     }
                 }
-            case activeCapacity:
+            case 'activeCapacity':
                 return {
                     ...state,
                     activeOptions: {
@@ -66,7 +45,7 @@ export const ContextReducer = () =>
                         }
                     }
                 }
-            case doYouHaveOldPhone:
+            case 'doYouHaveOldPhone':
                 return {
                     ...state,
                     choicesAnswer: {
@@ -74,7 +53,7 @@ export const ContextReducer = () =>
                         haveOldPhone: payload
                     }
                 }
-            case yourPhoneHaveGoodCondition:
+            case 'yourPhoneHaveGoodCondition':
                 return {
                     ...state,
                     choicesAnswer: {
@@ -82,7 +61,7 @@ export const ContextReducer = () =>
                         haveGoodCondition: payload
                     }
                 }
-            case yourPhoneButtonStillWorking:
+            case 'yourPhoneButtonStillWorking':
                 return {
                     ...state,
                     choicesAnswer: {
@@ -90,7 +69,7 @@ export const ContextReducer = () =>
                         haveButtonWork: payload
                     }
                 }
-            case yourPhoneHaveGoodShape:
+            case 'yourPhoneHaveGoodShape':
                 return {
                     ...state,
                     choicesAnswer: {
@@ -98,7 +77,7 @@ export const ContextReducer = () =>
                         haveGoodShape: payload
                     }
                 }
-            case yourPhoneTouchScreenStillWorking:
+            case 'yourPhoneTouchScreenStillWorking':
                 return {
                     ...state,
                     choicesAnswer: {
@@ -106,12 +85,12 @@ export const ContextReducer = () =>
                         haveTouchScreenWork: payload
                     }
                 }
-            case reAnswerToQuestions :
+            case 'reAnswerToQuestions' :
                 return {
                     ...state,
                     editAnswer : payload
                 }
-            case activeOldModel:
+            case 'activeOldModel':
                 return {
                     ...state,
                     choiceOldModel: {
@@ -120,7 +99,7 @@ export const ContextReducer = () =>
                         nameOldPhone : payload.targetNameOldPhone
                     }
                 }
-            case updateLocalStorage :
+            case 'updateLocalStorage' :
                 localStorage.setItem('detailsPageInfo' , JSON.stringify(state))
                 return state
 
