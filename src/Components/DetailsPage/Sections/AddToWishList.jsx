@@ -1,16 +1,17 @@
 import {RiBookmarkLine , RiBookmarkFill} from "react-icons/ri";
 import {useDispatch} from "react-redux";
 import {addToWishList , removeToWishList} from "../../../Redux/WishListSlice";
-import {useContext} from "react";
-import {EachProductFromContext} from "../DetailsEachProduct";
+
 import {useSelector} from "react-redux";
 import {selectWishListById} from "../../../Redux/WishListSlice";
 import {useParams} from "react-router-dom";
+import {selectMasterDataById} from "../../../Redux/MasterDataSlice";
 
 export const AddToWishList = () =>
 {
     const {productId} = useParams()
-    const {EachProductFromRedux} = useContext(EachProductFromContext)
+
+    const EachProductData = useSelector(state => selectMasterDataById(state , productId))
 
     const wishListProducts = useSelector(state => selectWishListById(state , productId))
 
@@ -23,7 +24,7 @@ export const AddToWishList = () =>
         }
         if (!wishListProducts)
         {
-            dispatch(addToWishList(EachProductFromRedux))
+            dispatch(addToWishList(EachProductData))
         }
     }
     return (

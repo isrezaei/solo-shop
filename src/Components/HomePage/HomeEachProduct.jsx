@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import { RatingStar } from "rating-star";
 import {useNavigate} from 'react-router-dom'
 import {useLocation} from "react-router-dom";
+import {HiShoppingCart} from 'react-icons/hi'
 
 export const HomeEachProduct = ({ids}) =>
 {
@@ -17,17 +18,15 @@ export const HomeEachProduct = ({ids}) =>
 
 
     return (
-        <div className=' w-full h-full bg-white p-3 flex flex-col justify-start items-center'>
+        <div className=' w-full h-full bg-white p-3 flex flex-col justify-start items-center relative'>
             <div className='w-auto group relative h-3/4' >
                 <img className={`w-auto h-full cursor-pointer ${price === 'out' && 'filter grayscale'}`} src={image.mainImg} alt={product} onClick={()=> Navigate(`/details/${id}`)}/>
             </div>
-
-
             <div className='w-full h-10 py-6 flex justify-center items-center '>
                 {
                     offer > 0 ?
                         <div className='w-full flex justify-evenly items-center'>
-                            <p className='text-xl font-medium text-gray-600'>${PriceWithOffer.toFixed(2)}</p>
+                            <p className='text-xl font-medium text-gray-600'>${PriceWithOffer}</p>
                             <p className='font-medium line-through text-red-500'>${price}</p>
                         </div>
                         :
@@ -43,6 +42,9 @@ export const HomeEachProduct = ({ids}) =>
                 <RatingStar id={id.toString()} rating={rate} size={17}/>
                 <Link to={`quick/${id}`} state={{background : location}} className='text-sm font-medium text-gray-400'>Quick View</Link>
             </div>
+
+            {quantity >= 1 && <div className='absolute right-3 top-5 w-9 h-9 rounded-full flex justify-center items-center bg-blue-600'><HiShoppingCart className='text-2xl text-gray-50'/></div>}
+
         </div>
 
     )

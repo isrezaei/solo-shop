@@ -14,6 +14,7 @@ import "swiper/css/pagination";
 import {HeaderUp} from "../Header/HeaderUp";
 import {HeaderDown} from "../Header/HeaderDown";
 import {useEffect, useState} from "react";
+import {Footer} from "../Footer/Footer";
 
 
 
@@ -66,7 +67,6 @@ export const HomePreRender = () =>
             <HomeSlider/>
             <HomeBenefit/>
             <HomeSelectProduct/>
-
             <section className='w-full bg-gray-100'>
                 <div className='w-11/12 m-auto relative flex justify-around items-start'>
                     <HomeOfferSlider/>
@@ -85,9 +85,10 @@ export const HomePreRender = () =>
                             {Render}
                         </Swiper>
                     </section>
-
                 </div>
             </section>
+
+            <Footer/>
         </div>
     )
 

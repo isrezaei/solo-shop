@@ -15,8 +15,6 @@ import {InitialState} from "./ContextHandeling/InitialState";
 import {ContextReducer} from "./ContextHandeling/ContextReducer";
 import {useLocation} from "react-router-dom";
 
-
-
 export const EachProductFromContext = createContext()
 
 export const DetailsEachProduct = ({EachProduct}) => {
