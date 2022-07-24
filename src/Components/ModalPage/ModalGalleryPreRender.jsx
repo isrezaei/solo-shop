@@ -12,7 +12,6 @@ export const ModalGalleryPreRender = () =>
     const EachProduct = useSelector(state => selectMasterDataById(state , productId))
     const dispatch = useDispatch()
 
-    console.log(EachProduct)
 
     useEffect(()=>{
         if (status === 'idle')

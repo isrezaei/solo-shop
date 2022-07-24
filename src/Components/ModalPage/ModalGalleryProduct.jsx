@@ -13,7 +13,7 @@ export const ModalGalleryProduct = ({EachProduct}) =>
 
 
     return (
-         <div className='flex justify-center items-center z-10 bg-transparent m-auto h-screen w-full fixed top-0 overflow-hidden bg-glass-black'>
+         <div className='flex justify-center items-center z-10 m-auto h-screen w-full fixed top-0 overflow-hidden bg-glass-black'>
             <div className='relative w-3/6 h-32 bg-white flex justify-between items-center'>
 
                 <section className='w-6/12 h-full'>

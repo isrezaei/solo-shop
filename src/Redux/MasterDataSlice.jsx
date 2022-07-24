@@ -106,7 +106,6 @@ export const MasterDataSlice = createSlice({
             localStorage.setItem('masterData' , JSON.stringify(state))
         },
         [FetchMasterData.fulfilled] : (state , {payload}) => {
-
             state.status = 'success'
             MasterDataAdapter.upsertMany(state , payload)
             localStorage.setItem('masterData' , JSON.stringify(state))

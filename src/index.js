@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import {store} from "./Redux/ConfigStore";
 import {Provider} from "react-redux";
-import {FetchMasterData} from "./Redux/MasterDataSlice";
 import {BrowserRouter} from "react-router-dom";
 import './index.css'
+
+
 
 
 

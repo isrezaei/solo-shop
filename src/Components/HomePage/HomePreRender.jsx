@@ -15,6 +15,8 @@ import {HeaderUp} from "../Header/HeaderUp";
 import {HeaderDown} from "../Header/HeaderDown";
 import {useEffect, useState} from "react";
 import {Footer} from "../Footer/Footer";
+import {LiveSearchPreRender} from "../LiveSearch/LiveSearchPreRender";
+import {FetchLiveSearchData} from "../../Redux/LiveSearchSlice";
 
 
 
@@ -61,7 +63,7 @@ export const HomePreRender = () =>
     }
 
     return (
-        <div>
+        <div className=''>
             <HeaderUp headerPosition={headerPosition}/>
             <HeaderDown HeaderMargin={HeaderMargin}/>
             <HomeSlider/>
