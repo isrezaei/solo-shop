@@ -3,6 +3,8 @@ import {useEffect} from "react";
 import {FetchLiveSearchData} from "../../Redux/LiveSearchSlice";
 import {LiveSearchSlice} from "../../Redux/LiveSearchSlice";
 import {LiveSearchEachProduct} from "./LiveSearchEachProduct";
+
+
 export const LiveSearchPreRender = () =>
 {
 
@@ -18,12 +20,20 @@ export const LiveSearchPreRender = () =>
     }
     if (status === 'success')
     {
-        Render = resultOfLiveSearch.map(products => <LiveSearchEachProduct products={products}/>)
+        Render = resultOfLiveSearch.map(products => <LiveSearchEachProduct products={products} key={products.product}/>)
     }
 
     return (
-        <div className='z-10 m-auto h-screen w-full fixed top-0 overflow-hidden bg-glass-black grid grid-cols-3 overflow-y-scroll overflow-x-hidden scrollbar-hide'>
-            {Render}
+        <div className='z-10 m-auto w-full  h-screen fixed top-48  bg-glass-black overflow-scroll scrollbar-hide flex justify-center items-start'>
+
+            <div>
+
+            </div>
+
+            <div className='w-8/12 h-2/3 overflow-y-scroll scrollbar-hide bg-gray-300 grid grid-cols-3'>
+                {Render}
+            </div>
+
         </div>
     )
 }

@@ -44,7 +44,7 @@ function App() {
             {
                 searchComponent && (
                     <Routes>
-                        <Route path='search' element={<LiveSearchPreRender/>}/>
+                        <Route path='/search' element={<LiveSearchPreRender/>}/>
                     </Routes>
                 )
             }

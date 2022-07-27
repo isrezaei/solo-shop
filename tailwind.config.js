@@ -32,6 +32,10 @@ module.exports = {
       inset: {
         '128.5' : '28.5rem',
         '141': '41rem',
+      },
+
+      boxShadow: {
+        'manualInner': '40px 40px 80px #b1b1b1 , -40px -40px 80px #ffffff;'
       }
 
     },

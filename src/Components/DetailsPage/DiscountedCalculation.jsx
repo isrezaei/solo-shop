@@ -5,8 +5,8 @@ import {selectMasterDataById} from "../../Redux/MasterDataSlice";
 export const DiscountedCalculation = () =>
 {
     const {productId} = useParams()
-    const EachProduct = useSelector(state => selectMasterDataById(state , productId))
-    const {price , offer} = EachProduct
+
+    const {price , offer} = useSelector(state => selectMasterDataById(state , productId))
 
     const discountedPrice = parseInt((price - ((price * offer) / 100)))
 
