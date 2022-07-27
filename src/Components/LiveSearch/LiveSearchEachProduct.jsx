@@ -25,7 +25,7 @@ export const LiveSearchEachProduct = ({products}) =>
 
 
     return (
-        <div className='bg-white h-44 p-5 m-3 flex justify-start items-start gap-7 cursor-pointer relative'>
+        <div className='bg-white w-96 h-44 p-5 m-3 flex justify-start items-start gap-7 cursor-pointer relative'>
 
             <div>
                 <img className='w-24' src={image.mainImg}/>

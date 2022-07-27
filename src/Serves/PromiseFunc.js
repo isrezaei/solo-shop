@@ -7,7 +7,7 @@ export const PromiseFunc = () => new Promise((resolve) => {
 
 export const LiveSearch = (product) => new Promise(resolve => {
 
-    const setCondition = ApiData.filter(items => items.product.split(" ").join("").toLowerCase().includes(product.toLowerCase()))
+    const setCondition = ApiData.filter(items => items.product.split(" ").join("").toLowerCase().includes(product.split(" ").join("").toLowerCase()))
 
     return setTimeout(()=> resolve(setCondition) , 500)
 })

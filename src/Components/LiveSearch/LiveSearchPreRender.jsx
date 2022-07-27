@@ -5,12 +5,14 @@ import {LiveSearchSlice} from "../../Redux/LiveSearchSlice";
 import {LiveSearchEachProduct} from "./LiveSearchEachProduct";
 
 
+
+
+
 export const LiveSearchPreRender = () =>
 {
 
     const {resultOfLiveSearch , status} = useSelector(state => state.LiveSearchSlice)
 
-    console.log(resultOfLiveSearch)
 
     let Render ;
 
@@ -20,8 +22,10 @@ export const LiveSearchPreRender = () =>
     }
     if (status === 'success')
     {
-        Render = resultOfLiveSearch.map(products => <LiveSearchEachProduct products={products} key={products.product}/>)
+        Render = resultOfLiveSearch?.map(products => <LiveSearchEachProduct products={products} key={products.product}/>)
     }
+
+
 
     return (
         <div className='z-10 m-auto w-full  h-screen fixed top-48  bg-glass-black overflow-scroll scrollbar-hide flex justify-center items-start'>
@@ -30,7 +34,15 @@ export const LiveSearchPreRender = () =>
 
             </div>
 
-            <div className='w-8/12 h-2/3 overflow-y-scroll scrollbar-hide bg-gray-300 grid grid-cols-3'>
+            <div className='w-8/12 max-h-128 overflow-y-scroll scrollbar-hide bg-gray-300 grid grid-cols-3 justify-center items-start'>
+
+                <div className='h-64'>
+                    please search some apple product
+
+
+
+                </div>
+
                 {Render}
             </div>
 

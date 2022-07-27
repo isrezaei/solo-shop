@@ -14,7 +14,13 @@ export const LiveSearchSlice = createSlice({
         resultOfLiveSearch : {},
         status : 'idle'
     },
-    reducers : {},
+    reducers : {
+        emptyResultOfLiveSearch(state)
+        {
+            state.resultOfLiveSearch = {}
+            state.status = 'idle'
+        }
+    },
     extraReducers : {
         [FetchLiveSearchData.pending] : (state , payload) => {
             state.status = 'pending'
@@ -30,3 +36,4 @@ export const LiveSearchSlice = createSlice({
 })
 
 export default LiveSearchSlice.reducer
+export const {emptyResultOfLiveSearch} = LiveSearchSlice.actions

@@ -1,7 +1,5 @@
 import {CartWish} from "./Cart&Wish";
-import {SearchLogo} from "./Search&Logo";
 import {MdOutlineManageSearch} from 'react-icons/md'
-import {useLocation} from "react-router-dom";
 import {Link} from "react-router-dom";
 import {useState} from "react";
 import {IoMdArrowDropdown} from "react-icons/io";
@@ -11,7 +9,8 @@ import {useEffect} from "react";
 import {FetchLiveSearchData} from "../../Redux/LiveSearchSlice";
 import {CgClose} from 'react-icons/cg'
 import {BiSearchAlt} from 'react-icons/bi'
-import {useNavigate} from "react-router-dom";
+import {useNavigate , useLocation } from "react-router-dom";
+import {emptyResultOfLiveSearch} from "../../Redux/LiveSearchSlice";
 
 export const HeaderDown = ({HeaderMargin}) =>
 {
@@ -24,12 +23,18 @@ export const HeaderDown = ({HeaderMargin}) =>
 
     useEffect(()=> {
 
-        if (valDebounce)
+        if (valDebounce?.length >= 4)
         {
             dispatch(FetchLiveSearchData(valDebounce))
         }
 
+        if (!valDebounce)
+        {
+            dispatch(emptyResultOfLiveSearch())
+        }
+
     } , [valDebounce])
+
 
     const location = useLocation()
 
@@ -38,6 +43,8 @@ export const HeaderDown = ({HeaderMargin}) =>
         setSearchInput(false)
         Navigate('/')
     }
+
+    console.log(location.pathname === '/search')
 
     return (
         <div className={`w-full ${HeaderMargin} flex`}>
@@ -49,17 +56,13 @@ export const HeaderDown = ({HeaderMargin}) =>
 
 
                 {
-                    showSearchInput ?
+                    showSearchInput || location.pathname === '/search' ?
 
                         <div className='w-7/12  flex justify-evenly items-center'>
 
                             <BiSearchAlt className='text-gray-400 text-3xl'/>
-
-
                             <div className='flex w-11/12 justify-center items-center'>
-                                {/*<div className='bg-gray-300 w-px h-6'> </div>*/}
                                 <input onChange={e => setInput(e.target.value)} className='w-full text-white p-3 outline-0 border-0 bg-transparent placeholder:text-lg placeholder-gray-400' placeholder='Search for product' />
-                                {/*<div className='h-10 w-28 bg-blue-700 text-white flex justify-center items-center'>Search</div>*/}
                             </div>
                             <CgClose  onClick={closeInputSearch} className='text-gray-400 text-2xl cursor-pointer'/>
                         </div>

@@ -34,8 +34,9 @@ module.exports = {
         '141': '41rem',
       },
 
-      boxShadow: {
-        'manualInner': '40px 40px 80px #b1b1b1 , -40px -40px 80px #ffffff;'
+
+      spacing: {
+        '128': '38rem',
       }
 
     },
