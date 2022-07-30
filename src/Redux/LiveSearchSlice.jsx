@@ -11,14 +11,14 @@ export const FetchLiveSearchData = createAsyncThunk('FetchLiveSearchData' , asyn
 export const LiveSearchSlice = createSlice({
     name : 'liveSearchSlice',
     initialState : {
+        status : 'idle',
         resultOfLiveSearch : {},
-        status : 'idle'
     },
     reducers : {
         emptyResultOfLiveSearch(state)
         {
-            state.resultOfLiveSearch = {}
             state.status = 'idle'
+            state.resultOfLiveSearch = {}
         }
     },
     extraReducers : {

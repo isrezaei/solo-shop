@@ -1,8 +1,7 @@
-import {useSelector , useDispatch} from "react-redux";
-import {useEffect} from "react";
-import {FetchLiveSearchData} from "../../Redux/LiveSearchSlice";
-import {LiveSearchSlice} from "../../Redux/LiveSearchSlice";
+import {useSelector} from "react-redux";
 import {LiveSearchEachProduct} from "./LiveSearchEachProduct";
+import {CircleLoader} from 'react-spinners';
+
 
 
 
@@ -34,18 +33,22 @@ export const LiveSearchPreRender = () =>
 
             </div>
 
-            <div className='w-8/12 max-h-128 overflow-y-scroll scrollbar-hide bg-gray-300 grid grid-cols-3 justify-center items-start'>
-
-                <div className='h-64'>
-                    please search some apple product
 
 
+            {
+                status === 'idle' ?
+                    <div className='w-8/12 h-64 bg-gray-300 flex justify-evenly items-center'>
 
-                </div>
+                        <p className='text-2xl text-gray-600 font-bold'>please search some apple product</p>
 
-                {Render}
-            </div>
+                        <CircleLoader color={'#3e5bcc'} size={150}/>
+                    </div>
+                    :
+                    <div className='w-8/12 max-h-128 overflow-y-scroll scrollbar-hide bg-gray-300 grid grid-cols-3 justify-center items-start'>
+                        {Render}
+                    </div>
 
+            }
         </div>
     )
 }

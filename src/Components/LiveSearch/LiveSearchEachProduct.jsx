@@ -14,8 +14,6 @@ export const LiveSearchEachProduct = ({products}) =>
 
     const discountedPrice = parseInt((price - ((price * offer) / 100)))
 
-    console.log(offer)
-
     const showColors = color?.map(colors => {
         return (
             <div key={colors} style={{background : colors}} className='w-5 h-5 rounded-full shadow-inner border border-gray-300'></div>
