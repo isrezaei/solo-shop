@@ -17,6 +17,7 @@ import {useEffect, useState} from "react";
 import {Footer} from "../Footer/Footer";
 import {LiveSearchPreRender} from "../LiveSearch/LiveSearchPreRender";
 import {FetchLiveSearchData} from "../../Redux/LiveSearchSlice";
+import {FilterLogic} from "../FilterLogic/FilterLogic";
 
 
 
@@ -69,9 +70,12 @@ export const HomePreRender = () =>
             <HomeSlider/>
             <HomeBenefit/>
             <HomeSelectProduct/>
+
             <section className='w-full bg-gray-100'>
                 <div className='w-11/12 m-auto relative flex justify-around items-start'>
-                    <HomeOfferSlider/>
+                    {/*<HomeOfferSlider/>*/}
+                    <FilterLogic/>
+
                     <section className='w-9/12 flex flex-col justify-between items-center'>
                         <HomeFilterProduct/>
 
