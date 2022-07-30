@@ -16,7 +16,6 @@ export const HomeSelectProduct = () =>
             dispatch(SelectProduct(items))
             setActive(items)
         }
-
         return (
             <div
                 key={items}
