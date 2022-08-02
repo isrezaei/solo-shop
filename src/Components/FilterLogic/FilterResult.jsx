@@ -1,12 +1,10 @@
 import {useSelector} from "react-redux";
 import {SortByFilter} from "../../Redux/MasterDataSlice";
-import {FilterProductSlice} from "../../Redux/FilterProductSlice";
 
 
 
 export const FilterResult = () =>
 {
-
 
     const filteredProduct = useSelector(state => SortByFilter(state , state.FilterProductSlice))
         .map(products => {
@@ -27,7 +25,6 @@ export const FilterResult = () =>
 
                         <p className='w-full text-sm font-bold text-gray-600 text-center'>{product}</p>
 
-
                         <div className='w-full flex flex-col justify-start items-center '>
                             {
                                 price === 'out' ? <p className='font-bold text-rose-600'>out of stock</p>
@@ -35,7 +32,6 @@ export const FilterResult = () =>
                             }
                             <div className='text-gray-500 font-bold'>{price !== 'out' && offer !== 0 &&  <p>${discountedPrice}</p>}</div>
                         </div>
-
 
                     </div>
                 </div>

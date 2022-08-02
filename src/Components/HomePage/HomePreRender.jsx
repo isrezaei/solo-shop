@@ -28,6 +28,7 @@ export const HomePreRender = () =>
     const {selectProduct} = useSelector(state => state.SelectProductSlice)
     const [headerPosition] = useState('fixed');
     const [HeaderMargin] = useState('mt-20')
+    const [accessShowFilter , setAccessShowFilter] = useState(false)
     const dispatch = useDispatch()
 
     useEffect(()=>{
@@ -70,34 +71,45 @@ export const HomePreRender = () =>
             <HomeBenefit/>
             <HomeSelectProduct/>
 
-            <section className='w-full bg-gray-100'>
+            <section className='w-full bg-gray-100 relative'>
                 <div className='w-11/12 m-auto relative flex justify-around items-start'>
-                    {/*<HomeOfferSlider/>*/}
-                    <FilterLogic/>
 
-                    {/*<section className='w-9/12 flex flex-col justify-between items-center'>*/}
-
-                    {/*    <HomeFilterProduct/>*/}
-
-                    {/*    <Swiper*/}
-                    {/*        slidesPerView={4}*/}
-                    {/*        grid={{*/}
-                    {/*            rows: 2*/}
-                    {/*        }}*/}
-                    {/*        spaceBetween={20}*/}
-                    {/*        pagination={false}*/}
-                    {/*        modules={[Grid, Pagination]}*/}
-                    {/*        className="mySwiper h-60 w-full">*/}
-                    {/*        {Render}*/}
-                    {/*    </Swiper>*/}
-
-                    {/*</section>*/}
+                    {
+                        accessShowFilter ? <FilterLogic/> :  <HomeOfferSlider/>
+                    }
 
 
-                    <FilterResult/>
+
+                    <section className='w-9/12 flex flex-col justify-between items-center'>
+
+                        {
+                            accessShowFilter ?  <FilterResult/> :
+                                <>
+                                    <HomeFilterProduct/>
+                                    <Swiper
+                                        slidesPerView={4}
+                                        grid={{
+                                            rows: 2
+                                        }}
+                                        spaceBetween={20}
+                                        pagination={false}
+                                        modules={[Grid, Pagination]}
+                                        className="mySwiper h-60 w-full">
+                                        {Render}
+                                    </Swiper>
+                                </>
+                        }
+                    </section>
 
 
                 </div>
+
+
+                <button onClick={()=> setAccessShowFilter(!accessShowFilter)} className='absolute w-14 h-96 bg-lime-300 top-0'>
+                    lets to filter product
+                </button>
+
+
             </section>
 
 
