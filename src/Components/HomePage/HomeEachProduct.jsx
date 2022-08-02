@@ -8,11 +8,10 @@ import {HiShoppingCart} from 'react-icons/hi'
 
 export const HomeEachProduct = ({ids}) =>
 {
-    const EachProduct = useSelector(state => selectMasterDataById(state , ids))
+    const {product , image , id , price , offer , rate , quantity}  = useSelector(state => selectMasterDataById(state , ids))
     const Navigate = useNavigate()
     const location = useLocation()
 
-    const {product , image , id , price , offer , rate , quantity} = EachProduct
 
     const PriceWithOffer = parseInt((price - ((price * offer) / 100)))
 

@@ -20,23 +20,58 @@ const initialState = JSON.parse(localStorage.getItem('masterData')) || MasterDat
 
 export const { selectById: selectMasterDataById,  selectIds: selectMasterDataIds , selectAll : selectAllMasterData , selectEntities : selectMasterEntities} = MasterDataAdapter.getSelectors(state => state.MasterDataSlice)
 
+
+
 export const SortBySelect = createSelector (
 
-    [ selectAllMasterData , (state , items) => items] ,
+    [selectAllMasterData , (state , items) => items] ,
 
     (AllProduct, SelectFilter) => {
         return [...AllProduct].sort((a, b) => {
+
             if (SelectFilter === 'cheapest')
             {
-              return  a.price - b.price
+                return  a.price - b.price
             }
-
             if (SelectFilter === 'expensive'){
                 return  b.price - a.price
             }
+
+            console.log(b)
+
             return  a[SelectFilter] - b[SelectFilter]
         })
     } )
+
+export const SortByFilter = createSelector (
+    [selectAllMasterData , (state , items) => items],
+
+    (AllProduct , FilterItem)=> {
+
+        const {price : choicePrice , product : choiceProduct , stars : choiceStars} = FilterItem
+
+        let storage = [...AllProduct]
+
+        if (choiceProduct)
+        {
+            storage = storage.filter(items => items.type === choiceProduct)
+        }
+
+        if (choiceStars)
+        {
+            storage = storage.filter(items => items.rate <= choiceStars)
+        }
+
+        if (choicePrice)
+        {
+            const {startPoint , endPoint} = choicePrice
+            storage = storage.filter(items => items.price < endPoint && items.price > startPoint)
+        }
+
+        return storage.sort((a , b) => b.offer - a.offer)
+    }
+)
+
 
 export const MasterDataSlice = createSlice({
     name : 'MasterData',
@@ -111,7 +146,7 @@ export const MasterDataSlice = createSlice({
             localStorage.setItem('masterData' , JSON.stringify(state))
         } ,
         [FetchMasterData.rejected] : (state) => {
-           state.status = 'reject'
+            state.status = 'reject'
             localStorage.setItem('masterData' , JSON.stringify(state))
         }
     }

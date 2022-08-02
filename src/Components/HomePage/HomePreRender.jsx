@@ -18,8 +18,7 @@ import {Footer} from "../Footer/Footer";
 import {LiveSearchPreRender} from "../LiveSearch/LiveSearchPreRender";
 import {FetchLiveSearchData} from "../../Redux/LiveSearchSlice";
 import {FilterLogic} from "../FilterLogic/FilterLogic";
-
-
+import {FilterResult} from "../FilterLogic/FilterResult";
 
 
 export const HomePreRender = () =>
@@ -76,23 +75,32 @@ export const HomePreRender = () =>
                     {/*<HomeOfferSlider/>*/}
                     <FilterLogic/>
 
-                    <section className='w-9/12 flex flex-col justify-between items-center'>
-                        <HomeFilterProduct/>
+                    {/*<section className='w-9/12 flex flex-col justify-between items-center'>*/}
 
-                        <Swiper
-                            slidesPerView={4}
-                            grid={{
-                                rows: 2
-                            }}
-                            spaceBetween={20}
-                            pagination={false}
-                            modules={[Grid, Pagination]}
-                            className="mySwiper h-60 w-full">
-                            {Render}
-                        </Swiper>
-                    </section>
+                    {/*    <HomeFilterProduct/>*/}
+
+                    {/*    <Swiper*/}
+                    {/*        slidesPerView={4}*/}
+                    {/*        grid={{*/}
+                    {/*            rows: 2*/}
+                    {/*        }}*/}
+                    {/*        spaceBetween={20}*/}
+                    {/*        pagination={false}*/}
+                    {/*        modules={[Grid, Pagination]}*/}
+                    {/*        className="mySwiper h-60 w-full">*/}
+                    {/*        {Render}*/}
+                    {/*    </Swiper>*/}
+
+                    {/*</section>*/}
+
+
+                    <FilterResult/>
+
+
                 </div>
             </section>
+
+
 
             <Footer/>
         </div>
