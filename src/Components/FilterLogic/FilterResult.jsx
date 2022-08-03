@@ -14,7 +14,7 @@ export const FilterResult = () =>
 
             return (
 
-                <div className='w-44 h-56 p-1 bg-white flex flex-col justify-center items-center' key={id}>
+                <div className='animate__animated animate__backInUp animate__faster w-44 h-56 p-1 bg-white flex flex-col justify-center items-center' key={id}>
 
                     <div className='w-full h-96 flex justify-center items-center'>
                         <img className='w-20 ' src={image?.mainImg}/>

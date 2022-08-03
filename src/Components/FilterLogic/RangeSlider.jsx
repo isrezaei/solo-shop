@@ -1,7 +1,7 @@
 import Slider from "r-range-slider";
 import {useState} from "react";
 import {filterByPrice} from "../../Redux/FilterProductSlice";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 export const RangeSlider = () =>
 {
@@ -15,8 +15,6 @@ export const RangeSlider = () =>
         }
     )
     const {startPoint , endPoint} = range
-
-    console.log(startPoint)
 
     return (
         <div className='z-0'>

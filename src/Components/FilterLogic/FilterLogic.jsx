@@ -39,7 +39,7 @@ export const FilterLogic = () =>
 
 
     return (
-        <div className='px-8 py-2 mt-16 w-96 h-auto bg-white flex flex-col justify-start items-center gap-2'>
+        <div className=' animate__animated animate__zoomInLeft px-8 py-2 mt-16 w-96 h-auto bg-white flex flex-col justify-start items-center gap-2'>
 
 
             <div className='w-full flex flex-col justify-start items-center gap-2'>

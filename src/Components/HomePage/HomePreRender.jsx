@@ -8,17 +8,16 @@ import {HomeOfferSlider} from "./HomeOfferSlider";
 import {HomeFilterProduct} from "./HomeFilterProduct";
 import { Grid, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/grid";
-import "swiper/css/pagination";
 import {HeaderUp} from "../Header/HeaderUp";
 import {HeaderDown} from "../Header/HeaderDown";
 import {useEffect, useState} from "react";
 import {Footer} from "../Footer/Footer";
-import {LiveSearchPreRender} from "../LiveSearch/LiveSearchPreRender";
-import {FetchLiveSearchData} from "../../Redux/LiveSearchSlice";
 import {FilterLogic} from "../FilterLogic/FilterLogic";
 import {FilterResult} from "../FilterLogic/FilterResult";
+import "swiper/css";
+import "swiper/css/grid";
+import "swiper/css/pagination";
+import 'animate.css';
 
 
 export const HomePreRender = () =>
@@ -64,7 +63,8 @@ export const HomePreRender = () =>
     }
 
     return (
-        <div className=''>
+        <div className='max-w-fit m-auto'>
+
             <HeaderUp headerPosition={headerPosition}/>
             <HeaderDown HeaderMargin={HeaderMargin}/>
             <HomeSlider/>

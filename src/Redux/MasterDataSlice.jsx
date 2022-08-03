@@ -45,7 +45,7 @@ export const SortByFilter = createSelector (
 
     (AllProduct , FilterItem)=> {
 
-        const {price : choicePrice , product : choiceProduct , stars : choiceStars} = FilterItem
+        const {price : {startPoint , endPoint} , product : choiceProduct , stars : choiceStars} = FilterItem
 
         let storage = [...AllProduct]
 
@@ -59,9 +59,8 @@ export const SortByFilter = createSelector (
             storage = storage.filter(items => items.rate <= choiceStars)
         }
 
-        if (choicePrice)
+        if (startPoint || endPoint)
         {
-            const {startPoint , endPoint} = choicePrice
             storage = storage.filter(items => items.price < endPoint && items.price > startPoint)
         }
 

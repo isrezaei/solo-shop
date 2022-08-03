@@ -17,7 +17,7 @@ export const HomeEachProduct = ({ids}) =>
 
 
     return (
-        <div className=' w-full h-full bg-white p-3 flex flex-col justify-start items-center relative'>
+        <div className='animate__animated animate__backInUp animate__faster w-full h-full bg-white p-3 flex flex-col justify-start items-center relative'>
             <div className='w-auto group relative h-3/4' >
                 <img className={`w-auto h-full cursor-pointer ${price === 'out' && 'filter grayscale'}`} src={image.mainImg} alt={product} onClick={()=> Navigate(`/details/${id}`)}/>
             </div>

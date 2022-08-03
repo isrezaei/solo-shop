@@ -4,7 +4,6 @@ const initialState = {
     price : '',
     product : '',
     stars : ''
-
 }
 
 export const FilterProductSlice = createReducer(initialState , (builder)=> {
