@@ -36,9 +36,6 @@ export const SortBySelect = createSelector (
             if (SelectFilter === 'expensive'){
                 return  b.price - a.price
             }
-
-            console.log(b)
-
             return  a[SelectFilter] - b[SelectFilter]
         })
     } )

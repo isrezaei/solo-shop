@@ -3,7 +3,7 @@ import {FetchMasterData , SortBySelect} from "../../Redux/MasterDataSlice";
 import {HomeEachProduct} from "./HomeEachProduct";
 import {HomeSlider} from "./HomeSlider";
 import {HomeBenefit} from "./HomeBenefit";
-import {HomeSelectProduct} from "./HomeSelectProduct";
+import {HomeSelectOptions} from "./HomeSelectOptions";
 import {HomeOfferSlider} from "./HomeOfferSlider";
 import {HomeFilterProduct} from "./HomeFilterProduct";
 import { Grid, Pagination } from "swiper";
@@ -28,7 +28,7 @@ export const HomePreRender = () =>
     const {selectProduct} = useSelector(state => state.SelectProductSlice)
     const [headerPosition] = useState('fixed');
     const [HeaderMargin] = useState('mt-20')
-    const [accessShowFilter , setAccessShowFilter] = useState(false)
+    const [allowFilter , setAllowFilter] = useState(false)
     const dispatch = useDispatch()
 
     useEffect(()=>{
@@ -69,13 +69,13 @@ export const HomePreRender = () =>
             <HeaderDown HeaderMargin={HeaderMargin}/>
             <HomeSlider/>
             <HomeBenefit/>
-            <HomeSelectProduct/>
+            <HomeSelectOptions allowFilter={allowFilter} setAllowFilter={setAllowFilter}/>
 
             <section className='w-full bg-gray-100 relative'>
                 <div className='w-11/12 m-auto relative flex justify-around items-start'>
 
                     {
-                        accessShowFilter ? <FilterLogic/> :  <HomeOfferSlider/>
+                        allowFilter ? <FilterLogic/> :  <HomeOfferSlider/>
                     }
 
 
@@ -83,7 +83,7 @@ export const HomePreRender = () =>
                     <section className='w-9/12 flex flex-col justify-between items-center'>
 
                         {
-                            accessShowFilter ?  <FilterResult/> :
+                            allowFilter ?  <FilterResult/> :
                                 <>
                                     <HomeFilterProduct/>
                                     <Swiper
@@ -104,10 +104,6 @@ export const HomePreRender = () =>
 
                 </div>
 
-
-                <button onClick={()=> setAccessShowFilter(!accessShowFilter)} className='absolute w-14 h-96 bg-lime-300 top-0'>
-                    lets to filter product
-                </button>
 
 
             </section>

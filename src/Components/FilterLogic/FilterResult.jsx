@@ -6,8 +6,7 @@ import {SortByFilter} from "../../Redux/MasterDataSlice";
 export const FilterResult = () =>
 {
 
-    const filteredProduct = useSelector(state => SortByFilter(state , state.FilterProductSlice))
-        .map(products => {
+    const filteredProduct = useSelector(state => SortByFilter(state , state.FilterProductSlice)).map(products => {
 
             const {id , product , price , color , image , detailsImage , capacity , offer} = products
 
@@ -15,7 +14,7 @@ export const FilterResult = () =>
 
             return (
 
-                <div className='w-44 h-56 p-1 bg-gray-100 flex flex-col justify-center items-center' key={id}>
+                <div className='w-44 h-56 p-1 bg-white flex flex-col justify-center items-center' key={id}>
 
                     <div className='w-full h-96 flex justify-center items-center'>
                         <img className='w-20 ' src={image?.mainImg}/>
@@ -42,7 +41,7 @@ export const FilterResult = () =>
 
 
     return (
-        <div className='w-9/12 p-5 max-h-max bg-white grid grid-cols-7 justify-center items-center gap-3'>
+        <div className='w-full mt-16 p-5 max-h-max bg-gray-100 grid grid-cols-7 justify-center items-center gap-3'>
             {filteredProduct}
         </div>
     )

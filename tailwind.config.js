@@ -37,6 +37,22 @@ module.exports = {
 
       spacing: {
         '128': '38rem',
+      },
+
+      keyframes: {
+        openFilter: {
+          '0%': {  width : '4rem' },
+          '100%': {  width: '100%' },
+        },
+        closeFilter: {
+          '0%': {  width : '100%' },
+          '100%': {  width: '4rem' },
+        }
+      },
+
+      animation: {
+        openFilter: 'openFilter 1s ',
+        closeFilter : 'closeFilter 1s '
       }
 
     },
