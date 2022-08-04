@@ -7,7 +7,7 @@ import {BsCurrencyDollar , BsApple} from 'react-icons/bs'
 import {AiFillStar , AiFillDollarCircle} from 'react-icons/ai'
 import {SiApple} from 'react-icons/si'
 import {FaWindowClose} from 'react-icons/fa'
-import {BiDollar} from 'react-icons/bi'
+import {RiMoneyDollarCircleFill} from 'react-icons/ri'
 
 
 export const HomeSelectOptions = ({allowFilter , setAllowFilter}) =>
@@ -44,25 +44,25 @@ export const HomeSelectOptions = ({allowFilter , setAllowFilter}) =>
     return (
         <div className='w-9/12 mx-auto flex justify-between items-end transition transition-all duration-100 relative'>
 
-            <div className={`${allowFilter ? 'animate__backOutDown pointer-events-none' : 'animate__bounceInUp pointer-events-auto'} animate__animated w-full flex justify-center items-center`}>
+            <div className={`${allowFilter ? 'animate__backOutDown pointer-events-none' : 'animate__bounceInUp pointer-events-auto'} animate__animated animate__faster w-full flex justify-center items-center`}>
                 {TitleProduct}
             </div>
 
-            <div className={`${!allowFilter ?'animate__backOutDown pointer-events-none' : 'animate__bounceInUp pointer-events-auto'} animate__animated w-11/12   absolute flex justify-end items-center gap-4`}>
+            <div className={`${!allowFilter ?'animate__backOutDown pointer-events-none' : 'animate__bounceInUp pointer-events-auto'} animate__animated animate__faster w-11/12   absolute flex justify-end items-center gap-4`}>
 
-                <div className='w-60 h-16  bg-gray-100 text-neutral-500 font-bold flex  justify-center items-center gap-2 relative'>
-                    <FaWindowClose onClick={()=> dispatch(filterByPrice({endPoint : null , startPoint : null}))} className='w-5 h-5 flex text-red-400 justify-center items-center absolute top-0 right-0'/>
-                    <AiFillDollarCircle className='text-2xl'/>
+                <div className='w-60 h-16  bg-gray-100 text-neutral-500 font-bold flex  justify-center items-center gap-1 relative'>
+                    <FaWindowClose onClick={()=> dispatch(filterByPrice({endPoint : null , startPoint : null}))} className={`w-5 h-5 flex text-red-400 justify-center items-center absolute top-0 right-0 ${startPoint ? 'block' : 'hidden'}`}/>
+                    <RiMoneyDollarCircleFill className='text-2xl'/>
                     <div>{startPoint ?  <div>{startPoint} To {endPoint}</div>  : 'Your choice price'}</div>
                 </div>
 
                 <div className='w-36 h-16  bg-gray-100 text-neutral-500 font-bold flex justify-center items-center gap-1 relative' >
-                    <FaWindowClose onClick={()=> dispatch(filterByProduct())} className='w-5 h-5 flex text-red-400 justify-center items-center absolute top-0 right-0'/>
+                    <FaWindowClose onClick={()=> dispatch(filterByProduct())} className={`w-5 h-5 flex text-red-400 justify-center items-center absolute top-0 right-0 ${product ? 'block' : 'hidden'}`}/>
                     <SiApple className='text-2xl mb-1'/>
                     {product ? product : 'Product'}
                 </div>
                 <div className='w-36 h-16  bg-gray-100 text-neutral-500 font-bold flex  justify-center items-center gap-1 relative'>
-                    <FaWindowClose onClick={()=> dispatch(filterByStars())} className='w-5 h-5 flex text-red-400 justify-center items-center absolute top-0 right-0'/>
+                    <FaWindowClose onClick={()=> dispatch(filterByStars())} className={`w-5 h-5 flex text-red-400 justify-center items-center absolute top-0 right-0 ${stars ? 'block' : 'hidden'}`}/>
                     <AiFillStar className='text-2xl'/>
                     {stars ? stars : 'Rate'}
                 </div>

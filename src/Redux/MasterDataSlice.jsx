@@ -64,7 +64,7 @@ export const SortByFilter = createSelector (
             storage = storage.filter(items => items.price < endPoint && items.price > startPoint)
         }
 
-        return storage.sort((a , b) => b.offer - a.offer)
+        return (choiceProduct || choiceStars || startPoint || endPoint) &&  storage.sort((a , b) => b.offer - a.offer)
     }
 )
 

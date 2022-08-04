@@ -31,7 +31,6 @@ export const ApiData  = [
             'ghostwhite' : 'https://user-images.githubusercontent.com/77073972/172804462-0ce870c0-7370-4986-ba48-62e005404fa3.png',
             'black' : 'https://user-images.githubusercontent.com/77073972/172804436-c0439e24-7563-4e11-b2d8-047d8652e999.png'
         },
-
         "introduction" : "The Special Edition iPhone, also known as the cheapest iPhone, or the retro one, has been refreshed, and is now available for purchase. It's a very minor refresh of the phone with the same name from 2020, most upgrades stemming from the new chipset and its accompanying 5G modem."
     },
     {
@@ -68,8 +67,6 @@ export const ApiData  = [
             'dimGrey' : 'https://user-images.githubusercontent.com/77073972/176432838-40cf8174-8332-452b-ad63-37803228ad7a.png',
             'lightBlue' : 'https://user-images.githubusercontent.com/77073972/176432820-2a2e14b8-56f2-49c3-8572-88dc4629984f.png'
         },
-
-
         "introduction" : "Not just the best iPhone ever, but also the one with the 'biggest camera update ever' - that would be this year's iPhone 13 Pro, which we have here in Max size. Joining those larger and better cameras, we have a high refresh rate display, more battery, the mandatory chipset upgrade - the 13 Pro Max ticks all the boxes for improving everything that's important. We're here to see by just how much"
     },
     {
@@ -81,7 +78,7 @@ export const ApiData  = [
         "newer" : 1,
         "popular" : 5,
         "Bestselling" : 3,
-        "rate" : 6,
+        "rate" : 5,
         "count" : 64,
         "offer" : 10,
         "image" : {
@@ -94,6 +91,18 @@ export const ApiData  = [
             ]
 
         },
+        "color" : ['darkOliveGreen' , 'silver' , 'gold' , 'dimGrey' , 'lightBlue'],
+        "capacity" : [128 , 256 , 512],
+
+        "detailsImage" : {
+            "main" : 'https://user-images.githubusercontent.com/77073972/182841414-bbbaf93e-db79-45e7-8900-e1aedb4b02f9.png',
+            'darkOliveGreen' : 'https://user-images.githubusercontent.com/77073972/176432827-8557aa1d-1909-4bd0-8c5f-05baaadee3dd.png',
+            'silver' : 'https://user-images.githubusercontent.com/77073972/176432828-2319cc82-576f-4ef4-a4bb-f66ad242d96b.png',
+            'gold' : 'https://user-images.githubusercontent.com/77073972/176432821-45ee60b0-5ea1-4efc-a615-792ca36acacb.png',
+            'dimGrey' : 'https://user-images.githubusercontent.com/77073972/176432838-40cf8174-8332-452b-ad63-37803228ad7a.png',
+            'lightBlue' : 'https://user-images.githubusercontent.com/77073972/176432820-2a2e14b8-56f2-49c3-8572-88dc4629984f.png'
+        },
+
         "introduction" : "The 'biggest camera update ever' on an iPhone doesn't have to come in a big iPhone, at least not a Max-sized one - the iPhone 13 Pro will do. Unlike last year, when only the 12 Pro Max got the ultimate camera system, the differences between the two Pro sizes now are simply in quantity, not in quality"
     },
 
@@ -120,10 +129,22 @@ export const ApiData  = [
             ]
 
         },
+        "color" : ['steelblue' , 'antiquewhite' , 'azure' , 'dimgray' , 'red'],
+        "capacity" : [128 , 256 , 512],
+
+        "detailsImage" : {
+            "main" : 'https://user-images.githubusercontent.com/77073972/182839255-29cb90c4-7730-4095-aa45-b933d14416a4.jpg',
+            'steelblue' : 'https://user-images.githubusercontent.com/77073972/182839380-a80473a4-6661-4683-98ae-8525de99d583.png',
+            'antiquewhite' : 'https://user-images.githubusercontent.com/77073972/182839408-8841332d-52e0-4c3a-b03b-11eb06897cff.png',
+            'azure' : 'https://user-images.githubusercontent.com/77073972/182839420-17413467-2c93-4f5e-b68c-56e255507359.png',
+            'dimgray' : 'https://user-images.githubusercontent.com/77073972/182839432-50474462-de36-46cb-9378-f67e874c91ed.png',
+            'red' : 'https://user-images.githubusercontent.com/77073972/182839445-238f75cd-cd19-480e-bd54-38a6b10e886a.png'
+        },
+
         "introduction" : "One small reduction of the notch, one giant leap for the iPhone! That's the best description for the most minor iPhone upgrade yet - the Apple iPhone 13. But even if it won't make iPhone 12 owners line up for the new model, like it or not, the iPhone 13 is still one of the most powerful smartphones on the market and a bestseller in the making."
     },
     {
-        "id" : 4 ,
+        "id" : 5 ,
         "product" : "Apple iPhone 13 mini",
         "brand" : "apple",
         "type" : 'iphone',
@@ -144,10 +165,22 @@ export const ApiData  = [
             ]
 
         },
+        "color" : ['steelblue' , 'antiquewhite' , 'azure' , 'dimgray' , 'red'],
+        "capacity" : [128 , 256 , 512],
+
+        "detailsImage" : {
+            "main" : 'https://user-images.githubusercontent.com/77073972/182839445-238f75cd-cd19-480e-bd54-38a6b10e886a.png',
+            'steelblue' : 'https://user-images.githubusercontent.com/77073972/182839380-a80473a4-6661-4683-98ae-8525de99d583.png',
+            'antiquewhite' : 'https://user-images.githubusercontent.com/77073972/182839408-8841332d-52e0-4c3a-b03b-11eb06897cff.png',
+            'azure' : 'https://user-images.githubusercontent.com/77073972/182839420-17413467-2c93-4f5e-b68c-56e255507359.png',
+            'dimgray' : 'https://user-images.githubusercontent.com/77073972/182839432-50474462-de36-46cb-9378-f67e874c91ed.png',
+            'red' : 'https://user-images.githubusercontent.com/77073972/182839445-238f75cd-cd19-480e-bd54-38a6b10e886a.png'
+        },
+
         "introduction" : "The Apple iPhone 13 mini is the most compact flagship smartphone money can buy. It's also easy enough to outright recommend to anyone looking for this particular type of device. It is astonishingly rare to find such a pocket-friendly smartphone, let alone one of flagship caliber."
     },
     {
-        "id" : 5 ,
+        "id" : 6 ,
         "product" : "Apple iPhone 12 Pro Max",
         "brand" : "apple",
         "type" : 'iphone',
@@ -172,7 +205,7 @@ export const ApiData  = [
         "introduction" : "With the Apple iPhone 12 Pro Max, our collection is finally complete. It is the biggest, heaviest, most powerful, and most feature-rich iPhone Apple has made so far, and that's enough to make it the best-seller it was designed to become."
     },
     {
-        "id" : 6 ,
+        "id" : 7 ,
         "product" : "Apple iPhone 12",
         "brand" : "apple",
         "type" : 'iphone',
@@ -193,11 +226,24 @@ export const ApiData  = [
             ]
 
         },
+        "color" : ['palegreen' , 'mediumorchid' , 'navy' , 'white' , 'black' , 'red'],
+        "capacity" : [64 , 128 , 256],
+
+        "detailsImage" : {
+            "main" : 'https://user-images.githubusercontent.com/77073972/182845352-ac1c9735-6023-42fe-b5a8-6c02ffc6f991.jpg',
+            'palegreen' : 'https://user-images.githubusercontent.com/77073972/182845359-496ded5e-86ce-4c47-a97e-de5f3490436b.png',
+            'mediumorchid' : 'https://user-images.githubusercontent.com/77073972/182845360-b0289f4f-ff17-4a83-8848-b273f2253124.png',
+            'navy' : 'https://user-images.githubusercontent.com/77073972/182845362-ecb8470a-f8e6-4f95-912c-663dee4deb79.png',
+            'white' : 'https://user-images.githubusercontent.com/77073972/182845365-3f7a78ce-e703-4dbf-9e2f-85564e4db757.png',
+            'black' : 'https://user-images.githubusercontent.com/77073972/182845368-9caec142-4c47-4c33-9981-133428ac5b49.png',
+            'red' : 'https://user-images.githubusercontent.com/77073972/182845371-7446f32f-d5d1-4fc4-aa2b-3394cae9bc73.png'
+        },
+
         "introduction" : "Blast Past Fast. It's an apt tagline with Apple skipping the S models and going straight to the iPhone 12 from the already fast iPhone 11."
     },
 
     {
-        "id" : 7 ,
+        "id" : 8 ,
         "product" : "Apple iPhone SE (2020)",
         "brand" : "apple",
         "type" : 'iphone',
@@ -220,7 +266,7 @@ export const ApiData  = [
     },
 
     {
-        "id" : 7 ,
+        "id" : 9 ,
         "product" : "Apple iPhone 11 Pro Max",
         "brand" : "apple",
         "type" : 'iphone',
@@ -243,7 +289,7 @@ export const ApiData  = [
     },
 
     {
-        "id" : 8 ,
+        "id" : 10 ,
         "product" : "Apple iPhone 11 Pro",
         "brand" : "apple",
         "type" : 'iphone',
@@ -266,7 +312,7 @@ export const ApiData  = [
     },
 
     {
-        "id" : 9 ,
+        "id" : 11 ,
         "product" : "Apple iPhone 11",
         "brand" : "apple",
         "type" : 'iphone',
@@ -289,7 +335,7 @@ export const ApiData  = [
     },
 
     {
-        "id" : 9 ,
+        "id" : 12 ,
         "product" : "Apple iPhone XS Max",
         "brand" : "apple",
         "type" : 'iphone',
@@ -313,7 +359,7 @@ export const ApiData  = [
     },
 
     {
-        "id" : 10 ,
+        "id" : 13 ,
         "product" : "Apple iPhone Xr",
         "brand" : "apple",
         "type" : 'iphone',
@@ -339,7 +385,7 @@ export const ApiData  = [
 
 
     {
-        "id" : 12 ,
+        "id" : 14 ,
         "product" : "Apple iPhone 8 Plus",
         "brand" : "apple",
         "type" : 'iphone',
@@ -363,7 +409,7 @@ export const ApiData  = [
     },
 
     {
-        "id" : 13 ,
+        "id" : 15 ,
         "product" : "Apple iPhone 8",
         "brand" : "apple",
         "type" : 'iphone',
@@ -386,7 +432,7 @@ export const ApiData  = [
     },
 
     {
-        "id" : 14 ,
+        "id" : 16 ,
         "product" : "Apple iPhone 7 Plus",
         "brand" : "apple",
         "type" : 'iphone',
@@ -412,7 +458,7 @@ export const ApiData  = [
 
 
     {
-        "id" : 15 ,
+        "id" : 17 ,
         "product" : "Apple iPhone 7",
         "brand" : "apple",
         "type" : 'iphone',
@@ -436,7 +482,7 @@ export const ApiData  = [
     },
 
     {
-        "id" : 16 ,
+        "id" : 18 ,
         "product" : "Apple iPhone SE",
         "brand" : "apple",
         "type" : 'iphone',
@@ -461,7 +507,7 @@ export const ApiData  = [
     },
 
     {
-        "id" : 17 ,
+        "id" : 19 ,
         "product" : "Apple iPad Air (2022)",
         "brand" : "apple",
         "type" : 'ipad',
@@ -485,7 +531,7 @@ export const ApiData  = [
     },
 
     {
-        "id" : 18 ,
+        "id" : 20 ,
         "product" : "Apple iPad mini (2021)",
         "brand" : "apple",
         "type" : 'ipad',
@@ -510,7 +556,7 @@ export const ApiData  = [
     },
 
     {
-        "id" : 19 ,
+        "id" : 21 ,
         "product" : "Apple iPad 10.2 (2021)",
         "brand" : "apple",
         "type" : 'ipad',
@@ -534,7 +580,7 @@ export const ApiData  = [
     },
 
     {
-        "id" : 20 ,
+        "id" : 22 ,
         "product" : "Apple iPad Pro 12.9 (2021)",
         "brand" : "apple",
         "type" : 'ipad',
@@ -559,7 +605,7 @@ export const ApiData  = [
     },
 
     {
-        "id" : 21 ,
+        "id" : 23 ,
         "product" : "Apple iPad Air (2020)",
         "brand" : "apple",
         "type" : 'ipad',
@@ -584,7 +630,7 @@ export const ApiData  = [
     },
 
     {
-        "id" : 22 ,
+        "id" : 24 ,
         "product" : "Apple iPad Pro 12.9 (2020)",
         "brand" : "apple",
         "type" : 'ipad',
@@ -608,7 +654,7 @@ export const ApiData  = [
     },
 
     {
-        "id" : 23 ,
+        "id" : 25 ,
         "product" : "Apple iPad 10.2 (2019)",
         "brand" : "apple",
         "type" : 'ipad',
@@ -633,7 +679,7 @@ export const ApiData  = [
     },
 
     {
-        "id" : 24 ,
+        "id" : 26 ,
         "product" : "Apple iPad mini (2019)",
         "brand" : "apple",
         "type" : 'ipad',

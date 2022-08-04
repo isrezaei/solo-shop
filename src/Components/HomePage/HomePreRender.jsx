@@ -72,6 +72,7 @@ export const HomePreRender = () =>
             <HomeSelectOptions allowFilter={allowFilter} setAllowFilter={setAllowFilter}/>
 
             <section className='w-full bg-gray-100 relative'>
+
                 <div className='w-11/12 m-auto relative flex justify-around items-start'>
 
                     {
