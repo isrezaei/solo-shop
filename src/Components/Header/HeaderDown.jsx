@@ -9,13 +9,13 @@ import {CgClose} from 'react-icons/cg'
 import {BiSearchAlt} from 'react-icons/bi'
 import {useNavigate , useLocation } from "react-router-dom";
 import {emptyResultOfLiveSearch} from "../../Redux/LiveSearchSlice";
+import {SearchLogic} from "./SearchLogic";
 
 export const HeaderDown = ({HeaderMargin}) =>
 {
     const [showSearchInput , setSearchInput] = useState(false)
     const [valInput , setInput] = useState()
     const {valDebounce} = useDebounce(valInput)
-    const Navigate = useNavigate()
     const dispatch = useDispatch()
 
 
@@ -35,43 +35,73 @@ export const HeaderDown = ({HeaderMargin}) =>
 
     const location = useLocation()
 
-    const closeInputSearch = () =>
-    {
-        setSearchInput(false)
-        dispatch(emptyResultOfLiveSearch())
-        Navigate(-1)
-    }
+
+
+    const headerOptions = ['Home','Affiliate','Category','Collections','Blogs'].map(options => {
+        return (
+            <p
+                key={options}
+                className='
+                text-lg text-white
+                xs:hidden
+                2xl:block
+                '>{options}</p>
+        )
+    })
 
     return (
-        <div className={`w-full ${HeaderMargin} flex`}>
-            <div className='px-52 w-full m-auto h-28 flex items-center justify-between bg-neutral-800'>
+        <div className={`
+        w-full flex 
+        xs:flex-col xs:justify-start xs:items-center xs:m-0
+        2xl:justify-evenly 2xl:items-center 2x:${HeaderMargin}`}>
 
-                <div className='text-3xl flex items-center'>
-                    <p className='text-4xl text-white'>FlyShop</p>
+            <div className='
+            flex bg-neutral-800
+            xs:w-full xs:h-12 xs:justify-start xs:items-center xs:px-0 xs:m-0
+            2xl:px-52 2xl:w-full 2xl:m-auto 2xl:h-28 2xl:flex 2xl:items-center 2xl:justify-between'>
+
+                <div className='flex justify-center items-center'>
+                    <p className='
+                    text-white
+                    xs:hidden
+                    2xl:block 2xl:text-4xl'>FlyShop</p>
                 </div>
+
+                <div className='
+                xs:block xs:w-full
+                2xl:hidden
+                '>
+                    <SearchLogic setInput={setInput} setSearchInput={setSearchInput}/>
+                </div>
+
 
                 {
                     showSearchInput || location.pathname === '/search' ?
-                        <div className='w-7/12  flex justify-evenly items-center'>
-                            <BiSearchAlt className='text-gray-400 text-3xl'/>
-                            <div className='flex w-11/12 justify-center items-center'>
-                                <input onChange={e => setInput(e.target.value)} className='w-full text-white p-3 outline-0 border-0 bg-transparent placeholder:text-lg placeholder-gray-400' placeholder='More than 3 letters ...' />
-                            </div>
-                            <CgClose  onClick={closeInputSearch} className='text-gray-400 text-2xl cursor-pointer'/>
-                        </div>
+                        <SearchLogic setInput={setInput} setSearchInput={setSearchInput}/>
                         :
-                        <div className='w-8/12 flex justify-evenly items-center'>
-                            <p className='text-lg text-white'>Home</p>
-                            <p className='text-lg text-white'>Affiliate</p>
-                            <p className='text-lg text-white'>Category</p>
-                            <p className='text-lg text-white'>Collections</p>
-                            <p className='text-lg text-white'>Blogs</p>
+                        <div className='
+                         xs:hidden
+                         2xl:w-10/12 2xl:flex 2xl:justify-evenly 2xl:items-center'>
+                            {headerOptions}
                             <Link to='/search' state={{background : location}} className='' replace={false}>
                                 <MdOutlineManageSearch onClick={()=> setSearchInput(true)} className='text-5xl  text-white'/>
                             </Link>
                         </div>
                 }
 
+                <div className='
+                xs:hidden
+                2xl:block
+                '>
+                    <CartWish/>
+                </div>
+            </div>
+
+            <div className='
+            flex justify-evenly items-center
+            xs:w-full xs:h-24 xs:bg-amber-500
+            2xl:hidden
+            '>
                 <CartWish/>
             </div>
 
