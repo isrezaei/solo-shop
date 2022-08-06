@@ -29,27 +29,45 @@ export const HeaderUp = ({headerPosition}) =>
 
 
     return (
-        <div className={`bg-gray-50 border-b-2 border-gray-100 z-10 ${headerPosition} top-0 w-full`}>
-
-            <div className='w-10/12 m-auto h-20 flex justify-between items-center'>
-
-                <div className='w-80 flex justify-evenly items-center'>
-
-                    {ScrollPosition > 200 ? <CartWish/> : <p className='text-xl text-gray-500'>Welcome</p>}
-
+        <div className={` 
+         ${headerPosition} z-10 top-0
+         flex
+         bg-gray-50
+          xs:w-full xs:h-16 xs:justify-center xs:items-center xs:relative
+          2xl:w-full 2xl:border-b-2 2xl:border-gray-100 2xl:${headerPosition}`
+        }>
+            <div className='
+            xs:w-96 xs:justify-start xs:m-0
+            2xl:w-10/12 2xl:m-auto 2xl:h-20 2xl:flex 2xl:justify-between 2xl:items-center
+            '>
+                <div className='
+                xs:hidden
+                2xl:w-80 2xl:block 2xl:flex 2xl:justify-evenly 2xl:items-center 2xl:block
+                '>
+                    {ScrollPosition > 200 ? <CartWish/> : <p className='2xl:text-xl 2xl:block 2xl:text-gray-500'>Welcome</p>}
                 </div>
 
-                <section className='flex justify-between items-center w-48'>
+                <section className='
+                flex
+                items-center
+                justify-between
+                xs:w-full
+                2xl:w-48'>
 
                     <div className='flex justify-center items-center w-28 p-2 bg-blue-700 cursor-pointer '>
-                        <RiUserAddLine className='text-3xl text-white'/>
-                        <p className='text-white'>Register</p>
+                        <RiUserAddLine className='text-white
+                        xs:text-sm
+                        2xl:text-3xl'/>
+                        <p className='
+                        text-white
+                        xs:text-sm
+                        2xl:text-lg'>Register</p>
                     </div>
-
-                    <p className='text-blue-700 font-bold cursor-pointer'>Sign in</p>
-
+                    <p className='
+                    text-blue-700 font-bold cursor-pointer
+                    xs:text-sm
+                    2xl:text-lg'>Sign in</p>
                 </section>
-
             </div>
         </div>
     )

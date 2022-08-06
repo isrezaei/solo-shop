@@ -84,7 +84,16 @@ module.exports = {
       '6xl': '4rem',
       '7xl': '5rem',
       '20xl': '20rem',
-    }
+    },
+
+    screens: {
+      'xs' : '320px',
+      'sm': '640px',
+      'md' : '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl' : '1536px'
+    },
 
   },
   plugins: [

@@ -8,8 +8,6 @@ export const HomeSlider = () =>
 {
     return (
 
-        <div className='w-full'>
-
             <Swiper
                 direction={"vertical"}
                 mousewheel={false}
@@ -18,7 +16,12 @@ export const HomeSlider = () =>
                 }}
                 modules={[Mousewheel, Pagination , Autoplay]}
                 autoplay={{ delay: 2500}}
-                className="mySwiper w-full h-100"
+                className='
+                mySwiper
+                w-full
+                xs:h-44 xs:bg-red-500
+                2xl:h-100
+                '
             >
                 <SwiperSlide><img className='w-full' src= {'https://user-images.githubusercontent.com/77073972/167292683-188ee3ea-50eb-443d-b333-7f4c27b0efba.png'} alt={'test'}/></SwiperSlide>
                 <SwiperSlide><img className='w-full' src= {'https://user-images.githubusercontent.com/77073972/167294276-b5aacfe0-fa3b-45c1-b492-04a021b1de47.png'} alt={'test'}/></SwiperSlide>
@@ -29,6 +32,5 @@ export const HomeSlider = () =>
                 <SwiperSlide><img className='w-full' src= {'https://user-images.githubusercontent.com/77073972/167292709-b629e667-2033-45e7-ab69-ec9d6f70bcb3.png'} alt={'test'}/></SwiperSlide>
             </Swiper>
 
-        </div>
     );
 }
