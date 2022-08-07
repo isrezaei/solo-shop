@@ -42,7 +42,6 @@ export const HomeSelectOptions = ({allowFilter , setAllowFilter}) =>
         )
     })
 
-    console.log(allowFilter)
 
     return (
         <div className='

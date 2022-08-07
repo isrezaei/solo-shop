@@ -83,7 +83,11 @@ export const HomeOfferSlider = () =>
     })
 
     return (
-        <div className='animate__animated animate__zoomInLeft w-96 bg-white mt-8 p-3 cursor-grabbing shadow-xl'>
+        <div className='animate__animated animate__zoomInLeft
+
+        xs:hidden
+        lg:block  lg:w-96 lg:bg-white lg:mt-8 lg:p-3 lg:cursor-grabbing lg:shadow-xl
+        '>
             <Swiper
                 grabCursor={true}
                 effect={"creative"}

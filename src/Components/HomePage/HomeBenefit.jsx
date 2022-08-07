@@ -35,7 +35,6 @@ export const HomeBenefit = () =>
             2xl:w-72 2xl:h-24 2xl:flex 2xl:flex-row 2xl:grid-rows-2 2xl:justify-evenly 2xl:items-center 2xl:shadow-center
 
             '>
-
                 <div className='
                 xs:text-3xl
                 xs:text-neutral-600
@@ -54,10 +53,8 @@ export const HomeBenefit = () =>
                     2xl:font-medium
                     2xl:text-blue-700
                     '>{items.title}</p>
-
                     <p className='text-sm text-blue-700 xs:hidden 2xl:block'>{items.text}</p>
                 </section>
-
             </div>
         )
     })

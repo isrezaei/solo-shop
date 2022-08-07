@@ -28,7 +28,10 @@ export const HomePreRender = () =>
     const [headerPosition] = useState('2xl:fixed');
     const [HeaderMargin] = useState('2xl:mt-20')
     const [allowFilter , setAllowFilter] = useState(false)
+    const [matchMedia , setMatchMedia] = useState('')
     const dispatch = useDispatch()
+
+
 
     useEffect(()=>{
         if (status === 'idle')
@@ -37,6 +40,24 @@ export const HomePreRender = () =>
         }
     } , [dispatch , status])
 
+
+    useEffect(()=> {
+
+        const handleResize = () => {
+          setMatchMedia(document.body.clientWidth)
+        }
+
+        handleResize()
+
+        window.addEventListener("resize", handleResize);
+
+        return () => window.removeEventListener("resize", handleResize);
+
+    } , [])
+
+    console.log(matchMedia)
+
+    // console.log(window.innerWidth)
 
     let Render ;
 
@@ -50,7 +71,11 @@ export const HomePreRender = () =>
             <div>
                 {
                     MasterDataIds.filter(items => items.type === selectProduct).map(items =>
-                        <SwiperSlide key={items.id} className='flex justify-center w-auto h-101'>
+                        <SwiperSlide key={items.id} className='
+                        flex justify-center items-center w-auto
+                        xs:h-80
+                        lg:h-101
+                        '>
                             <HomeEachProduct ids={items.id}/>
                         </SwiperSlide>)
                 }
@@ -61,7 +86,6 @@ export const HomePreRender = () =>
     {
         Render = 'reject'
     }
-
     return (
         <div className='max-w-fit m-auto'>
 
@@ -73,7 +97,13 @@ export const HomePreRender = () =>
 
             <section className='w-full bg-gray-100 relative'>
 
-                <div className='w-11/12 m-auto relative flex justify-around items-start'>
+                <div className='
+                m-auto flex justify-around items-start
+                xs:w-full xs:bg-red-500
+                lg:w-11/12
+                lg:relative
+
+                '>
 
                     {
                         allowFilter ? <FilterLogic/> :  <HomeOfferSlider/>
@@ -81,21 +111,28 @@ export const HomePreRender = () =>
 
 
 
-                    <section className='w-9/12 flex flex-col justify-between items-center'>
+                    <section className='
+                     flex flex-col justify-between items-center
+                     xs:w-full
+                     2xl:w-9/12
+                    '>
 
                         {
                             allowFilter ?  <FilterResult/> :
                                 <>
                                     <HomeFilterProduct/>
                                     <Swiper
-                                        slidesPerView={4}
+                                        slidesPerView={(matchMedia < 500 && 2) || (matchMedia > 500 && 4)}
                                         grid={{
                                             rows: 2
                                         }}
                                         spaceBetween={20}
-                                        pagination={false}
+                                        pagination={true}
                                         modules={[Grid, Pagination]}
-                                        className="mySwiper h-60 w-full">
+                                        className="mySwiper
+                                        xs:w-full  xs:h-custom40 xs:bg-lime-500
+                                        2xl:w-full 2xl:h-60
+                                         ">
                                         {Render}
                                     </Swiper>
                                 </>
