@@ -53,7 +53,7 @@ export const HeaderDown = ({HeaderMargin}) =>
         <div className={`
         w-full flex 
         xs:flex-col xs:justify-start xs:items-center xs:m-0
-        2xl:justify-evenly 2xl:items-center 2x:${HeaderMargin}`}>
+        2xl:justify-evenly 2xl:items-center ${HeaderMargin}`}>
 
             <div className='
             flex bg-neutral-800

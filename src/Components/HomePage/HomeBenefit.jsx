@@ -68,8 +68,7 @@ export const HomeBenefit = () =>
         mx-auto
         xs:my-5
         2xl:my-16
-         grid grid-cols-4 justify-items-center
-
+        grid grid-cols-4 justify-items-center
         '>
             {Render}
         </div>

@@ -28,13 +28,13 @@ export const HeaderUp = ({headerPosition}) =>
     } , [])
 
 
+
     return (
         <div className={` 
-         ${headerPosition} z-10 top-0
          flex
          bg-gray-50
           xs:w-full xs:h-16 xs:justify-center xs:items-center xs:relative
-          2xl:w-full 2xl:border-b-2 2xl:border-gray-100 2xl:${headerPosition}`
+          2xl:w-full 2xl:h-20 2xl:border-b-2 2xl:border-gray-100 2xl:z-10 2xl:top-0 ${headerPosition}`
         }>
             <div className='
             xs:w-96 xs:justify-start xs:m-0

@@ -31,7 +31,10 @@ export const HomeSelectOptions = ({allowFilter , setAllowFilter}) =>
                 onMouseOver={()=> setHover(items)}
                 onMouseLeave={()=>setHover('')}
                 onClick={setActiveProduct}
-                className={`text-xl text-gray-500 cursor-pointer w-2/12 h-16 flex justify-center items-center  transition
+                className={`
+                transition cursor-pointer text-gray-500 flex items-center justify-center
+                xs:w-2/6 xs:h-8 xs:p-2 xs:text-sm xs:rounded-full
+                lg:w-2/12 lg:h-16 lg:p-0 lg:text-xl lg:rounded-none
                   ${Hover === items && Hover !== Active &&'bg-gray-100'}
                   ${Active === items && 'text-white bg-blue-700'}`}>
                 {items}
@@ -42,7 +45,11 @@ export const HomeSelectOptions = ({allowFilter , setAllowFilter}) =>
     console.log(allowFilter)
 
     return (
-        <div className='w-9/12 mx-auto flex justify-between items-end transition transition-all duration-100 relative'>
+        <div className='
+        flex mx-auto transition transition-all duration-100 relative
+        xs:w-full xs:flex-row xs:justify-center xs:items-center xs:px-3 xs:mb-3
+        lg:w-9/12 lg:flex-row  lg:justify-between lg:items-end  lg:px-0 lg:mb-0
+        '>
 
             <div className={`${allowFilter ? 'animate__backOutDown pointer-events-none' : 'animate__bounceInUp pointer-events-auto'} animate__animated animate__faster w-full flex justify-center items-center`}>
                 {TitleProduct}
@@ -71,8 +78,16 @@ export const HomeSelectOptions = ({allowFilter , setAllowFilter}) =>
 
 
             <div onClick={()=> setAllowFilter(!allowFilter)}
-                 className={`${allowFilter ? 'bg-blue-600 text-white' : 'bg-neutral-200 text-neutral-500'} transition w-24 h-16 flex justify-center gap-3 items-center cursor-pointer`}>
-                <ImFilter className='text-3xl'/>
+                 className={
+                `${allowFilter ? 'bg-blue-600 text-white' : 'bg-neutral-200 text-neutral-500'} 
+                transition flex justify-center gap-3 items-center cursor-pointer
+                
+                xs:w-9 xs:h-8 xs:rounded-full
+                lg:w-24 lg:h-16 lg:rounded-none
+                
+                
+                `}>
+                <ImFilter className='xs:text-sm lg:text-3xl'/>
             </div>
         </div>
     )

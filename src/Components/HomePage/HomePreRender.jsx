@@ -25,8 +25,8 @@ export const HomePreRender = () =>
     const MasterDataIds = useSelector(state =>  SortBySelect(state , state.MasterDataSlice.sortBy))
     const {status} = useSelector(state => state.MasterDataSlice)
     const {selectProduct} = useSelector(state => state.SelectProductSlice)
-    const [headerPosition] = useState('fixed');
-    const [HeaderMargin] = useState('mt-20')
+    const [headerPosition] = useState('2xl:fixed');
+    const [HeaderMargin] = useState('2xl:mt-20')
     const [allowFilter , setAllowFilter] = useState(false)
     const dispatch = useDispatch()
 

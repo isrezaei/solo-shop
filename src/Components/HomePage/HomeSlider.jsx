@@ -20,8 +20,7 @@ export const HomeSlider = () =>
                 mySwiper
                 w-full
                 xs:h-44 xs:bg-red-500
-                2xl:h-100
-                '
+                2xl:h-100'
             >
                 <SwiperSlide><img className='w-full' src= {'https://user-images.githubusercontent.com/77073972/167292683-188ee3ea-50eb-443d-b333-7f4c27b0efba.png'} alt={'test'}/></SwiperSlide>
                 <SwiperSlide><img className='w-full' src= {'https://user-images.githubusercontent.com/77073972/167294276-b5aacfe0-fa3b-45c1-b492-04a021b1de47.png'} alt={'test'}/></SwiperSlide>
