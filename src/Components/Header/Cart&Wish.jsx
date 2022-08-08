@@ -13,9 +13,7 @@ export const CartWish = () =>
         xs:w-full xs:justify-around
         lg:w-80 lg:justify-evenly
         '>
-
             <section className='flex w-36 relative h-14 justify-evenly items-center '>
-
                 <Link to='/cart-shop'>
                     <RiHeartAddFill className='
                      w-12
@@ -41,7 +39,7 @@ export const CartWish = () =>
 
             <section className='
             flex relative justify-evenly items-center
-            xs:rounded-xl xs:p-[.2rem] xs:bg-neutral-50
+            xs:rounded-full xs:py-[.3rem] xs:bg-neutral-50
             lg:rounded-none lg:w-36 lg:h-14 lg:bg-blue-700
             '>
                 <Link to='/cart-shop'>
@@ -65,7 +63,7 @@ export const CartWish = () =>
                     w-20
                     lg:text-sm lg:text-white
                     xs:text-[.8rem] xs:text-neutral-800
-                     '>${totalPrice.toFixed(2)}</span>
+                    '>${totalPrice.toFixed(2)}</span>
                 </div>
             </section>
         </div>

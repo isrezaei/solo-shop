@@ -34,12 +34,15 @@ export const FilterResult = () =>
         )
     })
 
-    console.log(filteredProduct)
-
     return (
 
-        <div className='w-full mt-12 p-5 max-h-max bg-gray-100 grid grid-cols-7 justify-center items-center gap-3'>
-            {filteredProduct?.length ? filteredProduct : Array.from(Array(28).keys() , items => <Skeleton key={items}  className='h-56 animate__animated animate__backInUp'/>)}
+        <div className='
+        w-full mt-12 p-5 max-h-max bg-gray-100 grid justify-center items-center gap-3
+        xs:grid-cols-2
+        lg:grid-cols-7
+
+        '>
+            {filteredProduct?.length ? filteredProduct : Array.from(Array(28).keys() , items => <Skeleton key={items} className='h-56 animate__animated animate__backInUp'/>)}
         </div>
     )
 }

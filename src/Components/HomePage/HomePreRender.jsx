@@ -7,6 +7,7 @@ import {HomeBenefit} from "./HomeBenefit";
 import {HomeSelectOptions} from "./HomeSelectOptions";
 import {HomeOfferSlider} from "./HomeOfferSlider";
 import {HomeFilterProduct} from "./HomeFilterProduct";
+import {HomeMobileFilter} from "./HomeMobileFilter";
 import { Grid, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {HeaderUp} from "../Header/HeaderUp";
@@ -15,6 +16,7 @@ import {useEffect, useState} from "react";
 import {Footer} from "../Footer/Footer";
 import {FilterLogic} from "../FilterLogic/FilterLogic";
 import {FilterResult} from "../FilterLogic/FilterResult";
+import {useGetLiveWidth} from "../useGetLiveWidth";
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
@@ -29,9 +31,10 @@ export const HomePreRender = () =>
     const [headerPosition] = useState('2xl:fixed');
     const [HeaderMargin] = useState('2xl:mt-20')
     const [allowFilter , setAllowFilter] = useState(false)
-    const [matchMedia , setMatchMedia] = useState('')
     const dispatch = useDispatch()
+    const {liveWidth} = useGetLiveWidth()
 
+    console.log(liveWidth)
 
 
     useEffect(()=>{
@@ -42,23 +45,7 @@ export const HomePreRender = () =>
     } , [dispatch , status])
 
 
-    useEffect(()=> {
 
-        const handleResize = () => {
-            setMatchMedia(document.body.clientWidth)
-        }
-
-        handleResize()
-
-        window.addEventListener("resize", handleResize);
-
-        return () => window.removeEventListener("resize", handleResize);
-
-    } , [])
-
-    console.log(matchMedia)
-
-    // console.log(window.innerWidth)
 
     let Render ;
 
@@ -87,6 +74,66 @@ export const HomePreRender = () =>
     {
         Render = 'reject'
     }
+
+    let mobileRender;
+
+    if (allowFilter && liveWidth < 500)
+    {
+        mobileRender = <HomeMobileFilter/>
+    }
+
+    if (!allowFilter && liveWidth <500)
+    {
+        mobileRender = <>
+            <HomeFilterProduct/>
+            <Swiper
+                slidesPerView={(liveWidth < 500 && 2) || (liveWidth > 500 && 4)}
+                grid={{
+                    rows: 2
+                }}
+                spaceBetween={20}
+                pagination={true}
+                modules={[Grid, Pagination]}
+                className="mySwiper
+                                        xs:w-11/12  xs:h-custom40
+                                        2xl:w-full 2xl:h-60 ">
+                {Render}
+            </Swiper>
+        </>
+    }
+
+
+
+
+    let largeScreenRender;
+
+    if (allowFilter && liveWidth > 500)
+    {
+        largeScreenRender =   <FilterResult/>
+    }
+    if (!allowFilter && liveWidth > 500)
+    {
+        largeScreenRender = <>
+                <HomeFilterProduct/>
+                <Swiper
+                    slidesPerView={(liveWidth < 500 && 2) || (liveWidth > 500 && 4)}
+                    grid={{
+                        rows: 2
+                    }}
+                    spaceBetween={20}
+                    pagination={true}
+                    modules={[Grid, Pagination]}
+                    className="mySwiper
+                                        xs:w-11/12  xs:h-custom40
+                                        2xl:w-full 2xl:h-60 ">
+                    {Render}
+                </Swiper>
+            </>
+
+    }
+
+
+
     return (
         <div className='max-w-fit m-auto'>
 
@@ -97,21 +144,24 @@ export const HomePreRender = () =>
             <HomeBenefit/>
             <HomeSelectOptions allowFilter={allowFilter} setAllowFilter={setAllowFilter}/>
 
+            {mobileRender}
+
+
+
+
+
+
             <section className='w-full bg-gray-100 relative'>
 
                 <div className='
                 m-auto flex justify-around items-start
                 xs:w-full
-                lg:w-11/12
-                lg:relative
-
+                lg:w-11/12 lg:relative
                 '>
 
                     {
-                        allowFilter ? <FilterLogic/> :  <HomeOfferSlider/>
+                        (allowFilter && liveWidth > 500) ? <FilterLogic/> :  <HomeOfferSlider/>
                     }
-
-
 
                     <section className='
                      flex flex-col justify-between items-center
@@ -119,26 +169,29 @@ export const HomePreRender = () =>
                      2xl:w-9/12
                     '>
 
-                        {
-                            allowFilter ?  <FilterResult/> :
-                                <>
-                                    <HomeFilterProduct/>
-                                    <Swiper
-                                        slidesPerView={(matchMedia < 500 && 2) || (matchMedia > 500 && 4)}
-                                        grid={{
-                                            rows: 2
-                                        }}
-                                        spaceBetween={20}
-                                        pagination={true}
-                                        modules={[Grid, Pagination]}
-                                        className="mySwiper
-                                        xs:w-11/12  xs:h-custom40
-                                        2xl:w-full 2xl:h-60
-                                         ">
-                                        {Render}
-                                    </Swiper>
-                                </>
-                        }
+                        {/*{*/}
+                        {/*    (allowFilter && liveWidth > 500) ?  <FilterResult/> :*/}
+                        {/*        <>*/}
+                        {/*            <HomeFilterProduct/>*/}
+                        {/*            <Swiper*/}
+                        {/*                slidesPerView={(liveWidth < 500 && 2) || (liveWidth > 500 && 4)}*/}
+                        {/*                grid={{*/}
+                        {/*                    rows: 2*/}
+                        {/*                }}*/}
+                        {/*                spaceBetween={20}*/}
+                        {/*                pagination={true}*/}
+                        {/*                modules={[Grid, Pagination]}*/}
+                        {/*                className="mySwiper*/}
+                        {/*                xs:w-11/12  xs:h-custom40*/}
+                        {/*                2xl:w-full 2xl:h-60*/}
+                        {/*                 ">*/}
+                        {/*                {Render}*/}
+                        {/*            </Swiper>*/}
+                        {/*        </>*/}
+                        {/*}*/}
+
+                        {largeScreenRender}
+
                     </section>
                 </div>
             </section>
