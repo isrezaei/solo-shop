@@ -20,7 +20,7 @@ export const HomeEachProduct = ({ids}) =>
         <div className='animate__animated animate__backInUp animate__faster
         w-full bg-white flex flex-col items-center relative
         xs:h-80 xs:justify-center xs:rounded-3xl
-        lg:h-full lg:p-3 lg:justify-start'>
+        lg:h-full lg:p-5 lg:justify-start lg:rounded-none'>
 
             <div className='
             group relative

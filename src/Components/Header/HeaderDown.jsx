@@ -99,7 +99,7 @@ export const HeaderDown = ({HeaderMargin}) =>
 
             <div className='
             flex justify-evenly items-center
-            xs:w-full xs:h-24 xs:bg-amber-500
+            xs:w-full xs:h-24 xs:bg-neutral-800
             2xl:hidden
             '>
                 <CartWish/>

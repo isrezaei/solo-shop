@@ -2,6 +2,7 @@ import {useSelector , useDispatch} from "react-redux";
 import {FetchMasterData , SortBySelect} from "../../Redux/MasterDataSlice";
 import {HomeEachProduct} from "./HomeEachProduct";
 import {HomeSlider} from "./HomeSlider";
+import {HomeMobileSlider} from "./HomeMobileSlider";
 import {HomeBenefit} from "./HomeBenefit";
 import {HomeSelectOptions} from "./HomeSelectOptions";
 import {HomeOfferSlider} from "./HomeOfferSlider";
@@ -92,6 +93,7 @@ export const HomePreRender = () =>
             <HeaderUp headerPosition={headerPosition}/>
             <HeaderDown HeaderMargin={HeaderMargin}/>
             <HomeSlider/>
+            <HomeMobileSlider/>
             <HomeBenefit/>
             <HomeSelectOptions allowFilter={allowFilter} setAllowFilter={setAllowFilter}/>
 
