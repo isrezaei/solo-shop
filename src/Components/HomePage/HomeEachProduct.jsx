@@ -18,9 +18,9 @@ export const HomeEachProduct = ({ids}) =>
 
     return (
         <div className='animate__animated animate__backInUp animate__faster
-        bg-white flex flex-col items-center relative
-        xs:w-11/12 xs:h-80 xs:justify-center
-        lg:w-full lg:h-full lg:p-3 lg:justify-start'>
+        w-full bg-white flex flex-col items-center relative
+        xs:h-80 xs:justify-center
+        lg:h-full lg:p-3 lg:justify-start'>
 
             <div className='
             group relative
@@ -67,17 +67,15 @@ export const HomeEachProduct = ({ids}) =>
             </div>
 
             <p className='
-             h-8  flex items-center justify-center font-medium text-gray-500
+            h-8 flex items-center justify-center font-medium text-gray-500
             xs:text-sm xs:w-full
             lg:text-lg lg:w-9/12
             '>{product}</p>
 
             <div className='
             w-full flex items-center py-1
-
             xs:flex-col xs:justify-center
             lg:flex-row xs:justify-between
-
             '>
                 <RatingStar id={id.toString()} rating={rate} size={17}/>
                 <Link to={`quick/${id}`} state={{background : location}} className='text-sm font-medium text-gray-400'>Quick View</Link>

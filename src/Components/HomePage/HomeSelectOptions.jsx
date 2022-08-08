@@ -46,7 +46,7 @@ export const HomeSelectOptions = ({allowFilter , setAllowFilter}) =>
     return (
         <div className='
         flex mx-auto transition transition-all duration-100 relative
-        xs:w-full xs:flex-row xs:justify-center xs:items-center xs:px-3 xs:mb-3
+        xs:w-full xs:flex-row xs:justify-center xs:items-center xs:px-4 xs:mb-3
         lg:w-9/12 lg:flex-row  lg:justify-between lg:items-end  lg:px-0 lg:mb-0
         '>
 
@@ -80,11 +80,8 @@ export const HomeSelectOptions = ({allowFilter , setAllowFilter}) =>
                  className={
                 `${allowFilter ? 'bg-blue-600 text-white' : 'bg-neutral-200 text-neutral-500'} 
                 transition flex justify-center gap-3 items-center cursor-pointer
-                
-                xs:w-9 xs:h-8 xs:rounded-full
-                lg:w-24 lg:h-16 lg:rounded-none
-                
-                
+                xs:w-9 xs:h-8 xs:rounded-full xs:absolute xs:right-2 xs:top-8 xs:z-10 xs:border xs:border-4 xs:border-white
+                lg:w-24 lg:h-16 lg:rounded-none lg:relative lg:right-0 lg:top-0 lg:border-0
                 `}>
                 <ImFilter className='xs:text-sm lg:text-3xl'/>
             </div>

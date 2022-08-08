@@ -46,8 +46,7 @@ export const HomeBenefit = () =>
 
                 <section>
                     <p className='
-                    xs:text-sm
-                    xs:font-bold
+                    xs:text-[.80rem]
                     xs:text-neutral-400
                     2xl:text-xl
                     2xl:font-medium
@@ -60,7 +59,7 @@ export const HomeBenefit = () =>
     })
     return (
         <div className='
-        xs:w-full
+        xs:w-11/12
         2xl:w-9/12
         mx-auto
         xs:my-5

@@ -44,7 +44,7 @@ export const HomePreRender = () =>
     useEffect(()=> {
 
         const handleResize = () => {
-          setMatchMedia(document.body.clientWidth)
+            setMatchMedia(document.body.clientWidth)
         }
 
         handleResize()
@@ -72,7 +72,7 @@ export const HomePreRender = () =>
                 {
                     MasterDataIds.filter(items => items.type === selectProduct).map(items =>
                         <SwiperSlide key={items.id} className='
-                        flex justify-center items-center w-auto
+                        flex justify-center items-center
                         xs:h-80
                         lg:h-101
                         '>
@@ -99,7 +99,7 @@ export const HomePreRender = () =>
 
                 <div className='
                 m-auto flex justify-around items-start
-                xs:w-full xs:bg-red-500
+                xs:w-full
                 lg:w-11/12
                 lg:relative
 
@@ -130,7 +130,7 @@ export const HomePreRender = () =>
                                         pagination={true}
                                         modules={[Grid, Pagination]}
                                         className="mySwiper
-                                        xs:w-full  xs:h-custom40 xs:bg-lime-500
+                                        xs:w-11/12  xs:h-custom40
                                         2xl:w-full 2xl:h-60
                                          ">
                                         {Render}
@@ -138,16 +138,8 @@ export const HomePreRender = () =>
                                 </>
                         }
                     </section>
-
-
                 </div>
-
-
-
             </section>
-
-
-
             <Footer/>
         </div>
     )
