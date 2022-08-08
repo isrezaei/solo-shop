@@ -58,7 +58,7 @@ export const HeaderDown = ({HeaderMargin}) =>
             <div className='
             flex bg-neutral-800
             xs:w-full xs:h-12 xs:justify-start xs:items-center xs:px-0 xs:m-0
-            2xl:px-52 2xl:w-full 2xl:m-auto 2xl:h-28 2xl:flex 2xl:items-center 2xl:justify-between'>
+            2xl:w-full 2xl:m-auto 2xl:h-28 2xl:px-52 2xl:flex 2xl:items-center 2xl:justify-between'>
 
                 <div className='flex justify-center items-center'>
                     <p className='
@@ -99,7 +99,7 @@ export const HeaderDown = ({HeaderMargin}) =>
 
             <div className='
             flex justify-evenly items-center
-            xs:w-full xs:h-24 xs:bg-neutral-800
+            xs:w-full xs:h-16 xs:bg-neutral-800
             2xl:hidden
             '>
                 <CartWish/>
