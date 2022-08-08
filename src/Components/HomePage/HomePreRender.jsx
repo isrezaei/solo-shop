@@ -95,8 +95,8 @@ export const HomePreRender = () =>
                 pagination={true}
                 modules={[Grid, Pagination]}
                 className="mySwiper
-                                        xs:w-11/12  xs:h-custom40
-                                        2xl:w-full 2xl:h-60 ">
+                 xs:w-11/12  xs:h-custom40
+                 2xl:w-full 2xl:h-60 ">
                 {Render}
             </Swiper>
         </>
@@ -124,8 +124,8 @@ export const HomePreRender = () =>
                     pagination={true}
                     modules={[Grid, Pagination]}
                     className="mySwiper
-                                        xs:w-11/12  xs:h-custom40
-                                        2xl:w-full 2xl:h-60 ">
+                    xs:w-11/12  xs:h-custom40
+                    2xl:w-full 2xl:h-60 ">
                     {Render}
                 </Swiper>
             </>
@@ -144,7 +144,7 @@ export const HomePreRender = () =>
             <HomeBenefit/>
             <HomeSelectOptions allowFilter={allowFilter} setAllowFilter={setAllowFilter}/>
 
-            {mobileRender}
+
 
 
 
@@ -189,6 +189,8 @@ export const HomePreRender = () =>
                         {/*            </Swiper>*/}
                         {/*        </>*/}
                         {/*}*/}
+
+                        {mobileRender}
 
                         {largeScreenRender}
 
