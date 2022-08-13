@@ -64,17 +64,35 @@ export const RangeSlider = () =>
                 }}
             />
 
-            <div className='w-80 flex justify-between items-center'>
+            <div className='
+            flex justify-between items-center
+            lg:w-80
+            xs:w-72
+            '>
                 <div className='flex flex-col justify-center items-start gap-1'>
                     <p className='font-bold text-gray-500'>Min</p>
-                    <input className='w-24 border-gray-300' type='number' disabled placeholder={startPoint}/>
+                    <input className='
+                    border-gray-300
+                    xs:w-16 xs:h-8 xs:text-sm
+                    lg:w-24 lg:h-auto lg:text-lg
+                    ' type='number' disabled placeholder={startPoint}/>
                 </div>
+
                 <div className='flex flex-col justify-center items-start gap-1'>
                     <p className='font-bold text-gray-500'>Max</p>
-                    <input className='w-24 border-gray-300' type='number' disabled placeholder={endPoint}/>
+                    <input className='
+                    border-gray-300
+                    xs:w-16 xs:h-8 xs:text-sm
+                    lg:w-24 lg:h-auto lg:text-lg
+                    'type='number' disabled placeholder={endPoint}/>
                 </div>
             </div>
-            <button className='w-full h-10 bg-blue-600 text-center text-white mt-8' onClick={()=> dispatch(filterByPrice(range))}>Apply</button>
+
+            <button className='
+            w-full bg-blue-600 text-center text-white
+            xs:h-8  xs:my-5 xs:rounded-2xl
+            lg:h-10 lg:my-8 lg:rounded-none
+             ' onClick={()=> dispatch(filterByPrice(range))}>Apply</button>
         </div>
     )
 

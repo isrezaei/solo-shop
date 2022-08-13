@@ -5,6 +5,7 @@ import {useSelector , useDispatch} from "react-redux";
 import { RatingStar } from "rating-star";
 import {filterByPrice , filterByStars , filterByProduct} from "../../Redux/FilterProductSlice";
 import {RangeSlider} from "./RangeSlider";
+import {useGetLiveWidth} from "../useGetLiveWidth";
 
 
 export const FilterLogic = () =>
@@ -15,51 +16,91 @@ export const FilterLogic = () =>
 
     const dispatch = useDispatch()
 
+    const {liveWidth} = useGetLiveWidth()
+
 
     const typeProduct = ['iphone' , 'ipad' , 'ipod' , 'Watch' , 'Mac' , 'AirPod' ].map(items => {
         return (
-            <div key={items} className='w-full flex justify-between items-center'>
+            <div key={items} className='
+            flex w-full items-center
+            xs:justify-around
+            lg:justify-between'
+            >
                 <div className='w-20 flex justify-start items-center gap-2 my-1'>
-                    <input type='checkbox' checked={filteredProduct === items}  onChange={()=> filteredProduct === items ? dispatch(filterByProduct()) : dispatch(filterByProduct(items))}/>
+                    <input className='xs:rounded-full lg:rounded-none' type='checkbox' checked={filteredProduct === items}  onChange={()=> filteredProduct === items ? dispatch(filterByProduct()) : dispatch(filterByProduct(items))}/>
                     <p>{items}</p>
                 </div>
-                <div className='w-8 h-5 bg-blue-600 text-white flex justify-center items-center'>{products.filter(data => data.type === items).length}</div>
+                <div className='
+                w-8 h-5 bg-blue-600 text-white flex justify-center items-center
+                xs:rounded-full xs:text-sm
+                lg:rounded-none lg:text-sm
+                '>{products.filter(data => data.type === items).length}</div>
             </div>
         )
     })
 
     const starsProduct = [1 , 2 , 3 , 4 , 5].map(stars => {
         return (
-            <div key={stars} className='flex justify-center items-center gap-2'>
-                <input type='checkbox' checked={filteredStars === stars} onChange={()=> filteredStars === stars ? dispatch(filterByStars()) : dispatch(filterByStars(stars))}/>
-                <RatingStar id={stars.toString()} rating={stars} noBorder={true}/>
+            <div key={stars} className='
+            flex justify-center items-center
+
+            '>
+                <input className='xs:rounded-full lg:rounded-none' type='checkbox' checked={filteredStars === stars} onChange={()=> filteredStars === stars ? dispatch(filterByStars()) : dispatch(filterByStars(stars))}/>
+                <RatingStar id={stars.toString()} rating={stars} noBorder={true} size={liveWidth < 500 ? 20 : 23}/>
             </div>
         )
     }).reverse()
 
 
     return (
-        <div className=' animate__animated animate__zoomInLeft px-8 py-2 mt-16 w-96 h-auto bg-white flex flex-col justify-start items-center gap-2'>
+
+        <div className=' animate__animated animate__zoomInLeft w-full flex flex-col justify-start items-center
+         xs:px-5 xs:py-2
+         lg:px-8 lg:py-2 lg:mt-16 lg:w-96 lg:h-auto lg:bg-white lg:gap-2
 
 
-            <div className='w-full flex flex-col justify-start items-center gap-2'>
+         '>
 
-                <p className='w-full mb-10 font-bold text-3xl'>price</p>
+
+            <div className='
+            w-full flex flex-col justify-start items-center gap-2
+
+            '>
+
+                <p className='
+                w-full font-bold
+                xs:mb-2  lg:text-lg
+                lg:mb-10 lg:text-3xl
+                '>price</p>
 
                 <RangeSlider/>
 
             </div>
 
 
-                <p className='w-full mb-10 font-bold text-3xl'>Products</p>
+            <p className='w-full font-bold
+            xs:text-lg xs:my-3
+            lg:text-3xl lg:my-8
+            '>Products</p>
 
-            <div className='w-full flex flex-col justify-center items-center'>
+            <div className='w-full
+            xs:grid xs:grid-cols-2 xs:justify-between xs:items-center xs:bg-gray-100 xs:rounded-2xl
+            lg:flex lg:flex-col lg:justify-center lg:items-center lg:bg-transparent lg:rounded-none
+            '>
                 {typeProduct}
             </div>
 
-            <p className='w-full my-3 font-bold text-3xl'>Rating</p>
+            <p className='
+            w-full font-bold
+            xs:my-5 xs:text-lg
+            lg:my-3 lg:text-3xl
 
-            <div className='w-full flex flex-col justify-center items-start'>
+            '>Rating</p>
+
+            <div className='w-full
+             xs:grid xs:grid-cols-2 xs:bg-gray-100 xs:rounded-2xl
+             lg:flex lg:flex-col lg:justify-center lg:items-start lg:bg-transparent lg:rounded-none
+            '>
                 {starsProduct}
             </div>
 

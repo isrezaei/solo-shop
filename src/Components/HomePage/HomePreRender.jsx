@@ -135,7 +135,11 @@ export const HomePreRender = () =>
 
 
     return (
-        <div className='max-w-fit m-auto'>
+        <div className='
+        m-auto
+        xs:w-full
+        lg:max-w-fit
+        '>
 
             <HeaderUp headerPosition={headerPosition}/>
             <HeaderDown HeaderMargin={HeaderMargin}/>
@@ -143,10 +147,6 @@ export const HomePreRender = () =>
             <HomeMobileSlider/>
             <HomeBenefit/>
             <HomeSelectOptions allowFilter={allowFilter} setAllowFilter={setAllowFilter}/>
-
-
-
-
 
 
 
@@ -167,28 +167,9 @@ export const HomePreRender = () =>
                      flex flex-col justify-between items-center
                      xs:w-full
                      2xl:w-9/12
+                     bg-red-500
                     '>
 
-                        {/*{*/}
-                        {/*    (allowFilter && liveWidth > 500) ?  <FilterResult/> :*/}
-                        {/*        <>*/}
-                        {/*            <HomeFilterProduct/>*/}
-                        {/*            <Swiper*/}
-                        {/*                slidesPerView={(liveWidth < 500 && 2) || (liveWidth > 500 && 4)}*/}
-                        {/*                grid={{*/}
-                        {/*                    rows: 2*/}
-                        {/*                }}*/}
-                        {/*                spaceBetween={20}*/}
-                        {/*                pagination={true}*/}
-                        {/*                modules={[Grid, Pagination]}*/}
-                        {/*                className="mySwiper*/}
-                        {/*                xs:w-11/12  xs:h-custom40*/}
-                        {/*                2xl:w-full 2xl:h-60*/}
-                        {/*                 ">*/}
-                        {/*                {Render}*/}
-                        {/*            </Swiper>*/}
-                        {/*        </>*/}
-                        {/*}*/}
 
                         {mobileRender}
 

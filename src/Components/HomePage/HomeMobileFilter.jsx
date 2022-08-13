@@ -10,9 +10,10 @@ export const HomeMobileFilter = () =>
 
 
     return (
-        <div className='w-full h-auto  bg-blue-600 mx-auto mt-16 flex flex-col justify-center items-center'>
+        <div className='w-10/12 h-auto  bg-lime-500 mx-auto mt-16 flex flex-col justify-center items-center'>
 
             {smallScreenFilterResult ? <FilterResult/> : <FilterLogic/>}
+
             <button onClick={()=> setSmallScreenFilterResult((state) => !state)} className='w-8/12 h-16 bg-lime-500 '>Apply</button>
 
         </div>
