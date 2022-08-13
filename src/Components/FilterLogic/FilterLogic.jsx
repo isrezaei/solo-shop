@@ -69,8 +69,8 @@ export const FilterLogic = () =>
 
                 <p className='
                 w-full font-bold
-                xs:mb-2  lg:text-lg
-                lg:mb-10 lg:text-3xl
+                xs:my-5  xs:text-lg
+                lg:my-5 lg:text-3xl
                 '>price</p>
 
                 <RangeSlider/>
@@ -80,12 +80,12 @@ export const FilterLogic = () =>
 
             <p className='w-full font-bold
             xs:text-lg xs:my-3
-            lg:text-3xl lg:my-8
+            lg:text-3xl lg:my-2
             '>Products</p>
 
             <div className='w-full
-            xs:grid xs:grid-cols-2 xs:justify-between xs:items-center xs:bg-gray-100 xs:rounded-2xl
-            lg:flex lg:flex-col lg:justify-center lg:items-center lg:bg-transparent lg:rounded-none
+            xs:grid xs:py-2 xs:grid-cols-2 xs:justify-between xs:items-center xs:bg-neutral-100 xs:rounded-2xl
+            lg:flex lg:py-0 lg:flex-col lg:justify-center lg:items-center lg:bg-transparent lg:rounded-none
             '>
                 {typeProduct}
             </div>
@@ -93,12 +93,12 @@ export const FilterLogic = () =>
             <p className='
             w-full font-bold
             xs:my-5 xs:text-lg
-            lg:my-3 lg:text-3xl
+            lg:my-2 lg:text-3xl
 
             '>Rating</p>
 
             <div className='w-full
-             xs:grid xs:grid-cols-2 xs:bg-gray-100 xs:rounded-2xl
+             xs:grid xs:grid-cols-2 xs:bg-neutral-100 xs:rounded-2xl
              lg:flex lg:flex-col lg:justify-center lg:items-start lg:bg-transparent lg:rounded-none
             '>
                 {starsProduct}

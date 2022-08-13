@@ -92,7 +92,7 @@ export const RangeSlider = () =>
             w-full bg-blue-600 text-center text-white
             xs:h-8  xs:my-5 xs:rounded-2xl
             lg:h-10 lg:my-8 lg:rounded-none
-             ' onClick={()=> dispatch(filterByPrice(range))}>Apply</button>
+             ' onClick={()=> dispatch(filterByPrice(range))}>Set this price</button>
         </div>
     )
 

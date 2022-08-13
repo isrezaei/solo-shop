@@ -2,7 +2,7 @@ import {useState} from "react";
 import {useDispatch} from "react-redux";
 import {SortEntities} from "../../Redux/MasterDataSlice";
 
-export const HomeFilterProduct = () =>{
+export const HomeSelectBasicFilter = () =>{
 
     const [Active , SetActive] = useState('Newer')
 

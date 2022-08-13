@@ -50,26 +50,63 @@ export const HomeSelectOptions = ({allowFilter , setAllowFilter}) =>
         lg:w-9/12 lg:flex-row  lg:justify-between lg:items-end  lg:px-0 lg:mb-0
         '>
 
-            <div className={`${allowFilter ? 'animate__backOutDown pointer-events-none' : 'animate__bounceInUp pointer-events-auto'} animate__animated animate__faster w-full flex justify-center items-center`}>
+            <div className={`
+            animate__animated
+            animate__faster ${allowFilter ? 'animate__fadeOut pointer-events-none' : 'animate__fadeIn pointer-events-auto'} w-full flex justify-center items-center`}>
                 {TitleProduct}
             </div>
 
-            <div className={`${!allowFilter ?'animate__backOutDown pointer-events-none' : 'animate__bounceInUp pointer-events-auto'} animate__animated animate__faster w-11/12   absolute flex justify-end items-center gap-4`}>
+            <div className={`
+            animate__animated
+            animate__faster ${!allowFilter ? 'animate__fadeOut pointer-events-none' : 'animate__fadeIn pointer-events-auto'} absolute
+                flex w-11/12 gap-4
+                xs:justify-start xs:items-center xs:top-7 xs:z-10
+                lg:justify-end lg:items-center lg:top-0
+            
+            `}>
 
-                <div className='w-60 h-16  bg-gray-100 text-neutral-500 font-bold flex  justify-center items-center gap-1 relative'>
-                    <FaWindowClose onClick={()=> dispatch(filterByPrice({endPoint : null , startPoint : null}))} className={`w-5 h-5 flex text-red-400 justify-center items-center absolute top-0 right-0 ${startPoint ? 'block' : 'hidden'}`}/>
-                    <RiMoneyDollarCircleFill className='text-2xl'/>
-                    <div>{startPoint ?  <div>{startPoint} To {endPoint}</div>  : 'Your choice price'}</div>
+                <div className='
+                 bg-gray-100 text-neutral-500 font-bold flex  justify-center items-center relative
+                 xs:w-32 xs:h-8 xs:rounded-full xs:text-sm xs:border-4 xs:border-white
+                 lg:w-36 lg:h-16 lg:rounded-none lg:text-lg lg:border-0
+                 '>
+                    <FaWindowClose
+                        onClick={()=> dispatch(filterByPrice({endPoint : null , startPoint : null}))}
+                        className={`
+                        flex text-red-400 justify-center items-center absolute ${(startPoint && endPoint) ? 'block' : 'hidden'}
+                        xs:top-0 xs:left-0 xs:text-[1rem] xs:rounded-full
+                        lg:top-0 lg:right-0 lg:text-lg  lg:rounded-none
+                        `}/>
+                    <div>{startPoint ?  <div>{startPoint} To {endPoint}</div>  : 'price'}</div>
                 </div>
-
-                <div className='w-36 h-16  bg-gray-100 text-neutral-500 font-bold flex justify-center items-center gap-1 relative' >
-                    <FaWindowClose onClick={()=> dispatch(filterByProduct())} className={`w-5 h-5 flex text-red-400 justify-center items-center absolute top-0 right-0 ${product ? 'block' : 'hidden'}`}/>
-                    <SiApple className='text-2xl mb-1'/>
+                {/*--------------------*/}
+                <div className='
+                 bg-gray-100 text-neutral-500 font-bold flex  justify-center items-center relative
+                 xs:w-24 h-8 xs:rounded-full xs:text-sm xs:border-4 xs:border-white
+                 lg:w-36 lg:h-16 lg:rounded-none lg:text-lg lg:border-0
+                 '>
+                    <FaWindowClose
+                        onClick={()=> dispatch(filterByProduct())}
+                        className={`
+                        flex text-red-400 justify-center items-center absolute ${product ? 'block' : 'hidden'}
+                        xs:top-0 xs:left-0 xs:text-[1rem] xs:rounded-full
+                        lg:top-0 lg:right-0 lg:text-lg  lg:rounded-none
+                        `}/>
                     {product ? product : 'Product'}
                 </div>
-                <div className='w-36 h-16  bg-gray-100 text-neutral-500 font-bold flex  justify-center items-center gap-1 relative'>
-                    <FaWindowClose onClick={()=> dispatch(filterByStars())} className={`w-5 h-5 flex text-red-400 justify-center items-center absolute top-0 right-0 ${stars ? 'block' : 'hidden'}`}/>
-                    <AiFillStar className='text-2xl'/>
+                {/*--------------------*/}
+                <div className='
+                 bg-gray-100 text-neutral-500 font-bold flex  justify-center items-center relative
+                 xs:w-20 h-8 xs:rounded-full xs:text-sm xs:border-4 xs:border-white
+                 lg:w-36 lg:h-16 lg:rounded-none lg:text-lg lg:border-0
+                '>
+                    <FaWindowClose
+                        onClick={()=> dispatch(filterByStars())}
+                        className={`
+                        flex text-red-400 justify-center items-center absolute ${stars ? 'block' : 'hidden'}
+                        xs:top-0 xs:left-0 xs:text-[1rem] xs:rounded-full
+                        lg:top-0 lg:right-0 lg:text-lg  lg:rounded-none
+                        `}/>
                     {stars ? stars : 'Rate'}
                 </div>
 

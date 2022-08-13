@@ -6,7 +6,7 @@ import {HomeMobileSlider} from "./HomeMobileSlider";
 import {HomeBenefit} from "./HomeBenefit";
 import {HomeSelectOptions} from "./HomeSelectOptions";
 import {HomeOfferSlider} from "./HomeOfferSlider";
-import {HomeFilterProduct} from "./HomeFilterProduct";
+import {HomeSelectBasicFilter} from "./HomeSelectBasicFilter";
 import {HomeMobileFilter} from "./HomeMobileFilter";
 import { Grid, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -85,7 +85,7 @@ export const HomePreRender = () =>
     if (!allowFilter && liveWidth <500)
     {
         mobileRender = <>
-            <HomeFilterProduct/>
+            <HomeSelectBasicFilter/>
             <Swiper
                 slidesPerView={(liveWidth < 500 && 2) || (liveWidth > 500 && 4)}
                 grid={{
@@ -114,7 +114,7 @@ export const HomePreRender = () =>
     if (!allowFilter && liveWidth > 500)
     {
         largeScreenRender = <>
-                <HomeFilterProduct/>
+                <HomeSelectBasicFilter/>
                 <Swiper
                     slidesPerView={(liveWidth < 500 && 2) || (liveWidth > 500 && 4)}
                     grid={{
@@ -164,10 +164,10 @@ export const HomePreRender = () =>
                     }
 
                     <section className='
-                     flex flex-col justify-between items-center
-                     xs:w-full
-                     2xl:w-9/12
-                     bg-red-500
+                     flex flex-col items-center
+                     xs:w-full xs:justify-center
+                     lg:w-9/12 lg:justify-between
+
                     '>
 
 
