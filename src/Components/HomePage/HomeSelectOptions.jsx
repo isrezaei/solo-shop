@@ -59,22 +59,22 @@ export const HomeSelectOptions = ({allowFilter , setAllowFilter}) =>
             <div className={`
             animate__animated
             animate__faster ${!allowFilter ? 'animate__fadeOut pointer-events-none' : 'animate__fadeIn pointer-events-auto'} absolute
-                flex w-11/12 gap-4
-                xs:justify-start xs:items-center xs:top-7 xs:z-10
-                lg:justify-end lg:items-center lg:top-0
+                flex w-11/12 
+                xs:justify-start xs:items-center xs:top-7 xs:z-10 xs:gap-1
+                lg:justify-end lg:items-center lg:top-0 lg:gap-4
             
             `}>
 
                 <div className='
                  bg-gray-100 text-neutral-500 font-bold flex  justify-center items-center relative
-                 xs:w-32 xs:h-8 xs:rounded-full xs:text-sm xs:border-4 xs:border-white
+                 xs:w-36 xs:h-8 xs:rounded-full xs:text-sm xs:border-2 xs:border-white
                  lg:w-36 lg:h-16 lg:rounded-none lg:text-lg lg:border-0
                  '>
                     <FaWindowClose
                         onClick={()=> dispatch(filterByPrice({endPoint : null , startPoint : null}))}
                         className={`
                         flex text-red-400 justify-center items-center absolute ${(startPoint && endPoint) ? 'block' : 'hidden'}
-                        xs:top-0 xs:left-0 xs:text-[1rem] xs:rounded-full
+                        xs:bottom-4 xs:left-0 xs:text-[1rem] xs:rounded-full
                         lg:top-0 lg:right-0 lg:text-lg  lg:rounded-none
                         `}/>
                     <div>{startPoint ?  <div>{startPoint} To {endPoint}</div>  : 'price'}</div>
@@ -82,14 +82,14 @@ export const HomeSelectOptions = ({allowFilter , setAllowFilter}) =>
                 {/*--------------------*/}
                 <div className='
                  bg-gray-100 text-neutral-500 font-bold flex  justify-center items-center relative
-                 xs:w-24 h-8 xs:rounded-full xs:text-sm xs:border-4 xs:border-white
+                 xs:w-24 h-8 xs:rounded-full xs:text-sm xs:border-2 xs:border-white
                  lg:w-36 lg:h-16 lg:rounded-none lg:text-lg lg:border-0
                  '>
                     <FaWindowClose
                         onClick={()=> dispatch(filterByProduct())}
                         className={`
                         flex text-red-400 justify-center items-center absolute ${product ? 'block' : 'hidden'}
-                        xs:top-0 xs:left-0 xs:text-[1rem] xs:rounded-full
+                        xs:bottom-4 xs:left-0 xs:text-[1rem] xs:rounded-full
                         lg:top-0 lg:right-0 lg:text-lg  lg:rounded-none
                         `}/>
                     {product ? product : 'Product'}
@@ -97,14 +97,14 @@ export const HomeSelectOptions = ({allowFilter , setAllowFilter}) =>
                 {/*--------------------*/}
                 <div className='
                  bg-gray-100 text-neutral-500 font-bold flex  justify-center items-center relative
-                 xs:w-20 h-8 xs:rounded-full xs:text-sm xs:border-4 xs:border-white
+                 xs:w-20 h-8 xs:rounded-full xs:text-sm xs:border-2 xs:border-white
                  lg:w-36 lg:h-16 lg:rounded-none lg:text-lg lg:border-0
                 '>
                     <FaWindowClose
                         onClick={()=> dispatch(filterByStars())}
                         className={`
                         flex text-red-400 justify-center items-center absolute ${stars ? 'block' : 'hidden'}
-                        xs:top-0 xs:left-0 xs:text-[1rem] xs:rounded-full
+                        xs:bottom-4 xs:left-0 xs:text-[1rem] xs:rounded-full
                         lg:top-0 lg:right-0 lg:text-lg  lg:rounded-none
                         `}/>
                     {stars ? stars : 'Rate'}

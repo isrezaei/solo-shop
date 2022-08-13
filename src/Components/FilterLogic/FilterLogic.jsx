@@ -54,11 +54,9 @@ export const FilterLogic = () =>
 
     return (
 
-        <div className=' animate__animated animate__zoomInLeft w-full flex flex-col justify-start items-center
-         xs:px-5 xs:py-2
-         lg:px-8 lg:py-2 lg:mt-16 lg:w-96 lg:h-auto lg:bg-white lg:gap-2
-
-
+        <div className=' animate__animated animate__zoomInLeft flex flex-col justify-start items-center
+         xs:w-10/12 xs:px-5 xs:py-2
+         lg:w-96 lg:px-8 lg:py-2 lg:mt-16 lg:h-auto lg:bg-white lg:gap-2
          '>
 
 

@@ -12,7 +12,11 @@ export const FilterResult = () =>
 
         return (
 
-            <div className={`animate__animated animate__backInUp animate__faster w-44 h-56 p-1 bg-white flex flex-col justify-center items-center`} key={id}>
+            <div className={`
+            animate__animated animate__backInUp animate__faster w-full h-56 p-1 bg-white flex flex-col justify-center items-center
+            xs:rounded-3xl
+            lg:rounded-none
+            `} key={id}>
 
                 <div className='w-full h-96 flex justify-center items-center'>
                     <img className='w-20 ' src={image?.mainImg}/>
@@ -37,10 +41,9 @@ export const FilterResult = () =>
     return (
 
         <div className='
-        w-full mt-12 p-5 max-h-max bg-gray-100 grid justify-center items-center gap-3
-        xs:grid-cols-2
-        lg:grid-cols-7
-
+        w-full bg-gray-100 grid justify-center items-center
+        xs:h-[38rem] xs:grid-cols-2 xs:mt-0  xs:p-5 xs:gap-5 xs:overflow-y-scroll
+        lg:h-auto lg:grid-cols-6 lg:mt-12 lg:p-4 lg:gap-3 xs:overflow-y-auto
         '>
             {filteredProduct?.length ? filteredProduct : Array.from(Array(28).keys() , items => <Skeleton key={items} className='h-56 animate__animated animate__backInUp'/>)}
         </div>
