@@ -41,15 +41,23 @@ export const ChooseColor = () =>
             <div
                 key={colors}
                 onClick={()=> stepColorAndImage(colors , contextDispatch)}
-                className={`w-48 h-28 flex flex-col justify-center items-center gap-2 rounded-3xl border border-gray-400 cursor-pointer
-                ${activeColor[product] === colors && 'border border-transparent outline outline-4 outline-blue-300'}`}>
+                className={`
+                flex flex-col justify-center items-center  cursor-pointer
+                xs:w-10 xs:h-auto
+                lg:w-48 lg:h-28 lg:gap-2 lg:rounded-3xl lg:border lg:border-gray-400
+                ${activeColor[product] === colors && 'lg:border lg:border-transparent lg:outline lg:outline-4 lg:outline-blue-300'}`}>
+
                 <div className='flex flex-col justify-center items-center gap-1'>
                     <div
                         style={{
                             background: colors
                         }}
-                        className='w-9 h-9 rounded-full shadow-inner'> </div>
-                    <div className='text-center'>{colors}</div>
+                        className='
+                        shadow-inner
+                        xs:rounded-none xs:w-5 xs:h-5
+                        lg:rounded-full lg:w-9 lg:h-9
+                        '> </div>
+                    <div className='text-center xs:hidden lg:block'>{colors}</div>
                 </div>
             </div>
         )
@@ -57,11 +65,22 @@ export const ChooseColor = () =>
 
 
     return (
-        <>
-            <label htmlFor='select-color' className='text-xl text-gray-600 font-bold mt-4'>Choose your color</label>
-            <div id='select-color' className='grid pb-7 grid-cols-2 grid-rows-2 gap-4 border-b border-gray-400'>
+        <div className='xs:w-32 lg:w-full'>
+
+            <div
+                   className='
+                   text-gray-600 font-bold
+                   xs:text-sm
+                   lg:text-lg
+                   '>Choose your color</div>
+
+            <div className='
+            xs:w-full xs:flex xs:flex-wrap xs:justify-start xs:gap-1 xs:items-center
+
+            lg:grid lg:pb-7 lg:grid-cols-2 lg:grid-rows-2 lg:gap-4 lg:border-b lg:border-gray-400
+            '>
                 {setColor}
             </div>
-        </>
+        </div>
     )
 }

@@ -40,7 +40,7 @@ export const DetailsPreRender = () =>
 
 
     return (
-        <div>
+        <div className='relative max-w-full m-auto '>
             <HeaderUp/>
             <HeaderDown HeaderMargin={HeaderMargin}/>
             <div className='w-full relative mx-auto '>

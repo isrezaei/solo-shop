@@ -14,11 +14,19 @@ export const ActiveImage = () =>
     const eachImage = Object.keys(JSON.parse(localStorage.getItem('detailsPageInfo'))?.activeOptions?.activeImage || {})?.filter(items => items === product)[0]
 
     return (
-        <div className='sticky top-32 z-10 '>
-
-            <img className='w-full m-auto' src={detailsImage[activeOptions.activeImage[eachImage] || 'main']} alt={product}/>
-
-            <div className='w-full h-36 flex justify-center items-start'>
+        <div className='
+        xs:relative
+        lg:sticky lg:top-32 lg:z-10
+        '>
+            <img className='
+            m-auto
+            xs:w-72
+            lg:w-full ' src={detailsImage[activeOptions.activeImage[eachImage] || 'main']} alt={product}/>
+            <div className='
+            w-full h-36 flex justify-center items-start
+            xs:hidden
+            lg:flex
+            '>
                 <div className='w-60 p-1 text-sm h-full flex flex-col justify-center items-center gap-2'>
                     <BsBoxSeam className='text-3xl text-gray-500'/>
                     <p className='text-center font-bold text-gray-500'>Get free delivery, or pick up available items at an Apple Store</p>

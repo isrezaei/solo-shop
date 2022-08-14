@@ -59,14 +59,35 @@ export const DetailsEachProduct = ({EachProduct}) => {
                 contextDispatch
             }}>
 
-            <div className='container relative max-w-5xl bg-blue-500 mx-auto '>
-                <section style={{height : divHeight}} className='w-3/6 absolute left-0'>
+            <div className='
+             container relative max-w-5xl mx-auto
+             xs:flex xs:flex-col xs:justify-between xs:items-start
+             lg:block
+             '>
+                <section style={{height : divHeight}} className='
+                xs:w-full xs:relative xs:!h-5/6
+                lg:w-3/6 lg:absolute lg:left-0 lg:h-auto
+               '>
                     <ActiveImage/>
                 </section>
-                <section ref={dynamicHeight} className='w-3/6 h-auto absolute right-0 flex flex-col justify-start items-start gap-2 p-6'>
+
+                <section ref={dynamicHeight} className='
+                h-auto flex flex-col justify-start items-start gap-2
+                xs:w-full xs:relative xs:px-3
+                lg:w-3/6  lg:absolute lg:right-0 lg:p-6
+                '>
                     <InformationHeader/>
-                    <ChooseColor/>
-                    <ChooseCapacity/>
+
+                    <div className='
+                    w-full flex
+                    xs:flex-row xs:justify-evenly xs:items-start
+                    lg:flex-col lg::justify-between lg:items-start
+
+                    '>
+                        <ChooseColor/>
+                        <ChooseCapacity/>
+                    </div>
+
                     {
                         (
                             choicesAnswer.haveGoodCondition === 'Yes'||
@@ -84,6 +105,7 @@ export const DetailsEachProduct = ({EachProduct}) => {
                     <AddToWishList/>
                 </section>
             </div>
+
         </EachProductFromContext.Provider>
     )
 }

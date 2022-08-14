@@ -46,14 +46,17 @@ export const ChooseCapacity = () =>
             <div
                 key={capacity}
                 onClick={() => stepCapacity(capacity , contextDispatch)}
-                className={`w-48 h-28 flex flex-col justify-center items-center gap-2 rounded-3xl border border-gray-400 cursor-pointer
+                className={`
+                flex flex-col justify-center items-center  cursor-pointer
+                xs:w-16 xs:h-auto xs:rounded-lg xs:border-2 xs:border-gray-400
+                lg:w-48 lg:h-28 lg:gap-2 lg:rounded-3xl lg:border lg:border-gray-400
                  ${activeCapacity[product] === capacity && 'border border-transparent outline outline-4 outline-blue-300'}`}>
                 <div>
                     <div className='flex justify-center items-center gap-1'>
-                        <p className='text-3xl'>{capacity}</p>
-                        <p className='text-lg'>GB</p>
+                        <p className='xs:text-sm lg:text-3xl'>{capacity}</p>
+                        <p className='xs:text-sm lg:text-lg'>GB</p>
                     </div>
-                    <div className='text-center'>from ${price}</div>
+                    <div className='text-center xs:hidden lg:block'>from ${price}</div>
                 </div>
             </div>
         )
@@ -62,15 +65,32 @@ export const ChooseCapacity = () =>
 
 
     return (
-        <>
-            <div className={`w-full pb-7 flex flex-col justify-center items-start gap-1 mt-3 border-b border-gray-400 ${!existCapacityInLocal && 'pointer-events-none opacity-30' }`}>
-                <label htmlFor='select-Capacity' className='text-lg font-bold text-gray-600'>Choose your capacity</label>
-                <p className='my-2 text-blue-700'>How much capacity is right for you?</p>
-                <div id='select-Capacity' className='grid grid-cols-2 grid-rows-2 gap-4'>
+        <div className='xs:w-56 lg:w-full'>
+
+            <div className={
+                `w-full flex flex-col justify-center border-gray-400
+                 xs:items-end
+                 lg:items-start
+                 ${!existCapacityInLocal && 'pointer-events-none opacity-30' }`}>
+
+                <div
+                       className='
+                       text-gray-600 font-bold
+                       xs:text-sm
+                        lg:text-lg
+                       '>Choose your capacity</div>
+
+                <p className='my-2 text-blue-700 xs:hidden lg:block'>How much capacity is right for you?</p>
+
+                <div
+                     className='
+                     xs:w-full xs:flex xs:justify-evenly xs:items-center
+                     lg:grid lg:pb-7 lg:grid-cols-2 lg:grid-rows-2 lg:gap-4 lg:border-b lg:border-gray-400
+                     '>
                     {setCapacity}
                 </div>
             </div>
 
-        </>
+        </div>
     )
 }

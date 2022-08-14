@@ -43,7 +43,7 @@ export const FilterResult = () =>
         <div className='
         w-full bg-gray-100 grid justify-center items-center
         xs:h-[38rem] xs:grid-cols-2 xs:mt-0  xs:p-5 xs:gap-5 xs:overflow-y-scroll
-        lg:h-auto lg:grid-cols-6 lg:mt-12 lg:p-4 lg:gap-3 xs:overflow-y-auto
+        lg:h-auto lg:grid-cols-6 lg:mt-12 lg:p-4 lg:gap-3 lg:overflow-y-auto lg:scrollbar-hide
         '>
             {filteredProduct?.length ? filteredProduct : Array.from(Array(28).keys() , items => <Skeleton key={items} className='h-56 animate__animated animate__backInUp'/>)}
         </div>
