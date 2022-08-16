@@ -43,9 +43,9 @@ export const ChooseColor = () =>
                 onClick={()=> stepColorAndImage(colors , contextDispatch)}
                 className={`
                 flex flex-col justify-center items-center  cursor-pointer
-                xs:w-10 xs:h-auto
+                xs:w-10 xs:h-auto xs:rounded-full
                 lg:w-48 lg:h-28 lg:gap-2 lg:rounded-3xl lg:border lg:border-gray-400
-                ${activeColor[product] === colors && 'lg:border lg:border-transparent lg:outline lg:outline-4 lg:outline-blue-300'}`}>
+                ${activeColor[product] === colors && 'border border-transparent outline outline-blue-300 xs:outline lg:outline-4'}`}>
 
                 <div className='flex flex-col justify-center items-center gap-1'>
                     <div
@@ -53,9 +53,9 @@ export const ChooseColor = () =>
                             background: colors
                         }}
                         className='
-                        shadow-inner
-                        xs:rounded-none xs:w-5 xs:h-5
-                        lg:rounded-full lg:w-9 lg:h-9
+                        shadow-inner rounded-full
+                        xs:w-5 xs:h-5
+                        lg:w-9 lg:h-9
                         '> </div>
                     <div className='text-center xs:hidden lg:block'>{colors}</div>
                 </div>
@@ -68,16 +68,15 @@ export const ChooseColor = () =>
         <div className='xs:w-32 lg:w-full'>
 
             <div
-                   className='
+                className='
                    text-gray-600 font-bold
-                   xs:text-sm
-                   lg:text-lg
+                   xs:text-sm xs:mb-2
+                   lg:text-lg lg:mb-0
                    '>Choose your color</div>
 
             <div className='
-            xs:w-full xs:flex xs:flex-wrap xs:justify-start xs:gap-1 xs:items-center
-
-            lg:grid lg:pb-7 lg:grid-cols-2 lg:grid-rows-2 lg:gap-4 lg:border-b lg:border-gray-400
+             xs:flex  xs:justify-start xs:gap-2 xs:items-center
+             lg:grid lg:pb-7 lg:grid-cols-2 lg:grid-rows-2 lg:gap-4 lg:border-b lg:border-gray-400
             '>
                 {setColor}
             </div>

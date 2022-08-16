@@ -29,15 +29,15 @@ export const AddToWishList = () =>
     }
     return (
         <div className='w-full h-36 flex flex-col justify-between items-center '>
-            <div className='w-full flex justify-between items-center'>
-                <div className='w-8/12 flex flex-col justify-between items-start'>
-                    <p className='text-xl font-bold'>Still deciding?</p>
-                    <p>Add this item to a list and easily come back to it later.</p>
+            <div className='w-full flex justify-between items-center my-3'>
+                <div className='w-8/12 flex flex-col justify-between items-start gap-2'>
+                    <p className='xs:text-[1rem] lg:text-xl font-bold text-gray-600'>Still deciding?</p>
+                    <p className='xs:text-sm lg:text-[1rem] text-gray-600'>Add this item to a list and easily come back to it later.</p>
                 </div>
                 {
                     wishListProducts ?
-                        <RiBookmarkFill className='text-3xl cursor-pointer' onClick={handelClick}/> :
-                        <RiBookmarkLine className='text-3xl cursor-pointer' onClick={handelClick}/>
+                        <RiBookmarkFill className='xs:text-2xl lg:text-3xl cursor-pointer text-blue-700' onClick={handelClick}/> :
+                        <RiBookmarkLine className='xs:text-2xl lg:text-3xl cursor-pointer text-blue-700' onClick={handelClick}/>
                 }
             </div>
         </div>

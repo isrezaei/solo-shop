@@ -14,6 +14,7 @@ import {useDispatch} from "react-redux";
 import {InitialState} from "./ContextHandeling/InitialState";
 import {ContextReducer} from "./ContextHandeling/ContextReducer";
 import {useLocation} from "react-router-dom";
+import {useGetLiveWidth} from "../useGetLiveWidth";
 
 export const EachProductFromContext = createContext()
 
@@ -24,6 +25,7 @@ export const DetailsEachProduct = ({EachProduct}) => {
     const {mainState} = InitialState()
     const {reducer} = ContextReducer()
     const reduxDispatch = useDispatch()
+    const {liveWidth} = useGetLiveWidth()
     const [{enableSection, activeOptions, choicesAnswer, choiceOldModel, editAnswer}, contextDispatch] = useReducer(reducer, JSON.parse(localStorage.getItem('detailsPageInfo')) || mainState)
 
     //dynamic height for image section
@@ -64,9 +66,9 @@ export const DetailsEachProduct = ({EachProduct}) => {
              xs:flex xs:flex-col xs:justify-between xs:items-start
              lg:block
              '>
-                <section style={{height : divHeight}} className='
-                xs:w-full xs:relative xs:!h-5/6
-                lg:w-3/6 lg:absolute lg:left-0 lg:h-auto
+                <section style={{height : liveWidth > 500 && divHeight}} className='
+                xs:w-full xs:relative xs:h-5/6
+                lg:w-3/6 lg:absolute lg:left-0
                '>
                     <ActiveImage/>
                 </section>
@@ -80,8 +82,8 @@ export const DetailsEachProduct = ({EachProduct}) => {
 
                     <div className='
                     w-full flex
-                    xs:flex-row xs:justify-evenly xs:items-start
-                    lg:flex-col lg::justify-between lg:items-start
+                    xs:h-16 xs:flex-row xs:justify-evenly xs:items-center
+                    lg:h-auto lg:flex-col lg::justify-between lg:items-start
 
                     '>
                         <ChooseColor/>

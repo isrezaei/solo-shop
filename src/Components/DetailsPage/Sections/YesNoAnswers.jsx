@@ -8,14 +8,26 @@ export const AnswerOfHaveSmartPhone = () =>
 
     return (
         <>
-            <p className='font-bold text-lg mt-3 text-gray-600'>Do you have a smartphone to trade in with Apple?</p>
+
+            <p className='
+            font-bold mt-3 text-gray-600
+            xs:text-[.9rem]
+            lg:text-lg
+            '>Do you have a smartphone to trade in with Apple?</p>
+
             <div className='flex justify-center items-center gap-3'>
                 {
                     ['Yes' , 'No'].map(answer => {
                             return (
                                 <div key={answer}
                                      onClick={()=>stepHaveOldPhone(answer , contextDispatch)}
-                                     className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 cursor-pointer ${choicesAnswer.haveOldPhone === answer && 'border border-transparent outline outline-4 outline-blue-300'}`}> {answer}</div>
+                                     className={`
+                                     ${choicesAnswer.haveOldPhone === answer && 'border border-transparent outline outline-4 outline-blue-300'}
+                                     flex flex-col justify-center items-center gap-2 border border-gray-400 cursor-pointer
+                                     xs:w-28 xs:h-10 xs:text-sm xs:rounded-full
+                                     lg:w-48 lg:h-14 lg:text-xl lg:rounded-xl
+                                     
+                                     `}> {answer}</div>
                             )
                         }
                     )
@@ -38,7 +50,13 @@ export const AnswerOfHaveGoodCondition = () =>
                                      setEditAnswer(answer , contextDispatch)
                                      stepCondition(answer , contextDispatch)
                                  }}
-                                 className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 cursor-pointer ${choicesAnswer.haveGoodCondition === answer && 'border border-transparent outline outline-4 outline-blue-300'}`}> {answer}</div>
+                                 className={`
+                                 ${choicesAnswer.haveGoodCondition === answer && 'border border-transparent outline outline-4 outline-blue-300'}
+                                     flex flex-col justify-center items-center gap-2 border border-gray-400 cursor-pointer
+                                     xs:w-28 xs:h-10 xs:text-sm xs:rounded-full
+                                     lg:w-48 lg:h-14 lg:text-xl lg:rounded-xl
+                                  
+                                  `}> {answer}</div>
                         )
                     }
                 )
@@ -60,7 +78,12 @@ export const AnswerOfButtonWork = () =>
                                      setEditAnswer(answer , contextDispatch)
                                      stepHaveButtonWork(answer , contextDispatch)
                                  }}
-                                 className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 cursor-pointer ${choicesAnswer.haveButtonWork === answer && 'border border-transparent outline outline-4 outline-blue-300'}`}> {answer}</div>
+                                 className={`${choicesAnswer.haveButtonWork === answer && 'border border-transparent outline outline-4 outline-blue-300'}
+                                     flex flex-col justify-center items-center gap-2 border border-gray-400 cursor-pointer
+                                     xs:w-28 xs:h-10 xs:text-sm xs:rounded-full
+                                     lg:w-48 lg:h-14 lg:text-xl lg:rounded-xl
+                                  
+                                  `}> {answer}</div>
                         )
                     }
                 )
@@ -82,7 +105,11 @@ export const AnswerOfGoodShape = () =>
                                      setEditAnswer(answer , contextDispatch)
                                      stepHaveGoodShape(answer , contextDispatch)
                                  }}
-                                 className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 cursor-pointer ${choicesAnswer.haveGoodShape === answer && 'border border-transparent outline outline-4 outline-blue-300'}`}> {answer}</div>
+                                 className={`${choicesAnswer.haveGoodShape === answer && 'border border-transparent outline outline-4 outline-blue-300'}
+                                     flex flex-col justify-center items-center gap-2 border border-gray-400 cursor-pointer
+                                     xs:w-28 xs:h-10 xs:text-sm xs:rounded-full
+                                     lg:w-48 lg:h-14 lg:text-xl lg:rounded-xl
+                                  `}> {answer}</div>
                         )
                     }
                 )
@@ -103,7 +130,11 @@ export const AnswerOfTouchScreenWork = () =>
                                      setEditAnswer('Yes' , contextDispatch)
                                      stepHaveTouchScreenWork(answer , contextDispatch)
                                  }}
-                                 className={`w-48 h-14 text-xl flex flex-col justify-center items-center gap-2 rounded-xl border border-gray-400 cursor-pointer ${choicesAnswer.haveTouchScreenWork === answer && 'border border-transparent outline outline-4 outline-blue-300'}`}> {answer}</div>
+                                 className={`${choicesAnswer.haveTouchScreenWork === answer && 'border border-transparent outline outline-4 outline-blue-300'}
+                                     flex flex-col justify-center items-center gap-2 border border-gray-400 cursor-pointer
+                                     xs:w-28 xs:h-10 xs:text-sm xs:rounded-full
+                                     lg:w-48 lg:h-14 lg:text-xl lg:rounded-xl
+                                  `}> {answer}</div>
                         )
                     }
                 )

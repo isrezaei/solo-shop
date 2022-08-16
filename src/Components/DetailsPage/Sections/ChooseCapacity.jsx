@@ -36,10 +36,8 @@ export const ChooseCapacity = () =>
     } , [activeCapacity , dispatch])
 
 
-
     const existCapacityInLocal = Object.keys(JSON.parse(localStorage.getItem('detailsPageInfo'))?.activeOptions.activeColor || {})
         .filter(items => items === product).includes(product)
-
 
     const setCapacity = capacity.map(capacity => {
         return (
@@ -48,20 +46,19 @@ export const ChooseCapacity = () =>
                 onClick={() => stepCapacity(capacity , contextDispatch)}
                 className={`
                 flex flex-col justify-center items-center  cursor-pointer
-                xs:w-16 xs:h-auto xs:rounded-lg xs:border-2 xs:border-gray-400
+                xs:w-14 xs:h-auto xs:rounded-lg xs:border-2 xs:border-gray-400
                 lg:w-48 lg:h-28 lg:gap-2 lg:rounded-3xl lg:border lg:border-gray-400
-                 ${activeCapacity[product] === capacity && 'border border-transparent outline outline-4 outline-blue-300'}`}>
+                 ${activeCapacity[product] === capacity && 'border border-transparent outline outline-blue-300 xs:outline lg:outline-4'}`}>
                 <div>
                     <div className='flex justify-center items-center gap-1'>
-                        <p className='xs:text-sm lg:text-3xl'>{capacity}</p>
-                        <p className='xs:text-sm lg:text-lg'>GB</p>
+                        <p className='xs:text-[.8rem] lg:text-3xl'>{capacity}</p>
+                        <p className='xs:text-[.8rem] lg:text-lg'>GB</p>
                     </div>
                     <div className='text-center xs:hidden lg:block'>from ${price}</div>
                 </div>
             </div>
         )
     })
-
 
 
     return (
@@ -76,15 +73,15 @@ export const ChooseCapacity = () =>
                 <div
                        className='
                        text-gray-600 font-bold
-                       xs:text-sm
-                        lg:text-lg
+                       xs:text-sm xs:mb-2
+                       lg:text-lg lg:mb-0
                        '>Choose your capacity</div>
 
                 <p className='my-2 text-blue-700 xs:hidden lg:block'>How much capacity is right for you?</p>
 
                 <div
                      className='
-                     xs:w-full xs:flex xs:justify-evenly xs:items-center
+                     xs:w-full xs:flex xs:justify-end xs:items-center xs:gap-2
                      lg:grid lg:pb-7 lg:grid-cols-2 lg:grid-rows-2 lg:gap-4 lg:border-b lg:border-gray-400
                      '>
                     {setCapacity}

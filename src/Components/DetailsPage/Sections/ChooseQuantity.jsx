@@ -99,14 +99,24 @@ export const ChooseQuantity = () =>
 
     return (
         <div className='w-full flex flex-col justify-between items-start'>
-            <div className= {`w-full h-20 flex justify-between items-center ${accessQuantity()}`}>
-                <div className={`w-4/6 h-12 bg-blue-600 cursor-pointer flex justify-center items-center text-white rounded 
+            <div className= {`
+            w-full flex items-center
+            xs:h-16 xs:justify-evenly
+            lg:h-20 lg:justify-between ${accessQuantity()}`}>
+                <div className={`
+                 bg-blue-600 cursor-pointer flex justify-center items-center text-white 
+                 xs:w-56  xs:h-10 xs:rounded-full xs:text-sm 
+                 lg:w-4/6 lg:h-12 lg:rounded-none lg:text-[1rem]
                 ${HaveQuantity(id) ?  'opacity-50 pointer-events-none' : 'cursor-pointer'}`} onClick={handelAdd}>
                     {!quantity ? 'Add to cart' : 'Choose your quantity'}
                 </div>
-                <div className='w-28 h-12 p-2 border border-gray-400 flex justify-between items-center cursor-pointer'>
+                <div className='
+                border border-gray-400 flex justify-between items-center cursor-pointer p-2
+                xs:w-20 xs:h-10 xs:rounded-full
+                lg:w-28  lg:h-12 lg:rounded-none
+                '>
                     {quantity && <TiPlus onClick={handelIncrease} className='text-xl w-5 text-lime-600 cursor-pointer'/>}
-                    <p className='w-full text-center'> {!quantity ? 'Wait for add' : quantity}</p>
+                    <p className='w-full text-center xs:text-sm lg:text-[1rem]'> {!quantity ? 'Wait for add' : quantity}</p>
                     {
                         CheckQuantity(id) > 1 ? <TiMinus onClick={handelDecrease} className='text-xl w-5 text-red-500 cursor-pointer'/> :
                             quantity && <RiDeleteBinLine onClick={handelRemove} className='text-xl w-5 text-red-500 flex justify-center items-center cursor-pointer'/>

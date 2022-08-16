@@ -35,18 +35,17 @@ export const ChooseOldModel = () =>
 
     return (
         <>
-            <label htmlFor='select-model' className='font-bold text-lg text-gray-600'>Choose your model</label>
+            <label htmlFor='select-model' className='font-bold text-gray-600'>Choose your model</label>
             <select
                 defaultValue={selectedModel}
                 onChange={(e)=> handelChange(e)}
                 id='select-model'
                 className='w-full mt-1 border rounded-xl flex justify-start items-start'>
-                <option value='select' className='text-lg rounded-xl'>select your model</option>
                 {OldModelPhoneArray.map(models => {
                     return (
                         <option
                             key={models.oldPhone}
-                            className='text-lg rounded-xl'
+                            className='rounded-xl xs:text-sm lg:text-lg'
                             value={models.offPrice}
                             data-name-device={models.oldPhone}
                             disabled={models.offPrice >= price}>
