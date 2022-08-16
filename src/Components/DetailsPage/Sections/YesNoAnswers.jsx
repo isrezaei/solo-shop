@@ -11,8 +11,8 @@ export const AnswerOfHaveSmartPhone = () =>
 
             <p className='
             font-bold mt-3 text-gray-600
-            xs:text-[.9rem]
-            lg:text-lg
+            xs:text-[1rem] xs:text-center
+            lg:text-xl
             '>Do you have a smartphone to trade in with Apple?</p>
 
             <div className='flex justify-center items-center gap-3'>
