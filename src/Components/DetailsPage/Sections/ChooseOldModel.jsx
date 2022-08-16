@@ -40,7 +40,7 @@ export const ChooseOldModel = () =>
                 defaultValue={selectedModel}
                 onChange={(e)=> handelChange(e)}
                 id='select-model'
-                className='w-full mt-1 border rounded-xl flex justify-start items-start'>
+                className='w-full mt-1 border rounded-xl flex justify-start items-start xs:text-sm lg:text-[1rem]'>
                 {OldModelPhoneArray.map(models => {
                     return (
                         <option
