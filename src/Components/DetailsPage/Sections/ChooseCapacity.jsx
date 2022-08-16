@@ -50,7 +50,7 @@ export const ChooseCapacity = () =>
                 lg:w-48 lg:h-28 lg:gap-2 lg:rounded-3xl lg:border lg:border-gray-400
                  ${activeCapacity[product] === capacity && 'border border-transparent outline outline-blue-300 xs:outline lg:outline-4'}`}>
                 <div>
-                    <div className='flex justify-center items-center gap-1'>
+                    <div className='flex justify-center items-center xs:gap-0 lg:gap-1'>
                         <p className='xs:text-[.8rem] lg:text-3xl'>{capacity}</p>
                         <p className='xs:text-[.8rem] lg:text-lg'>GB</p>
                     </div>
@@ -81,7 +81,7 @@ export const ChooseCapacity = () =>
 
                 <div
                      className='
-                     xs:w-full xs:flex xs:justify-end xs:items-center xs:gap-2
+                     xs:w-full xs:flex xs:justify-end xs:items-center xs:gap-1
                      lg:grid lg:pb-7 lg:grid-cols-2 lg:grid-rows-2 lg:gap-4 lg:border-b lg:border-gray-400
                      '>
                     {setCapacity}

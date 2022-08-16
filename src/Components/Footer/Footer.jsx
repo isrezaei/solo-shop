@@ -12,7 +12,6 @@ export const Footer = () =>
         flex-col
         justify-between
         items-center
-
         '>
             <div className='
             w-full
@@ -24,64 +23,64 @@ export const Footer = () =>
 
                 <div className='h-full flex flex-col justify-start gap-1 items-start cursor-pointer w-56 '>
                     <p className='
-                    text-2xl font-bold  text-gray-600
-                    xs:my-2
-                    lg:mb-4
+                    font-bold  text-gray-600
+                    xs:my-2 xs:text-[1rem]
+                    lg:mb-4 lg:text-2xl
                     '>about Us</p>
 
-                    <p className='text-gray-500'>In publishing and graphic design, Lorem ipsum is a placeholder text commonly </p>
+                    <p className='text-gray-500 xs:text-sm lg:text-lg'>In publishing and graphic design, Lorem ipsum is a placeholder text commonly </p>
                 </div>
 
                 <div className='w-56 h-full flex flex-col justify-start gap-1 items-start cursor-pointer'>
                     <p className='
-                    text-2xl font-bold  text-gray-600
-                    xs:my-2
-                    lg:mb-4
+                    font-bold  text-gray-600
+                    xs:my-2 xs:text-[1rem]
+                    lg:mb-4 lg:text-2xl
                     '>Hot links</p>
 
-                    <a className='text-gray-500' href=' '>Home</a>
-                    <a className='text-gray-500' href=' '>Shop</a>
-                    <a className='text-gray-500' href=' '>Blog</a>
-                    <a className='text-gray-500' href=' '>Contact</a>
+                    <a className='text-gray-500 xs:text-sm lg:text-lg' href=' '>Home</a>
+                    <a className='text-gray-500 xs:text-sm lg:text-lg' href=' '>Shop</a>
+                    <a className='text-gray-500 xs:text-sm lg:text-lg' href=' '>Blog</a>
+                    <a className='text-gray-500 xs:text-sm lg:text-lg' href=' '>Contact</a>
                 </div>
 
                 <div className='w-56 h-full flex flex-col justify-start gap-1 items-start cursor-pointer'>
                     <p className='
-                    text-2xl font-bold  text-gray-600
-                    xs:my-2
-                    lg:mb-4
+                    font-bold  text-gray-600
+                    xs:my-2 xs:text-[1rem]
+                    lg:mb-4 lg:text-2xl
                     '>More info</p>
 
-                    <p className='text-gray-500'>How it works</p>
-                    <p className='text-gray-500'>about us</p>
-                    <p className='text-gray-500'>Decline rules</p>
-                    <p className='text-gray-500'>Terms & Conditions</p>
+                    <p className='text-gray-500 xs:text-sm lg:text-lg'>How it works</p>
+                    <p className='text-gray-500 xs:text-sm lg:text-lg'>about us</p>
+                    <p className='text-gray-500 xs:text-sm lg:text-lg'>Decline rules</p>
+                    <p className='text-gray-500 xs:text-sm lg:text-lg'>Terms & Conditions</p>
                 </div>
 
                 <div className='w-56 h-full flex flex-col justify-start gap-1 items-start cursor-pointer'>
                     <p className='
-                    text-2xl font-bold  text-gray-600
-                    xs:my-2
-                    lg:mb-4
+                    font-bold  text-gray-600
+                    xs:my-2 xs:text-[1rem]
+                    lg:mb-4 lg:text-2xl
                     '>Customer care</p>
 
-                    <p className='text-gray-500'>FAQ</p>
-                    <p className='text-gray-500'>Terms of use</p>
-                    <p className='text-gray-500'>Privacy Policy</p>
-                    <p className='text-gray-500'>Discount system</p>
+                    <p className='text-gray-500 xs:text-sm lg:text-lg'>FAQ</p>
+                    <p className='text-gray-500 xs:text-sm lg:text-lg'>Terms of use</p>
+                    <p className='text-gray-500 xs:text-sm lg:text-lg'>Privacy Policy</p>
+                    <p className='text-gray-500 xs:text-sm lg:text-lg'>Discount system</p>
                 </div>
 
                 <div className='w-56 h-full flex flex-col justify-start gap-1 items-start cursor-pointer'>
                     <p className='
-                    text-2xl font-bold  text-gray-600
-                    xs:my-2
-                    lg:mb-4
+                    font-bold  text-gray-600
+                    xs:my-2 xs:text-[1rem]
+                    lg:mb-4 lg:text-2xl
                     '>Get newsletter</p>
 
-                    <p className='text-gray-500'>Get updates about style</p>
+                    <p className='text-gray-500 xs:text-sm lg:text-lg'>Get updates about style</p>
                     <div className='w-56 h-full mt-5 flex justify-start items-start cursor-pointer'>
-                        <input className='w-44 h-10 border-gray-400' type='text' placeholder='Type your email...'/>
-                        <div className='w-44 h-10 bg-blue-500 flex justify-center items-center text-2xl text-white'><AiOutlineSend/></div>
+                        <input className='w-44 xs:h-8 lg:h-10 border-gray-400 xs:text-sm lg:text-[1rem]' type='text' placeholder='Type your email...'/>
+                        <div className='w-44 xs:h-8 lg:h-10 bg-blue-500 flex justify-center items-center xs:text-lg lg:text-2xl text-white'><AiOutlineSend/></div>
                     </div>
                 </div>
 
@@ -90,16 +89,17 @@ export const Footer = () =>
 
 
             <div className='
-            w-full h-20 bg-blue-600 flex
-            xs:px-0 xs:flex-col xs:justify-center xs:items-center xs:gap-2
-            lg:px-40 lg:flex-row  lg:justify-between lg:items-center
+            w-full bg-blue-600 flex
+            xs:h-24 xs:px-0 xs:flex-col xs:justify-evenly xs:items-center
+            lg:h-20 lg:px-40 lg:flex-row  lg:justify-between lg:items-center
             '>
                 <p className='
                 text-white
-                xs:w-auto
+                xs:text-sm
+                lg:text-[1rem]
                 '>Developed by <a className='cursor-pointer' href=''>IsRezaei</a> ; it's a sample project</p>
-                <div className='
-                w-28 flex justify-between items-center text-white text-xl cursor-pointer'>
+
+                <div className=' w-28 flex justify-between items-center text-white text-xl cursor-pointer'>
                     <BsInstagram/>
                     <BsTwitter/>
                     <RiFacebookFill/>

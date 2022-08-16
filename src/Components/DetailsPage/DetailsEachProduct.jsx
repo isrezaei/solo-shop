@@ -75,7 +75,7 @@ export const DetailsEachProduct = ({EachProduct}) => {
 
                 <section ref={dynamicHeight} className='
                 h-auto flex flex-col justify-start items-start gap-2
-                xs:w-full xs:relative xs:px-3
+                xs:w-full xs:relative xs:px-0
                 lg:w-3/6  lg:absolute lg:right-0 lg:p-6
                 '>
                     <InformationHeader/>

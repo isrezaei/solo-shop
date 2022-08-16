@@ -5,12 +5,14 @@ import { RatingStar } from "rating-star";
 import {useNavigate} from 'react-router-dom'
 import {useLocation} from "react-router-dom";
 import {HiShoppingCart} from 'react-icons/hi'
+import {useGetLiveWidth} from "../useGetLiveWidth";
 
 export const HomeEachProduct = ({ids}) =>
 {
     const {product , image , id , price , offer , rate , quantity}  = useSelector(state => selectMasterDataById(state , ids))
     const Navigate = useNavigate()
     const location = useLocation()
+    const {liveWidth} = useGetLiveWidth()
 
 
     const PriceWithOffer = parseInt((price - ((price * offer) / 100)))
@@ -33,18 +35,22 @@ export const HomeEachProduct = ({ids}) =>
             </div>
 
 
-            <div className='w-full h-10 py-6 flex justify-center items-center '>
+            <div className='
+            w-full flex justify-center items-center
+            xs:h-8 xs:py-0 xs:mt-1
+            lg:h-10 lg:py-6 lg:mt-0
+             '>
                 {
                     offer > 0 ?
                         <div className='w-full flex justify-evenly items-center'>
                             <p className='
                             font-medium text-gray-600
-                            xs:text-lg
+                            xs:text-sm
                             lg:text-xl
                             '>${PriceWithOffer}</p>
                             <p className='
                             font-medium line-through text-red-500
-                            xs:text-lg
+                            xs:text-sm
                             lg:text-xl
                             '>${price}</p>
                         </div>
@@ -52,13 +58,13 @@ export const HomeEachProduct = ({ids}) =>
                         <div className='w-full flex justify-evenly items-center'>
                             <div className='
                             font-medium text-gray-600
-                            xs:text-lg
+                            xs:text-sm
                             lg:text-xl
                             '>
                                 {price === 'out' ?
                                     <div className='
                                     text-red-500 font-bold
-                                    xs:text-lg
+                                    xs:text-sm
                                     lg:text-xl '>out of stock</div>
                                     : <p>${price}</p> }
                             </div>
@@ -67,18 +73,18 @@ export const HomeEachProduct = ({ids}) =>
             </div>
 
             <p className='
-            h-8 flex items-center justify-center font-medium text-gray-500
-            xs:text-sm xs:w-full
+            flex items-center justify-center font-medium text-gray-500
+            xs:text-[.8rem] xs:w-full
             lg:text-lg lg:w-9/12
             '>{product}</p>
 
             <div className='
-            w-full flex items-center py-1
+            w-full flex items-center xs:py-0 lg:py-1
             xs:flex-col xs:justify-center
             lg:flex-row xs:justify-between
             '>
-                <RatingStar id={id.toString()} rating={rate} size={17}/>
-                <Link to={`quick/${id}`} state={{background : location}} className='text-sm font-medium text-gray-400'>Quick View</Link>
+                <RatingStar id={id.toString()} rating={rate} size={liveWidth < 500 ? 13 : 17}/>
+                <Link to={`quick/${id}`} state={{background : location}} className='xs:text-[.7rem] lg:text-sm font-medium text-gray-400'>Quick View</Link>
             </div>
 
             {quantity >= 1 && <div className='absolute right-3 top-5 w-9 h-9 rounded-full flex justify-center items-center bg-blue-600'><HiShoppingCart className='text-2xl text-gray-50'/></div>}
