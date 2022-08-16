@@ -43,7 +43,7 @@ export const ChooseColor = () =>
                 onClick={()=> stepColorAndImage(colors , contextDispatch)}
                 className={`
                 flex flex-col justify-center items-center  cursor-pointer
-                xs:w-10 xs:h-auto xs:rounded-full
+                xs:w-auto xs:h-auto xs:rounded-full
                 lg:w-48 lg:h-28 lg:gap-2 lg:rounded-3xl lg:border lg:border-gray-400
                 ${activeColor[product] === colors && 'border border-transparent outline outline-blue-300 xs:outline lg:outline-4'}`}>
 
@@ -70,7 +70,7 @@ export const ChooseColor = () =>
             <div
                 className='
                    text-gray-600 font-bold
-                   xs:text-sm xs:mb-2
+                   xs:text-[.8rem] xs:mb-2
                    lg:text-lg lg:mb-0
                    '>Choose your color</div>
 

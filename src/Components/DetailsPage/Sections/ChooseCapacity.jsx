@@ -73,7 +73,7 @@ export const ChooseCapacity = () =>
                 <div
                        className='
                        text-gray-600 font-bold
-                       xs:text-sm xs:mb-2
+                       xs:text-[.8rem] xs:mb-2
                        lg:text-lg lg:mb-0
                        '>Choose your capacity</div>
 

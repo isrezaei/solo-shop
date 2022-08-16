@@ -15,8 +15,8 @@ export const ActiveImage = () =>
 
     return (
         <div className='
-        xs:relative
-        lg:sticky lg:top-32 lg:z-10
+        xs:relative xs:h-85
+        lg:sticky lg:top-32 lg:z-10 lg:h-auto
         '>
             <img className='
             m-auto

@@ -101,7 +101,7 @@ export const ChooseQuantity = () =>
         <div className='w-full flex flex-col justify-between items-start'>
             <div className= {`
             w-full flex items-center
-            xs:h-16 xs:justify-evenly
+            xs:h-8 xs:justify-evenly
             lg:h-20 lg:justify-between ${accessQuantity()}`}>
                 <div className={`
                  bg-blue-600 cursor-pointer flex justify-center items-center text-white 
@@ -112,11 +112,11 @@ export const ChooseQuantity = () =>
                 </div>
                 <div className='
                 border border-gray-400 flex justify-between items-center cursor-pointer p-2
-                xs:w-20 xs:h-10 xs:rounded-full
+                xs:w-24 xs:h-10 xs:rounded-full
                 lg:w-28  lg:h-12 lg:rounded-none
                 '>
                     {quantity && <TiPlus onClick={handelIncrease} className='text-xl w-5 text-lime-600 cursor-pointer'/>}
-                    <p className='w-full text-center xs:text-sm lg:text-[1rem]'> {!quantity ? 'Wait for add' : quantity}</p>
+                    <p className='w-full text-center xs:text-[.8rem] lg:text-[1rem]'> {!quantity ? 'Wait for add' : quantity}</p>
                     {
                         CheckQuantity(id) > 1 ? <TiMinus onClick={handelDecrease} className='text-xl w-5 text-red-500 cursor-pointer'/> :
                             quantity && <RiDeleteBinLine onClick={handelRemove} className='text-xl w-5 text-red-500 flex justify-center items-center cursor-pointer'/>
