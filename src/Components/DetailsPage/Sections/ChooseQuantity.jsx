@@ -101,8 +101,8 @@ export const ChooseQuantity = () =>
         <div className='w-full flex flex-col justify-between items-start'>
             <div className= {`
             w-full flex items-center
-            xs:h-8 xs:justify-evenly
-            lg:h-20 lg:justify-between ${accessQuantity()}`}>
+            xs:h-8 xs:my-5 xs:justify-evenly
+            lg:h-20 lg:my-0 lg:justify-between ${accessQuantity()}`}>
                 <div className={`
                  bg-blue-600 cursor-pointer flex justify-center items-center text-white 
                  xs:w-56  xs:h-10 xs:rounded-full xs:text-sm 
