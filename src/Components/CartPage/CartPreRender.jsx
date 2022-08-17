@@ -32,21 +32,36 @@ export const CartPreRender = () =>
             <HeaderUp headerPosition={headerPosition}/>
 
             {Render.length === 0 ? <CartEmptyAlert/> : <div className='w-full mt-8'>
-                <div className='container h-150 max-w-screen-2xl mx-auto flex justify-center items-start'>
-                    <div className='flex w-8/12 flex-col justify-start items-center'>
-                        <div className='w-11/12 h-20 px-4 flex justify-between items-center border-b border-b-gray-200'>
-                            <p className='text-2xl font-bold text-gray-600'>Shopping Cart</p>
-                            <p className='text-2xl font-bold text-gray-600'>{totalQuantity} Items</p>
+
+
+                <div className='
+                container h-150 max-w-screen-2xl mx-auto flex
+                xs:flex-col
+                lg:flex-row lg:justify-center lg:items-start
+                '>
+
+
+                    <div className='flex flex-col justify-between items-center xs:w-full lg:w-8/12'>
+
+                        <div className='xs:w-full xs:h-8 lg:h-20 lg:w-11/12  px-4 flex justify-between items-center border-b border-b-gray-200'>
+                            <p className='xs:text-sm lg:text-2xl font-bold text-gray-600'>Shopping Cart</p>
+                            <p className='xs:text-sm lg:text-2xl font-bold text-gray-600'>{totalQuantity} Items</p>
                         </div>
-                        <div className='w-11/12 h-20 relative flex justify-between items-center'>
+
+
+                        <div className='w-11/12 h-20 relative flex justify-between items-center xs:hidden lg:flex'>
                             <p className='absolute text-gray-400 left-6'>PRODUCT DETAILS</p>
                             <p className='absolute text-gray-400 left-128.5'>QUANTITY</p>
                             <p className='absolute text-gray-400 left-141'>PRICE</p>
                             <p className='absolute text-gray-400 right-16'>TOTAL</p>
                         </div>
+
+
                         <div className='w-full h-140 overflow-y-scroll scrollbar-hide'>
                             {Render}
                         </div>
+
+
                     </div>
 
 

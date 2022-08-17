@@ -75,7 +75,7 @@ export const HomeEachProduct = ({ids}) =>
             <p className='
             flex items-center justify-center font-medium text-gray-500
             xs:text-[.8rem] xs:w-full
-            lg:text-lg lg:w-9/12
+            lg:text-[1rem] lg:w-9/12
             '>{product}</p>
 
             <div className='

@@ -69,13 +69,29 @@ export const CartEachProduct = ({ids}) =>
 
 
     return (
-        <div className='flex h-40 justify-evenly items-center'>
-            <div className='w-80 h-full flex items-center'>
-                <img id='product-image' className='w-36' src={detailsImage[activeImage[product]]}  alt={product}/>
-                <div className='h-28 flex flex-col justify-evenly ml-4'>
-                    <p className='text-lg font-bold text-gray-500'>{product}</p>
-                    <p>See Product</p>
-                    <p className='w-8 h-8 bg-red-500 text-center text-xl text-white rounded-2xl flex justify-center items-center cursor-pointer'
+        <div className='
+        flex bg-neutral-100 my-3
+        xs:h-40 xs:flex-col xs:justify-between xs:items-center xs:rounded-3xl
+        lg:h-40 lg:flex-row lg:justify-between lg:items-center lg:rounded-none
+        '>
+
+
+            <div className='xs:w-full lg:w-80 h-full flex justify-start items-center'>
+
+                <img id='product-image' className='xs:w-24 lg:w-36' src={detailsImage[activeImage[product]]}  alt={product}/>
+
+                <div className='
+                flex flex-col items-start
+                xs:h-24 lg:h-28 xs:justify-center xs:gap-1
+                lg:justify-evenly lg:gap-0'>
+
+                    <p className='xs:text-sm  lg:text-[1rem] font-bold text-gray-500'>{product}</p>
+                    <p className='text-sm'>See Product</p>
+
+                    <p className='
+                    bg-red-500 text-center text-white rounded-2xl flex justify-center items-center cursor-pointer
+                    xs:w-6 xs:h-6 xs:text-sm
+                    lg:w-8 lg:h-8 lg:text-xl'
                        onClick={handelRemove}>
                         <RiDeleteBinLine/>
                     </p>
@@ -83,22 +99,59 @@ export const CartEachProduct = ({ids}) =>
             </div>
 
 
-            <div className='w-36 flex justify-evenly items-center'>
-                <button className='w-8 h-8 flex justify-center items-center text-red-500 disabled:opacity-50' disabled={CheckQuantity(id) <= 1}
+            <section className='
+             flex
+             xs:w-full xs:flex-row xs:justify-between xs:items-center xs:p-2
+             lg:w-7/12 lg:flex-row lg:justify-evenly lg:items-center  lg:p-0
+             '>
+
+            <div className='
+            flex justify-evenly items-center
+            xs:w-20
+            lg:w-36
+            '>
+
+                <button className='
+                flex justify-center items-center text-red-500 disabled:opacity-50
+                xs:w-6 xs:h-6 lg:w-8
+                lg:h-8' disabled={CheckQuantity(id) <= 1}
                         onClick={handelDecrease}>
                     <TiMinus/>
                 </button>
-                <p className='w-10 text-center p-2 border border-gray-300 '> {quantity}</p>
-                <button className='w-6 h-6 flex justify-center items-center rounded-full bg-blue-700 text-white' onClick={handelIncrease}>
+
+
+                <p className='
+                text-center text-neutral-600
+                xs:w-6 xs:p-0 xs:text-sm xs:font-bold lg:w-10
+                lg:p-2 lg:text-[.9rem] lg:border lg:border-gray-300'> {quantity}</p>
+
+
+                <button className='
+                flex justify-center items-center rounded-full bg-blue-700 text-white
+                xs:w-4 xs:h-4
+                lg:w-8 lg:h-8' onClick={handelIncrease}>
                     <TiPlus/>
                 </button>
+
             </div>
 
-            <p>{activeColor[product]}</p>
-            <p>{activeCapacity[product]}</p>
 
-            <p className='w-24 text-center text-gray-500'>${price}</p>
-            <p className='w-24 text-center text-blue-700 text-xl font-bold'>${EachTotalPrice}</p>
+            <p className='
+            rounded-full
+            xs:w-5 xs:h-5
+            lg:w-14
+            ' style={{background : activeColor[product]}}> </p>
+
+            <p className='
+            text-center text-neutral-500 font-bold
+            xs:text-sm
+            lg:text-[1rem] lg:w-10'>{activeCapacity[product]}GB</p>
+
+            <p className='xs:hidden lg:block text-center text-gray-500'>${price}</p>
+            <p className='xs:w-14 xs:text-sm lg:w-24 lg:text-[1rem] text-center text-blue-700 text-xl font-bold'>${EachTotalPrice}</p>
+
+            </section>
+
         </div>
     )
 }
