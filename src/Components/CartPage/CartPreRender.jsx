@@ -65,7 +65,7 @@ export const CartPreRender = () =>
                         </div>
 
 
-                        <div className='w-full xs:h-[38rem] lg:h-[40rem] overflow-y-scroll scrollbar-hide'>
+                        <div className='w-full xs:h-[28rem] lg:h-[40rem] overflow-y-scroll scrollbar-hide'>
                             {Render}
                         </div>
 
@@ -78,7 +78,7 @@ export const CartPreRender = () =>
                     ${continueShopping ? liveWidth < 500 && 'animate__animated animate__backOutLeft hidden' : liveWidth < 500 && 'animate__animated animate__bounceInLeft block'} 
                                       
                     p-6 bg-gray-100
-                    xs:absolute xs:w-11/12 xs:h-4/5 xs:top-3 xs:left-4 xs:rounded-3xl
+                    xs:absolute xs:w-11/12 xs:h-[34rem] xs:top-3 xs:left-4 xs:rounded-3xl
                     lg:relative lg:w-3/12 lg:h-full lg:rounded-none lg:block lg:animate__animated lg:animate__bounceIn
                     `}>
 
