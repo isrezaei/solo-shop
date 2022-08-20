@@ -65,7 +65,7 @@ export const CartPreRender = () =>
                         </div>
 
 
-                        <div className='w-full xs:h-[28rem] lg:h-[40rem] overflow-y-scroll scrollbar-hide'>
+                        <div className='w-full xs:h-[33rem] lg:h-[40rem] overflow-y-scroll scrollbar-hide'>
                             {Render}
                         </div>
 
