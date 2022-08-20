@@ -70,11 +70,10 @@ export const CartEachProduct = ({ids}) =>
 
     return (
         <div className='
-        flex bg-neutral-100 my-3
-        xs:h-40 xs:flex-col xs:justify-between xs:items-center xs:rounded-3xl
+        flex bg-neutral-100 my-3 relative
+        xs:h-40 xs:flex-col xs:justify-center xs:items-center xs:rounded-3xl
         lg:h-40 lg:flex-row lg:justify-between lg:items-center lg:rounded-none
         '>
-
 
             <div className='xs:w-full lg:w-80 h-full flex justify-start items-center'>
 
@@ -95,20 +94,23 @@ export const CartEachProduct = ({ids}) =>
                        onClick={handelRemove}>
                         <RiDeleteBinLine/>
                     </p>
+
                 </div>
+
             </div>
 
 
             <section className='
              flex
-             xs:w-full xs:flex-row xs:justify-between xs:items-center xs:p-2
-             lg:w-7/12 lg:flex-row lg:justify-evenly lg:items-center  lg:p-0
+             xs:w-full xs:flex-row xs:justify-evenly xs:items-center xs:py-3
+             lg:w-7/12 lg:flex-row lg:justify-between lg:items-center  lg:p-0
              '>
+
 
             <div className='
             flex justify-evenly items-center
-            xs:w-20
-            lg:w-36
+            xs:w-20 xs:bg-white xs:rounded-full xs:absolute xs:top-[4rem] xs:right-9
+            lg:w-36 lg:bg-transparent lg:relative
             '>
 
                 <button className='
@@ -137,18 +139,21 @@ export const CartEachProduct = ({ids}) =>
 
 
             <p className='
-            rounded-full
-            xs:w-5 xs:h-5
-            lg:w-14
+            shadow-md
+            xs:w-12 xs:h-5 xs:rounded-full
+            lg:w-14 lg:h-5 lg:rounded-none
             ' style={{background : activeColor[product]}}> </p>
 
             <p className='
-            text-center text-neutral-500 font-bold
-            xs:text-sm
-            lg:text-[1rem] lg:w-10'>{activeCapacity[product]}GB</p>
+            text-center text-neutral-500 font-bold bg-white
+            xs:text-sm xs:w-20  xs:rounded-full
+            lg:text-[1rem] lg:w-20 lg:rounded-none'
 
-            <p className='xs:hidden lg:block text-center text-gray-500'>${price}</p>
-            <p className='xs:w-14 xs:text-sm lg:w-24 lg:text-[1rem] text-center text-blue-700 text-xl font-bold'>${EachTotalPrice}</p>
+            >{activeCapacity[product]}GB</p>
+
+            <p className='xs:hidden lg:block bg-white lg:w-20 text-center text-gray-500'>${price}</p>
+
+            <p className='bg-white xs:w-14 xs:text-sm xs:rounded-full lg:w-24 lg:text-[1rem] lg:rounded-none lg:mr-4 text-center text-blue-700 text-xl font-bold'>${EachTotalPrice}</p>
 
             </section>
 

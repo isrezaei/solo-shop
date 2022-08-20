@@ -7,6 +7,9 @@ import {IoMdArrowRoundBack} from 'react-icons/io'
 import {ResetAndClearAllTotal} from "../../Redux/MasterDataSlice";
 import {CartEmptyAlert} from "./CartEmptyAlert";
 import {useNavigate} from "react-router-dom";
+import {useGetLiveWidth} from "../useGetLiveWidth";
+import {MdNavigateNext} from 'react-icons/md'
+import {IoArrowRedo , IoArrowUndoSharp} from 'react-icons/io5'
 
 export const CartPreRender = () =>
 {
@@ -14,6 +17,7 @@ export const CartPreRender = () =>
     const CartProduct = useSelector(state => selectCartShopIds(state))
     const Render = CartProduct.map(ids => <CartEachProduct key={ids} ids={ids}/>)
     const {totalQuantity , totalPrice} = useSelector(state => state.MasterDataSlice)
+    const {liveWidth} = useGetLiveWidth()
     const [ShippingFee , setShippingFee] = useState(5)
     const [continueShopping , setContinueShopping] = useState(true)
     const [headerPosition] = useState('relative');
@@ -43,9 +47,9 @@ export const CartPreRender = () =>
 
 
                     <div className={`
-                    ${continueShopping ? 'animate__animated animate__bounceInLeft opacity-100' : 'animate__animated animate__backOutLeft opacity-0'}
-                    flex flex-col justify-between items-center xs:w-full lg:w-8/12
-                    `}>
+                    ${continueShopping ? liveWidth < 500 && 'animate__animated animate__bounceInLeft' : liveWidth < 500 && 'animate__animated animate__backOutLeft'}
+                    flex flex-col justify-between items-center xs:w-full lg:w-8/12`
+                    }>
 
                         <div className='xs:w-full xs:h-8 lg:h-20 lg:w-11/12  px-4 flex justify-between items-center border-b border-b-gray-200'>
                             <p className='xs:text-sm lg:text-2xl font-bold text-gray-600'>Shopping Cart</p>
@@ -61,7 +65,7 @@ export const CartPreRender = () =>
                         </div>
 
 
-                        <div className='w-full h-140 overflow-y-scroll scrollbar-hide'>
+                        <div className='w-full xs:h-[38rem] lg:h-[40rem] overflow-y-scroll scrollbar-hide'>
                             {Render}
                         </div>
 
@@ -69,14 +73,13 @@ export const CartPreRender = () =>
                     </div>
 
 
-                    <button onClick={()=> setContinueShopping( value=> !value) } className='xs:block lg:hidden w-44 h-10 rounded-full bg-neutral-100 font-bold text-neutral-500 mx-auto my-2'>continue</button>
-
-
                     <div className={`
-                    ${continueShopping ? 'animate__animated animate__backOutLeft' : 'animate__animated animate__bounceInLeft'}                   
+                   
+                    ${continueShopping ? liveWidth < 500 && 'animate__animated animate__backOutLeft hidden' : liveWidth < 500 && 'animate__animated animate__bounceInLeft block'} 
+                                      
                     p-6 bg-gray-100
-                    xs:absolute xs:w-11/12 xs:h-4/5 xs:top-0 xs:left-4 xs:rounded-3xl
-                    lg:relative lg:w-3/12 lg:h-full lg:rounded-none
+                    xs:absolute xs:w-11/12 xs:h-4/5 xs:top-3 xs:left-4 xs:rounded-3xl
+                    lg:relative lg:w-3/12 lg:h-full lg:rounded-none lg:block lg:animate__animated lg:animate__bounceIn
                     `}>
 
 
@@ -100,7 +103,7 @@ export const CartPreRender = () =>
                             <input id='promo-code' placeholder='inter your code' className='w-full h-11 p-3 xs:text-sm xs:rounded-2xl lg:text-[1rem] lg:rounded-none'/>
                         </div>
                         <div className='xs:h-16 lg:h-24 w-full flex items-center border-b border-b-gray-300'>
-                            <button className='xs:w-20 xs:h-10 lg:w-24 lg:h-11 bg-blue-700 text-white xs:rounded-full xs:text-sm lg:rounded-none lg:text-[1rem]'>APPLY</button>
+                            <button className='xs:w-20 xs:h-8 lg:w-24 lg:h-11 bg-blue-700 text-white xs:rounded-full xs:text-sm lg:rounded-none lg:text-[1rem]'>APPLY</button>
                         </div>
 
                         <div className='w-full h-16 flex justify-between items-center'>
@@ -120,6 +123,14 @@ export const CartPreRender = () =>
 
 
                 </div>
+
+                <div onClick={()=> setContinueShopping( value=> !value) }
+                     className='xs:flex lg:hidden justify-center items-center text-xl absolute top-[4rem] shadow-md left-4 w-12 h-6 rounded-full bg-neutral-200 text-gray-400 '>
+
+                    {continueShopping ? <IoArrowRedo size={18}/>  : <IoArrowUndoSharp size={18}/>}
+                </div>
+
+
             </div>
             }
         </>

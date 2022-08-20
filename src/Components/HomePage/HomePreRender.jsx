@@ -95,7 +95,7 @@ export const HomePreRender = () =>
                 pagination={true}
                 modules={[Grid, Pagination]}
                 className="mySwiper
-                 xs:w-11/12  xs:h-custom40
+                 xs:w-11/12  xs:h-[45rem]
                  2xl:w-full 2xl:h-60 ">
                 {Render}
             </Swiper>
@@ -124,7 +124,7 @@ export const HomePreRender = () =>
                     pagination={true}
                     modules={[Grid, Pagination]}
                     className="mySwiper
-                    xs:w-11/12  xs:h-custom40
+                    xs:w-11/12 xs:h-[45rem]
                     2xl:w-full 2xl:h-60 ">
                     {Render}
                 </Swiper>
