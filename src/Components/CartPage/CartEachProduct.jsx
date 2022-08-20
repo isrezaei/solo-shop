@@ -110,7 +110,7 @@ export const CartEachProduct = ({ids}) =>
             <div className='
             flex justify-evenly items-center
             xs:w-20 xs:bg-white xs:rounded-full xs:absolute xs:top-[4rem] xs:right-9
-            lg:w-36 lg:bg-transparent lg:relative
+            lg:w-36 lg:bg-transparent lg:relative lg:top-0 xs:right-0
             '>
 
                 <button className='

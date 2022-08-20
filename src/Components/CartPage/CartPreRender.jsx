@@ -79,7 +79,7 @@ export const CartPreRender = () =>
                                       
                     p-6 bg-gray-100
                     xs:absolute xs:w-11/12 xs:h-[34rem] xs:top-3 xs:left-4 xs:rounded-3xl
-                    lg:relative lg:w-3/12 lg:h-full lg:rounded-none lg:block lg:animate__animated lg:animate__bounceIn
+                    lg:relative lg:w-3/12 lg:h-full lg:top-0 lg:rounded-none lg:block lg:animate__animated lg:animate__bounceIn
                     `}>
 
 
