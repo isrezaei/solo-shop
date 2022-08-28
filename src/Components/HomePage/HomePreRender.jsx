@@ -116,7 +116,7 @@ export const HomePreRender = () =>
         largeScreenRender = <>
                 <HomeSelectBasicFilter/>
                 <Swiper
-                    slidesPerView={(liveWidth < 500 && 2) || (liveWidth > 500 && 4)}
+                    slidesPerView={(liveWidth < 500 && 2) || (liveWidth < 1280 && 3) || (liveWidth > 1280 && 4)}
                     grid={{
                         rows: 2
                     }}
@@ -125,6 +125,7 @@ export const HomePreRender = () =>
                     modules={[Grid, Pagination]}
                     className="mySwiper
                     xs:w-11/12 xs:h-[45rem]
+                    lg:w-11/12 lg:h-[60rem]
                     2xl:w-full 2xl:h-60 ">
                     {Render}
                 </Swiper>

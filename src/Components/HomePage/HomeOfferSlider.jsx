@@ -40,42 +40,44 @@ export const HomeOfferSlider = () =>
         const OfferPrice = new Intl.NumberFormat('en-IN').format( items.price - (items.price * items.offer / 100))
 
         return (
-            <SwiperSlide key={items.id} className='flex flex-col font-medium justify-center items-center bg-white'>
+            <SwiperSlide key={items.id} className='flex flex-col justify-center items-center bg-white'>
 
-                <section className='w-full h-12 text-xl  flex items-center'>
+                <section className='lg:text-lg 2xl:text-xl font-bold w-full my-3 text-neutral-400 text-center'>
                     Best Offer in the weeks
                 </section>
 
-                <div className='w-full h-96 flex justify-center items-center'>
-                    <img className='w-auto h-5/6' src={items.image.mainImg} alt={items.product}/>
-                </div>
+                    <img className='lg:w-40 2xl:w-64 my-3' src={items.image.mainImg} alt={items.product}/>
 
 
-                <section className='w-11/12 h-11 flex justify-between items-center'>
-                    <p className='text-xl text-gray-500'>{items.brand}</p>
-                    <p className='text-lg line-through text-rose-500'>{items.price} $</p>
+
+                <section className='w-11/12 my-2 flex justify-around items-center py-1 bg-neutral-100 rounded-xl'>
+                    <p className='lg:text-lg 2xl:text-lg line-through text-rose-500 font-bold'>{items.price}$</p>
                 </section>
 
-                <section className='w-11/12 h-11 flex justify-between items-center'>
-                    <p className='text-lg text-gray-500'>{items.product.slice(5)}</p>
-                    <p className='text-2xl'>{OfferPrice} $</p>
+                <section className='w-11/12 my-2 flex justify-around items-center py-1 bg-neutral-100 rounded-xl'>
+                    <p className='lg:text-sm 2xl:text-lg text-gray-500'>{items.product.slice(5)}</p>
+                    <p className='lg:text-sm 2xl:text-xl text-neutral-500 font-bold'>${parseInt(OfferPrice)}</p>
                 </section>
 
-                <section className='h-11 flex items-center text-lg'> <p className='text-rose-600 mr-2'>{items.offer}%</p> <p className='text-black'>Offer available</p></section>
+                <section className='w-44 my-2 flex justify-center items-center p-1 bg-neutral-100 rounded-xl'>
+                    <p className='lg:text-sm 2xl:text-lg text-rose-600 font-bold mr-2'>{items.offer}%</p>
+                    <p className='lg:text-sm 2xl:text-lg text-neutral-500'>Offer available</p>
+                </section>
 
                 <section className='w-11/12 h-20 flex flex-col justify-center  items-start'>
-                    <p>Available : {items.count}</p>
-                    <Progress percent={items.count} status={'success'}/>
+                    <p className='lg:text-sm 2xl:text-lg text-neutral-500'>Available : {items.count}</p>
+                    <Progress percent={items.count}/>
                 </section>
 
-                <section className='w-11/12 h-14 flex justify-between items-center'>
+                <section className='w-11/12 my-2 flex justify-between items-center'>
 
                     <div>
-                        <p>Hurry up</p>
-                        <p>Offer ends in :</p>
+                        <p className='lg:text-sm 2xl:text-lg font-bold text-neutral-500'>Hurry up</p>
+                        <p className='lg:text-[.8rem] 2xl:text-lg text-neutral-500'>Offer ends in :</p>
                     </div>
 
-                    <Countdown date={Date.now() + 604800000  } renderer={renderer} />
+                    <Countdown date={Date.now() + 604800000  } renderer={renderer}/>
+
                 </section>
 
             </SwiperSlide>
@@ -84,9 +86,9 @@ export const HomeOfferSlider = () =>
 
     return (
         <div className='animate__animated animate__zoomInLeft
-
-        xs:hidden
-        lg:block  lg:w-96 lg:bg-white lg:mt-8 lg:p-3 lg:cursor-grabbing lg:shadow-xl
+        xs:hidden rounded-xl
+        lg:block lg:w-64 lg:bg-white lg:mt-20 lg:p-3 lg:cursor-grabbing lg:shadow-xl
+        2xl:w-96 xs:mt-8
         '>
             <Swiper
                 grabCursor={true}
