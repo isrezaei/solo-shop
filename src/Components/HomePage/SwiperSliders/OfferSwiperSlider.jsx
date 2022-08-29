@@ -1,5 +1,5 @@
 import {useSelector} from "react-redux";
-import {selectAllMasterData} from "../../Redux/MasterDataSlice";
+import {selectAllMasterData} from "../../../Redux/MasterDataSlice";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCreative } from "swiper";
 import { Progress } from 'react-sweet-progress';
@@ -8,7 +8,7 @@ import Countdown from 'react-countdown';
 import 'swiper/css/bundle'
 
 
-export const HomeOfferSlider = () =>
+export const OfferSwiperSlider = () =>
 {
 
     const AllProduct = useSelector(state => selectAllMasterData(state))
@@ -46,11 +46,11 @@ export const HomeOfferSlider = () =>
                     Best Offer in the weeks
                 </section>
 
-                    <img className='lg:w-40 2xl:w-64 my-3' src={items.image.mainImg} alt={items.product}/>
+                <section className=' lg:h-64 2xl:h-85 flex justify-center items-center my-3'>
+                    <img className='lg:w-44 2xl:w-64' src={items.image.mainImg} alt={items.product}/>
+                </section>
 
-
-
-                <section className='w-11/12 my-2 flex justify-around items-center py-1 bg-neutral-100 rounded-xl'>
+                <section className='w-28 my-2 flex justify-around items-center bg-neutral-100 rounded-xl'>
                     <p className='lg:text-lg 2xl:text-lg line-through text-rose-500 font-bold'>{items.price}$</p>
                 </section>
 
@@ -85,9 +85,10 @@ export const HomeOfferSlider = () =>
     })
 
     return (
-        <div className='animate__animated animate__zoomInLeft
-        xs:hidden rounded-xl
-        lg:block lg:w-64 lg:bg-white lg:mt-20 lg:p-3 lg:cursor-grabbing lg:shadow-xl
+        <div className='
+        animate__animated animate__zoomInLeft
+        xs:hidden rounded-3xl
+        lg:block lg:w-72 lg:bg-white lg:mt-20 lg:p-3 lg:cursor-grabbing lg:shadow-xl
         2xl:w-96 xs:mt-8
         '>
             <Swiper

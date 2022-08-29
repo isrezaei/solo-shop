@@ -2,16 +2,16 @@ import {CartWish} from "./Cart&Wish";
 import {MdOutlineManageSearch} from 'react-icons/md'
 import {Link} from "react-router-dom";
 import {useLayoutEffect, useState} from "react";
-import {useDebounce} from "../LiveSearch/Debounce";
+import {useDebounce} from "./LiveSearch/Debounce";
 import {useDispatch} from "react-redux";
 import {FetchLiveSearchData} from "../../Redux/LiveSearchSlice";
 import {CgClose} from 'react-icons/cg'
 import {BiSearchAlt} from 'react-icons/bi'
 import {useNavigate , useLocation } from "react-router-dom";
 import {emptyResultOfLiveSearch} from "../../Redux/LiveSearchSlice";
-import {SearchLogic} from "./SearchLogic";
+import {HandelInputSearch} from "./LiveSearch/HandelInputSearch";
 
-export const HeaderDown = ({HeaderMargin}) =>
+export const BottomHeader = ({HeaderMargin}) =>
 {
     const [showSearchInput , setSearchInput] = useState(false)
     const [valInput , setInput] = useState()
@@ -42,9 +42,10 @@ export const HeaderDown = ({HeaderMargin}) =>
             <p
                 key={options}
                 className='
-                text-lg text-white
+                text-white
                 xs:hidden
-                2xl:block
+                lg:block lg:text-[1rem]
+                2xl:text-lg
                 '>{options}</p>
         )
     })
@@ -53,54 +54,58 @@ export const HeaderDown = ({HeaderMargin}) =>
         <div className={`
         w-full flex 
         xs:flex-col xs:justify-start xs:items-center xs:m-0
-        2xl:justify-evenly 2xl:items-center ${HeaderMargin}`}>
+        2xl:justify-evenly 2xl:items-center`}>
 
             <div className='
             flex bg-neutral-800
-            xs:w-full xs:h-12 xs:justify-start xs:items-center xs:px-0 xs:m-0
-            2xl:w-full 2xl:m-auto 2xl:h-28 2xl:px-52 2xl:flex 2xl:items-center 2xl:justify-between'>
+            xs:w-full xs:h-16 xs:justify-start xs:items-center xs:px-0 xs:mt-0
+            lg:w-full lg:mt-[4rem] lg:px-8 lg:m-auto lg:h-20 lg:flex lg:items-center lg:justify-between lg:mt-20
+            2xl:px-52 2xl:mt-20 2xl:h-28
+            '>
 
                 <div className='flex justify-center items-center'>
                     <p className='
-                    text-white
+                    text-white font-bold
                     xs:hidden
-                    2xl:block 2xl:text-4xl'>FlyShop</p>
+                    lg:block lg:text-lg
+                    2xl:text-4xl'>SoloShop</p>
                 </div>
 
-                <div className='
-                xs:block xs:w-full
-                2xl:hidden
-                '>
-                    <SearchLogic setInput={setInput} setSearchInput={setSearchInput}/>
-                </div>
 
+
+                {/*show search input in lg responsive*/}
 
                 {
                     showSearchInput || location.pathname === '/search' ?
-                        <SearchLogic setInput={setInput} setSearchInput={setSearchInput}/>
+                        <HandelInputSearch setInput={setInput} setSearchInput={setSearchInput}/>
                         :
                         <div className='
-                         xs:hidden
-                         2xl:w-10/12 2xl:flex 2xl:justify-evenly 2xl:items-center'>
+                         flex lg:justify-evenly lg:items-center
+                         xs:w-full
+                         lg:w-10/12 '>
                             {headerOptions}
-                            <Link to='/search' state={{background : location}} className='' replace={false}>
-                                <MdOutlineManageSearch onClick={()=> setSearchInput(true)} className='text-5xl  text-white'/>
+                            <Link to='/search' state={{background : location}} replace={false}>
+                                <MdOutlineManageSearch onClick={()=> setSearchInput(true)} className='xs:hidden lg:block lg:text-4xl 2xl:text-5xl text-white'/>
+
+                                <span onClick={()=> setSearchInput(true)} className='xs:flex lg:hidden flex justify-center items-center gap-1 ml-3'>
+                                         <MdOutlineManageSearch className='text-2xl text-neutral-400'/>
+                                        <p className='outline-0 bg-transparent text-sm text-neutral-400'>can you search something ...</p>
+                                    </span>
                             </Link>
                         </div>
                 }
 
-                <div className='
-                xs:hidden
-                2xl:block
-                '>
+
+                <div className='xs:hidden lg:block'>
                     <CartWish/>
                 </div>
+
             </div>
 
             <div className='
             flex justify-evenly items-center
             xs:w-full xs:h-20 xs:bg-neutral-800
-            2xl:hidden
+            lg:hidden
             '>
                 <CartWish/>
             </div>

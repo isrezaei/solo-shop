@@ -3,23 +3,24 @@ import {useDispatch , useSelector} from "react-redux";
 import {SelectProduct} from "../../Redux/SelectProductSlice";
 import {filterByPrice , filterByStars , filterByProduct } from "../../Redux/FilterProductSlice";
 import {ImFilter} from 'react-icons/im'
-import {BsCurrencyDollar , BsApple} from 'react-icons/bs'
-import {AiFillStar , AiFillDollarCircle} from 'react-icons/ai'
-import {SiApple} from 'react-icons/si'
 import {FaWindowClose} from 'react-icons/fa'
-import {RiMoneyDollarCircleFill} from 'react-icons/ri'
+import {useContext} from "react";
+import {AllowFilter} from "./_RootPreRendering/RootPreRender";
 
 
-export const HomeSelectOptions = ({allowFilter , setAllowFilter}) =>
+export const HomeSelectOptions = () =>
 {
-    const {product , price : {startPoint , endPoint} , stars} = useSelector(state => state.FilterProductSlice)
+    const {allowFilter , setAllowFilter} = useContext(AllowFilter)
 
+    const {product , price : {startPoint , endPoint} , stars} = useSelector(state => state.FilterProductSlice)
     const [Active , setActive] = useState('iphone')
     const [Hover , setHover] = useState('')
     const dispatch = useDispatch()
 
-    const TitleProduct = ['iphone' , 'ipad' , 'ipod' , 'Watch' , 'Mac' , 'AirPod' ].map(items => {
 
+
+    //select
+    const TitleProduct = ['iphone' , 'ipad' , 'ipod' , 'Watch' , 'Mac' , 'AirPod' ].map(items => {
         const setActiveProduct = () =>
         {
             dispatch(SelectProduct(items))

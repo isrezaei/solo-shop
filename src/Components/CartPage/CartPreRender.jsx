@@ -2,7 +2,7 @@ import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {selectCartShopIds , DeleteAllCarts} from "../../Redux/CartShopSlice";
 import {CartEachProduct} from "./CartEachProduct";
-import {HeaderUp} from "../Header/HeaderUp";
+import {UpperHeader} from "../Header/UpperHeader";
 import {IoMdArrowRoundBack} from 'react-icons/io'
 import {ResetAndClearAllTotal} from "../../Redux/MasterDataSlice";
 import {CartEmptyAlert} from "./CartEmptyAlert";
@@ -34,7 +34,7 @@ export const CartPreRender = () =>
 
     return (
         <>
-            <HeaderUp headerPosition={headerPosition}/>
+            <UpperHeader headerPosition={headerPosition}/>
 
             {Render.length === 0 ? <CartEmptyAlert/> : <div className='w-full mt-8'>
 

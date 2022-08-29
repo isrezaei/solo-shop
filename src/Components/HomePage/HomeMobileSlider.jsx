@@ -27,7 +27,7 @@ export const HomeMobileSlider = () =>
 
     return (
 
-        <div className='xs:w-full xs:block xs:rounded-3xl lg:hidden'>
+        <div className='xs:w-full xs:block xs:rounded-3xl lg:hidden z-10'>
             {slider}
         </div>
 

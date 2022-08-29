@@ -4,7 +4,7 @@ import "swiper/css/bundle"
 
 
 
-export const HomeSlider = () =>
+export const HeaderSwiperSlider = () =>
 {
     return (
 
@@ -18,10 +18,10 @@ export const HomeSlider = () =>
                 autoplay={{ delay: 2500}}
                 className='
                 mySwiper
-                w-10/12
-                my-5
+                w-10/12  my-5 rounded-3xl
                 xs:h-56 xs:bg-red-500 xs:hidden
-                2xl:h-100 2xl:block'
+                lg:block lg:h-[25rem]
+                2xl:h-[40rem] 2xl:block'
             >
                 <SwiperSlide><img className='w-full h-full' src= {'https://user-images.githubusercontent.com/77073972/167292683-188ee3ea-50eb-443d-b333-7f4c27b0efba.png'} alt={'test'}/></SwiperSlide>
                 <SwiperSlide><img className='w-full h-full' src= {'https://user-images.githubusercontent.com/77073972/167294276-b5aacfe0-fa3b-45c1-b492-04a021b1de47.png'} alt={'test'}/></SwiperSlide>

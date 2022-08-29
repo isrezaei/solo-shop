@@ -1,9 +1,9 @@
 import {Routes, Route} from "react-router-dom";
-import {HomePreRender} from "./Components/HomePage/HomePreRender";
+import {RootPreRender} from "./Components/HomePage/_RootPreRendering/RootPreRender";
 import {DetailsPreRender} from "./Components/DetailsPage/DetailsPreRender";
 import {CartPreRender} from "./Components/CartPage/CartPreRender";
 import {ModalGalleryPreRender} from "./Components/ModalPage/ModalGalleryPreRender";
-import {LiveSearchPreRender} from "./Components/LiveSearch/LiveSearchPreRender";
+import {_RootPreRenderSearch} from "./Components/Header/LiveSearch/_RootPreRenderSearch";
 import {useLocation} from "react-router-dom";
 import {useEffect} from "react";
 
@@ -28,7 +28,7 @@ function App() {
         <div className='scrollbar-hide font-rubik'>
 
             <Routes location = {modalGallery || location}>
-                <Route path='/' exact element={<HomePreRender/>}/>
+                <Route path='/' exact element={<RootPreRender/>}/>
                 <Route path='/details/:productId' element={<DetailsPreRender/>}/>
                 <Route path='/cart-shop' element={<CartPreRender/>}/>
             </Routes>
@@ -44,7 +44,7 @@ function App() {
             {
                 searchComponent && (
                     <Routes>
-                        <Route path='/search' element={<LiveSearchPreRender/>}/>
+                        <Route path='/search' element={<_RootPreRenderSearch/>}/>
                     </Routes>
                 )
             }

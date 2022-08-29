@@ -2,8 +2,8 @@ import {useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 import {DetailsEachProduct} from "./DetailsEachProduct";
 import {FetchMasterData, selectMasterDataById} from "../../Redux/MasterDataSlice";
-import {HeaderUp} from "../Header/HeaderUp";
-import {HeaderDown} from "../Header/HeaderDown";
+import {UpperHeader} from "../Header/UpperHeader";
+import {BottomHeader} from "../Header/BottomHeader";
 import {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
 
@@ -41,8 +41,8 @@ export const DetailsPreRender = () =>
 
     return (
         <div className='relative max-w-full m-auto '>
-            <HeaderUp/>
-            <HeaderDown HeaderMargin={HeaderMargin}/>
+            <UpperHeader/>
+            <BottomHeader HeaderMargin={HeaderMargin}/>
             <div className='w-full relative mx-auto '>
                 {Render}
             </div>

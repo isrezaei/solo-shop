@@ -11,7 +11,6 @@ export const FilterResult = () =>
         const discountedPrice = parseInt((price - ((price * offer) / 100)))
 
         return (
-
             <div className={`
             animate__animated animate__backInUp animate__faster w-full h-56 p-1 bg-white flex flex-col justify-center items-center
             xs:rounded-3xl
