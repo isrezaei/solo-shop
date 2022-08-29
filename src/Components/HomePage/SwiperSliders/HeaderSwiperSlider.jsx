@@ -18,9 +18,9 @@ export const HeaderSwiperSlider = () =>
                 autoplay={{ delay: 2500}}
                 className='
                 mySwiper
-                w-10/12  my-5 rounded-3xl
-                xs:h-56 xs:bg-red-500 xs:hidden
-                lg:block lg:h-[25rem]
+
+                xs:w-full xs:h-64 xs:bg-red-500
+                lg:w-10/12 lg:block lg:h-[25rem] lg:rounded-3xl lg:my-5
                 2xl:h-[40rem] 2xl:block'
             >
                 <SwiperSlide><img className='w-full h-full' src= {'https://user-images.githubusercontent.com/77073972/167292683-188ee3ea-50eb-443d-b333-7f4c27b0efba.png'} alt={'test'}/></SwiperSlide>

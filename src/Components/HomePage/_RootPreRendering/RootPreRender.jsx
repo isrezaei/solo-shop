@@ -41,7 +41,7 @@ export const RootPreRender = () =>
             <UpperHeader headerPosition={headerPosition}/>
             <BottomHeader HeaderMargin={HeaderMargin}/>
             <HeaderSwiperSlider/>
-            <HomeMobileSlider/>
+
             <HomeBenefit/>
             <AllowFilter.Provider value={{allowFilter , setAllowFilter}}>
                 <HomeSelectOptions/>
