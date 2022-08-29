@@ -58,9 +58,9 @@ export const BottomHeader = ({HeaderMargin}) =>
 
             <div className='
             flex bg-neutral-800
-            xs:w-full xs:h-16 xs:justify-start xs:items-center xs:px-0 xs:mt-0
-            lg:w-full lg:mt-[4rem] lg:px-8 lg:m-auto lg:h-20 lg:flex lg:items-center lg:justify-between lg:mt-20
-            2xl:px-52 2xl:mt-20 2xl:h-28
+            xs:px-0 xs:w-full xs:h-16 xs:justify-start xs:items-center xs:mt-0
+            lg:px-24 lg:w-full lg:mt-[4rem] lg:m-auto lg:h-20 lg:flex lg:items-center lg:justify-between lg:mt-20
+            2xl:px-24 2xl:mt-20 2xl:h-28
             '>
 
                 <div className='flex justify-center items-center'>
