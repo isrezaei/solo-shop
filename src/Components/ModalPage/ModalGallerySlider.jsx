@@ -11,7 +11,7 @@ export const ModalGallerySlider = ({image}) =>
     const subImageUp = image.subImg.map(items => {
         return (
             <SwiperSlide key={items} className='h-full cursor-grab flex justify-center items-center'>
-                <img src={items} className='xs:h-40 lg:h-56 2xl:h-80' alt='product'/>
+                <img src={items} className='xs:h-40 lg:h-56 2xl:h-72' alt='product'/>
             </SwiperSlide>
         )
     })
