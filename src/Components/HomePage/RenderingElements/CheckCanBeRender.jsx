@@ -82,17 +82,21 @@ export const CheckCanBeRender = () =>
     }
 
 
+
+
     return (
         <section className='w-full bg-gray-100 relative'>
             <div className='
-                m-auto flex justify-around items-start
+                m-auto flex justify-center items-start
                 xs:w-full
-                lg:w-11/12 lg:relative
+                lg:w-11/12 lg:relative lg:px-5
+                2xl:px-0 2xl:gap-8
                 '>
-                {
-                    (allowFilter && liveWidth > 500) ? <FilterLogic/> :  <OfferSwiperSlider/>
-                }
+
+                {(allowFilter && liveWidth > 500) ? <FilterLogic/> :  <OfferSwiperSlider/>}
+
                 <section className='
+
                      flex flex-col items-center
                      xs:w-full xs:justify-center
                      lg:w-9/12 lg:justify-between
@@ -100,6 +104,8 @@ export const CheckCanBeRender = () =>
                     {mobileRender}
                     {largeScreenRender}
                 </section>
+
+
             </div>
         </section>
     )

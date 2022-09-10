@@ -20,13 +20,13 @@ export const UpperHeader = () =>
         <div className={` 
           flex ${ScrollPosition > 200 ? 'bg-neutral-800' : 'bg-gray-50'} z-50 transition
           xs:w-full xs:h-16 xs:justify-center xs:items-center xs:relative
-          lg:fixed lg:h-[5rem]
-          2xl:w-full 2xl:h-20 2xl:top-0`
+          lg:fixed lg:h-[5rem] lg:left-0 lg:top-0
+          2xl:w-full`
         }>
             <div className='
             xs:w-96 xs:justify-start xs:item-center xs:m-0
-            lg:w-11/12 lg:flex lg:justify-between lg:items-center
-            2xl:h-20
+            lg:w-[1400px] lg:flex lg:mx-5 lg:justify-between lg:items-center
+            2xl:w-[1800px] 2xl:h-20 2xl:mx-0
             '>
                 <div className='
                 xs:hidden

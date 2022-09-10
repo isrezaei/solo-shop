@@ -88,7 +88,7 @@ export const OfferSwiperSlider = () =>
         <div className='
         animate__animated animate__zoomInLeft
         xs:hidden rounded-3xl
-        lg:block lg:w-72 lg:bg-white lg:mt-20 lg:p-3 lg:cursor-grabbing lg:shadow-xl
+        lg:block lg:w-80 lg:bg-white lg:mt-20 lg:p-3 lg:cursor-grabbing
         2xl:w-96 xs:mt-8
         '>
             <Swiper

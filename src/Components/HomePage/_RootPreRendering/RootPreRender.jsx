@@ -31,23 +31,23 @@ export const RootPreRender = () =>
 
 
     return (
-        <div className='
-        m-auto
-        xs:w-full
-        lg:max-w-fit
-        '>
+        <>
             <UpperHeader/>
             <BottomHeader/>
+
+            <div className='max-w-[1990px] m-auto'>
+
             <HeaderSwiperSlider/>
 
             <HomeBenefit/>
+
             <AllowFilter.Provider value={{allowFilter , setAllowFilter}}>
                 <HomeSelectOptions/>
                 <CheckCanBeRender/>
             </AllowFilter.Provider>
-            <Footer/>
-
-        </div>
+                <Footer/>
+            </div>
+        </>
     )
 
 
