@@ -5,13 +5,11 @@ import {useLayoutEffect, useState} from "react";
 import {useDebounce} from "./LiveSearch/Debounce";
 import {useDispatch} from "react-redux";
 import {FetchLiveSearchData} from "../../Redux/LiveSearchSlice";
-import {CgClose} from 'react-icons/cg'
-import {BiSearchAlt} from 'react-icons/bi'
 import {useNavigate , useLocation } from "react-router-dom";
 import {emptyResultOfLiveSearch} from "../../Redux/LiveSearchSlice";
 import {HandelInputSearch} from "./LiveSearch/HandelInputSearch";
 
-export const BottomHeader = ({HeaderMargin}) =>
+export const BottomHeader = () =>
 {
     const [showSearchInput , setSearchInput] = useState(false)
     const [valInput , setInput] = useState()
@@ -37,14 +35,14 @@ export const BottomHeader = ({HeaderMargin}) =>
 
 
 
-    const headerOptions = ['Home','Affiliate','Category','Collections','Blogs'].map(options => {
+    const headerOptions = ['Affiliate','Category','Blogs'].map(options => {
         return (
             <p
                 key={options}
                 className='
                 text-white
                 xs:hidden
-                lg:block lg:text-[1rem]
+                lg:block lg:text-[.9rem]
                 2xl:text-lg
                 '>{options}</p>
         )
@@ -54,13 +52,13 @@ export const BottomHeader = ({HeaderMargin}) =>
         <div className={`
         w-full flex 
         xs:flex-col xs:justify-start xs:items-center xs:m-0
-        2xl:justify-evenly 2xl:items-center`}>
+        lg:justify-evenly lg:items-center`}>
 
             <div className='
             flex bg-neutral-800
             xs:px-0 xs:w-full xs:h-16 xs:justify-start xs:items-center xs:mt-0
             lg:px-24 lg:w-full lg:mt-[4rem] lg:m-auto lg:h-20 lg:flex lg:items-center lg:justify-between lg:mt-20
-            2xl:px-24 2xl:mt-20 2xl:h-28
+            2xl:px-24 2xl:mt-20 2xl:h-20
             '>
 
                 <div className='flex justify-center items-center'>

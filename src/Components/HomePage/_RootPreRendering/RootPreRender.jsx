@@ -18,7 +18,6 @@ import '../../../../node_modules/animate.css/animate.css';
 export const RootPreRender = () =>
 {
     const {status} = useSelector(state => state.MasterDataSlice)
-    const [headerPosition] = useState('lg:fixed');
     const [HeaderMargin] = useState('2xl:mt-20')
     const [allowFilter , setAllowFilter] = useState(false)
     const dispatch = useDispatch()
@@ -37,8 +36,8 @@ export const RootPreRender = () =>
         xs:w-full
         lg:max-w-fit
         '>
-            <UpperHeader headerPosition={headerPosition}/>
-            <BottomHeader HeaderMargin={HeaderMargin}/>
+            <UpperHeader/>
+            <BottomHeader/>
             <HeaderSwiperSlider/>
 
             <HomeBenefit/>
