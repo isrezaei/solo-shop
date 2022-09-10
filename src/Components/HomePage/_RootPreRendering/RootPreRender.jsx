@@ -2,7 +2,6 @@ import {createContext} from "react";
 import {useSelector , useDispatch} from "react-redux";
 import {FetchMasterData} from "../../../Redux/MasterDataSlice";
 import {HeaderSwiperSlider} from "../SwiperSliders/HeaderSwiperSlider";
-import {HomeMobileSlider} from "../HomeMobileSlider";
 import {HomeBenefit} from "../HomeBenefit";
 import {HomeSelectOptions} from "../HomeSelectOptions";
 import {UpperHeader} from "../../Header/UpperHeader";

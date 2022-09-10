@@ -34,9 +34,10 @@ export const HomeSelectOptions = () =>
                 onClick={setActiveProduct}
                 className={`
                 transition cursor-pointer text-gray-500 flex items-center justify-center
-                xs:w-2/6 xs:h-8 xs:p-2 xs:text-sm xs:rounded-full
-                lg:w-2/12 lg:h-16 lg:p-0 lg:text-xl lg:rounded-none
-                  ${Hover === items && Hover !== Active &&'bg-gray-100'}
+                xs:w-2/6 xs:h-8 xs:p-2 xs:text-sm xs:rounded-t-full xs:rounded-b-full
+                lg:w-32 lg:h-10 lg:p-0 lg:text-[1rem] lg:rounded-t-[1rem] lg:rounded-b-none
+                2xl:w-48 2xl:h-14 2xl:p-0 2xl:text-xl 
+                  ${Hover === items && Hover !== Active &&'lg:bg-gray-100'}
                   ${Active === items && 'text-white bg-blue-700'}`}>
                 {items}
             </div>
@@ -53,9 +54,11 @@ export const HomeSelectOptions = () =>
 
             <div className={`
             animate__animated
-            animate__faster ${allowFilter ? 'animate__fadeOut pointer-events-none' : 'animate__fadeIn pointer-events-auto'} w-full flex justify-center items-center`}>
+            animate__faster ${allowFilter ? 'animate__fadeOut pointer-events-none' : 'animate__fadeIn pointer-events-auto'} w-full flex justify-around items-center`}>
                 {TitleProduct}
             </div>
+
+
 
             <div className={`
             animate__animated
@@ -119,9 +122,9 @@ export const HomeSelectOptions = () =>
                 `${allowFilter ? 'bg-blue-600 text-white' : 'bg-neutral-200 text-neutral-500'} 
                 transition flex justify-center gap-3 items-center cursor-pointer
                 xs:w-9 xs:h-8 xs:rounded-full xs:absolute xs:right-2 xs:top-8 xs:z-10 xs:border xs:border-4 xs:border-white
-                lg:w-24 lg:h-16 lg:rounded-none lg:relative lg:right-0 lg:top-0 lg:border-0
-                `}>
-                <ImFilter className='xs:text-sm lg:text-3xl'/>
+                lg:w-20 lg:h-12 lg:rounded-full lg:absolute lg:left-0 lg:top-[3.5rem]
+                2xl:w-20 2xl:h-14 2xl:left-0 2xl:top-[4.3rem]`}>
+                <ImFilter className='xs:text-sm lg:text-xl 2xl:text-2xl'/>
             </div>
         </div>
     )
