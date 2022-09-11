@@ -1,8 +1,8 @@
 import {Routes, Route} from "react-router-dom";
-import {RootPreRender} from "./Components/HomePage/_RootPreRendering/RootPreRender";
-import {DetailsPreRender} from "./Components/DetailsPage/DetailsPreRender";
-import {CartPreRender} from "./Components/CartPage/CartPreRender";
-import {ModalGalleryPreRender} from "./Components/ModalPage/ModalGalleryPreRender";
+import {RootPreRender} from "./Components/Home/_RootPreRendering/RootPreRender";
+import {DetailsPreRender} from "./Components/Products_Page/Products_Rendering/DetailsPreRender";
+import {CartPreRender} from "./Components/Cart_Shop/CartPreRender";
+import {ModalGalleryPreRender} from "./Components/Modals_Page/ModalGalleryPreRender";
 import {_RootPreRenderSearch} from "./Components/Header/LiveSearch/_RootPreRenderSearch";
 import {useLocation} from "react-router-dom";
 import {useEffect} from "react";

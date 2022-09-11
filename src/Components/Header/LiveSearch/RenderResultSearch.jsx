@@ -1,5 +1,5 @@
 import {useSelector} from "react-redux";
-import {DiscountedCalculation} from "../../DetailsPage/DiscountedCalculation";
+import {DiscountedCalculation} from "../../Products_Page/Utility_Fils/DiscountedCalculation";
 import {IoBookmarksOutline , IoBookmarksSharp} from 'react-icons/io5'
 import {Link} from "react-router-dom";
 import {BsBookmarkFill , BsBookmark} from 'react-icons/bs'
