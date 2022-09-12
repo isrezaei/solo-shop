@@ -37,7 +37,7 @@ export const Shop_Panel = () =>
                                       
                     p-6 bg-gray-100
                     xs:absolute xs:w-11/12 xs:h-[34rem] xs:top-3 xs:left-4 xs:rounded-3xl
-                    lg:relative lg:w-4/12 lg:h-[40rem] lg:top-0 lg:block lg:my-10 lg:animate__animated lg:animate__bounceIn
+                    lg:relative lg:w-4/12 lg:h-[40rem] lg:top-0 lg:block  lg:animate__animated lg:animate__bounceIn
                     `}>
 
 

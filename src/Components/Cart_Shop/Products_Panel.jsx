@@ -27,7 +27,7 @@ export const Products_Panel = () =>
 
                 <div className={`
                     ${continueShopping ? liveWidth < 500 && 'animate__animated animate__bounceInLeft' : liveWidth < 500 && 'animate__animated animate__backOutLeft'}
-                    flex flex-col justify-between items-center xs:w-full lg:w-8/12`}>
+                    flex flex-col justify-between items-center xs:w-full lg:w-8/12 lg:bg-gray-100 lg:rounded-3xl `}>
 
                     <div className='xs:w-full xs:h-8 lg:h-20 lg:w-11/12  px-4 flex justify-between items-center border-b border-b-gray-200'>
                         <p className='xs:text-sm lg:text-xl text-neutral-500 font-bold'>Shopping Cart</p>

@@ -70,9 +70,9 @@ export const CartEachProduct = ({ids}) =>
 
     return (
         <div className='
-        flex bg-neutral-100 my-3 relative
-        xs:h-40 xs:flex-col xs:justify-center xs:items-center xs:rounded-3xl
-        lg:w-[36rem] lg:h-40 lg:flex-row lg:justify-start lg:items-center
+        flex my-3 relative
+        xs:h-40 xs:flex-col xs:justify-center xs:items-center xs:rounded-3xl xs:bg-neutral-100
+        lg:w-[36rem] lg:h-40 lg:flex-row lg:justify-start lg:items-center lg:bg-white
         2xl:w-[40rem]'>
 
             <div className='xs:w-full lg:w-[16rem]  h-full flex justify-start items-center'>

@@ -17,9 +17,8 @@ export const CartPreRender = () =>
             <div className='max-w-[1200px] lg:mx-auto lg:mt-[6.5vw] 2xl:mt-[5vw]'>
 
                 {Render.length === 0 ? <CartEmptyAlert/> : <Products_Panel/>}
-                <Footer/>
             </div>
-
+            <Footer/>
         </>
     )
 }

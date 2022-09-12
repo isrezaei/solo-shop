@@ -75,9 +75,9 @@ export const DetailsEachProduct = ({EachProduct}) => {
 
                 {/*********************/}
                 <section className='
-                h-auto flex flex-col justify-start items-start gap-2 scrollbar-hide
+                h-auto flex flex-col justify-start items-start gap-2 overflow-y-scroll overflow-x-hidden scrollbar-hide
                 xs:w-full xs:relative xs:px-0
-                lg:w-3/6 lg:h-[85rem] lg:overflow-y-scroll lg:my-8  lg:relative lg:right-0 lg:p-6'>
+                lg:w-3/6 lg:h-[85rem] lg:my-8  lg:relative lg:right-0 lg:p-6'>
                     <Informations/>
 
                     <div className='
