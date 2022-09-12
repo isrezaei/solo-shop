@@ -1,7 +1,7 @@
 import {Routes, Route} from "react-router-dom";
 import {RootPreRender} from "./Components/Home/_RootPreRendering/RootPreRender";
 import {DetailsPreRender} from "./Components/Products_Page/Products_Rendering/DetailsPreRender";
-import {CartPreRender} from "./Components/Cart_Shop/CartPreRender";
+import {Pre_Render} from "./Components/Cart_Shop/Pre_Render";
 import {ModalGalleryPreRender} from "./Components/Modals_Page/ModalGalleryPreRender";
 import {_RootPreRenderSearch} from "./Components/Header/LiveSearch/_RootPreRenderSearch";
 import {useLocation} from "react-router-dom";
@@ -31,7 +31,7 @@ function App() {
             <Routes location = {modalGallery || location}>
                 <Route path='/' exact element={<RootPreRender/>}/>
                 <Route path='/details/:productId' element={<DetailsPreRender/>}/>
-                <Route path='/cart-shop' element={<CartPreRender/>}/>
+                <Route path='/cart-shop' element={<Pre_Render/>}/>
             </Routes>
 
             {

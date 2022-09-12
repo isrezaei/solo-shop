@@ -6,6 +6,7 @@ import {useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import {ResetAndClearAllTotal} from "../../Redux/MasterDataSlice";
 import {IoArrowRedo, IoArrowUndoSharp} from "react-icons/io5";
+import {Open_Close_Counter} from "./Open_Close_Counter";
 
 export const Shop_Panel = () =>
 {
@@ -15,9 +16,8 @@ export const Shop_Panel = () =>
     const {totalQuantity , totalPrice} = useSelector(state => state.MasterDataSlice)
     const {liveWidth} = useGetLiveWidth()
     const [ShippingFee , setShippingFee] = useState(5)
-    const [continueShopping , setContinueShopping] = useState(true)
-    const Navigation = useNavigate()
 
+    const Navigation = useNavigate()
 
     const clearAndBack = () =>
     {
@@ -29,19 +29,15 @@ export const Shop_Panel = () =>
 
     return(
         <>
-            <div className={`
-
-            ${continueShopping ? liveWidth < 1024 && 'animate__animated animate__backOutLeft hidden' :
-                
-                liveWidth < 1024 && 'animate__animated animate__bounceInLeft block'} 
-                                      
+            <div className={`                                      
                     p-6 bg-gray-100
-                    xs:absolute xs:w-11/12 xs:h-[34rem] xs:top-3 xs:left-4 xs:rounded-3xl
-                    lg:relative lg:w-4/12 lg:h-[40rem] lg:top-0 lg:block  lg:animate__animated lg:animate__bounceIn
-                    `}>
+                    xs:w-11/12 xs:h-[34rem] xs:rounded-3xl
+                    lg:relative lg:w-[25rem] lg:h-[40rem] lg:top-0 lg:block lg:animate__animated lg:animate__bounceIn`}>
 
 
-                <div className='w-full flex items-start text-neutral-500 font-bold border-b border-b-gray-300 xs:h-10 xs:text-lg lg:h-10 lg:text-xl '>Order Summary</div>
+                <div className='w-full flex items-start text-neutral-500 font-bold border-b border-b-gray-300 xs:h-10 xs:text-lg lg:h-10 lg:text-xl '>
+                    <p>Order Summary</p>
+                </div>
 
                 <div className='w-full xs:h-12 lg:h-16 flex justify-between items-center'>
                     <p className='xs:text-sm lg:text-lg text-neutral-500'>ITEMS {totalQuantity}</p>
@@ -82,13 +78,6 @@ export const Shop_Panel = () =>
                 </div>
 
             </div>
-
-            <div onClick={()=> setContinueShopping( value=> !value) }
-                 className='xs:flex lg:hidden justify-center items-center text-xl absolute top-[4rem] shadow-md left-4 w-12 h-6 rounded-full bg-neutral-200 text-gray-400 '>
-
-                {continueShopping ? <IoArrowRedo size={18}/>  : <IoArrowUndoSharp size={18}/>}
-            </div>
-
 
         </>
     )

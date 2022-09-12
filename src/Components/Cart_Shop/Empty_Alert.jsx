@@ -1,7 +1,7 @@
 import {MdAddShoppingCart} from 'react-icons/md'
 import {useNavigate} from "react-router-dom";
 
-export const CartEmptyAlert = () =>
+export const Empty_Alert = () =>
 {
 
     const Navigation = useNavigate()

@@ -8,7 +8,7 @@ import {useDispatch} from "react-redux";
 import {DiscountedCalculation} from "../Products_Page/Utility_Fils/DiscountedCalculation";
 
 
-export const CartEachProduct = ({ids}) =>
+export const Each_Product = ({ids}) =>
 {
     const CartSlice = useSelector(state => selectCartShopById(state , ids))
     const MasterSlice = useSelector(state => selectMasterDataById(state , ids))
@@ -71,7 +71,7 @@ export const CartEachProduct = ({ids}) =>
     return (
         <div className='
         flex my-3 relative
-        xs:h-40 xs:flex-col xs:justify-center xs:items-center xs:rounded-3xl xs:bg-neutral-100
+        xs:w-[21rem] xs:mx-auto xs:h-40 xs:flex-col xs:justify-center xs:items-center xs:rounded-3xl xs:bg-neutral-100
         lg:w-[36rem] lg:h-40 lg:flex-row lg:justify-start lg:items-center lg:bg-white
         2xl:w-[40rem]'>
 
