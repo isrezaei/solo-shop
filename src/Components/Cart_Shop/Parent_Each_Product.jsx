@@ -15,20 +15,23 @@ export const Parent_Each_Product = () =>
     const {totalQuantity , totalPrice} = useSelector(state => state.MasterDataSlice)
     const CartProduct = useSelector(state => selectCartShopIds(state))
 
-    const Render = CartProduct.map(ids => <Each_Product key={ids} ids={ids}/>)
 
     return (
-        <div className='w-full lg:mt-8'>
+        <div className='w-full'>
 
             <div className='
                 mx-auto flex relative
                 xs:h-[35rem] xs:flex-col
-                lg:h-[50rem] lg:flex-row lg:justify-evenly lg:items-start'>
+                md:h-[38rem] md:flex-row md:justify-evenly md:items-center
+                lg:h-[50rem] lg:flex-row lg:justify-evenly lg:items-center'>
 
 
-                <div className={`
-                    
-                    flex flex-col justify-between items-center xs:w-full lg:w-[50rem] lg:bg-gray-100 lg:rounded-3xl `}>
+                <div className='
+                flex flex-col justify-between items-center
+                xs:w-full
+                md:w-[33rem] md:bg-gray-100 md:rounded-3xl
+                lg:w-[45rem] lg:bg-gray-100 lg:rounded-3xl
+                '>
 
                     <div className='xs:w-full xs:h-8 lg:h-20 lg:w-11/12  px-4 flex justify-between items-center border-b border-b-gray-200'>
                         <p className='xs:text-sm lg:text-xl text-neutral-500 font-bold'>Shopping Cart</p>
@@ -47,15 +50,15 @@ export const Parent_Each_Product = () =>
                         overflow-y-scroll scrollbar-hide
                         xs:w-full xs:h-[33rem]
                         lg:w-auto lg:h-[40rem] lg:flex lg:flex-col lg:justify-start lg:items-center'>
-                        {Render}
+                        {CartProduct.map(ids => <Each_Product key={ids} ids={ids}/>)}
                     </div>
                 </div>
 
-                <span className='xs:hidden lg:flex lg:w-auto lg:mx-auto'>
+                <span className='xs:hidden md:flex md:w-auto'>
                     <Shop_Panel/>
                 </span>
 
-                <span className='xs:block lg:hidden lg:w-auto lg:mx-auto'>
+                <span className='xs:block md:hidden'>
                     <Open_Close_Counter/>
                 </span>
 

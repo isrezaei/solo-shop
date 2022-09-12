@@ -29,10 +29,10 @@ export const Shop_Panel = () =>
 
     return(
         <>
-            <div className={`                                      
+            <div className='
                     p-6 bg-gray-100
                     xs:w-11/12 xs:h-[34rem] xs:rounded-3xl
-                    lg:relative lg:w-[25rem] lg:h-[40rem] lg:top-0 lg:block lg:animate__animated lg:animate__bounceIn`}>
+                    lg:w-[25rem] lg:h-[40rem] lg:top-0 lg:block'>
 
 
                 <div className='w-full flex items-start text-neutral-500 font-bold border-b border-b-gray-300 xs:h-10 xs:text-lg lg:h-10 lg:text-xl '>

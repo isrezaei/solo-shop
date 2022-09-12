@@ -72,6 +72,7 @@ export const Each_Product = ({ids}) =>
         <div className='
         flex my-3 relative
         xs:w-[21rem] xs:mx-auto xs:h-40 xs:flex-col xs:justify-center xs:items-center xs:rounded-3xl xs:bg-neutral-100
+        md:w-[30rem] md:h-40 md:flex-row md:justify-start md:items-center md:bg-white
         lg:w-[36rem] lg:h-40 lg:flex-row lg:justify-start lg:items-center lg:bg-white
         2xl:w-[40rem]'>
 
