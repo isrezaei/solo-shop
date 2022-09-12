@@ -1,6 +1,7 @@
 import { slide as Menu } from 'react-burger-menu'
 import {Shop_Panel} from "./Shop_Panel";
 import {useState} from "react";
+import {FiShoppingBag} from 'react-icons/fi'
 
 
 export const Open_Close_Counter = () => {
@@ -10,14 +11,13 @@ export const Open_Close_Counter = () => {
     var styles = {
         bmBurgerButton: {
             position: 'absolute',
-            left : '0',
+            left : '.8rem',
             bottom : '0',
-            width : '100%',
-            height : '2`rem',
-            margin : '0rem 0',
-            background : '#3232c4',
-            fontSize: '.8rem',
+            width : '2.5rem',
+            height : '2.5rem',
             padding : '.3rem',
+            borderRadius: '30rem',
+            background : '#2a59ef',
             textAlign : 'center'
         },
         bmBurgerBars: {
@@ -42,7 +42,12 @@ export const Open_Close_Counter = () => {
 
         },
         bmMenu: {
-            background: '#333333',
+            background: 'rgba( 255, 255, 255, 0.6 )',
+
+            backdropFilter: 'blur( 4px )',
+            borderRadius: '10px',
+            border: '1px solid rgba( 255, 255, 255, 0.18 )'
+
         },
         bmMorphShape: {
             fill: '#373a47'
@@ -76,7 +81,8 @@ export const Open_Close_Counter = () => {
 
 
     return (
-        <Menu  onStateChange={()=> setOverFlow(value => !value)} customBurgerIcon={<p className='text-neutral-50'>continue shop</p>} styles={ styles }>
+        <Menu onStateChange={()=> setOverFlow(value => !value)}
+               customBurgerIcon={<p className='text-[1.5rem] flex justify-center items-center text-neutral-100'><FiShoppingBag/></p>} styles={styles}>
             <div className='w-full h-full !flex !justify-center !items-center'>
                 <Shop_Panel/>
             </div>
