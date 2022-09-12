@@ -6,6 +6,7 @@ import {ModalGalleryPreRender} from "./Components/Modals_Page/ModalGalleryPreRen
 import {_RootPreRenderSearch} from "./Components/Header/LiveSearch/_RootPreRenderSearch";
 import {useLocation} from "react-router-dom";
 import {useEffect} from "react";
+import {Footer} from "./Components/Footer/Footer";
 
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
                     </Routes>
                 )
             }
+
         </div>
     )
 }

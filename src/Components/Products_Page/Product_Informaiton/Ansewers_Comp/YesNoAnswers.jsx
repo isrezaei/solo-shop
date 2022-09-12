@@ -23,7 +23,7 @@ export const AnswerOfHaveSmartPhone = () =>
                                 <div key={answer}
                                      onClick={()=>stepHaveOldPhone(answer , contextDispatch)}
                                      className={`
-                                     ${choicesAnswer.haveOldPhone === answer && 'border border-transparent outline outline-4 outline-blue-300'}
+                                     ${choicesAnswer.haveOldPhone === answer && '!border-4 !border-blue-300'}
                                      flex flex-col justify-center items-center gap-2 border border-gray-400 cursor-pointer text-neutral-500
                                      xs:w-28 xs:h-10 xs:text-sm xs:rounded-full
                                      lg:w-[13rem] lg:h-12 lg:text-lg lg:my-2
@@ -52,7 +52,7 @@ export const AnswerOfHaveGoodCondition = () =>
                                      stepCondition(answer , contextDispatch)
                                  }}
                                  className={`
-                                 ${choicesAnswer.haveGoodCondition === answer && 'border border-transparent outline outline-4 outline-blue-300'}
+                                 ${choicesAnswer.haveGoodCondition === answer && '!border-4 !border-blue-300'}
                                      flex flex-col justify-center items-center gap-2 border border-gray-400 cursor-pointer text-neutral-500
                                      xs:w-28 xs:h-10 xs:text-sm xs:rounded-full
                                      lg:w-48 lg:h-14 lg:text-lg lg:rounded-full
@@ -79,7 +79,7 @@ export const AnswerOfButtonWork = () =>
                                      setEditAnswer(answer , contextDispatch)
                                      stepHaveButtonWork(answer , contextDispatch)
                                  }}
-                                 className={`${choicesAnswer.haveButtonWork === answer && 'border border-transparent outline outline-4 outline-blue-300'}
+                                 className={`${choicesAnswer.haveButtonWork === answer && '!border-4 !border-blue-300'}
                                      flex flex-col justify-center items-center gap-2 border border-gray-400 cursor-pointer text-neutral-500
                                      xs:w-28 xs:h-10 xs:text-sm xs:rounded-full
                                      lg:w-48 lg:h-14 lg:text-lg lg:rounded-full
@@ -106,7 +106,7 @@ export const AnswerOfGoodShape = () =>
                                      setEditAnswer(answer , contextDispatch)
                                      stepHaveGoodShape(answer , contextDispatch)
                                  }}
-                                 className={`${choicesAnswer.haveGoodShape === answer && 'border border-transparent outline outline-4 outline-blue-300'}
+                                 className={`${choicesAnswer.haveGoodShape === answer && '!border-4 !border-blue-300'}
                                      flex flex-col justify-center items-center gap-2 border border-gray-400 cursor-pointer text-neutral-500
                                      xs:w-28 xs:h-10 xs:text-sm xs:rounded-full
                                      lg:w-48 lg:h-14 lg:text-lg lg:rounded-full
@@ -131,7 +131,7 @@ export const AnswerOfTouchScreenWork = () =>
                                      setEditAnswer('Yes' , contextDispatch)
                                      stepHaveTouchScreenWork(answer , contextDispatch)
                                  }}
-                                 className={`${choicesAnswer.haveTouchScreenWork === answer && 'border border-transparent outline outline-4 outline-blue-300'}
+                                 className={`${choicesAnswer.haveTouchScreenWork === answer && '!border-4 !border-blue-300'}
                                      flex flex-col justify-center items-center gap-2 border border-gray-400 cursor-pointer text-neutral-500
                                      xs:w-28 xs:h-10 xs:text-sm xs:rounded-full
                                      lg:w-48 lg:h-14 lg:text-lg lg:rounded-full

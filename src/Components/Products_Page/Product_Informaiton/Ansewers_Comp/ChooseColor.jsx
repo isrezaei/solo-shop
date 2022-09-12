@@ -46,7 +46,7 @@ export const ChooseColor = () =>
                 xs:w-auto xs:h-auto xs:rounded-full
                 lg:w-48 lg:h-24 lg:gap-2 lg:rounded-full lg:border-2 lg:border-neutral-300
                 
-                ${activeColor[product] === colors && 'border border-transparent outline outline-blue-300 xs:outline lg:outline-4'}`}>
+                ${activeColor[product] === colors && '!border-4 !border-blue-300'}`}>
 
                 <div className='flex flex-col justify-center items-center gap-1'>
                     <div

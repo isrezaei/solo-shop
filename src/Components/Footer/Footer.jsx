@@ -6,13 +6,7 @@ export const Footer = () =>
 {
 
     return (
-        <div className='
-        w-full
-        flex
-        flex-col
-        justify-between
-        items-center
-        '>
+        <div className='mt-auto w-full flex flex-col justify-between items-center'>
             <div className='
             w-full
             flex

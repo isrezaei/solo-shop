@@ -21,7 +21,7 @@ export const ActiveImage = () =>
             <img className='
             m-auto
             xs:w-72
-            lg:w-96 2xl:w-full' src={detailsImage[activeOptions.activeImage[eachImage] || 'main']} alt={product}/>
+            lg:w-96 2xl:w-[30rem]' src={detailsImage[activeOptions.activeImage[eachImage] || 'main']} alt={product}/>
 
             <div className='
             w-full h-36 flex justify-center items-start

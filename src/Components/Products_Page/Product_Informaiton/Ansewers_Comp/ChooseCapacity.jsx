@@ -48,7 +48,7 @@ export const ChooseCapacity = () =>
                 flex flex-col justify-center items-center  cursor-pointer
                 xs:w-14 xs:h-auto xs:rounded-lg xs:border-2 xs:border-gray-400
                 lg:w-48 lg:h-20 lg:gap-2 lg:rounded-full lg:border lg:border-gray-400
-                 ${activeCapacity[product] === capacity && 'border border-transparent outline outline-blue-300 xs:outline lg:outline-4'}`}>
+                 ${activeCapacity[product] === capacity && '!border-4 !border-blue-300'}`}>
                 <div>
                     <div className='flex justify-center items-center xs:gap-0 lg:gap-1'>
                         <p className='xs:text-[.8rem] lg:text-2xl text-neutral-500'>{capacity}</p>

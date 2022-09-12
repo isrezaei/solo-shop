@@ -4,7 +4,7 @@ import {useSelector} from "react-redux";
 import {selectMasterDataById} from "../../../Redux/MasterDataSlice";
 import {useGetLiveWidth} from "../../Helper/useGetLiveWidth";
 
-export const InformationHeader = () =>
+export const Informations = () =>
 {
     const {productId} = useParams()
     const {product , id , rate , type , brand , price , offer} = useSelector(state => selectMasterDataById(state , productId))

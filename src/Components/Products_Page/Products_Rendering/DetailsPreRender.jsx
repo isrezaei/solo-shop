@@ -4,7 +4,7 @@ import {DetailsEachProduct} from "./DetailsEachProduct";
 import {FetchMasterData, selectMasterDataById} from "../../../Redux/MasterDataSlice";
 import {Upper_Header} from "../../Header/Upper_Header";
 import {Bottom_Header} from "../../Header/Bottom_Header";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {useDispatch} from "react-redux";
 
 
@@ -15,8 +15,8 @@ export const DetailsPreRender = () =>
     const EachProduct = useSelector(state => selectMasterDataById(state , productId))
     const {status} = useSelector(state => state.MasterDataSlice)
     const dispatch = useDispatch()
-    const [HeaderMargin] = useState('')
 
+    const parentRef = useRef()
 
     useEffect(()=>{
         if (status === 'idle')
@@ -35,17 +35,22 @@ export const DetailsPreRender = () =>
     }
     else if (status === 'success')
     {
-        Render = <DetailsEachProduct EachProduct={EachProduct}/>
+        Render = <DetailsEachProduct EachProduct={EachProduct} parentRef={parentRef}/>
     }
 
 
+
     return (
-        <div className='relative max-w-full m-auto '>
-            <Upper_Header/>
-            <Bottom_Header HeaderMargin={HeaderMargin}/>
-            <div className='w-full relative mx-auto '>
-                {Render}
+        <div ref={parentRef}>
+
+            <div className='relative max-w-full m-auto scroll-smooth'>
+                <Upper_Header/>
+                <Bottom_Header/>
+                <div className='w-full relative mx-auto '>
+                    {Render}
+                </div>
             </div>
+
         </div>
     )
 }

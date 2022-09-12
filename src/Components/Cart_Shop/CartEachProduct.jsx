@@ -72,24 +72,25 @@ export const CartEachProduct = ({ids}) =>
         <div className='
         flex bg-neutral-100 my-3 relative
         xs:h-40 xs:flex-col xs:justify-center xs:items-center xs:rounded-3xl
-        lg:h-40 lg:flex-row lg:justify-between lg:items-center lg:rounded-none'>
+        lg:w-[36rem] lg:h-40 lg:flex-row lg:justify-start lg:items-center
+        2xl:w-[40rem]'>
 
-            <div className='xs:w-full lg:w-80 h-full flex justify-start items-center'>
+            <div className='xs:w-full lg:w-[16rem]  h-full flex justify-start items-center'>
 
-                <img id='product-image' className='xs:w-24 lg:w-36' src={detailsImage[activeImage[product]]}  alt={product}/>
+                <img id='product-image' className='xs:w-24 lg:w-28' src={detailsImage[activeImage[product]]}  alt={product}/>
 
                 <div className='
                 flex flex-col items-start
                 xs:h-24 lg:h-28 xs:justify-center xs:gap-1
                 lg:justify-evenly lg:gap-0'>
 
-                    <p className='xs:text-sm  lg:text-[1rem] font-bold text-gray-500'>{product}</p>
+                    <p className='xs:text-sm lg:text-[.9rem] font-bold text-gray-500'>{product}</p>
                     <p className='text-sm'>See Product</p>
 
                     <p className='
                     bg-red-500 text-center text-white rounded-2xl flex justify-center items-center cursor-pointer
                     xs:w-6 xs:h-6 xs:text-sm
-                    lg:w-8 lg:h-8 lg:text-xl'
+                    lg:w-6 lg:h-6 lg:text-lg'
                        onClick={handelRemove}>
                         <RiDeleteBinLine/>
                     </p>
@@ -102,57 +103,53 @@ export const CartEachProduct = ({ids}) =>
             <section className='
              flex
              xs:w-full xs:flex-row xs:justify-evenly xs:items-center xs:py-3
-             lg:w-7/12 lg:flex-row lg:justify-between lg:items-center  lg:p-0
-             '>
+             lg:w-7/12 lg:flex-row lg:justify-start lg:items-center lg:gap-6  lg:p-0'>
 
 
-            <div className='
+                <div className='
             flex justify-evenly items-center
             xs:w-20 xs:bg-white xs:rounded-full xs:absolute xs:top-[4rem] xs:right-9
-            lg:w-36 lg:bg-transparent lg:relative lg:top-0 xs:right-0
-            '>
+            lg:w-28 lg:bg-transparent lg:relative lg:top-0 xs:right-0'>
 
-                <button className='
+                    <button className='
                 flex justify-center items-center text-red-500 disabled:opacity-50
-                xs:w-6 xs:h-6 lg:w-8
-                lg:h-8' disabled={CheckQuantity(id) <= 1}
-                        onClick={handelDecrease}>
-                    <TiMinus/>
-                </button>
+                xs:w-6 xs:h-6
+                lg:w-4 lg:h-8' disabled={CheckQuantity(id) <= 1}
+                            onClick={handelDecrease}>
+                        <TiMinus/>
+                    </button>
+
+
+                    <p className='
+                flex justify-center items-center text-neutral-500
+                xs:w-6 xs:p-0 xs:text-sm xs:font-bold
+                lg:w-8 lg:h-8 lg:text-[.9rem] lg:border lg:border-gray-300 rounded-full'> {quantity}</p>
+
+
+                    <button className='
+                flex justify-center items-center rounded-full bg-lime-500 text-white
+                xs:w-4 xs:h-4
+                lg:w-4 lg:h-4' onClick={handelIncrease}>
+                        <TiPlus/>
+                    </button>
+
+                </div>
 
 
                 <p className='
-                text-center text-neutral-600
-                xs:w-6 xs:p-0 xs:text-sm xs:font-bold lg:w-10
-                lg:p-2 lg:text-[.9rem] lg:border lg:border-gray-300'> {quantity}</p>
-
-
-                <button className='
-                flex justify-center items-center rounded-full bg-blue-700 text-white
-                xs:w-4 xs:h-4
-                lg:w-8 lg:h-8' onClick={handelIncrease}>
-                    <TiPlus/>
-                </button>
-
-            </div>
-
-
-            <p className='
             shadow-md
             xs:w-12 xs:h-5 xs:rounded-full
-            lg:w-14 lg:h-5 lg:rounded-none
-            ' style={{background : activeColor[product]}}> </p>
+            lg:w-8 lg:h-5 lg:rounded-full' style={{background : activeColor[product]}}>
+                </p>
 
-            <p className='
+                <p className='
             text-center text-neutral-500 font-bold bg-white
-            xs:text-sm xs:w-20  xs:rounded-full
-            lg:text-[1rem] lg:w-20 lg:rounded-none'
+            xs:text-sm xs:w-20 xs:rounded-full
+            lg:text-sm lg:w-10'>{activeCapacity[product]}GB</p>
 
-            >{activeCapacity[product]}GB</p>
-
-            <p className='xs:hidden lg:block bg-white lg:w-20 text-center text-gray-500'>${price}</p>
-
-            <p className='bg-white xs:w-14 xs:text-sm xs:rounded-full lg:w-24 lg:text-[1rem] lg:rounded-none lg:mr-4 text-center text-blue-700 text-xl font-bold'>${EachTotalPrice}</p>
+                <p className='bg-white xs:w-14 xs:text-sm xs:rounded-full lg:w-10 lg:text-sm lg:rounded-full text-center text-blue-700 text-xl font-bold'>
+                    ${EachTotalPrice}
+                </p>
 
             </section>
 
