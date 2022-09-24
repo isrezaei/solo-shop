@@ -2,7 +2,7 @@ import {useState} from "react";
 import {useDispatch} from "react-redux";
 import {SortEntities} from "../../../Redux/MasterDataSlice";
 
-export const SortEeachProduct = () =>{
+export const SortEachProduct = () =>{
 
     const [Active , SetActive] = useState('Newer')
 
@@ -25,22 +25,17 @@ export const SortEeachProduct = () =>{
         )
     })
 
-
     return (
         <div className='
         flex
         xs:w-full xs:mt-0 xs:p-2 xs:h-24 xs:justify-center xs:items-center
-        lg:w-full lg:mt-3 lg:h-16 lg:justify-start lg:items-center
-        '>
-
+        lg:w-full lg:mt-3 lg:h-16 lg:justify-start lg:items-center'>
             <section className='
-
             xs:w-11/12 xs:grid xs:grid-cols-3 xs:justify-center xs:items-center xs:gap-1
-            lg:w-10/12 lg:flex lg:flex-nowrap lg:justify-start lg:items-center lg:ml-8'
-            >
+            md:w-full md:flex md:flex-nowrap md:justify-center md:items-center md:gap-16
+            lg:w-10/12 lg:flex lg:flex-nowrap lg:justify-start lg:items-center lg:gap-3 lg:ml-8 2xl:ml-0'>
                 {Option}
             </section>
-
         </div>
     )
 }

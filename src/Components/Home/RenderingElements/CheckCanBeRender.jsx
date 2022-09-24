@@ -3,8 +3,8 @@ import {OfferSwiperSlider} from "../SwiperSliders/OfferSwiperSlider";
 import {useGetLiveWidth} from "../../Helper/useGetLiveWidth";
 import {SwiperSlide} from "swiper/react";
 import {RenderingEachProduct} from "./RenderingEachProduct";
-import {HomeMobileFilter} from "../HomeMobileFilter";
-import {SortEeachProduct} from "./SortEeachProduct";
+import {FilterProducts} from "../FilterProducts";
+import {SortEachProduct} from "./SortEachProduct";
 import {ProductSwiperSlider} from "../SwiperSliders/ProductSwiperSlider";
 import {FilterResult} from "../../Filters_Logic/FilterResult";
 import {useSelector} from "react-redux";
@@ -57,12 +57,12 @@ export const CheckCanBeRender = () =>
     let mobileRender;
     if (allowFilter && liveWidth < 500)
     {
-        mobileRender = <HomeMobileFilter/>
+        mobileRender = <FilterProducts/>
     }
     if (!allowFilter && liveWidth <500)
     {
         mobileRender = <>
-            <SortEeachProduct/>
+            <SortEachProduct/>
             <ProductSwiperSlider Render={Render}/>
         </>
     }
@@ -76,7 +76,7 @@ export const CheckCanBeRender = () =>
     if (!allowFilter && liveWidth > 500)
     {
         largeScreenRender = <>
-            <SortEeachProduct/>
+            <SortEachProduct/>
             <ProductSwiperSlider Render={Render}/>
         </>
     }

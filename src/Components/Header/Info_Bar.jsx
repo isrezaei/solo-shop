@@ -11,7 +11,7 @@ export const Info_Bar = () =>
         <div className='
         flex items-center
         xs:w-full xs:justify-around
-        lg:w-80 lg:justify-center
+        md:w-80 md:justify-center
         '>
 
             <section className='flex w-36 relative h-14 justify-evenly items-center '>

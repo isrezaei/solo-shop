@@ -6,12 +6,10 @@ import {FiShoppingBag} from 'react-icons/fi'
 
 export const Open_Close_Counter = () => {
 
-
-
     var styles = {
         bmBurgerButton: {
             position: 'absolute',
-            left : '.8rem',
+            left : '1rem',
             bottom : '0',
             width : '2.5rem',
             height : '2.5rem',
@@ -38,12 +36,9 @@ export const Open_Close_Counter = () => {
             top : '0',
             width : '100%',
             height: '100%',
-
-
         },
         bmMenu: {
             background: 'rgba( 255, 255, 255, 0.6 )',
-
             backdropFilter: 'blur( 4px )',
             borderRadius: '10px',
             border: '1px solid rgba( 255, 255, 255, 0.18 )'
@@ -74,12 +69,6 @@ export const Open_Close_Counter = () => {
     {
         document.body.style.overflow = 'auto'
     }
-
-    console.log(overFlow)
-
-
-
-
     return (
         <Menu onStateChange={()=> setOverFlow(value => !value)}
                customBurgerIcon={<p className='text-[1.5rem] flex justify-center items-center text-neutral-100'><FiShoppingBag/></p>} styles={styles}>

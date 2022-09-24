@@ -6,6 +6,7 @@ import {CheckQuantity} from "../Helper/HelperFuncs";
 import {TiMinus, TiPlus} from "react-icons/ti";
 import {useDispatch} from "react-redux";
 import {DiscountedCalculation} from "../Products_Page/Utility_Fils/DiscountedCalculation";
+import {Link} from "react-router-dom";
 
 
 export const Each_Product = ({ids}) =>
@@ -71,8 +72,8 @@ export const Each_Product = ({ids}) =>
     return (
         <div className='
         flex my-3 relative
-        xs:w-[21rem] xs:mx-auto xs:h-40 xs:flex-col xs:justify-center xs:items-center xs:rounded-3xl xs:bg-neutral-100
-        md:w-[30rem] md:h-40 md:flex-row md:justify-start md:items-center md:bg-white
+        xs:w-full xs:h-40 xs:flex-col xs:justify-center xs:items-center xs:rounded-3xl xs:bg-neutral-100
+        md:min-w-0 md:w-[30rem] md:h-[8rem] md:flex-row md:justify-start md:items-center md:bg-white
         lg:w-[36rem] lg:h-40 lg:flex-row lg:justify-start lg:items-center lg:bg-white
         2xl:w-[40rem]'>
 
@@ -84,10 +85,8 @@ export const Each_Product = ({ids}) =>
                 flex flex-col items-start
                 xs:h-24 lg:h-28 xs:justify-center xs:gap-1
                 lg:justify-evenly lg:gap-0'>
-
-                    <p className='xs:text-sm lg:text-[.9rem] font-bold text-gray-500'>{product}</p>
-                    <p className='text-sm'>See Product</p>
-
+                    <p className='xs:text-sm md:text-[.8rem] lg:text-[.9rem] font-bold text-gray-500'>{product}</p>
+                    <Link to={`/details/${ids}`}><p className='text-sm md:text-[.8rem]'>See Product</p></Link>
                     <p className='
                     bg-red-500 text-center text-white rounded-2xl flex justify-center items-center cursor-pointer
                     xs:w-6 xs:h-6 xs:text-sm
@@ -95,9 +94,7 @@ export const Each_Product = ({ids}) =>
                        onClick={handelRemove}>
                         <RiDeleteBinLine/>
                     </p>
-
                 </div>
-
             </div>
 
 
@@ -106,10 +103,10 @@ export const Each_Product = ({ids}) =>
              xs:w-full xs:flex-row xs:justify-evenly xs:items-center xs:py-3
              lg:w-7/12 lg:flex-row lg:justify-start lg:items-center lg:gap-6  lg:p-0'>
 
-
                 <div className='
             flex justify-evenly items-center
-            xs:w-20 xs:bg-white xs:rounded-full xs:absolute xs:top-[4rem] xs:right-9
+            xs:w-20 xs:bg-white xs:rounded-full xs:absolute xs:top-[4rem] xs:right-10
+            md:w-28 md:bg-transparent md:absolute md:top-[5rem] md:right-2
             lg:w-28 lg:bg-transparent lg:relative lg:top-0 xs:right-0'>
 
                     <button className='
@@ -120,12 +117,10 @@ export const Each_Product = ({ids}) =>
                         <TiMinus/>
                     </button>
 
-
                     <p className='
                 flex justify-center items-center text-neutral-500
                 xs:w-6 xs:p-0 xs:text-sm xs:font-bold
                 lg:w-8 lg:h-8 lg:text-[.9rem] lg:border lg:border-gray-300 rounded-full'> {quantity}</p>
-
 
                     <button className='
                 flex justify-center items-center rounded-full bg-lime-500 text-white
@@ -133,7 +128,6 @@ export const Each_Product = ({ids}) =>
                 lg:w-4 lg:h-4' onClick={handelIncrease}>
                         <TiPlus/>
                     </button>
-
                 </div>
 
 

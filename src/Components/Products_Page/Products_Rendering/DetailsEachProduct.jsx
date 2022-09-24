@@ -1,5 +1,5 @@
 import {createContext, useReducer, useState, useRef, useLayoutEffect} from "react";
-import {Informations} from "../Product_Informaiton/Informations";
+import {Information} from "../Product_Informaiton/Information";
 import {ChooseColor} from "../Product_Informaiton/Ansewers_Comp/ChooseColor";
 import {ChooseCapacity} from "../Product_Informaiton/Ansewers_Comp/ChooseCapacity";
 import {AddToWishList} from "../Product_Informaiton/AddToWishList";
@@ -60,15 +60,17 @@ export const DetailsEachProduct = ({EachProduct}) => {
             }}>
 
             <div  className={`
-             container relative max-w-5xl mx-auto relative 
-             xs:flex xs:flex-col xs:justify-between xs:items-start
+             container relative mx-auto relative 
+             xs:max-w-[500px] xs:flex xs:flex-col xs:justify-between xs:items-start
+             md:max-w-5xl md:flex md:flex-row md:justify-center md:items-center md:h-auto
              lg:flex lg:flex-row lg:justify-center lg:items-center lg:h-auto
             `}>
 
                 {/*********************/}
                 <section style={{height : liveWidth > 500}} className='
                 xs:w-full xs:relative xs:h-5/6
-                lg:w-3/6 lg:h-[85rem] lg:relative lg:left-0 scroll-mt-11'>
+                md:w-3/6 md:h-[50rem] md:relative md:left-0
+                lg:w-3/6 lg:h-[85rem] lg:relative lg:left-0'>
                     <ActiveImage/>
                 </section>
 
@@ -77,15 +79,14 @@ export const DetailsEachProduct = ({EachProduct}) => {
                 <section className='
                 h-auto flex flex-col justify-start items-start gap-2 overflow-y-scroll overflow-x-hidden scrollbar-hide
                 xs:w-full xs:relative xs:px-0
+                md:w-3/6 md:h-[50rem] md:my-5 md:relative md:right-0 md:p-6
                 lg:w-3/6 lg:h-[85rem] lg:my-8  lg:relative lg:right-0 lg:p-6'>
-                    <Informations/>
+                    <Information/>
 
                     <div className='
                     w-full flex
                     xs:h-16 xs:flex-row xs:justify-evenly xs:items-center
-                    lg:h-auto lg:flex-col lg:justify-between lg:items-start
-
-                    '>
+                    lg:h-auto lg:flex-col lg:justify-between lg:items-star'>
                         <ChooseColor/>
                         <ChooseCapacity/>
                     </div>

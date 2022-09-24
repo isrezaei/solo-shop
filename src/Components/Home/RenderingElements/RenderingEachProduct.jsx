@@ -23,15 +23,12 @@ export const RenderingEachProduct = ({ids}) =>
         w-full bg-white rounded-3xl flex flex-col items-center
         xs:h-80 xs:justify-center
         lg:h-96 lg:p-5 lg:justify-start
-        2xl:h-full
-        '>
-
+        2xl:h-full'>
             <div className='
             group relative
             lg:w-auto lg:h-52
-            2xl:h-3/4
-            '>
-                <img className={`${price === 'out' && 'filter grayscale'} cursor-pointer w-auto xs:h-36 lg:h-full 2xl:h-full`}
+            2xl:h-3/4'>
+                <img className={`${price === 'out' && 'filter grayscale'} cursor-pointer w-auto xs:h-36 md:h-44 lg:h-full 2xl:h-full`}
                      src={image.mainImg} alt={product} onClick={()=> Navigate(`/details/${id}`)}/>
 
                 {/*Show the availability of the product in the shopping cart*/}

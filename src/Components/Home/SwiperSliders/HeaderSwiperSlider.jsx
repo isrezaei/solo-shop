@@ -18,8 +18,8 @@ export const HeaderSwiperSlider = () =>
                 autoplay={{ delay: 2500}}
                 className='
                 mySwiper
-
                 xs:w-full xs:h-64 xs:bg-red-500
+                md:w-10/12 md:block md:h-[25rem] md:rounded-3xl md:my-5
                 lg:w-10/12 lg:block lg:h-[25rem] lg:rounded-3xl lg:my-5
                 2xl:h-[40rem] 2xl:block'
             >

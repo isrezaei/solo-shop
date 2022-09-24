@@ -2,8 +2,8 @@ import {createContext} from "react";
 import {useSelector , useDispatch} from "react-redux";
 import {FetchMasterData} from "../../../Redux/MasterDataSlice";
 import {HeaderSwiperSlider} from "../SwiperSliders/HeaderSwiperSlider";
-import {HomeBenefit} from "../HomeBenefit";
-import {HomeSelectOptions} from "../HomeSelectOptions";
+import {Benefits} from "../Benefits";
+import {SelectOptions} from "../SelectOptions";
 import {Upper_Header} from "../../Header/Upper_Header";
 import {Bottom_Header} from "../../Header/Bottom_Header";
 import {useEffect, useState} from "react";
@@ -39,10 +39,10 @@ export const RootPreRender = () =>
 
             <HeaderSwiperSlider/>
 
-            <HomeBenefit/>
+            <Benefits/>
 
             <AllowFilter.Provider value={{allowFilter , setAllowFilter}}>
-                <HomeSelectOptions/>
+                <SelectOptions/>
                 <CheckCanBeRender/>
             </AllowFilter.Provider>
                 <Footer/>

@@ -16,17 +16,19 @@ export const ActiveImage = () =>
     return (
         <div className='
         xs:relative xs:h-85
+        md:sticky md:top-0 md:z-10 md:h-auto
         lg:sticky lg:top-32 lg:z-10 lg:h-auto
         '>
             <img className='
             m-auto
             xs:w-72
+            md:w-[25rem]
             lg:w-96 2xl:w-[30rem]' src={detailsImage[activeOptions.activeImage[eachImage] || 'main']} alt={product}/>
 
             <div className='
             w-full h-36 flex justify-center items-start
             xs:hidden
-            lg:flex
+            md:flex
             '>
                 <div className='w-60 p-1 text-sm h-full flex flex-col justify-center items-center gap-2'>
                     <BsBoxSeam className='lg:text-xl 2xl:text-3xl text-gray-500'/>

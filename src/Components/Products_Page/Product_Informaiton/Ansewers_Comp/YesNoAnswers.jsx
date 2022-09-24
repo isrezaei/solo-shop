@@ -26,6 +26,7 @@ export const AnswerOfHaveSmartPhone = () =>
                                      ${choicesAnswer.haveOldPhone === answer && '!border-4 !border-blue-300'}
                                      flex flex-col justify-center items-center gap-2 border border-gray-400 cursor-pointer text-neutral-500
                                      xs:w-28 xs:h-10 xs:text-sm xs:rounded-full
+                                     md:w-[10rem] md:h-12 md:text-lg md:my-2
                                      lg:w-[13rem] lg:h-12 lg:text-lg lg:my-2
                                      
                                      `}> {answer}</div>
@@ -55,6 +56,7 @@ export const AnswerOfHaveGoodCondition = () =>
                                  ${choicesAnswer.haveGoodCondition === answer && '!border-4 !border-blue-300'}
                                      flex flex-col justify-center items-center gap-2 border border-gray-400 cursor-pointer text-neutral-500
                                      xs:w-28 xs:h-10 xs:text-sm xs:rounded-full
+                                     md:w-[10rem] md:h-12 md:text-lg md:my-2
                                      lg:w-48 lg:h-14 lg:text-lg lg:rounded-full
                                   
                                   `}> {answer}</div>
@@ -82,6 +84,7 @@ export const AnswerOfButtonWork = () =>
                                  className={`${choicesAnswer.haveButtonWork === answer && '!border-4 !border-blue-300'}
                                      flex flex-col justify-center items-center gap-2 border border-gray-400 cursor-pointer text-neutral-500
                                      xs:w-28 xs:h-10 xs:text-sm xs:rounded-full
+                                     md:w-[10rem] md:h-12 md:text-lg md:my-2
                                      lg:w-48 lg:h-14 lg:text-lg lg:rounded-full
                                   
                                   `}> {answer}</div>
@@ -109,6 +112,7 @@ export const AnswerOfGoodShape = () =>
                                  className={`${choicesAnswer.haveGoodShape === answer && '!border-4 !border-blue-300'}
                                      flex flex-col justify-center items-center gap-2 border border-gray-400 cursor-pointer text-neutral-500
                                      xs:w-28 xs:h-10 xs:text-sm xs:rounded-full
+                                     md:w-[10rem] md:h-12 md:text-lg md:my-2
                                      lg:w-48 lg:h-14 lg:text-lg lg:rounded-full
                                   `}> {answer}</div>
                         )
@@ -134,6 +138,7 @@ export const AnswerOfTouchScreenWork = () =>
                                  className={`${choicesAnswer.haveTouchScreenWork === answer && '!border-4 !border-blue-300'}
                                      flex flex-col justify-center items-center gap-2 border border-gray-400 cursor-pointer text-neutral-500
                                      xs:w-28 xs:h-10 xs:text-sm xs:rounded-full
+                                     md:w-[10rem] md:h-12 md:text-lg md:my-2
                                      lg:w-48 lg:h-14 lg:text-lg lg:rounded-full
                                   `}> {answer}</div>
                         )

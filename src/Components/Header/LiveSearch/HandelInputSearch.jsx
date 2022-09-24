@@ -24,12 +24,10 @@ export const HandelInputSearch = ({setInput , setSearchInput}) =>
         xs:w-full xs:px-5
         lg:w-6/12
         2xl:w-7/12'>
-
             <BiSearchAlt className='
             text-gray-400
             xs:text-xl
             2xl:text-3xl'/>
-
             <div className='flex w-11/12 justify-center items-center'>
                 <input onChange={e => setInput(e.target.value)}
                        className='
@@ -39,7 +37,6 @@ export const HandelInputSearch = ({setInput , setSearchInput}) =>
             </div>
 
             <CgClose  onClick={closeInputSearch} className='text-gray-400 text-2xl cursor-pointer'/>
-
         </div>
     )
 }

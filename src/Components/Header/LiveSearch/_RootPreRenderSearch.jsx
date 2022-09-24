@@ -48,7 +48,7 @@ export const _RootPreRenderSearch = () =>
 
 
     return (
-        <div className='xs:top-32 lg:top-40 2xl:top-48 m-auto w-full h-screen fixed bg-glass-black overflow-scroll scrollbar-hide flex justify-center items-start z-50'>
+        <div className='xs:top-32 md:top-[9.5rem] lg:top-40 2xl:top-44 m-auto w-full h-screen fixed bg-glass-black overflow-scroll scrollbar-hide flex justify-center items-start z-50'>
 
             <div className='
                     min-w-[10%] bg-gray-200 grid place-items-center gap-x-4 rounded-b-3xl overflow-y-scroll scrollbar-hide px-3
