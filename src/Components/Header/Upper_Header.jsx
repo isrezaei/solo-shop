@@ -19,8 +19,7 @@ export const Upper_Header = () =>
         <div className={` 
           flex ${ScrollPosition > 200 ? 'bg-neutral-800' : 'bg-gray-50'} z-50 transition
           xs:w-full xs:h-16 xs:justify-center xs:items-center xs:relative
-          md:fixed md:h-[4rem] md:left-0 md:top-0 
-          lg:fixed lg:h-[5rem] lg:left-0 lg:top-0 2xl:w-full`}>
+          md:fixed md:h-[4rem] md:left-0 md:top-0`}>
 
             <div className='
             xs:w-[90%] xs:flex xs:justify-between xs:item-center xs:m-0

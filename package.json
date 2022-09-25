@@ -27,7 +27,9 @@
     "redux": "^4.2.0",
     "sass": "^1.54.3",
     "swiper": "^8.1.4",
-    "tailwind-scrollbar-hide": "^1.1.7"
+    "tailwind-scrollbar": "^2.0.1",
+    "tailwind-scrollbar-hide": "^1.1.7",
+    "tailwindcss-neumorphism": "^0.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

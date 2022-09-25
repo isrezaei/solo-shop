@@ -21,7 +21,7 @@ export const HandelInputSearch = ({setInput , setSearchInput}) =>
     return (
         <div className='
         flex justify-evenly items-center
-        xs:w-full xs:px-5
+        xs:w-9/12 xs:px-5
         lg:w-6/12
         2xl:w-7/12'>
             <BiSearchAlt className='

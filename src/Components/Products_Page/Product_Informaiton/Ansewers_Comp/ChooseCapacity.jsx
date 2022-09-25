@@ -45,14 +45,17 @@ export const ChooseCapacity = () =>
                 key={capacity}
                 onClick={() => stepCapacity(capacity , contextDispatch)}
                 className={`
-                flex flex-col justify-center items-center  cursor-pointer
-                xs:w-14 xs:h-auto xs:rounded-lg xs:border-2 xs:border-gray-400
-                lg:w-48 lg:h-20 lg:gap-2 lg:rounded-full lg:border lg:border-gray-400
-                 ${activeCapacity[product] === capacity && '!border-4 !border-blue-300'}`}>
+                flex flex-col justify-center items-center  cursor-pointer opacity-30
+                xs:w-14 xs:h-auto xs:rounded-full xs:border-2 xs:border-gray-200
+                md:w-16 md:h-8 md:rounded-full md:border-2 md:border-gray-200
+                lg:w-full lg:h-10 lg:rounded-full lg:border-none lg:bg-neutral-200 
+                
+                 ${activeCapacity[product] === capacity && 'opacity-100'}`}>
+
                 <div>
                     <div className='flex justify-center items-center xs:gap-0 lg:gap-1'>
-                        <p className='xs:text-[.8rem] lg:text-2xl text-neutral-500'>{capacity}</p>
-                        <p className='xs:text-[.8rem] lg:text-lg text-neutral-400'>GB</p>
+                        <p className='xs:text-[.8rem] md:text-[.9rem] lg:text-lg text-neutral-500'>{capacity}</p>
+                        <p className='xs:text-[.8rem] md:text-[.9rem] lg:text-lg text-neutral-500'>GB</p>
                     </div>
                 </div>
             </div>
@@ -61,31 +64,25 @@ export const ChooseCapacity = () =>
 
 
     return (
-        <div className='xs:w-56 lg:w-full'>
+        <div className='xs:w-44 xs:bg-neutral-100 xs:rounded-2xl xs:p-2 xs:my-1 md:w-full md:w-full md:gap-4 md:p-3 md:mx-1'>
 
-            <div className={
-                `w-full flex flex-col justify-center border-gray-400
+            <div className={`w-full flex flex-col justify-center border-gray-400
                  xs:items-end
-                 lg:items-start
+                 lg:items-center
                  ${!existCapacityInLocal && 'pointer-events-none opacity-30' }`}>
 
-                <div
-                       className='
+                <div className='
                        text-neutral-500 font-bold
                        xs:text-[.8rem] xs:mb-2
-                       lg:text-lg lg:my-5
-                       '>Choose your capacity</div>
-
-
+                       md:text-[.9rem]
+                       lg:text-[1rem] lg:text-center'>Choose your capacity</div>
                 <div
                      className='
                      xs:w-full xs:flex xs:justify-end xs:items-center xs:gap-1
-                     lg:w-[25rem] lg:grid lg:pb-7 lg:grid-cols-2 lg:grid-rows-2 lg:gap-4 lg:border-b lg:border-gray-400
-                     '>
+                     lg:w-full lg:grid lg:pb-7 lg:grid-cols-2 lg:grid-rows-2 lg:gap-4'>
                     {setCapacity}
                 </div>
             </div>
-
         </div>
     )
 }

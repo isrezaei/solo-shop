@@ -77,7 +77,7 @@ export const DetailsEachProduct = ({EachProduct}) => {
 
                 {/*********************/}
                 <section className='
-                h-auto flex flex-col justify-start items-start gap-2 overflow-y-scroll overflow-x-hidden scrollbar-hide
+                h-auto flex flex-col justify-start items-start gap-2 overflow-y-scroll overflow-x-hidden scrollbar-thin scrollbar-thumb-neutral-100 scrollbar-thumb-rounded-full
                 xs:w-full xs:relative xs:px-0
                 md:w-3/6 md:h-[50rem] md:my-5 md:relative md:right-0 md:p-6
                 lg:w-3/6 lg:h-[85rem] lg:my-8  lg:relative lg:right-0 lg:p-6'>
@@ -85,7 +85,7 @@ export const DetailsEachProduct = ({EachProduct}) => {
 
                     <div className='
                     w-full flex
-                    xs:h-16 xs:flex-row xs:justify-evenly xs:items-center
+                    xs:h-16 xs:flex-row xs:justify-between xs:items-center xs:my-2
                     lg:h-auto lg:flex-col lg:justify-between lg:items-star'>
                         <ChooseColor/>
                         <ChooseCapacity/>
@@ -104,6 +104,9 @@ export const DetailsEachProduct = ({EachProduct}) => {
                                 ? <RejectCondition/>
                                 : <OldPhoneQuestion/>
                     }
+
+
+
                     <ChooseQuantity/>
                     <AddToWishList/>
 

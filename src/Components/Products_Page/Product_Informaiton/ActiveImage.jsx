@@ -22,7 +22,7 @@ export const ActiveImage = () =>
             <img className='
             m-auto
             xs:w-72
-            md:w-[25rem]
+            md:w-[24rem]
             lg:w-96 2xl:w-[30rem]' src={detailsImage[activeOptions.activeImage[eachImage] || 'main']} alt={product}/>
 
             <div className='

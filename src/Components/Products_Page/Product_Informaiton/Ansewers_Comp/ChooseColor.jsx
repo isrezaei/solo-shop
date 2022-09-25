@@ -41,44 +41,30 @@ export const ChooseColor = () =>
             <div
                 key={colors}
                 onClick={()=> stepColorAndImage(colors , contextDispatch)}
+                style={{background : colors}}
                 className={`
-                flex flex-col justify-center items-center  cursor-pointer
-                xs:w-auto xs:h-auto xs:rounded-full
-                lg:w-48 lg:h-24 lg:gap-2 lg:rounded-full lg:border-2 lg:border-neutral-300
+                flex flex-col justify-center items-center cursor-pointer opacity-30
+                xs:w-6 xs:h-6 xs:rounded-full
+                lg:w-full lg:h-8 lg:gap-2 lg:rounded-full
                 
-                ${activeColor[product] === colors && '!border-4 !border-blue-300'}`}>
-
-                <div className='flex flex-col justify-center items-center gap-1'>
-                    <div
-                        style={{
-                            background: colors
-                        }}
-                        className='
-                        shadow-inner rounded-full
-                        xs:w-5 xs:h-5
-                        lg:w-9 lg:h-9
-                        '> </div>
-                    <div className='lg:text-sm text-center text-neutral-500 font-bold xs:hidden lg:block'>{colors}</div>
-                </div>
+                ${activeColor[product] === colors && 'opacity-100'}`}>
             </div>
         )
     })
 
 
     return (
-        <div className='xs:w-32 lg:w-full'>
+        <div className='xs:w-48 xs:bg-neutral-100 xs:rounded-2xl xs:p-2 xs:my-1 md:w-full md:w-full md:gap-4 md:p-3 md:mx-1'>
 
-            <div
-                className='
-                   text-neutral-500 font-bold
-                   xs:text-[.8rem] xs:mb-2
-                   lg:text-lg lg:mb-0 lg:mb-5
-                   '>Choose your color</div>
+            <div className='
+                   text-neutral-500 font-bold my-1
+                   xs:text-[.8rem]
+                   md:text-[.9rem]
+                   lg:text-[1rem] lg:text-center'>Choose your color</div>
 
             <div className='
              xs:flex xs:justify-start xs:gap-2 xs:items-center
-             lg:w-[25rem] lg:grid lg:pb-7 lg:grid-cols-2 lg:gap-4 lg:border-b lg:border-gray-400
-            '>
+             lg:w-full lg:grid lg:pb-3 lg:grid-cols-2 lg:place-items-center'>
                 {setColor}
             </div>
         </div>
