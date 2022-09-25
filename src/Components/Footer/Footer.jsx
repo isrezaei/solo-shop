@@ -13,7 +13,7 @@ export const Footer = () =>
             md:flex md:flex-row md:justify-between md:items-center md:h-56 md:px-8 md:border-t md:mt-0
             lg:flex-row lg:justify-evenly lg:items-center lg:h-60 lg:px-10 lg:mt-[8rem]'>
 
-                <div className='w-[10rem] h-full flex flex-col justify-start gap-1 items-start cursor-pointer'>
+                <div className='w-[10rem] h-auto flex flex-col justify-start gap-1 items-start cursor-pointer'>
                     <p className='
                     font-bold  text-gray-600
                     xs:my-2 xs:text-[1rem]
@@ -25,7 +25,7 @@ export const Footer = () =>
                     <a className='text-gray-500 xs:text-sm lg:text-[1rem]' href=' '>Contact</a>
                 </div>
 
-                <div className='w-[10rem] h-full flex flex-col justify-start gap-1 items-start cursor-pointer'>
+                <div className='w-[10rem] h-auto flex flex-col justify-start gap-1 items-start cursor-pointer'>
                     <p className='
                     font-bold text-gray-600
                     xs:my-2 xs:text-[1rem]
@@ -35,7 +35,7 @@ export const Footer = () =>
                     <p className='text-gray-500 xs:text-sm lg:text-[1rem]'>Decline rules</p>
                     <p className='text-gray-500 xs:text-sm lg:text-[1rem]'>Terms & Conditions</p>
                 </div>
-                <div className='w-[10rem] h-full flex flex-col justify-start gap-1 items-start cursor-pointer'>
+                <div className='w-[10rem] h-auto flex flex-col justify-start gap-1 items-start cursor-pointer'>
                     <p className='
                     font-bold  text-gray-600
                     xs:my-2 xs:text-[1rem]
@@ -46,7 +46,7 @@ export const Footer = () =>
                     <p className='text-gray-500 xs:text-sm lg:text-[1rem]'>Discount system</p>
                 </div>
 
-                <div className='w-[10rem] h-full flex flex-col justify-start gap-1 items-start cursor-pointer'>
+                <div className='w-[10rem] h-auto flex flex-col justify-start gap-1 items-start cursor-pointer'>
                     <p className='
                     font-bold  text-gray-600
                     xs:my-2 xs:text-[1rem]
