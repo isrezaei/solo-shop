@@ -33,6 +33,8 @@ export const ApiData  = [
         },
         "introduction" : "The Special Edition iPhone, also known as the cheapest iPhone, or the retro one, has been refreshed, and is now available for purchase. It's a very minor refresh of the phone with the same name from 2020, most upgrades stemming from the new chipset and its accompanying 5G modem."
     },
+
+
     {
         "id" : 2 ,
         "product" : "Apple iPhone 13 Pro Max",

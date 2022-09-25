@@ -15,7 +15,7 @@ module.exports = {
       },
 
       fontFamily: {
-        'rubik' : ['Comfortaa' , 'sans-serif'],
+        'rubik' : ['rubik' , 'sans-serif'],
         'dancing' : ['Pacifico' , 'cursive']
       },
 
