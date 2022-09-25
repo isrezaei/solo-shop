@@ -9,7 +9,7 @@ export const Footer = () =>
         <div className='w-full flex flex-col justify-end items-center'>
             <div className='
             w-full flex py-6 max-w-[1900px] border-t
-            xs:grid xs:grid-cols-2 xs:place-items-center xs:gap-6 xs:h-full xs:px-5
+            xs:grid xs:grid-cols-2 xs:place-items-center xs:px-5
             md:flex md:flex-row md:justify-between md:items-center md:h-56 md:px-8 md:border-t md:mt-0
             lg:flex-row lg:justify-evenly lg:items-center lg:h-60 lg:px-10 lg:mt-[8rem]'>
 
@@ -61,25 +61,25 @@ export const Footer = () =>
             </div>
 
 
-            {/*<div className='w-full bg-blue-600'>*/}
+            <div className='w-full bg-blue-600'>
 
-            {/*    <div className='*/}
-            {/*     flex max-w-[1900px] m-auto*/}
-            {/*     xs:h-24 xs:px-0 xs:flex-col xs:justify-evenly xs:items-center*/}
-            {/*     md:h-14 md:px-28 md:flex-row  md:justify-between md:items-center*/}
-            {/*     lg:h-14 lg:px-40 lg:flex-row  lg:justify-between lg:items-center'>*/}
-            {/*        <p className='*/}
-            {/*    text-white*/}
-            {/*    xs:text-sm*/}
-            {/*    lg:text-[.9rem]*/}
-            {/*    2xl:text-[1rem]'>Developed by <a className='cursor-pointer' href=''>IsRezaei</a> ; it's a sample project</p>*/}
-            {/*        <div className=' w-28 flex justify-between items-center text-white text-xl cursor-pointer'>*/}
-            {/*            <BsInstagram/>*/}
-            {/*            <BsTwitter/>*/}
-            {/*            <RiFacebookFill/>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
+                <div className='
+                 flex max-w-[1900px] m-auto
+                 xs:h-24 xs:px-0 xs:flex-col xs:justify-evenly xs:items-center
+                 md:h-14 md:px-28 md:flex-row  md:justify-between md:items-center
+                 lg:h-14 lg:px-40 lg:flex-row  lg:justify-between lg:items-center'>
+                    <p className='
+                text-white
+                xs:text-sm
+                lg:text-[.9rem]
+                2xl:text-[1rem]'>Developed by <a className='cursor-pointer' href=''>IsRezaei</a> ; it's a sample project</p>
+                    <div className=' w-28 flex justify-between items-center text-white text-xl cursor-pointer'>
+                        <BsInstagram/>
+                        <BsTwitter/>
+                        <RiFacebookFill/>
+                    </div>
+                </div>
+            </div>
 
 
         </div>
