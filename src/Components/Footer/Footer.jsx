@@ -16,7 +16,7 @@ export const Footer = () =>
                 <div className='w-[10rem] h-auto flex flex-col justify-start gap-1 items-start cursor-pointer'>
                     <p className='
                     font-bold  text-gray-600
-                    xs:my-2 xs:text-[1rem]
+                     xs:text-[1rem]
                     lg:text-lg
                     '>Hot links</p>
                     <a className='text-gray-500 xs:text-sm lg:text-[1rem]' href=' '>Home</a>
@@ -28,7 +28,7 @@ export const Footer = () =>
                 <div className='w-[10rem] h-auto flex flex-col justify-start gap-1 items-start cursor-pointer'>
                     <p className='
                     font-bold text-gray-600
-                    xs:my-2 xs:text-[1rem]
+                    xs:text-[1rem]
                     lg:text-lg'>More info</p>
                     <p className='text-gray-500 xs:text-sm lg:text-[1rem]'>How it works</p>
                     <p className='text-gray-500 xs:text-sm lg:text-[1rem]'>about us</p>
@@ -38,7 +38,7 @@ export const Footer = () =>
                 <div className='w-[10rem] h-auto flex flex-col justify-start gap-1 items-start cursor-pointer'>
                     <p className='
                     font-bold  text-gray-600
-                    xs:my-2 xs:text-[1rem]
+                    xs:mt-3 xs:text-[1rem]
                     lg:text-lg'>Customer care</p>
                     <p className='text-gray-500 xs:text-sm lg:text-[1rem]'>FAQ</p>
                     <p className='text-gray-500 xs:text-sm lg:text-[1rem]'>Terms of use</p>
@@ -49,7 +49,7 @@ export const Footer = () =>
                 <div className='w-[10rem] h-auto flex flex-col justify-start gap-1 items-start cursor-pointer'>
                     <p className='
                     font-bold  text-gray-600
-                    xs:my-2 xs:text-[1rem]
+                    xs:mt-3 xs:text-[1rem]
                     lg:text-lg'>Get newsletter</p>
                     <p className='text-gray-500 xs:text-sm lg:text-[1rem]'>Get news update</p>
                     <div className='w-full h-full mt-2 flex flex-col justify-start items-start cursor-pointer'>

@@ -26,7 +26,7 @@ function App() {
     } , [modalGallery , searchComponent ])
 
     return (
-        <div className='scrollbar-hide font-rubik'>
+        <div className='scrollbar-hide font-rubik overflow-x-hidden'>
 
             <Routes location = {modalGallery || location}>
                 <Route path='/' exact element={<RootPreRender/>}/>

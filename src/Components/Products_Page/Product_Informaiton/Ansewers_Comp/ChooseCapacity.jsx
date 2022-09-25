@@ -64,7 +64,7 @@ export const ChooseCapacity = () =>
 
 
     return (
-        <div className='xs:w-44 xs:bg-neutral-100 xs:rounded-2xl xs:p-2 xs:my-2 md:w-full md:w-full md:gap-4 md:p-3 md:mx-1'>
+        <div className='xs:w-44 xs:my-2 md:bg-neutral-100 md:rounded-2xl md:p-2 md:w-full md:w-full md:gap-4 md:p-3 md:mx-1'>
 
             <div className={`w-full flex flex-col justify-center border-gray-400
                  xs:items-end

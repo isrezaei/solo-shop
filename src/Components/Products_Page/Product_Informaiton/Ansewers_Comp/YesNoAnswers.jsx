@@ -27,7 +27,7 @@ export const AnswerOfHaveSmartPhone = () =>
     return (
         <div className='w-full flex flex-col justify-center items-center my-2 bg-neutral-100 rounded-2xl p-2'>
 
-            <p className='font-bold text-neutral-500 my-3'>Do you have a smartphone to trade in with Apple?</p>
+            <p className='font-bold text-neutral-500 my-3 text-sm'>Do you have a smartphone to trade in with Apple?</p>
 
             <div className='flex justify-center w-full justify-start items-center gap-3'>
                 {
@@ -91,20 +91,20 @@ export const AnswerOfChooseOldModel = () =>
 
     return(
         <div className={`w-full ${showing} flex-col justify-center items-center my-2 bg-neutral-100 rounded-2xl p-2`}>
-            <p className='font-bold text-gray-600 my-3'>Which model do you have?</p>
-            <p className='text-sm text-center'>On your iPhone, go to Settings Your Name. Scroll down to see the model. On other smartphones, go to Settings > About phone.</p>
+            <p className='font-bold text-gray-600 text-sm my-3'>Which model do you have?</p>
+            <p className='text-sm text-center'>On your iPhone, go to Settings Your Name. Scroll down to see the model. On other smartphones, go to Settings About phone</p>
             <p className='text-sm text-center'>If your model is part of the iPhone Upgrade Program
                 <a className='text-blue-700' href='https://secure5.store.apple.com/shop/eligibility/upgradeEligibilitySignInOptions'>
                     check your upgrade eligibility and trade inOpens in new window
                 </a>
             </p>
 
-            <label htmlFor='select-model' className='font-bold text-gray-600 my-3'>Choose your model</label>
+            <label htmlFor='select-model' className='font-bold text-gray-600 my-3 text-sm'>Choose your model</label>
             <select
                 defaultValue={selectedModel}
                 onChange={(e)=> handelChange(e)}
                 id='select-model'
-                className='w-full mt-1 border rounded-xl flex justify-start items-start xs:text-sm lg:text-[1rem]'>
+                className='w-80 border border-neutral-300 rounded-xl flex justify-start items-start xs:text-[.8rem]'>
                 {OldModelPhoneArray.map(models => {
                     return (
                         <option
@@ -141,7 +141,7 @@ export const AnswerOfHaveGoodCondition = () =>
     return (
         <div className={`w-full ${showing} flex-col justify-center items-center my-2 bg-neutral-100 rounded-2xl p-2`}>
 
-            <p className="font-bold my-2 text-gray-600">Is the iPhone in good condition?</p>
+            <p className="font-bold my-2 text-gray-600 text-sm">Is the iPhone in good condition?</p>
             <p className='text-sm'>Answer yes if all of the following apply</p>
 
             <ul className="list-disc text-sm my-2 px-5">
@@ -204,7 +204,7 @@ export const AnswerOfButtonWork = () =>
 
     return (
         <div className={`w-full ${showing} flex-col justify-center items-center my-2 bg-neutral-100 rounded-2xl p-2`}>
-            <p className='font-bold text-gray-600'>Does it turn on and do all the buttons work?</p>
+            <p className='font-bold text-gray-600 text-sm my-2'>Does it turn on and do all the buttons work?</p>
             <div className='flex justify-center w-full justify-start items-center gap-3'>
                 {
                     ['Yes' , 'No'].map(answer => {
@@ -250,7 +250,7 @@ export const AnswerOfGoodShape = () =>
         <div className={`w-full ${showing} flex-col justify-center items-center my-2 bg-neutral-100 rounded-2xl p-2`}>
 
 
-            <p className={"font-bold my-2 text-gray-600"}>Is the body of the iPhone in good shape?</p>
+            <p className={"font-bold my-2 text-sm text-gray-600"}>Is the body of the iPhone in good shape?</p>
             <p className='my-1'>Answer yes if all of the following apply</p>
 
             <ul className="list-disc my-2 text-sm">

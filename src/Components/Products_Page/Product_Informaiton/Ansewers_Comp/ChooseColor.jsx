@@ -54,7 +54,7 @@ export const ChooseColor = () =>
 
 
     return (
-        <div className='xs:w-48 xs:bg-neutral-100 xs:rounded-2xl xs:p-2 xs:my-2 md:w-full md:w-full md:gap-4 md:p-3 md:mx-1'>
+        <div className='xs:w-48 xs:my-2  md:bg-neutral-100 md:rounded-2xl md:p-2 md:w-full md:w-full md:gap-4 md:p-3 md:mx-1'>
 
             <div className='
                    text-neutral-500 font-bold my-1
