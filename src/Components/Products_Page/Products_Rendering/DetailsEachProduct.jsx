@@ -85,7 +85,7 @@ export const DetailsEachProduct = ({EachProduct}) => {
 
                     <div className='
                     w-full flex
-                    xs:h-16 xs:flex-row xs:justify-between xs:items-center xs:my-2
+                    xs:h-16 xs:flex-row xs:justify-between xs:items-center
                     lg:h-auto lg:flex-col lg:justify-between lg:items-star'>
                         <ChooseColor/>
                         <ChooseCapacity/>
