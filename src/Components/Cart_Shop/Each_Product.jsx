@@ -106,8 +106,8 @@ export const Each_Product = ({ids}) =>
                 <div className='
             flex justify-evenly items-center
             xs:w-20 xs:bg-white xs:rounded-full xs:absolute xs:top-[4rem] xs:right-4
-            md:w-28 md:bg-transparent md:absolute md:top-[5rem] md:right-2
-            lg:w-28 lg:bg-transparent lg:relative lg:top-0 xs:right-0'>
+            md:w-28 md:bg-transparent md:absolute md:top-[6rem] md:right-3
+            lg:w-28 lg:bg-transparent lg:relative lg:top-0 lg:right-0'>
 
                     <button className='
                 flex justify-center items-center text-red-500 disabled:opacity-50
