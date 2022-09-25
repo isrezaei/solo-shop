@@ -61,25 +61,25 @@ export const Footer = () =>
             </div>
 
 
-            <div className='w-full bg-blue-600'>
+            {/*<div className='w-full bg-blue-600'>*/}
 
-                <div className='
-                 flex max-w-[1900px] m-auto
-                 xs:h-24 xs:px-0 xs:flex-col xs:justify-evenly xs:items-center
-                 md:h-14 md:px-28 md:flex-row  md:justify-between md:items-center
-                 lg:h-14 lg:px-40 lg:flex-row  lg:justify-between lg:items-center'>
-                    <p className='
-                text-white
-                xs:text-sm
-                lg:text-[.9rem]
-                2xl:text-[1rem]'>Developed by <a className='cursor-pointer' href=''>IsRezaei</a> ; it's a sample project</p>
-                    <div className=' w-28 flex justify-between items-center text-white text-xl cursor-pointer'>
-                        <BsInstagram/>
-                        <BsTwitter/>
-                        <RiFacebookFill/>
-                    </div>
-                </div>
-            </div>
+            {/*    <div className='*/}
+            {/*     flex max-w-[1900px] m-auto*/}
+            {/*     xs:h-24 xs:px-0 xs:flex-col xs:justify-evenly xs:items-center*/}
+            {/*     md:h-14 md:px-28 md:flex-row  md:justify-between md:items-center*/}
+            {/*     lg:h-14 lg:px-40 lg:flex-row  lg:justify-between lg:items-center'>*/}
+            {/*        <p className='*/}
+            {/*    text-white*/}
+            {/*    xs:text-sm*/}
+            {/*    lg:text-[.9rem]*/}
+            {/*    2xl:text-[1rem]'>Developed by <a className='cursor-pointer' href=''>IsRezaei</a> ; it's a sample project</p>*/}
+            {/*        <div className=' w-28 flex justify-between items-center text-white text-xl cursor-pointer'>*/}
+            {/*            <BsInstagram/>*/}
+            {/*            <BsTwitter/>*/}
+            {/*            <RiFacebookFill/>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
 
 
         </div>
