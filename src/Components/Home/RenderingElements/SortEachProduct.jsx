@@ -18,7 +18,7 @@ export const SortEachProduct = () =>{
             <p key={items} onClick={()=> FilterItems(items)}
                className={`${Active === items && 'bg-gray-200 rounded-full '}
                 px-3 box-border cursor-pointer text-gray-500 
-                xs:m-0 xs:py-1 xs:text-sm
+                xs:m-0 xs:py-1 xs:text-[.8rem]
                 lg:m-0 lg:text-[.8rem] lg:animate-bounce lg:transition
                 2xl:text-sm`
             }>{items}</p>

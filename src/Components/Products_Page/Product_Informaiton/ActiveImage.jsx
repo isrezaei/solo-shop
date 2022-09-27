@@ -16,7 +16,7 @@ export const ActiveImage = () =>
     return (
         <div className='
         xs:relative xs:h-85
-        md:sticky md:top-0 md:z-40 md:h-auto md:bg-neutral-50 md:rounded-3xl
+        md:sticky md:top-0 md:z-40 md:h-auto
         lg:sticky lg:top-0 lg:z-40 lg:h-auto
         '>
             <img className='

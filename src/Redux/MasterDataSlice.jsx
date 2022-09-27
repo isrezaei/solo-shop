@@ -41,6 +41,7 @@ export const SortBySelect = createSelector (
     } )
 
 export const SortByFilter = createSelector (
+
     [selectAllMasterData , (state , items) => items],
 
     (AllProduct , FilterItem)=> {

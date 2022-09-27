@@ -11,7 +11,7 @@ module.exports = {
       },
 
       colors: {
-        'glass-black': 'rgba(0,0,0,0.70)',
+        'glass-black': 'rgba( 38, 38, 38, 0.90 )',
       },
 
       fontFamily: {

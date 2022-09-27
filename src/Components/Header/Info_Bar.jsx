@@ -48,8 +48,8 @@ export const Info_Bar = () =>
             <section className='
             flex relative justify-evenly items-center rounded-3xl
             xs:py-[.2rem] xs:bg-neutral-50
-            md:bg-blue-700
-            lg:w-36 lg:h-12
+            md:bg-blue-700 md:p-0
+            md:w-36 md:h-14
             '>
                 <Link to='/cart-shop'>
                     <RiShoppingCartFill className='

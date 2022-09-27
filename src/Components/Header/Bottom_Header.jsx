@@ -42,8 +42,7 @@ export const Bottom_Header = () =>
                 className='
                 text-white cursor-pointer
                 xs:hidden
-                md:block md:text-[.9rem]
-                2xl:text-lg
+                md:block md:text-[1rem]
                 '>{options}</p>
         )
     })
@@ -52,13 +51,12 @@ export const Bottom_Header = () =>
         <div className='
         w-full flex bg-neutral-800
         xs:flex-col xs:justify-start xs:items-center xs:m-0
-        md:relative md:h-40 md:justify-evenly md:items-center'>
+        md:relative md:justify-center md:items-center'>
 
             <div className='
             flex bg-neutral-800
             xs:px-0 xs:w-full xs:h-16 xs:justify-evenly xs:items-center xs:mt-0
-            md:absolute md:bottom-0 md:max-w-[1400px] md:h-24 md:px-6 md:w-full md:flex md:items-center md:justify-between
-            2xl:max-w-[1800px]  2xl:px-24 2xl:mt-20 2xl:h-24'>
+            md:max-w-[1400px] md:h-20 md:px-6 md:w-full md:flex md:items-center md:justify-between'>
 
                     <div className='text-white font-bold xs:hidden md:block md:text-lg'>SoloShop</div>
 
@@ -72,11 +70,10 @@ export const Bottom_Header = () =>
                          flex
                          xs:w-9/12 xs:justify-start xs:items-center xs:border-b xs:border-neutral-600
                          md:w-10/12 md:justify-center md:gap-8 md:items-center md:border-b-0
-                         lg:w-10/12 lg:justify-center lg:gap-8 lg:items-center
-                         2xl:gap-16'>
+                         lg:w-10/12 lg:justify-center lg:gap-16 lg:items-center'>
                             {headerOptions}
                             <Link to='/search' state={{background : location}} replace={false}>
-                                <MdOutlineManageSearch onClick={()=> setSearchInput(true)} className='xs:hidden md:block md:text-4xl 2xl:text-5xl text-white'/>
+                                <MdOutlineManageSearch onClick={()=> setSearchInput(true)} className='xs:hidden md:block md:text-4xl  text-white'/>
                                 <span onClick={()=> setSearchInput(true)} className='xs:flex md:hidden flex justify-center items-center gap-2 py-2'>
                                          <MdOutlineManageSearch className='text-2xl text-neutral-400'/>
                                         <p className='outline-0 bg-transparent text-sm text-neutral-400'>can you search something ...</p>

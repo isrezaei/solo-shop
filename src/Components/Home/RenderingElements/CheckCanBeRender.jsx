@@ -49,14 +49,14 @@ export const CheckCanBeRender = () =>
 
 
 
-    let mobileRender;
-    if (allowFilter && liveWidth < 500)
+    let SmallScreenRender;
+    if (allowFilter && liveWidth < 1000)
     {
-        mobileRender = <FilterProducts/>
+        SmallScreenRender = <FilterProducts/>
     }
-    if (!allowFilter && liveWidth <500)
+    if (!allowFilter && liveWidth < 1000)
     {
-        mobileRender = <>
+        SmallScreenRender = <>
             <SortEachProduct/>
             <ProductSwiperSlider Render={Render}/>
         </>
@@ -64,11 +64,11 @@ export const CheckCanBeRender = () =>
 
 
     let largeScreenRender;
-    if (allowFilter && liveWidth > 500)
+    if (allowFilter && liveWidth > 1000)
     {
         largeScreenRender = <FilterResult/>
     }
-    if (!allowFilter && liveWidth > 500)
+    if (!allowFilter && liveWidth > 1000)
     {
         largeScreenRender = <>
             <SortEachProduct/>
@@ -81,26 +81,23 @@ export const CheckCanBeRender = () =>
 
     return (
         <section className='w-full bg-gray-100 relative'>
+
             <div className='
                 m-auto flex justify-center items-start
                 xs:w-full
                 lg:w-11/12 lg:relative lg:px-5
-                2xl:px-0 2xl:gap-8
-                '>
+                2xl:px-0 2xl:gap-8'>
 
-                {(allowFilter && liveWidth > 500) ? <FilterLogic/> :  <OfferSwiperSlider/>}
+                {(allowFilter && liveWidth > 1000) ? <FilterLogic/> :  <OfferSwiperSlider/>}
 
                 <section className='
-
                      flex flex-col items-center
                      xs:w-full xs:justify-center
-                     lg:w-9/12 lg:justify-between
-                    '>
-                    {mobileRender}
+                     md:w-11/12 md:justify-between
+                     lg:w-9/12'>
+                    {SmallScreenRender}
                     {largeScreenRender}
                 </section>
-
-
             </div>
         </section>
     )

@@ -25,9 +25,9 @@ export const RangeSlider = () =>
                 showValue={true}
                 valueStyle={()=>{
                     return {
-                        background:'#2962ff',
-                        fontSize: 13,
-                        top: -38 ,
+                        background:'rgba(112,112,112,0.63)',
+                        fontSize: 12,
+                        top: -37 ,
                         borderRadius : 100
                     }}}
                 onChange={(points)=> {
@@ -43,7 +43,7 @@ export const RangeSlider = () =>
                         width : 18,
                         height : 18,
                         background : 'white',
-                        border : '2px solid #2962ff'
+                        border : '2px solid rgba(112,112,112,0.63)'
                     }
                 }}
 
@@ -51,7 +51,7 @@ export const RangeSlider = () =>
                     if(index === 1){
                         return {
                             height : 3 ,
-                            background:'#2962ff'
+                            background:'rgba(112,112,112,0.63)'
                         }
                     }
                 }}
@@ -66,32 +66,28 @@ export const RangeSlider = () =>
 
             <div className='
             flex justify-between items-center
-            lg:w-80
-            xs:w-72
-            '>
-                <div className='flex flex-col justify-center items-start gap-1'>
-                    <p className='font-bold text-gray-500'>Min</p>
+            xs:w-60
+            md:w-80'>
+                <div className='flex flex-col justify-center items-center gap-1'>
+                    <p className='text-sm font-bold text-gray-500'>Min</p>
                     <input className='
-                    border-gray-300
-                    xs:w-16 xs:h-8 xs:text-sm
-                    lg:w-24 lg:h-auto lg:text-lg
-                    ' type='number' disabled placeholder={startPoint}/>
+                    border-gray-300 rounded-full text-center
+                    xs:w-20 xs:h-8 xs:text-sm'type='number' disabled placeholder={startPoint}/>
                 </div>
 
-                <div className='flex flex-col justify-center items-start gap-1'>
-                    <p className='font-bold text-gray-500'>Max</p>
+                <div className='flex flex-col justify-center items-center gap-1'>
+                    <p className='text-sm font-bold text-gray-500'>Max</p>
                     <input className='
-                    border-gray-300
-                    xs:w-16 xs:h-8 xs:text-sm
-                    lg:w-24 lg:h-auto lg:text-lg
+                    border-gray-300 rounded-full text-center
+                    xs:w-20 xs:h-8 xs:text-sm
                     'type='number' disabled placeholder={endPoint}/>
                 </div>
             </div>
 
             <button className='
-            w-full bg-blue-600 text-center text-white
-            xs:h-8  xs:my-5 xs:rounded-2xl
-            lg:h-10 lg:my-8 lg:rounded-none
+            w-full bg-neutral-400 text-center text-white text-sm
+            xs:h-7 xs:my-5 xs:rounded-2xl
+            md:h-8 md:my-8
              ' onClick={()=> dispatch(filterByPrice(range))}>Set this price</button>
         </div>
     )

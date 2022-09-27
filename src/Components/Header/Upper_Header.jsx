@@ -16,10 +16,12 @@ export const Upper_Header = () =>
     } , [])
 
     return (
-        <div className={` 
-          flex ${ScrollPosition > 200 ? 'bg-neutral-800' : 'bg-gray-50'} z-50 transition
+        <div
+
+            className={` 
+          flex ${ScrollPosition > 200 ? 'bg-glass-black backdrop-blur-sm' : 'bg-gray-50'} z-50 transition
           xs:w-full xs:h-16 xs:justify-center xs:items-center xs:relative
-          md:fixed md:h-[4rem] md:left-0 md:top-0`}>
+          md:sticky md:z-50 md:h-[5rem] md:left-0 md:top-0`}>
 
             <div className='
             xs:w-[90%] xs:flex xs:justify-between xs:item-center xs:m-0
@@ -33,10 +35,9 @@ export const Upper_Header = () =>
                 </div>
                 <section className='flex items-center justify-evenly xs:w-52 md:w-52'>
 
-                    <div className='xs:h-8 md:h-10 lg:h-12 flex justify-center items-center gap-2 p-2 bg-blue-700 cursor-pointer rounded-3xl xs:w-28 md:w-28'>
+                    <div className='xs:h-8 md:h-12  flex justify-center items-center gap-2 p-2 bg-blue-700 cursor-pointer rounded-3xl xs:w-28 md:w-28'>
                         <RiUserAddLine className='text-white
-                        xs:text-sm
-                        2xl:text-xl'/>
+                        xs:text-sm'/>
                         <p className='
                         text-white
                         xs:text-[.8rem]
