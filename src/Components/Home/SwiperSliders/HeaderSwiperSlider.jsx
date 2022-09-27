@@ -26,7 +26,7 @@ export const HeaderSwiperSlider = () =>
                 }}
                 effect={'creative'}
                 modules={[Mousewheel, Pagination , Autoplay , EffectCreative]}
-                // autoplay={{ delay: 2500 , disableOnInteraction : false}}
+                autoplay={{ delay: 2500 , disableOnInteraction : false}}
                 className='
                 mySwiper
                 xs:w-11/12 xs:h-[18rem] xs:rounded-r-[1rem] xs:my-5 xs:border-2 xs:border-white
