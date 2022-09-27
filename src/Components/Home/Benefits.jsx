@@ -32,7 +32,7 @@ export const Benefits = () =>
         return (
             <div key={items.title} className='
             xs:w-24 xs:h-16 xs:flex xs:flex-col xs:justify-evenly xs:items-center
-            md:w-52 md:h-20 md:flex md:flex-row md:grid-rows-2 md:justify-evenly md:items-center  md:rounded-2xl md:bg-neutral-100
+            md:w-52 md:h-20 md:flex md:flex-row md:grid-rows-2 md:justify-evenly md:items-center  md:rounded-2xl md:bg-neutral-50 md:shadow-md
             lg:w-52 lg:h-20 lg:flex lg:flex-row lg:grid-rows-2 lg:justify-evenly lg:items-center'>
                 <div className='
                 xs:text-3xl xs:text-neutral-600
@@ -42,10 +42,10 @@ export const Benefits = () =>
                 </div>
                 <section>
                     <p className='
-                    xs:text-[.80rem] xs:text-neutral-400
+                    xs:text-[.80rem] xs:text-neutral-700
                     md:text-sm md:font-medium
                     lg:text-lg lg:font-medium'>{items.title}</p>
-                    <p className='text-neutral-700 xs:hidden md:block md:text-sm lg:text-[.8rem] 2xl:text-sm'>{items.text}</p>
+                    <p className='text-neutral-400 xs:hidden md:block md:text-sm lg:text-[.8rem] 2xl:text-sm'>{items.text}</p>
                 </section>
             </div>
         )

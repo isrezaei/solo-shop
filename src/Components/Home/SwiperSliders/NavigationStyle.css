@@ -26,3 +26,13 @@
 {
     font-size: 2rem;
 }
+
+.swiper-pagination-progressbar-fill
+{
+    background: #cecece !important;
+}
+
+.swiper-pagination-progressbar
+{
+    background: #ececec !important;
+}
