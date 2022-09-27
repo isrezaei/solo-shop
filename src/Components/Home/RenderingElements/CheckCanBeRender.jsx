@@ -33,12 +33,7 @@ export const CheckCanBeRender = () =>
             <div>
                 {
                     MasterDataIds.filter(items => items.type === selectProduct).map(items =>
-                        <SwiperSlide key={items.id} className='
-                        flex justify-center items-center
-                        xs:h-80
-                        lg:h-[24rem]
-                        2xl:h-[27rem]
-                        '>
+                        <SwiperSlide key={items.id} className='flex justify-center items-center xs:h-80 lg:h-[24rem]'>
                             <RenderingEachProduct ids={items.id}/>
                         </SwiperSlide>
                     )

@@ -23,7 +23,8 @@ export const Info_Bar = () =>
                      2xl:text-3xl
                     '/>
                 </Link>
-                <div className='w-px xs:h-3 lg:h-6 2xl:h-9 xs:bg-neutral-600 lg:bg-white'> </div>
+                <div className='w-px xs:h-3 xs:bg-neutral-600 md:h-7 lg:h-6 md:bg-white'> </div>
+
                 <div className='flex flex-col justify-center items-start ml-2'>
                     <span className='
                     w-20
@@ -47,34 +48,34 @@ export const Info_Bar = () =>
             <section className='
             flex relative justify-evenly items-center rounded-3xl
             xs:py-[.2rem] xs:bg-neutral-50
-            lg:w-36 lg:h-11 lg:bg-blue-700
-            2xl:w-36 2xl:h-14
+            md:bg-blue-700
+            lg:w-36 lg:h-12
             '>
                 <Link to='/cart-shop'>
                     <RiShoppingCartFill className='
                      w-12
                      xs:text-3xl xs:text-neutral-600
-                     lg:text-2xl lg:text-white
+                     md:text-white
+                     lg:text-2xl
                      2xl:text-3xl
                     '/>
                 </Link>
 
-                <div className='w-px xs:h-3 lg:h-6 2xl:h-9 xs:bg-neutral-600 lg:bg-white'> </div>
+                <div className='w-px xs:h-3 md:h-7 lg:h-6 xs:bg-neutral-600 md:bg-white'> </div>
 
                 <div className='flex flex-col justify-center items-start ml-2'>
                     <span className='
                     w-20
                     xs:text-[.8rem] xs:text-neutral-800
-                    lg:text-[.8rem] lg:text-white
-                    2xl:text-sm
-                    '>{totalQuantity} items</span>
+                    md:text-white
+                    lg:text-[.8rem]
+                    2xl:text-sm'>{totalQuantity} items</span>
 
                     <span className='
                     w-20
                     xs:text-[.8rem] xs:text-neutral-800
-                    lg:text-[.8rem] lg:text-white
-                    2xl:text-sm
-                    '>${totalPrice.toFixed(2)}</span>
+                    lg:text-[.8rem] md:text-white
+                    2xl:text-sm'>${totalPrice.toFixed(2)}</span>
                 </div>
             </section>
 

@@ -33,7 +33,7 @@ export const Upper_Header = () =>
                 </div>
                 <section className='flex items-center justify-evenly xs:w-52 md:w-52'>
 
-                    <div className='h-8 flex justify-center items-center gap-2 p-2 bg-blue-700 cursor-pointer rounded-3xl xs:w-28 md:w-28'>
+                    <div className='xs:h-8 md:h-10 lg:h-12 flex justify-center items-center gap-2 p-2 bg-blue-700 cursor-pointer rounded-3xl xs:w-28 md:w-28'>
                         <RiUserAddLine className='text-white
                         xs:text-sm
                         2xl:text-xl'/>

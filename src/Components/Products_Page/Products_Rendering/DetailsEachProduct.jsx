@@ -70,7 +70,7 @@ export const DetailsEachProduct = ({EachProduct}) => {
                 <section style={{height : liveWidth > 500}} className='
                 xs:w-full xs:relative xs:h-5/6
                 md:w-3/6 md:h-[50rem] md:relative md:left-0
-                lg:w-3/6 lg:h-[85rem] lg:relative lg:left-0'>
+                lg:w-3/6 lg:h-[50rem] lg:relative lg:left-0'>
                     <ActiveImage/>
                 </section>
 
@@ -80,7 +80,7 @@ export const DetailsEachProduct = ({EachProduct}) => {
                 h-auto flex flex-col justify-start items-start gap-2 overflow-y-scroll overflow-x-hidden scrollbar-thin scrollbar-thumb-neutral-100 scrollbar-thumb-rounded-full
                 xs:w-full xs:relative xs:px-0
                 md:w-3/6 md:h-[50rem] md:my-5 md:relative md:right-0 md:p-6
-                lg:w-3/6 lg:h-[85rem] lg:my-8  lg:relative lg:right-0 lg:p-6'>
+                lg:w-3/6 lg:h-[50rem] lg:my-8  lg:relative lg:right-0 lg:p-6'>
                     <Information/>
 
                     <div className='

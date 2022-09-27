@@ -34,10 +34,10 @@ export const SelectOptions = () =>
                 onClick={setActiveProduct}
                 className={`
                 transition cursor-pointer text-gray-500 flex items-center justify-center
-                xs:w-2/6 xs:h-8 xs:p-2 xs:text-sm xs:rounded-t-full xs:rounded-b-full
-                md:w-28 md:h-8 md:p-2 md:text-sm md:rounded-t-full md:rounded-b-full
-                lg:w-32 lg:h-10 lg:p-0 lg:text-[1rem] lg:rounded-t-[1rem] lg:rounded-b-none
-                2xl:w-48 2xl:h-14 2xl:p-0 2xl:text-xl 
+                xs:w-2/6 xs:h-8 xs:p-2 xs:text-sm xs:rounded-full
+                md:w-28 md:h-8 md:p-2 md:text-sm md:rounded-full
+                lg:w-32 lg:h-10 lg:p-0 lg:text-[1rem] lg:rounded-full
+                
                   ${Hover === items && Hover !== Active &&'lg:bg-gray-100'}
                   ${Active === items && 'text-white bg-blue-700'}`}>
                 {items}
@@ -50,13 +50,14 @@ export const SelectOptions = () =>
         <div className='
         flex mx-auto transition transition-all duration-100 relative
         xs:w-full xs:flex-row xs:justify-center xs:items-center xs:px-4 xs:mb-3
-        lg:w-9/12 lg:flex-row  lg:justify-between lg:items-end  lg:px-0 lg:mb-0
-        '>
+        md:w-7/12
+        lg:w-7/12 lg:flex-row  lg:justify-between lg:items-center  lg:px-0 lg:mb-3'>
             <div className={`
             animate__animated
             animate__faster ${allowFilter ? 'animate__fadeOut pointer-events-none' : 'animate__fadeIn pointer-events-auto'} w-full flex justify-around items-center`}>
                 {TitleProduct}
             </div>
+
             <div className={`
             animate__animated
             animate__faster ${!allowFilter ? 'animate__fadeOut pointer-events-none' : 'animate__fadeIn pointer-events-auto'} absolute
@@ -114,9 +115,8 @@ export const SelectOptions = () =>
                 transition flex justify-center gap-3 items-center cursor-pointer
                 xs:w-9 xs:h-8 xs:rounded-full xs:absolute xs:right-2 xs:top-8 xs:z-10 xs:border xs:border-4 xs:border-white
                 md:right-5 
-                lg:w-20 lg:h-12 lg:rounded-full lg:absolute lg:left-0 lg:top-[3.5rem]
-                2xl:w-20 2xl:h-14 2xl:left-0 2xl:top-[4.3rem]`}>
-                <ImFilter className='xs:text-sm lg:text-xl 2xl:text-2xl'/>
+                lg:w-10 lg:h-10 lg:rounded-full`}>
+                <ImFilter className='xs:text-sm '/>
             </div>
         </div>
     )

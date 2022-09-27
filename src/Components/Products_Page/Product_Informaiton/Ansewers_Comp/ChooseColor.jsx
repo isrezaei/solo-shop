@@ -44,9 +44,8 @@ export const ChooseColor = () =>
                 style={{background : colors}}
                 className={`
                 flex flex-col justify-center items-center cursor-pointer opacity-30
-                xs:w-6 xs:h-6 xs:rounded-full
-                lg:w-full lg:h-8 lg:gap-2 lg:rounded-full
-                
+                xs:w-4 xs:h-4 xs:rounded-full
+                lg:w-16 lg:h-8 lg:gap-2 lg:rounded-full
                 ${activeColor[product] === colors && 'opacity-100'}`}>
             </div>
         )
@@ -54,17 +53,17 @@ export const ChooseColor = () =>
 
 
     return (
-        <div className='xs:w-48 xs:my-2  md:bg-neutral-100 md:rounded-2xl md:p-2 md:w-full md:w-full md:gap-4 md:p-3 md:mx-1'>
+        <div className='xs:w-48 xs:my-2 md:p-2 md:w-52 md:bg-gray-50 md:rounded-2xl lg:w-full lg:h-20  lg:p-0 lg:flex lg:flex-col lg:justify-between lg:items-center'>
 
             <div className='
-                   text-neutral-500 font-bold my-1
-                   xs:text-[.8rem]
-                   md:text-[.9rem]
-                   lg:text-[1rem] lg:text-center'>Choose your color</div>
+                   text-neutral-500 font-bold
+                   xs:text-[.8rem] xs:my-2
+                   md:text-[.8rem] md:my-2
+                   lg:text-[.9rem] lg:text-center lg:my-1'>Choose your color</div>
 
             <div className='
              xs:flex xs:justify-start xs:gap-2 xs:items-center
-             lg:w-full lg:grid lg:pb-3 lg:grid-cols-2 lg:place-items-center'>
+             lg:w-full lg:flex lg:justify-center lg:items-center lg:pb-3'>
                 {setColor}
             </div>
         </div>

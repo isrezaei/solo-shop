@@ -18,8 +18,7 @@ export const ProductSwiperSlider = ({Render}) =>
             className="mySwiper
                     xs:w-11/12 xs:h-[45rem]
                     md:w-9/12 md:h-[45rem]
-                    lg:w-11/12 lg:h-[53rem]
-                    2xl:w-full 2xl:h-[60rem] ">
+                    lg:w-11/12 lg:h-[53rem]">
             {Render}
         </Swiper>
     )

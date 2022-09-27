@@ -40,7 +40,7 @@ export const Information = () =>
             flex items-center
             xs:w-full xs:justify-center xs:absolute xs:top-5 left-0
             md:w-48 md:h-10 md:justify-start md:relative md:top-0
-            lg:w-48 lg:h-4 lg:justify-start lg:relative lg:top-0
+            lg:w-48 lg:h-8 lg:justify-start lg:relative lg:top-0
             '>
                 <div className='flex justify-start items-center gap-1 text-gray-500 font-bold xs:hidden md:flex'> <p className='xs:text-lg 2xl:text-2xl font-bold text-blue-600'>{rate}</p>/ 5</div>
                 <RatingStar colors={{ mask: "rgba(52,96,243,0.87)" }} noBorder id={id.toString()} rating={rate} size={liveWidth > 500 ? 20 : 15}/>
@@ -49,86 +49,67 @@ export const Information = () =>
             <div className='
             xs:w-full xs:h-36 xs:grid xs:grid-cols-2 xs:justify-center xs:items-center xs:gap-3
             md:w-full md:h-52 md:grid md:grid-cols-2 md:justify-center md:items-center md:gap-3 md:my-8
-            lg:w-[28rem] lg:h-20 lg:grid-cols-3 lg:place-items-center lg:items-start lg:gap-0 lg:my-3'>
+            lg:w-full lg:h-36 lg:grid-cols-2 lg:justify-center lg:items-center lg:gap-3 lg:my-3'>
                 {/***************************************************************/}
                 <span className='
                 flex items-center w-full
-                xs:h-full xs:justify-center xs:gap-1 xs:bg-gray-100 xs:rounded-full
-                lg:h-auto lg:justify-start lg:gap-2  lg:bg-transparent lg:rounded-none
+                xs:h-full xs:justify-center xs:gap-1 xs:bg-gray-50 xs:rounded-full
+                md:h-full md:justify-center md:gap-1 md:bg-gray-50 md:rounded-full
+
                 '>
                     <p className='
-                     text-gray-500 h-10 flex justify-start items-center
-                     xs:text-sm
-                     lg:text-[.9rem]
-                     '>Category ></p> <p className='
+                     text-gray-500 h-8 flex justify-start items-center
+                     xs:text-sm'>Category ></p> <p className='
                                         text-neutral-500 font-bold
-                                        xs:text-sm
-                                        lg:text-[.9rem]
-                                        '>{type}</p>
+                                        xs:text-sm'>{type}</p>
                 </span>
                 {/***************************************************************/}
                 <span className='
                 flex items-center w-full
-                xs:h-full xs:justify-center xs:gap-1 xs:bg-gray-100 xs:rounded-full
-                lg:h-auto lg:justify-start lg:gap-2  lg:bg-transparent lg:rounded-none
+                xs:h-full xs:justify-center xs:gap-1 xs:bg-gray-50 xs:rounded-full
+                md:h-full md:justify-center md:gap-1 md:bg-gray-50 md:rounded-full
                 '>
                     <p className='
-                     text-gray-500 h-10 flex justify-start items-center
-                     xs:text-sm
-                     lg:text-[.9rem]
-                     '>Brand ></p> <p className='
+                     text-gray-500 h-8 flex justify-start items-center
+                     xs:text-sm'>Brand ></p> <p className='
                                         text-neutral-500 font-bold
-                                        xs:text-sm
-                                        lg:text-[.9rem]
-                                        '>{brand}</p>
+                                        xs:text-sm'>{brand}</p>
                 </span>
                 {/***************************************************************/}
                 <span className='
                 flex items-center w-full
-                xs:h-full xs:justify-center xs:gap-1 xs:bg-gray-100 xs:rounded-full
-                lg:h-auto lg:justify-start lg:gap-2  lg:bg-transparent lg:rounded-none
+                xs:h-full xs:justify-center xs:gap-1 xs:bg-gray-50 xs:rounded-full
+                  md:h-full md:justify-center md:gap-1 md:bg-gray-50 md:rounded-full
                 '>
                     <p className='
-                     text-gray-500 h-10 flex justify-start items-center
-                     xs:text-sm
-                     lg:text-[.9rem]
-                     '>Price ></p> <p className='
+                     text-gray-500 h-8 flex justify-start items-center
+                     xs:text-sm'>Price ></p> <p className='
                                         text-neutral-500 font-bold
-                                        xs:text-sm
-                                        lg:text-[.9rem]
-                                        '>${price}</p>
+                                        xs:text-sm'>${price}</p>
                 </span>
                 {/***************************************************************/}
                 <span className='
                 flex items-center w-full
-                xs:h-full xs:justify-center xs:gap-1 xs:bg-gray-100 xs:rounded-full
-                lg:h-auto lg:justify-start lg:gap-2  lg:bg-transparent lg:rounded-none
+                xs:h-full xs:justify-center xs:gap-1 xs:bg-gray-50 xs:rounded-full
+                  md:h-full md:justify-center md:gap-1 md:bg-gray-50 md:rounded-full
                 '>
                     <p className='
-                     text-gray-500 h-10 flex justify-start items-center
-                     xs:text-sm
-                     lg:text-[.9rem]
-                     '>Offer ></p> <p className='
+                     text-gray-500 h-8 flex justify-start items-center
+                     xs:text-sm'>Offer ></p> <p className='
                                         text-neutral-500 font-bold
-                                        xs:text-sm
-                                        lg:text-[.9rem]
-                                        '>{offer}%</p>
+                                        xs:text-sm'>{offer}%</p>
                 </span>
                 {/***************************************************************/}
                 <span className='
                 flex items-center w-full
-                xs:h-full xs:justify-center xs:gap-1 xs:bg-gray-100 xs:rounded-full  xs:col-span-2
-                lg:h-auto lg:justify-start lg:gap-2  lg:bg-transparent lg:rounded-none
+                xs:h-full xs:justify-center xs:gap-1 xs:bg-gray-50 xs:rounded-full  xs:col-span-2
+                md:h-full md:justify-center md:gap-1 md:bg-gray-50 md:rounded-full
                 '>
                     <p className='
-                     text-gray-500 h-10 flex justify-start items-center
-                     xs:text-sm
-                     lg:text-[.9rem]
-                     '>Available ></p> <p className='
+                     text-gray-500 h-8 flex justify-start items-center
+                     xs:text-sm'>Available ></p> <p className='
                                         text-blue-600 font-bold
-                                        xs:text-sm
-                                        lg:text-[.9rem]
-                                        '>${priceWithOffer}</p>
+                                        xs:text-sm'>${priceWithOffer}</p>
                 </span>
             </div>
         </>

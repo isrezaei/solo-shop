@@ -45,13 +45,10 @@ export const ChooseCapacity = () =>
                 key={capacity}
                 onClick={() => stepCapacity(capacity , contextDispatch)}
                 className={`
-                flex flex-col justify-center items-center  cursor-pointer opacity-30
-                xs:w-14 xs:h-auto xs:rounded-full xs:border-2 xs:border-gray-200
-                md:w-16 md:h-8 md:rounded-full md:border-2 md:border-gray-200
-                lg:w-full lg:h-10 lg:rounded-full lg:border-none lg:bg-neutral-200 
-                
+                flex flex-col justify-center items-center cursor-pointer opacity-30
+                xs:w-4  xs:h-4 xs:rounded-full
+                lg:w-16 lg:h-8 lg:gap-2 lg:rounded-full
                  ${activeCapacity[product] === capacity && 'opacity-100'}`}>
-
                 <div>
                     <div className='flex justify-center items-center xs:gap-0 lg:gap-1'>
                         <p className='xs:text-[.8rem] md:text-[.9rem] lg:text-lg text-neutral-500'>{capacity}</p>
@@ -64,22 +61,17 @@ export const ChooseCapacity = () =>
 
 
     return (
-        <div className='xs:w-44 xs:my-2 md:bg-neutral-100 md:rounded-2xl md:p-2 md:w-full md:w-full md:gap-4 md:p-3 md:mx-1'>
+        <div className='xs:w-48 xs:my-2 md:p-2 md:w-52 md:bg-gray-50 md:rounded-2xl lg:w-full lg:h-20 lg:p-0 lg:flex lg:flex-col lg:justify-between lg:items-center'>
 
-            <div className={`w-full flex flex-col justify-center border-gray-400
-                 xs:items-end
-                 lg:items-center
-                 ${!existCapacityInLocal && 'pointer-events-none opacity-30' }`}>
+            <div className={`flex flex-col justify-evenly xs:items-end lg:items-center ${!existCapacityInLocal && 'pointer-events-none opacity-30' }`}>
 
                 <div className='
                        text-neutral-500 font-bold
-                       xs:text-[.8rem] xs:mb-2
-                       md:text-[.9rem]
-                       lg:text-[1rem] lg:text-center'>Choose your capacity</div>
+                       xs:text-[.8rem] xs:my-2
+                       md:text-[.8rem] md:my-2
+                       lg:text-[.9rem] lg:text-center lg:my-1'>Choose your capacity</div>
                 <div
-                     className='
-                     xs:w-full xs:flex xs:justify-end xs:items-center xs:gap-1
-                     lg:w-full lg:grid lg:pb-7 lg:grid-cols-2 lg:grid-rows-2 lg:gap-4'>
+                     className='xs:flex xs:w-full xs:justify-center xs:items-center xs:gap-9 md:justify-evenly lg:w-full lg:flex lg:justify-center lg:items-center '>
                     {setCapacity}
                 </div>
             </div>

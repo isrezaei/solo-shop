@@ -25,7 +25,7 @@ export const AnswerOfHaveSmartPhone = () =>
 
 
     return (
-        <div className='w-full flex flex-col justify-center items-center my-2 bg-neutral-100 rounded-2xl p-2'>
+        <div className='w-full flex flex-col justify-center items-center my-2 bg-neutral-50 rounded-2xl p-2'>
 
             <p className='font-bold text-neutral-500 my-3 text-sm'>Do you have a smartphone to trade in with Apple?</p>
 
@@ -90,7 +90,7 @@ export const AnswerOfChooseOldModel = () =>
     }
 
     return(
-        <div className={`w-full ${showing} flex-col justify-center items-center my-2 bg-neutral-100 rounded-2xl p-2`}>
+        <div className={`w-full ${showing} flex-col justify-center items-center my-2 bg-neutral-50 rounded-2xl p-2`}>
             <p className='font-bold text-gray-600 text-sm my-3'>Which model do you have?</p>
             <p className='text-sm text-center'>On your iPhone, go to Settings Your Name. Scroll down to see the model. On other smartphones, go to Settings About phone</p>
             <p className='text-sm text-center'>If your model is part of the iPhone Upgrade Program
@@ -139,7 +139,7 @@ export const AnswerOfHaveGoodCondition = () =>
     }
 
     return (
-        <div className={`w-full ${showing} flex-col justify-center items-center my-2 bg-neutral-100 rounded-2xl p-2`}>
+        <div className={`w-full ${showing} flex-col justify-center items-center my-2 bg-neutral-50 rounded-2xl p-2`}>
 
             <p className="font-bold my-2 text-gray-600 text-sm">Is the iPhone in good condition?</p>
             <p className='text-sm'>Answer yes if all of the following apply</p>
@@ -203,7 +203,7 @@ export const AnswerOfButtonWork = () =>
     console.log(choicesAnswer.haveOldPhone)
 
     return (
-        <div className={`w-full ${showing} flex-col justify-center items-center my-2 bg-neutral-100 rounded-2xl p-2`}>
+        <div className={`w-full ${showing} flex-col justify-center items-center my-2 bg-neutral-50 rounded-2xl p-2`}>
             <p className='font-bold text-gray-600 text-sm my-2'>Does it turn on and do all the buttons work?</p>
             <div className='flex justify-center w-full justify-start items-center gap-3'>
                 {
@@ -247,7 +247,7 @@ export const AnswerOfGoodShape = () =>
         showing = 'hidden'
     }
     return (
-        <div className={`w-full ${showing} flex-col justify-center items-center my-2 bg-neutral-100 rounded-2xl p-2`}>
+        <div className={`w-full ${showing} flex-col justify-center items-center my-2 bg-neutral-50 rounded-2xl p-2`}>
 
 
             <p className={"font-bold my-2 text-sm text-gray-600"}>Is the body of the iPhone in good shape?</p>
@@ -302,7 +302,7 @@ export const AnswerOfTouchScreenWork = () =>
     }
 
     return (
-        <div className={`w-full ${showing} flex-col justify-center items-center my-2 bg-neutral-100 rounded-2xl p-2`}>
+        <div className={`w-full ${showing} flex-col justify-center items-center my-2 bg-neutral-50 rounded-2xl p-2`}>
 
                 <p className="font-bold my-2 text-gray-600">Are the touchscreen and cameras in good shape?</p>
                 <p className='my-1'>Answer yes if all of the following apply</p>
