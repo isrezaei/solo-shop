@@ -26,16 +26,20 @@ export const HeaderSwiperSlider = () =>
                 }}
                 effect={'creative'}
                 modules={[Mousewheel, Pagination , Autoplay , EffectCreative]}
-                autoplay={{ delay: 2500 , disableOnInteraction : false}}
+                // autoplay={{ delay: 2500 , disableOnInteraction : false}}
                 className='
                 mySwiper
-                xs:w-11/12 xs:h-[12rem] xs:rounded-r-[1rem] xs:my-5 xs:border-2 xs:border-white
+                xs:w-11/12 xs:h-[18rem] xs:rounded-r-[1rem] xs:my-5 xs:border-2 xs:border-white
                 md:w-9/12 md:block md:h-[29rem] md:rounded-r-[2rem]
                 lg:w-8/12
                 '>
                 <SwiperSlide>
-                    <div className='h-full bg-cover bg-center bg-[url("https://user-images.githubusercontent.com/77073972/192607649-455b5934-73c3-40d5-b362-20010bf91f02.png")] '>
-
+                    <div className='relative h-full bg-cover bg-center bg-[url("https://user-images.githubusercontent.com/77073972/192607649-455b5934-73c3-40d5-b362-20010bf91f02.png")]'>
+                        {/*<div className='absolute left-10 top-10'>*/}
+                        {/*    <p className='font-bold my-3 xs:text-sm md:text-lg'>LETS GO TO BY NEWER IPHONE</p>*/}
+                        {/*    <p></p>*/}
+                        {/*    <div className='w-20 h-8 bg-neutral-400 text-sm text-white flex justify-center items-center rounded-xl'>BUY NOW</div>*/}
+                        {/*</div>*/}
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>

@@ -49,12 +49,12 @@ export const Bottom_Header = () =>
 
     return (
         <div className='
-        w-full flex bg-neutral-800
+        w-full flex bg-neutral-600
         xs:flex-col xs:justify-start xs:items-center xs:m-0
         md:relative md:justify-center md:items-center'>
 
             <div className='
-            flex bg-neutral-800
+            flex bg-neutral-600
             xs:px-0 xs:w-full xs:h-16 xs:justify-evenly xs:items-center xs:mt-0
             md:max-w-[1400px] md:h-20 md:px-6 md:w-full md:flex md:items-center md:justify-between'>
 
