@@ -1,12 +1,10 @@
-import {createSlice , createAsyncThunk , createEntityAdapter} from "@reduxjs/toolkit";
+import {createSlice , createAsyncThunk} from "@reduxjs/toolkit";
 import {LiveSearch} from "../Serves/PromiseFunc";
-
 
 export const FetchLiveSearchData = createAsyncThunk('FetchLiveSearchData' , async (product) => {
 
     return await LiveSearch(product)
 })
-
 
 export const LiveSearchSlice = createSlice({
     name : 'liveSearchSlice',

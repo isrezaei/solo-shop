@@ -1,6 +1,6 @@
 import {RiUserAddLine} from "react-icons/ri";
 import {useEffect, useState} from "react";
-import {Info_Bar} from "./Info_Bar";
+import {Info} from "./Info/Info";
 
 export const Upper_Header = () =>
 {
@@ -31,7 +31,7 @@ export const Upper_Header = () =>
                 <div className='
 
                  xs:flex xs:justify-evenly xs:items-center'>
-                    {ScrollPosition > 200 ? <Info_Bar/> : <p className='2xl:text-xl 2xl:block 2xl:text-gray-500'>Welcome</p>}
+                    {ScrollPosition > 200 ? <Info/> : <p className='2xl:text-xl 2xl:block 2xl:text-gray-500'>Welcome</p>}
                 </div>
                 <section className='flex items-center justify-evenly xs:w-52 md:w-52'>
 

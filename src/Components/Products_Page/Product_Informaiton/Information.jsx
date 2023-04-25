@@ -2,7 +2,7 @@ import {RatingStar} from "rating-star";
 import {useParams} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {selectMasterDataById} from "../../../Redux/MasterDataSlice";
-import {useGetLiveWidth} from "../../Helper/useGetLiveWidth";
+import {useGetLiveWidth} from "../../../Helper/useGetLiveWidth";
 
 export const Information = () =>
 {

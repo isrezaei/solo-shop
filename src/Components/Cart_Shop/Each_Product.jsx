@@ -1,22 +1,20 @@
 import {DeleteFromCarts, selectCartShopById} from "../../Redux/CartShopSlice";
 import {useSelector} from "react-redux";
-import {DecreaseQuantity , IncreaseQuantity, RemoveQuantity, selectMasterDataById} from "../../Redux/MasterDataSlice";
+import {DecreaseQuantity, IncreaseQuantity, RemoveQuantity, selectMasterDataById} from "../../Redux/MasterDataSlice";
 import {RiDeleteBinLine} from "react-icons/ri";
-import {CheckQuantity} from "../Helper/HelperFuncs";
+import {CheckQuantity} from "../../Helper/HelperFuncs";
 import {TiMinus, TiPlus} from "react-icons/ti";
 import {useDispatch} from "react-redux";
-import {DiscountedCalculation} from "../Products_Page/Utility_Fils/DiscountedCalculation";
 import {Link} from "react-router-dom";
 
 
-export const Each_Product = ({ids}) =>
-{
-    const CartSlice = useSelector(state => selectCartShopById(state , ids))
-    const MasterSlice = useSelector(state => selectMasterDataById(state , ids))
+export const Each_Product = ({ids}) => {
+    const CartSlice = useSelector(state => selectCartShopById(state, ids))
+    const MasterSlice = useSelector(state => selectMasterDataById(state, ids))
     const dispatch = useDispatch()
 
     //get main Quantity from master slice
-    const {detailsImage , quantity} = MasterSlice
+    const {detailsImage, quantity} = MasterSlice
 
     //get data information in cart slice
     const
@@ -34,29 +32,25 @@ export const Each_Product = ({ids}) =>
     const EachTotalPrice = parseInt(CheckQuantity(id) * discountedPrice)
 
 
-
-    const handelIncrease = () =>
-    {
+    const handelIncrease = () => {
         dispatch(IncreaseQuantity({
                     id,
-                    quantity : quantity + 1,
+                    quantity: quantity + 1,
                     discountedPrice
                 }
             )
         )
     }
-    const handelDecrease = () =>
-    {
+    const handelDecrease = () => {
         dispatch(DecreaseQuantity({
                     id,
-                    quantity : quantity - 1,
+                    quantity: quantity - 1,
                     discountedPrice
                 }
             )
         )
     }
-    const handelRemove = () =>
-    {
+    const handelRemove = () => {
         dispatch(RemoveQuantity({
                     id,
                     quantity,
@@ -66,7 +60,6 @@ export const Each_Product = ({ids}) =>
         )
         dispatch(DeleteFromCarts(id))
     }
-
 
 
     return (
@@ -79,7 +72,8 @@ export const Each_Product = ({ids}) =>
 
             <div className='xs:w-full lg:w-[16rem]  h-full flex justify-start items-center'>
 
-                <img id='product-image' className='xs:w-24 lg:w-28' src={detailsImage[activeImage[product]]}  alt={product}/>
+                <img id='product-image' className='xs:w-24 lg:w-28' src={detailsImage[activeImage[product]]}
+                     alt={product}/>
 
                 <div className='
                 flex flex-col items-start
@@ -134,7 +128,7 @@ export const Each_Product = ({ids}) =>
                 <p className='
             shadow-md
             xs:w-12 xs:h-5 xs:rounded-full
-            lg:w-8 lg:h-5 lg:rounded-full' style={{background : activeColor[product]}}>
+            lg:w-8 lg:h-5 lg:rounded-full' style={{background: activeColor[product]}}>
                 </p>
 
                 <p className='

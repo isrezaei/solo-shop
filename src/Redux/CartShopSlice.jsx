@@ -9,7 +9,11 @@ const initialState = JSON.parse(localStorage.getItem('shopListProduct')) || Cart
     tradeOldDevice : {}
 })
 
-export const {selectById: selectCartShopById,  selectIds: selectCartShopIds , selectAll : selectAllCartShop} = CartShopAdapter.getSelectors(state => state.CartShopSlice)
+export const {
+    selectById: selectCartShopById,
+    selectIds: selectCartShopIds ,
+    selectAll : selectAllCartShop
+} = CartShopAdapter.getSelectors(state => state.CartShopSlice)
 
 const CartShopSlice = createSlice({
     name : 'CardShopSlice' ,

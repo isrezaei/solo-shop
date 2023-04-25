@@ -3,7 +3,8 @@ import {createReducer , createAction} from "@reduxjs/toolkit";
 const initialState = {
     price : '',
     product : '',
-    stars : ''
+    stars : '',
+    isOpenF : false
 }
 
 export const FilterProductSlice = createReducer(initialState , (builder)=> {
@@ -17,6 +18,9 @@ export const FilterProductSlice = createReducer(initialState , (builder)=> {
             .addCase('filterByStars' , (state , {payload})=> {
                 state.stars = payload
             })
+            .addCase("isOpenFilter" , (state , {payload}) =>{
+                state.isOpen = payload
+            })
     }
 )
 
@@ -25,3 +29,4 @@ export const FilterProductSlice = createReducer(initialState , (builder)=> {
 export const filterByPrice = createAction('filterByPrice');
 export const filterByProduct = createAction('filterByProduct');
 export const filterByStars = createAction('filterByStars');
+export const isOpenFilter = createAction('isOpenFilter');

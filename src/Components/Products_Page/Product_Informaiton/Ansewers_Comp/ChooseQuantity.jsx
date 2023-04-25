@@ -2,7 +2,7 @@ import {TiPlus , TiMinus} from "react-icons/ti";
 import {useContext} from "react";
 import {EachProductFromContext} from "../../Products_Rendering/DetailsEachProduct";
 import {RiDeleteBinLine} from "react-icons/ri";
-import {HaveQuantity , CheckQuantity} from "../../../Helper/HelperFuncs";
+import {HaveQuantity , CheckQuantity} from "../../../../Helper/HelperFuncs";
 import {AddQuantity,DecreaseQuantity,IncreaseQuantity,RemoveQuantity,selectMasterDataById} from "../../../../Redux/MasterDataSlice";
 import {AddToCarts, DeleteFromCarts} from "../../../../Redux/CartShopSlice";
 import {useDispatch, useSelector} from "react-redux";

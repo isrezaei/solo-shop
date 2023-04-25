@@ -1,7 +1,7 @@
 import {IoMdArrowRoundBack} from "react-icons/io";
 import {useDispatch, useSelector} from "react-redux";
 import {DeleteAllCarts, selectCartShopIds} from "../../Redux/CartShopSlice";
-import {useGetLiveWidth} from "../Helper/useGetLiveWidth";
+import {useGetLiveWidth} from "../../Helper/useGetLiveWidth";
 import {useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import {ResetAndClearAllTotal} from "../../Redux/MasterDataSlice";

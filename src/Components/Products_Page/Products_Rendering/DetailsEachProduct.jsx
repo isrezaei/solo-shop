@@ -14,7 +14,7 @@ import {useDispatch} from "react-redux";
 import {InitialState} from "../Context_Handeling/InitialState";
 import {ContextReducer} from "../Context_Handeling/ContextReducer";
 import {useLocation} from "react-router-dom";
-import {useGetLiveWidth} from "../../Helper/useGetLiveWidth";
+import {useGetLiveWidth} from "../../../Helper/useGetLiveWidth";
 import {Footer} from "../../Footer/Footer";
 export const EachProductFromContext = createContext()
 
