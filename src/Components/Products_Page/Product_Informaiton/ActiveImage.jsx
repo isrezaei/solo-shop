@@ -1,45 +1,30 @@
 import {useContext} from "react";
-import {BsBoxSeam} from 'react-icons/bs'
-import {RiShareForwardBoxFill} from 'react-icons/ri'
 import {EachProductFromContext} from "../Products_Rendering/DetailsEachProduct";
 import {useParams} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {selectMasterDataById} from "../../../Redux/MasterDataSlice";
-export const ActiveImage = () =>
-{
+import {Colors} from "./Ansewers_Comp/Colors";
+
+export const ActiveImage = () => {
 
     const {productId} = useParams()
-    const {product} = useSelector(state => selectMasterDataById(state , productId))
-    const {detailsImage , activeOptions} = useContext(EachProductFromContext)
+    const {product, price, offer, rate, id , detailsImage} = useSelector(state => selectMasterDataById(state, productId))
+
+
+    const { activeOptions} = useContext(EachProductFromContext)
+
+    console.log(activeOptions)
+
+
     const eachImage = Object.keys(JSON.parse(localStorage.getItem('detailsPageInfo'))?.activeOptions?.activeImage || {})?.filter(items => items === product)[0]
 
+
+
     return (
-        <div className='
-        xs:relative xs:h-85
-        md:sticky md:top-0 md:z-40 md:h-auto
-        lg:sticky lg:top-0 lg:z-40 lg:h-auto
-        '>
-            <img className='
-            m-auto
-            xs:w-72
-            md:w-[24rem]
-            lg:w-96 2xl:w-[30rem]' src={detailsImage[activeOptions.activeImage[eachImage] || 'main']} alt={product}/>
+            <div className={"relative overflow-hidden xs:w-72 xs:w-[15rem] xs:h-[17rem] md:w-[18rem] md:h-[18rem]"}>
+                <img className={"absolute w-[25rem] xs:bottom-7 md:bottom-2"}
+                     src={detailsImage[activeOptions.activeImage[eachImage] || 'main']} alt={product}/>
 
-            <div className='
-            w-full h-36 flex justify-center items-start
-            xs:hidden
-            md:flex
-            '>
-                <div className='w-60 p-1 text-sm h-full flex flex-col justify-center items-center gap-2'>
-                    <BsBoxSeam className='lg:text-xl 2xl:text-3xl text-gray-500'/>
-                    <p className='lg:text-[.8rem] 2xl:text-[.9rem] text-center font-bold text-gray-500'>Get free delivery, or pick up available items at an Apple Store</p>
-                </div>
-
-                <div className='w-60 p-1 text-sm h-full flex flex-col justify-center items-center gap-2'>
-                    <RiShareForwardBoxFill className='xs:text-xl lg:text-xl 2xl:text-3xl text-gray-500'/>
-                    <p className='lg:text-[.8rem] 2xl:text-[.9rem] text-center font-bold text-gray-500'>Free and easy returns</p>
-                </div>
             </div>
-        </div>
     )
 }

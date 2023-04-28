@@ -15,16 +15,16 @@ function App() {
     const location = useLocation()
 
     const modalGallery = location.state?.background
-    const searchComponent = location.state?.background
+    const details = location.state?.background
 
-    useEffect(()=>{
-        if (modalGallery || searchComponent)
-        {
-            document.body.style.overflow = 'hidden'
-        }
-        return ()=> document.body.style.overflow = 'auto'
-
-    } , [modalGallery , searchComponent ])
+    // useEffect(()=>{
+    //     if (modalGallery || searchComponent)
+    //     {
+    //         document.body.style.overflow = 'hidden'
+    //     }
+    //     return ()=> document.body.style.overflow = 'auto'
+    //
+    // } , [modalGallery , searchComponent ])
 
     return (
         <div className='scrollbar-hide font-rubik'>
@@ -37,9 +37,8 @@ function App() {
 
             <Header/>
 
-            <Routes location = {modalGallery || location}>
+            <Routes location = {modalGallery || details || location}>
                 <Route path='/' exact element={<Main/>}/>
-                <Route path='/details/:productId' element={<DetailsPreRender/>}/>
                 <Route path='/cart-shop' element={<Pre_Render/>}/>
             </Routes>
 
@@ -47,6 +46,14 @@ function App() {
                 modalGallery && (
                     <Routes>
                         <Route path='quick/:productId' element={<ModalGalleryPreRender/>}/>
+                    </Routes>
+                )
+            }
+
+            {
+                details && (
+                    <Routes>
+                        <Route path='/details/:productId' element={<DetailsPreRender/>}/>
                     </Routes>
                 )
             }

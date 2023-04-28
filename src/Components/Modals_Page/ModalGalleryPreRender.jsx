@@ -21,6 +21,7 @@ export const ModalGalleryPreRender = () =>
     } , [dispatch , status])
 
     let render ;
+
     if (status === 'pending')
     {
         render = 'Loading'
@@ -29,5 +30,6 @@ export const ModalGalleryPreRender = () =>
     {
         render = <ModalGalleryProduct EachProduct={EachProduct}/>
     }
+
     return render
 }

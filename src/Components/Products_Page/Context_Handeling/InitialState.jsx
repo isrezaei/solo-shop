@@ -6,6 +6,7 @@ export const InitialState = () =>
 {
     const {productId} = useParams()
     const {product}  = useSelector(state => selectMasterDataById(state , productId))
+
     const mainState = {
         enableSection: {
             enableSectionTrade: false,

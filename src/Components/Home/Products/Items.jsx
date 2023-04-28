@@ -6,11 +6,7 @@ import Rate from "./Rate";
 
 export const Items = ({ids}) => {
 
-
     const {product, image, id, price, rate, quantity, color} = useSelector(state => selectMasterDataById(state, ids))
-
-    console.log(color)
-
 
     return (
         <div className={`animate__animated animate__backInUp animate__faster m-auto

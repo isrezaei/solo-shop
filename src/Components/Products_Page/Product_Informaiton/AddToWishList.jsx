@@ -36,8 +36,8 @@ export const AddToWishList = () =>
                 </div>
                 {
                     wishListProducts ?
-                        <RiBookmarkFill className='xs:text-2xl lg:text-3xl cursor-pointer text-blue-700' onClick={handelClick}/> :
-                        <RiBookmarkLine className='xs:text-2xl lg:text-3xl cursor-pointer text-blue-700' onClick={handelClick}/>
+                        <RiBookmarkFill className='xs:text-2xl  cursor-pointer text-blue-700' onClick={handelClick}/> :
+                        <RiBookmarkLine className='xs:text-2xl  cursor-pointer text-blue-700' onClick={handelClick}/>
                 }
             </div>
         </div>

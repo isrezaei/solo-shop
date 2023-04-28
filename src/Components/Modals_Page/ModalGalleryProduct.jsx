@@ -2,6 +2,7 @@ import {Link, useNavigate} from "react-router-dom";
 import {ModalGallerySlider} from "./ModalGallerySlider";
 import {IoClose} from 'react-icons/io5'
 import {RiFileCopy2Fill} from 'react-icons/ri'
+import {useLocation} from "react-router-dom";
 
 
 export const ModalGalleryProduct = ({EachProduct}) =>
@@ -13,7 +14,7 @@ export const ModalGalleryProduct = ({EachProduct}) =>
 
 
     return (
-         <div className='flex justify-center items-center z-10 m-auto h-screen w-full fixed top-0 overflow-hidden bg-glass-black'>
+         <div  className='flex justify-center items-center z-10 m-auto h-screen w-full fixed top-0 overflow-hidden bg-glass-black'>
 
             <div className='
             relative bg-white rounded-3xl

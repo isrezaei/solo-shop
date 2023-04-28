@@ -97,7 +97,7 @@ export const ApiData  = [
         "capacity" : [128 , 256 , 512],
 
         "detailsImage" : {
-            "main" : 'https://user-images.githubusercontent.com/77073972/182841414-bbbaf93e-db79-45e7-8900-e1aedb4b02f9.png',
+            "main" : 'https://user-images.githubusercontent.com/77073972/176432838-40cf8174-8332-452b-ad63-37803228ad7a.png',
             'darkOliveGreen' : 'https://user-images.githubusercontent.com/77073972/176432827-8557aa1d-1909-4bd0-8c5f-05baaadee3dd.png',
             'silver' : 'https://user-images.githubusercontent.com/77073972/176432828-2319cc82-576f-4ef4-a4bb-f66ad242d96b.png',
             'gold' : 'https://user-images.githubusercontent.com/77073972/176432821-45ee60b0-5ea1-4efc-a615-792ca36acacb.png',

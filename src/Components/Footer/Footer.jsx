@@ -11,7 +11,7 @@ export const Footer = () =>
             w-full flex py-6 max-w-[1900px] border-t
             xs:grid xs:grid-cols-2 xs:place-items-center xs:px-5
             md:flex md:flex-row md:justify-between md:items-center md:h-56 md:px-8 md:border-t md:mt-0
-            lg:flex-row lg:justify-evenly lg:items-center lg:h-60 lg:px-10 lg:mt-[8rem]'>
+            lg:flex-row lg:justify-evenly lg:items-center lg:h-60 lg:px-10'>
 
                 <div className='w-[10rem] h-auto flex flex-col justify-start gap-1 items-start cursor-pointer'>
                     <p className='
