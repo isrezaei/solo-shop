@@ -1,6 +1,6 @@
 import Slider from "r-range-slider";
 import {useState} from "react";
-import {filterByPrice} from "../../../../Redux/FilterProductSlice";
+import {filterByPrice} from "../../../../Redux/reducer/FilterProductSlice";
 import {useDispatch} from "react-redux";
 
 export const Price = () =>

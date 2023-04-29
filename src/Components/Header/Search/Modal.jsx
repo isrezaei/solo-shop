@@ -3,7 +3,7 @@ import {Fragment, useLayoutEffect, useState} from "react";
 import {Response} from "./Response";
 import {Input} from "./Input";
 import {useDebounce} from "./Debounce";
-import {emptyResultOfLiveSearch, FetchLiveSearchData} from "../../../Redux/LiveSearchSlice";
+import {emptyResultOfLiveSearch, FetchLiveSearchData} from "../../../Redux/reducer/LiveSearchSlice";
 import {useDispatch} from "react-redux";
 
 const Modal = ({isOpen, closeModal}) => {

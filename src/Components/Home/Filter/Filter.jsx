@@ -2,7 +2,7 @@ import {useSelector} from "react-redux";
 import Badge from "./Badge";
 import Products from "./Products";
 import {settings} from "../ReactSlick.config";
-import {SortByFilter} from "../../../Redux/MasterDataSlice";
+import {SortByFilter} from "../../../Redux/reducer/MasterDataSlice";
 import Slider from "react-slick";
 
 export const Filter = () => {

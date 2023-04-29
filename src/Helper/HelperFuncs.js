@@ -1,5 +1,5 @@
 import {useSelector} from "react-redux";
-import {selectMasterDataById} from "../Redux/MasterDataSlice";
+import {selectMasterDataById} from "../Redux/reducer/MasterDataSlice";
 
 export const HaveQuantity = (id) =>
 {

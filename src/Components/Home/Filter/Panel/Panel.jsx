@@ -1,10 +1,4 @@
-import {selectAllMasterData} from "../../../../Redux/MasterDataSlice";
-import {useSelector , useDispatch} from "react-redux";
-import {RatingStar} from "rating-star";
-import {filterByStars , filterByProduct} from "../../../../Redux/FilterProductSlice";
 import {Price} from "./Price";
-import {useGetLiveWidth} from "../../../../Helper/useGetLiveWidth";
-import {Products} from "../../../Header/Search/Products/Products";
 import Product from "./Product";
 import Rate from "./Rate";
 

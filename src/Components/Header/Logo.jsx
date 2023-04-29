@@ -1,6 +1,6 @@
 const Logo = () => {
     return (
-        <div className='text-neutral-800 font-bold xs:hidden md:block md:text-lg'>SoloShop</div>
+        <div className='text-gray-500 font-bold md:text-lg'>SoloShop</div>
     );
 };
 

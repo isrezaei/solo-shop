@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {SelectProduct} from "../../../Redux/SelectProductSlice";
+import {SelectProduct} from "../../../Redux/reducer/SelectProductSlice";
 import {useDispatch} from "react-redux";
 import {CiMobile1} from "react-icons/ci";
 import {IoTabletLandscapeOutline} from "react-icons/io5";

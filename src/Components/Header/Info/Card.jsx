@@ -1,35 +1,26 @@
-import React from 'react';
-import {Link} from "react-router-dom";
-import {RiShoppingCartFill} from "react-icons/ri";
+import {RiShoppingCart2Line} from "react-icons/ri";
 import {useSelector} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 const Card = () => {
 
-    const {totalQuantity , totalPrice} = useSelector(state => state.MasterDataSlice)
+    const navigation = useNavigate()
+
+    const {totalQuantity, totalPrice} = useSelector(state => state.MasterDataSlice)
 
     return (
         <section className=' flex relative justify-evenly items-center rounded-3xl space-x-2'>
-            <Link to='/cart-shop'>
-                <RiShoppingCartFill className='
 
-                     xs:text-3xl xs:text-neutral-600
-                     md:text-neutral-800
-                     lg:text-2xl
-                    '/>
-            </Link>
+            <div className={"relative"} onClick={() => navigation("/cart-shop")}>
+                <RiShoppingCart2Line className='xs:text-2xl xs:text-gray-500   '/>
+            </div>
 
-            <div className='flex justify-center items-start space-x-2'>
-                    <span className='
+            <div className='flex justify-center items-center space-x-3'>
+                  <span className="flex items-center rounded-sm  text-xs ">
+                    {totalQuantity}
+                </span>
 
-                    xs:text-[.8rem] xs:text-neutral-800
-                    md:text-neutral-800
-                    lg:text-[.8rem]
-                    '>{totalQuantity}</span>
-
-                <span className='
-
-                    xs:text-[.8rem] xs:text-neutral-800
-                    lg:text-[.8rem] md:text-neutral-800'>${totalPrice.toFixed(2)}</span>
+                <span className='xs:text-xs xs:text-neutral-800'>${totalPrice.toFixed(2)}</span>
             </div>
 
         </section>

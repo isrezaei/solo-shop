@@ -1,4 +1,4 @@
-import {filterByStars} from "../../../../Redux/FilterProductSlice";
+import {filterByStars} from "../../../../Redux/reducer/FilterProductSlice";
 import {RatingStar} from "rating-star";
 import {useDispatch, useSelector} from "react-redux";
 

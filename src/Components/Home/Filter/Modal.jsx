@@ -1,8 +1,8 @@
 import { Dialog, Transition } from '@headlessui/react'
 import {Fragment, useContext} from 'react'
 import {Panel} from "./Panel/Panel";
-import {AllowFilter} from "../Main";
-import {isOpenFilter} from "../../../Redux/FilterProductSlice";
+import {AllowFilter} from "../../../page/Home";
+import {isOpenFilter} from "../../../Redux/reducer/FilterProductSlice";
 import {useDispatch} from "react-redux";
 
 const Modal = ({isOpen , closeModal}) => {

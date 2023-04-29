@@ -1,6 +1,6 @@
-import {filterByProduct} from "../../../../Redux/FilterProductSlice";
+import {filterByProduct} from "../../../../Redux/reducer/FilterProductSlice";
 import {useSelector} from "react-redux";
-import {selectAllMasterData} from "../../../../Redux/MasterDataSlice";
+import {selectAllMasterData} from "../../../../Redux/reducer/MasterDataSlice";
 import {useDispatch} from "react-redux";
 
 const Product = () => {

@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {useDispatch} from "react-redux";
-import {SortEntities} from "../../Redux/MasterDataSlice";
+import {SortEntities} from "../../Redux/reducer/MasterDataSlice";
 
 export const OptionSort = () => {
 

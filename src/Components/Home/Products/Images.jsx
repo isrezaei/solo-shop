@@ -1,23 +1,22 @@
 import {HiShoppingCart} from "react-icons/hi";
-import {Link, useLocation, useNavigate} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
 
 const Images = ({price, image, color, product, id, quantity}) => {
 
     const unavailable = !color && "pointer-events-none opacity-30"
 
-    const navigation = useNavigate()
-
     const location = useLocation()
 
 
     return (
 
-        <Link to={`/details/${id}`} state={{background: location}}  className={`${unavailable} `}>
+        <Link to={`/details/${id}`} state={{background: location}} className={`${unavailable} `}>
             <div className='
-        xs:w-32 xs:h-52
-        md:w-36 md:h-52
-         translate-y-[7rem]'>
+              xs:w-32 xs:h-52
+              md:w-36 md:h-52
+               translate-y-[7rem]'
+            >
 
 
                 <img

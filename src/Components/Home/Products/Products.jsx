@@ -1,6 +1,6 @@
 import {Items} from "./Items";
 import {useSelector} from "react-redux";
-import {SortBySelect} from "../../../Redux/MasterDataSlice";
+import {SortBySelect} from "../../../Redux/reducer/MasterDataSlice";
 import Slider from "react-slick";
 import {settings} from "../ReactSlick.config";
 

@@ -1,8 +1,8 @@
 import {Routes, Route} from "react-router-dom";
-import {Main} from "./Components/Home/Main";
-import {DetailsPreRender} from "./Components/Products_Page/Products_Rendering/DetailsPreRender";
-import {Pre_Render} from "./Components/Cart_Shop/Pre_Render";
-import {ModalGalleryPreRender} from "./Components/Modals_Page/ModalGalleryPreRender";
+import {Home} from "./page/Home";
+import {Details} from "./page/Details";
+import {Cart} from "./page/Cart";
+import {ModalGalleryPreRender} from "./Components/Home/Products/Modals_Page/ModalGalleryPreRender";
 import {response} from "./Components/Header/Search/Response";
 import {useLocation} from "react-router-dom";
 import {useEffect} from "react";
@@ -17,14 +17,6 @@ function App() {
     const modalGallery = location.state?.background
     const details = location.state?.background
 
-    // useEffect(()=>{
-    //     if (modalGallery || searchComponent)
-    //     {
-    //         document.body.style.overflow = 'hidden'
-    //     }
-    //     return ()=> document.body.style.overflow = 'auto'
-    //
-    // } , [modalGallery , searchComponent ])
 
     return (
         <div className='scrollbar-hide font-rubik'>
@@ -38,8 +30,8 @@ function App() {
             <Header/>
 
             <Routes location = {modalGallery || details || location}>
-                <Route path='/' exact element={<Main/>}/>
-                <Route path='/cart-shop' element={<Pre_Render/>}/>
+                <Route path='/' exact element={<Home/>}/>
+                <Route path='/cart-shop' element={<Cart/>}/>
             </Routes>
 
             {
@@ -53,7 +45,7 @@ function App() {
             {
                 details && (
                     <Routes>
-                        <Route path='/details/:productId' element={<DetailsPreRender/>}/>
+                        <Route path='/details/:productId' element={<Details/>}/>
                     </Routes>
                 )
             }
