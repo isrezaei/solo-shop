@@ -1,5 +1,5 @@
 import {useContext, useEffect} from "react";
-import {EachProductFromContext} from "./Main";
+import {ProductContext} from "../../page/Details";
 import {selectCartShopIds, UpdateDataCart} from "../../Redux/reducer/CartShopSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {Discount} from "../../Helper/Discount";
@@ -13,7 +13,7 @@ export const Colors = () => {
     const {id, product, price, offer, color} = useSelector(state => selectMasterDataById(state, productId))
 
 
-    const {activeOptions: {activeImage, activeColor, activeCapacity}, contextDispatch} = useContext(EachProductFromContext)
+    const {activeOptions: {activeImage, activeColor, activeCapacity}, contextDispatch} = useContext(ProductContext)
 
     const discount = Discount()
     const {length} = useSelector(selectCartShopIds)

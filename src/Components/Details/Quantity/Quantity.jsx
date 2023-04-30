@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import {EachProductFromContext} from "../Main";
+import {ProductContext} from "../../../page/Details";
 import {AddQuantity, selectMasterDataById} from "../../../Redux/reducer/MasterDataSlice";
 import {AddToCarts} from "../../../Redux/reducer/CartShopSlice";
 import {useDispatch, useSelector} from "react-redux";
@@ -12,7 +12,7 @@ export const Quantity = () => {
     const {productId} = useParams()
 
     const {price, offer, id, quantity, product} = useSelector(state => selectMasterDataById(state, productId))
-    const {activeOptions : {activeImage, activeColor, activeCapacity}} = useContext(EachProductFromContext)
+    const {activeOptions : {activeImage, activeColor, activeCapacity}} = useContext(ProductContext)
 
     const discount = Discount()
 

@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import {EachProductFromContext} from "./Main";
+import {ProductContext} from "../../page/Details";
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {selectCartShopIds, UpdateDataCart} from "../../Redux/reducer/CartShopSlice";
@@ -15,7 +15,7 @@ export const Capacity = () => {
     const {
         activeOptions: {activeImage, activeColor, activeCapacity},
         contextDispatch
-    } = useContext(EachProductFromContext)
+    } = useContext(ProductContext)
     const {length} = useSelector(selectCartShopIds)
 
 

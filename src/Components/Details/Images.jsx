@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import {EachProductFromContext} from "./Main";
+import {ProductContext} from "../../page/Details";
 import {useParams} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {selectMasterDataById} from "../../Redux/reducer/MasterDataSlice";
@@ -9,7 +9,7 @@ export const Images = () => {
     const {productId} = useParams()
     const {product, detailsImage} = useSelector(state => selectMasterDataById(state, productId))
 
-    const {activeOptions} = useContext(EachProductFromContext)
+    const {activeOptions} = useContext(ProductContext)
 
     const eachImage = Object.keys(JSON.parse(localStorage.getItem('detailsPageInfo'))?.activeOptions?.activeImage || {})?.filter(items => items === product)[0]
 
