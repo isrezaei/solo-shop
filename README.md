@@ -1,3 +1,4 @@
+
 <h1 align="center" id="title">Solo Shop</h1>
 
 <p align="center"><img src="https://socialify.git.ci/isrezaei/solo-shop/image?description=1&amp;descriptionEditable=A%20simple%20shop%20website%20with%20simple%20data%20&amp;font=Jost&amp;language=1&amp;name=1&amp;owner=1&amp;pattern=Solid&amp;theme=Auto" alt="project-image"></p>
@@ -30,3 +31,4 @@ Technologies used in the project:
 * animate css
 * swiper
 * react-slik
+
