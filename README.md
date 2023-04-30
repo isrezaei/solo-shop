@@ -16,9 +16,8 @@
 
 <img src="https://i.ibb.co/6vn88G9/screencapture-shop-store-redux-vercel-app-cart-shop-2023-04-30-21-10-22.png" alt="project-screenshot" width="1920">
 
-<div style="display: flex ; justify-content: center ; align-items: center">
 <img src="https://i.ibb.co/KVWHx1T/IMG-4723.gif" alt="project-screenshot" width="250">
-</div>
+
 
 <h2>💻 Built with</h2>
 
