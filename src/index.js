@@ -9,9 +9,6 @@ import {GetAppData} from "./Redux/reducer/MasterDataSlice";
 
 
 store.dispatch(GetAppData())
-
-
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <Provider store={store}>
