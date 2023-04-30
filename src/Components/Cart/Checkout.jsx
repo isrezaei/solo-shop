@@ -23,7 +23,7 @@ export const Checkout = () =>
 
 
     return(
-            <div className='w-56 flex flex-col justify-center items-center space-y-3 p-5 bg-gray-100 xs:rounded-xl'>
+            <div className='xs:w-full md:w-56 flex flex-col justify-center items-center space-y-3 p-5 bg-gray-100 xs:rounded-xl'>
 
                 <div className='w-full flex items-start text-neutral-500 font-bold '>
                     <p>Order Summary</p>

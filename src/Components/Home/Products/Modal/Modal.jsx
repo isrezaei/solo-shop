@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dialog, Transition } from '@headlessui/react'
-import { Fragment, useState } from 'react'
-import {ModalGalleryProduct} from "./Modals_Page/ModalGalleryProduct";
+import { Fragment} from 'react'
+import {Information} from "./Information";
 
 const Modal = ({isOpen , handelModal , ids}) => {
     return (
@@ -39,7 +39,7 @@ const Modal = ({isOpen , handelModal , ids}) => {
                                 </Dialog.Title>
 
                                 <div >
-                                    <ModalGalleryProduct ids={ids}/>
+                                    <Information ids={ids}/>
                                 </div>
 
 

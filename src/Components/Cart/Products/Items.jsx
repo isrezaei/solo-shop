@@ -27,7 +27,7 @@ export const Items = ({ids}) => {
             </div>
 
 
-            <section className='flex flex-1 justify-end items-center space-x-3'>
+            <section className='flex flex-1 justify-center items-center space-x-3'>
                 <Color
                     ids={ids}/>
                 <Capacity

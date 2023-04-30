@@ -34,7 +34,7 @@ const Device = () => {
                             key={items.name}
                             onClick={setActiveProduct}
                             className={`${textColor} cursor-pointer flex flex-col items-center justify-center`}>
-                            <text className={"text-3xl"}>{items.icon}</text>
+                            <p className={"text-3xl"}>{items.icon}</p>
                         </div>
                     )
                 })

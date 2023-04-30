@@ -1,80 +1,74 @@
-import { slide as Menu } from 'react-burger-menu'
+import {Dialog, Transition} from '@headlessui/react'
+import {Fragment, useState} from 'react'
 import {Checkout} from "./Checkout";
-import {useState} from "react";
-import {FiShoppingBag} from 'react-icons/fi'
+import {AiOutlineShopping} from "react-icons/ai";
 
 
 export const Modal = () => {
 
-    var styles = {
-        bmBurgerButton: {
-            position: 'absolute',
-            left : '1rem',
-            bottom : '0',
-            width : '2.5rem',
-            height : '2.5rem',
-            padding : '.3rem',
-            borderRadius: '30rem',
-            background : '#2a59ef',
-            textAlign : 'center'
-        },
-        bmBurgerBars: {
-            background: '#373a47'
-        },
-        bmBurgerBarsHover: {
-            background: '#a90000'
-        },
-        bmCrossButton: {
-            height: '24px',
-            width: '24px',
-        },
-        bmCross: {
-            background: '#bdc3c7'
-        },
-        bmMenuWrap: {
-            position: 'fixed',
-            top : '0',
-            width : '100%',
-            height: '100%',
-        },
-        bmMenu: {
-            background: 'rgba( 255, 255, 255, 0.6 )',
-            backdropFilter: 'blur( 4px )',
-            borderRadius: '10px',
-            border: '1px solid rgba( 255, 255, 255, 0.18 )'
+    const [isOpen, setIsOpen] = useState(false)
 
-        },
-        bmMorphShape: {
-            fill: '#373a47'
-        },
-        bmItemList: {
-            color: '#b8b7ad',
-            padding: '0.8em'
-        },
-        bmItem: {
-            display: 'inline-block'
-        },
-        bmOverlay: {
-            background: 'rgba(0, 0, 0, 0.3)'
-        }
+    const handelModal = () => {
+        setIsOpen(prev => !prev)
     }
 
-    const [overFlow , setOverFlow] = useState(true)
 
-    if (overFlow)
-    {
-        document.body.style.overflow = 'hidden'
-    }
-    if (!overFlow)
-    {
-        document.body.style.overflow = 'auto'
-    }
     return (
-        <Menu onStateChange={()=> setOverFlow(value => !value)}
-               customBurgerIcon={<p className='text-[1.5rem] flex justify-center items-center text-neutral-100'><FiShoppingBag/></p>} styles={styles}>
-            <div className='w-full h-full !flex !justify-center !items-center'>
-                <Checkout/>
-            </div>
-        </Menu>
+
+        <>
+            <Transition appear show={isOpen} as={Fragment}>
+                <Dialog as="div" className="relative z-10" onClose={handelModal}>
+                    <Transition.Child
+                        as={Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0"
+                        enterTo="opacity-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
+                    >
+                        <div className="fixed inset-0 bg-black bg-opacity-25"/>
+                    </Transition.Child>
+
+                    <div className="fixed inset-0 overflow-y-auto">
+                        <div className="flex min-h-full items-center justify-center p-4 text-center">
+                            <Transition.Child
+                                as={Fragment}
+                                enter="ease-out duration-300"
+                                enterFrom="opacity-0 scale-95"
+                                enterTo="opacity-100 scale-100"
+                                leave="ease-in duration-200"
+                                leaveFrom="opacity-100 scale-100"
+                                leaveTo="opacity-0 scale-95"
+                            >
+                                <Dialog.Panel
+                                    className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                                    <Dialog.Title
+                                        as="h3"
+                                        className="text-lg font-medium text-center text-gray-500"
+                                    >
+                                        Checkout
+                                    </Dialog.Title>
+
+                                    <div className='w-full mt-3'>
+                                        <Checkout/>
+                                    </div>
+                                </Dialog.Panel>
+                            </Transition.Child>
+                        </div>
+                    </div>
+                </Dialog>
+            </Transition>
+
+            <button
+                type="button"
+                className="inline-flex justify-center rounded-md bg-lime-200 text-gray-800 px-2 py-2 text-sm font-medium absolute bottom-3 left-3"
+                onClick={handelModal}
+            >
+                <AiOutlineShopping fontSize={18}/>
+            </button>
+
+        </>
+
     )
 }

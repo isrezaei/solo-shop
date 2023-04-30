@@ -2,10 +2,7 @@ import {Routes, Route} from "react-router-dom";
 import {Home} from "./page/Home";
 import {Details} from "./page/Details";
 import {Cart} from "./page/Cart";
-import {ModalGalleryPreRender} from "./Components/Home/Products/Modals_Page/ModalGalleryPreRender";
-import {response} from "./Components/Header/Search/Response";
 import {useLocation} from "react-router-dom";
-import {useEffect} from "react";
 import {Footer} from "./Components/Footer/Footer";
 import {Header} from "./Components/Header/Header";
 
@@ -13,8 +10,6 @@ import {Header} from "./Components/Header/Header";
 function App() {
 
     const location = useLocation()
-
-    const modalGallery = location.state?.background
     const details = location.state?.background
 
 
@@ -29,18 +24,11 @@ function App() {
 
             <Header/>
 
-            <Routes location = {modalGallery || details || location}>
+            <Routes location = {details || location}>
                 <Route path='/' exact element={<Home/>}/>
                 <Route path='/cart-shop' element={<Cart/>}/>
             </Routes>
 
-            {
-                modalGallery && (
-                    <Routes>
-                        <Route path='quick/:productId' element={<ModalGalleryPreRender/>}/>
-                    </Routes>
-                )
-            }
 
             {
                 details && (

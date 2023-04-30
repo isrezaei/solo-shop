@@ -1,8 +1,11 @@
-import React from 'react';
 import {TiMinus, TiPlus} from "react-icons/ti";
-import {CheckQuantity} from "../../../Helper/HelperFuncs";
 import {RiDeleteBinLine} from "react-icons/ri";
-import {DecreaseQuantity, IncreaseQuantity, RemoveQuantity, selectMasterDataById} from "../../../Redux/reducer/MasterDataSlice";
+import {
+    DecreaseQuantity,
+    IncreaseQuantity,
+    RemoveQuantity,
+    selectMasterDataById
+} from "../../../Redux/reducer/MasterDataSlice";
 import {DeleteFromCarts} from "../../../Redux/reducer/CartShopSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
@@ -51,7 +54,7 @@ const Handel = () => {
                 <TiPlus onClick={handelIncrease} className='text-xl w-5 text-lime-600 cursor-pointer'/>}
             <p className='w-full text-center xs:text-xs'> {quantity}</p>
             {
-                CheckQuantity(id) > 1 ?
+                quantity > 1 ?
                     <TiMinus onClick={handelDecrease} className='text-xl w-5 text-red-500 cursor-pointer'/> :
                     quantity && <RiDeleteBinLine onClick={handelRemove}
                                                  className='text-xl w-5 text-red-500 flex justify-center items-center cursor-pointer'/>

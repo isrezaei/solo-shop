@@ -10,7 +10,7 @@ export const Products = () => {
 
     const MasterDataIds = useSelector(state => SortBySelect(state, state.MasterDataSlice.sortBy))
 
-    const Render =  MasterDataIds.filter(items => items.type === selectProduct).map(items => <Items ids={items.id}/>)
+    const Render =  MasterDataIds.filter(items => items.type === selectProduct).map(items => <Items key={items.id} ids={items.id}/>)
 
     return (
         <Slider arrows={false} {...settings}>

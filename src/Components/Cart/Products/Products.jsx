@@ -16,7 +16,9 @@ export const Products = () =>
                 xs:h-auto xs:my-4 xs:flex-col xs:justify-center xs:items-center
                 md:h-[100vh] md:my-0 md:flex-row  md:space-x-5 m-auto '>
 
-                <div className='w-[25rem] xs:p-2 md:p-2 flex flex-col justify-between items-center  rounded-xl bg-neutral-100'>
+                <div className='xs:w-[25rem] md:w-[28rem] xs:p-2
+                md:p-2 md:bg-neutral-100
+                flex flex-col justify-between items-center  rounded-xl'>
                     <div className='w-full flex justify-between items-center border-b border-b-gray-200 p-2'>
                         <p className='xs:text-sm  text-neutral-500 font-bold'>Shopping Cart</p>
                         <p className='xs:text-sm  text-neutral-500 font-bold'>{totalQuantity} Items</p>
@@ -34,10 +36,9 @@ export const Products = () =>
                     <Checkout/>
                 </span>
 
-                <span className='xs:block md:hidden'>
+                <div className='md:hidden'>
                     <Modal/>
-                </span>
-
+                </div>
             </div>
     )
 }

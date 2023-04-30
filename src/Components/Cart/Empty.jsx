@@ -6,15 +6,14 @@ export const Empty = () =>
     const Navigation = useNavigate()
 
     return (
-        <div className='mx-auto xs:my-5 h-screen flex justify-center items-center '>
+        <div className='mx-auto xs:my-5  flex justify-center items-center md:h-screen'>
             <div className='flex flex-col justify-center items-center gap-4 p-24 md:bg-neutral-100 md:rounded-2xl'>
-                <MdAddShoppingCart className='xs:text-[10rem] text-gray-50 text-gray-600'/>
+                <MdAddShoppingCart className='xs:text-[10rem] text-gray-600'/>
                 <div className='flex flex-col justify-center items-center gap-2'>
                     <p className='xs:text-sm md:text-lg font-bold text-gray-600'>Your cart shop is empty !</p>
-                    <p className='xs:text-sm text-center font-bold text-neutral-600'>You can refer to the following pages to see more products</p>
+                    <p className='xs:text-xs text-center font-bold text-neutral-600'>You can refer to the following pages to see more products</p>
                     <div className='flex justify-center items-center mt-4'>
                         <p className='w-36 p-1 text-center text-sm bg-gray-600 text-white rounded-2xl cursor-pointer' onClick={()=> Navigation('/')}>Home Page</p>
-                        <p className='w-36 p-1 text-center text-sm text-gray-600 font-bold text-white  cursor-pointer'>Wish List</p>
                     </div>
                 </div>
             </div>

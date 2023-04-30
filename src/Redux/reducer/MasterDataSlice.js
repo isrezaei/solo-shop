@@ -90,8 +90,6 @@ export const MasterDataSlice = createSlice({
             localStorage.setItem('masterData', JSON.stringify(state))
         },
         IncreaseQuantity(state, {payload}) {
-            console.log(payload)
-
             MasterDataAdapter.upsertOne(state, {
                 id: payload.id,
                 quantity: payload.quantity

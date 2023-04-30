@@ -23,11 +23,9 @@ export const OptionSort = () => {
                className={`${textColor} cursor-pointer  xs:text-sm`}>{items}</p>
         )
     })
-
     return (
-
         <section className='
-            xs:w-full xs:grid xs:grid-cols-3 xs:place-items-center  xs:justify-center xs:items-center
+            xs:w-full xs:grid xs:grid-cols-3 xs:place-items-center  xs:justify-center  xs:items-center
             md:w-full md:flex md:space-x-5'>
             {Option}
         </section>
