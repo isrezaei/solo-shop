@@ -32,7 +32,7 @@ export const Benefits = () =>
         return (
             <div key={items.title} className='
             xs:w-24 xs:h-16 xs:flex xs:flex-col xs:justify-evenly xs:items-center
-            md:w-52 md:h-20 md:flex md:flex-row md:grid-rows-2 md:justify-evenly md:items-center  md:rounded-2xl md:bg-neutral-50 md:shadow-md
+            md:w-52 md:h-20 md:flex md:flex-row md:grid-rows-2 md:justify-evenly md:items-center
             lg:w-52 lg:h-20 lg:flex lg:flex-row lg:grid-rows-2 lg:justify-evenly lg:items-center'>
                 <div className='
                 xs:text-3xl xs:text-neutral-600
